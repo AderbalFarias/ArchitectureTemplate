@@ -140,10 +140,8 @@
 			padding: 10px 8px;
 		}
 	}
-	/* 
-		BOOTSTRAP MOBILE EXTRA FIX
-		Since Atropos v1.3 
-	*/
+
+
 	@media only screen and (max-width: 1006px) {
 		#wrapper {
 			padding-top:90px !important;
@@ -162,11 +160,6 @@
 		}
 	}
 
-
-	/* 
-		BOOTSTRAP FIX
-		Since Atropos v1.3 
-	*/
 	@media (max-width: 991px) {
 		.container {
 			width:100% !important;
