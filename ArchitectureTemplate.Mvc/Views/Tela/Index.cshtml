@@ -1,0 +1,88 @@
+﻿@model IEnumerable<ArchitectureTemplate.Mvc.Models.TelaModel>
+@{
+    ViewBag.Title = "Telas";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="white-row">
+    <h3>
+        <strong>Lista de Telas</strong>
+    </h3>
+
+    <div class="table-responsive border-ddd">
+        <table class="table table-bordered table-hover">
+            <tr>
+                @*<th>
+                    @Html.DisplayNameFor(model => model.Id)
+                </th>*@
+                <th>
+                    @Html.DisplayNameFor(model => model.Nome)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ControllerName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DataCadastro)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Ativo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Read)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Create)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Update)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Delete)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    @*<td>
+                        @Html.DisplayFor(modelItem => item.Id)
+                    </td>*@
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nome)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ControllerName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DataCadastro)
+                    </td>
+                    <td class="text-center">
+                        @Html.DisplayAtivo(item.Ativo)
+                    </td>
+                    <td class="text-center">
+                        @Html.DisplayAtivo(item.Read)
+                    </td>
+                    <td class="text-center">
+                        @Html.DisplayAtivo(item.Create)
+                    </td>
+                    <td class="text-center">
+                        @Html.DisplayAtivo(item.Update)
+                    </td>
+                    <td class="text-center">
+                        @Html.DisplayAtivo(item.Delete)
+                    </td>
+                    <td class="text-center">
+                        <a href="@Url.Action("Edit", new {id = item.Id})" title="Editar"><i class="fa fa-md fa-edit"></i></a>
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+
+    @Html.Pagination(@Url.Action("Index", "Tela"), (int) ViewBag.PaginaAtual, (int) ViewBag.QtdePaginas)
+    
+    <div>
+        @Html.ActionLink("Sincronizar", "Synchronize", null, new {@class = "btn btn-primary btn-specific"})
+    </div>
+</div>

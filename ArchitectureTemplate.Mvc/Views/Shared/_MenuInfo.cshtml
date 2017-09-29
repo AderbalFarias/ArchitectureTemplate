@@ -1,0 +1,38 @@
+﻿@model IDictionary<string, string>
+
+@if (Model != null && Model.Any())
+{
+    <ul class="list-group">
+        <li class="text-center menu-title">
+            <b>Processo Acessado</b>
+        </li>
+        @foreach (var item in Model)
+        {
+            if (item.Value != null)
+            {
+                if (item.Value.Contains("#"))
+                {
+                    <li class="list-group-item-alert" style="background-color: @item.Value">
+                        <h4 class="list-group-item-heading-alert">
+                            @item.Key
+                        </h4>
+                    </li>
+                }
+                else
+                {
+                    <li class="list-group-item">
+                        <h4 class="list-group-item-heading">@item.Key</h4>
+                        <p class="list-group-item-text">
+                            @item.Value
+                            @if ((item.Key.Equals("Telefone") || item.Key.Equals("Celular")) 
+                                && !string.IsNullOrEmpty(item.Value) && !string.IsNullOrEmpty(ViewBag.CodigoAgente))
+                            {
+                                <a onclick="Discar(@item.Value, @ViewBag.ProcessoId)"><i class="fa fw fa-phone"></i></a>
+                            }
+                        </p>
+                    </li>
+                }
+            }
+        }
+    </ul>
+}

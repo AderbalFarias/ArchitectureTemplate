@@ -1,0 +1,115 @@
+﻿@model ArchitectureTemplate.Mvc.Models.PermissaoModel
+@{
+    ViewBag.Title = "Permissões de Acesso";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="white-row">
+    <h3>
+        <strong>Permissões de Acesso</strong>
+    </h3>
+
+    <div class="form-horizontal">
+        <div class="form-group">
+            @Html.HiddenFor(model => model.Scroll)
+            @Html.LabelFor(model => model.PerfilId, new {@class = "control-label col-md-5"})
+            <div class="col-md-3">
+                @Html.DropDownListFor(model => model.PerfilId, new SelectList(Model.PerfilDictionary, "Key", "Value"), "Selecione o Perfil", new {@class = "form-control"})
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <div id="DivDados">
+        @if (Model.PerfilPorTelaList != null && Model.PerfilPorTelaList.Any())
+        {
+            @Html.Partial("_List", Model)
+        }
+        else
+        {
+            <div class="table-responsive border-ddd">
+                <table class="table table-bordered table-hover">
+                    <tr>
+                        <th class="text-center" colspan="5">
+                            <span class="uppercase">Lista de telas existentes no sistema</span>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>
+                            Nome da Tela
+                        </th>
+                        <th>
+                            Nome da Controller
+                        </th>
+                        <th>
+                            Data de Cadastro
+                        </th>
+                        <th>
+                            Ativa
+                        </th>
+                        <th>
+                            Funcionalidades
+                        </th>
+                    </tr>
+
+                    @foreach (var item in Model.TelaList)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Nome)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ControllerName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.DataCadastro)
+                            </td>
+                            <td class="text-center">
+                                @Html.DisplayAtivo(item.Ativo)
+                            </td>
+                            <td>
+                                @Html.DisplayFuncionalidades(item.Create, item.Read, item.Update, item.Delete)
+                            </td>
+                        </tr>
+                    }
+                </table>
+            </div>
+        }
+    </div>
+
+    @Html.ActionLink("Exportar para Excel", "ExportToExcel", null, new { @class = "btn btn-primary btn-specific" })
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            if ($("#Scroll").val() > 0) {
+                $(window).scrollTop($("#Scroll").val());
+            }
+
+            $("#PerfilId").change(function () {
+                var perfilId = $(this).val();
+                $.ajax({
+                    url: "/Permissao/List",
+                    type: "Get",
+                    data: { id: perfilId },
+                    dataType: "html",
+                    cache: false,
+                    success: function (data) {
+                        $("#DivDados").html(data);
+                    },
+                    error: function () {
+                        ShowMessage("Error", "Ocorreu um problema inesperado ao tentar carregar os dados", null, 2);
+                    }
+                });
+            });
+            
+            $("#DivDados").on("click", "a", function() {
+                var scroll = $(window).scrollTop();
+                $("#Scroll").val(scroll);
+                window.location.href = $(this).attr("link") + "&scroll=" + scroll;
+            });
+        });
+    </script>
+}

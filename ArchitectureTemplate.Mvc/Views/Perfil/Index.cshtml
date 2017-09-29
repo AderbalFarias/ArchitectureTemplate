@@ -1,0 +1,69 @@
+﻿@model IEnumerable<ArchitectureTemplate.Mvc.Models.PerfilModel>
+@{
+    ViewBag.Title = "Lista de Perfis";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="white-row">
+    <h3>
+        <strong>Cadastro de Perfis</strong>
+    </h3>
+
+    <div class="table-responsive table-responsive-specific">
+        <table class="table table-bordered table-hover">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nome)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Solicitante)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DataCadastro)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Ativo)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nome)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Solicitante)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DataCadastro)
+                    </td>
+                    <td>
+                        @Html.DisplayAtivo(item.Ativo)
+                    </td>
+                    <td class="text-center acao">
+                        <a href="@Url.Action("Edit", new {id = item.Id})" title="Editar"><i class="fa fa-md fa-edit"></i></a> |
+                        @Html.ButtonDisableOrEnable(item.Ativo, Url.Action("Delete", new { id = item.Id }), $"o perfil {item.Nome}")
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+
+    @Html.Pagination(@Url.Action("Index", "Perfil"), (int) ViewBag.PaginaAtual, (int) ViewBag.QtdePaginas)
+    
+    <div>
+        @Html.ActionLink("Adicionar Novo", "Create", null, new {@class = "btn btn-primary btn-specific"})
+    </div>
+</div>
+
+@section scripts {
+    <script type="text/javascript" src="~/wwwroot/plugins/bootbox/bootbox.js"></script>
+}

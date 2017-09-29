@@ -1,0 +1,120 @@
+﻿@model IEnumerable<ArchitectureTemplate.Mvc.Models.UsuarioModel>
+@{
+    ViewBag.Title = "Lista de Usuários";
+    //ViewBag.ContentTitle = "Cadastro de Usuários";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="white-row">
+    <h3>
+        <strong>Cadastro de Usuários</strong>
+    </h3>
+
+    <div class="table-responsive table-responsive-specific">
+        <table class="table table-bordered table-hover">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.PerfilId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.HierarquiaId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CodigoAgente)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.RamalAgente)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nome)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Cpf)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Email)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Telefone)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Login)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DataExpiracaoSenha)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.InvalidacaoProgramadaInicio)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.InvalidacaoProgramadaFim)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Ativo)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Perfil.Nome)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Hierarquia.Nome)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CodigoAgente)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RamalAgente)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nome)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Cpf)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Telefone)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Login)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DataExpiracaoSenha)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.InvalidacaoProgramadaInicio)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.InvalidacaoProgramadaFim)
+                    </td>
+                    <td>
+                        @*@Html.HiddenFor(modelItem => item.Ativo)*@
+                        @Html.DisplayAtivo(item.Ativo)
+                    </td>
+                    <td class="text-center">
+                        <a href="@Url.Action("Edit", new {id = item.Id})" title="Editar"><i class="fa fa-md fa-edit"></i></a> |
+                        @Html.ButtonDisableOrEnable(item.Ativo, Url.Action("Delete", new { id = item.Id }), $"o usuário {item.Nome}")
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+
+    @Html.Pagination(@Url.Action("Index", "Usuario"), (int) ViewBag.PaginaAtual, (int) ViewBag.QtdePaginas)
+
+    <div>
+        @Html.ActionLink("Adicionar Novo", "Create", null, new {@class = "btn btn-primary btn-specific"})
+    </div>
+</div>
+
+@section scripts {
+    <script type="text/javascript" src="~/wwwroot/plugins/bootbox/bootbox.js"></script>
+    <script type="text/javascript" src="~/wwwroot/js/views/hierarquia.js@("?v201703221651?")"></script>
+}

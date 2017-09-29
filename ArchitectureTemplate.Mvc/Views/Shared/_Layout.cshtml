@@ -1,0 +1,118 @@
+﻿@using System.Security.Claims
+@{
+    var idsMenus = ((ClaimsIdentity)User.Identity).FindFirst("IdsMenu").Value;
+
+    var menusEnabled = !string.IsNullOrEmpty(idsMenus)
+        ? idsMenus.Split('|').Select(int.Parse).ToList()
+        : new List<int>();
+}
+
+<!DOCTYPE html>
+<html lang="pt-Br">
+<head>
+    <meta charset="utf-8"/>
+    <title>@ViewBag.Title - ArchitectureTemplate</title>
+    <meta name="keywords" content="Template, Archictecture" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+    <!-- Fonts -->
+    <link href="~/wwwroot/css/font-face.css" rel="stylesheet" type="text/css"/>
+
+    <!-- css principal -->
+    <link href="~/wwwroot/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/wwwroot/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.css" rel="stylesheet" type="text/css" />
+    <link href="~/wwwroot/plugins/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/wwwroot/css/font-awesome.css" rel="stylesheet" type="text/css" />
+
+    <!-- css -->
+    <link href="~/wwwroot/css/essentials.css" rel="stylesheet" type="text/css"/>
+    @*<link href="~/wwwroot/css/animate.css" rel="stylesheet" type="text/css" />*@
+    <link href="~/wwwroot/plugins/bootstrap-fileinput/css/fileinput.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/wwwroot/css/layout.css" rel="stylesheet" type="text/css" />
+    <link href="~/wwwroot/css/layout-responsive.css" rel="stylesheet" type="text/css" />
+
+    <link href="~/wwwroot/css/menus.css@("?v201703221651?")" rel="stylesheet" type="text/css"/>
+    <link href="~/wwwroot/css/site.css@("?v201703221651?")" rel="stylesheet" type="text/css"/>
+    <!-- Morenizr -->
+    <script type="text/javascript" src="~/wwwroot/plugins/modernizr.min.js"></script>
+</head>
+<body>
+    <header id="topHead" class="gs">
+        <div class="container">
+            <span class="quick-contact pull-left">
+                <i class="fa fa-phone"></i> +353 83 88 70514 &bull;
+                <a class="hidden-xs" href="mailto:contato@aderbalfarias.com.br"></a>
+            </span>
+            <div class="pull-right nav signin-dd">
+                <a id="quick_sign_in" href="#" data-toggle="dropdown">
+                    <i class="fa fa-user-circle-o"></i>
+                    <span class="hidden-xs">
+                        @User.Identity.Name.Split(' ')[0]
+                        (@(((ClaimsIdentity)User.Identity).FindFirst(ClaimTypes.Role).Value))
+                    </span>
+                </a>
+                <div class="dropdown-menu" role="menu" aria-labelledby="quick_sign_in">
+                    <h4>Gerenciar Usuário</h4>
+                    <a href="@Url.Action("EditPassword", "Login")" class="btn-twitter fullwidth radius3">
+                        <i class="fa fa-expeditedssl"></i> Alterar Senha
+                    </a>
+                    <a href="@Url.Action("LogOff", "Login")" class="btn-google-plus fullwidth radius3">
+                        <i class="fa fa-sign-out"></i> Sair
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <header id="topNav" class="topHead">
+        @Html.Partial("_MenuTop", menusEnabled)
+    </header>
+
+    <header id="sectionAlert" class="container section-alert">
+        @Html.Partial("_Message") @*Header de mensagens*@
+    </header>
+
+    <aside id="aside-info" class="display-none">
+        @Html.Partial("_MenuInfo", new Dictionary<string, string>())
+    </aside>
+
+    <aside id="aside-nav" class="display-none">
+        @Html.Partial("_MenuLateral")
+    </aside>
+
+    <!-- Conteúdo -->
+    <section class="page-content">
+        @*<header id="page-title">
+            <h3 class="container">@ViewBag.ContentTitle</h3>
+        </header>*@
+
+        <section class="container">
+            @RenderBody()
+        </section>
+    </section>
+    <!-- /Conteúdo -->
+
+    <footer>
+        <div class="footer-bar">
+            <div class="container">
+                <span class="copyright">&copy;Copyright Farias Solutions. Todos os direitos reservados.</span>
+                <a class="toTop" href="#topNav">VOLTAR AO TOPO <i class="fa fa-arrow-circle-up"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- js -->
+    @Scripts.Render("~/bundles/plugins")
+    @*<script type="text/javascript" src="~/wwwroot/plugins/bootstrap/js/bootstrap.min.js"></script>*@
+    <script type="text/javascript" src="~/wwwroot/js/layout.js@("?v201703221651?")"></script>
+    <script type="text/javascript" src="~/wwwroot/js/menu_lateral.js@("?v201703221651?")"></script>
+    <script type="text/javascript" src="~/wwwroot/js/scripts.js@("?v201708141110?")"></script>
+    <script type="text/javascript" src="~/wwwroot/plugins/bootbox/bootbox.js@("?v201704261515?")"></script>
+
+    @RenderSection("scripts", required: false)
+    @Html.Partial("_ShowMessage")
+</body>
+</html>

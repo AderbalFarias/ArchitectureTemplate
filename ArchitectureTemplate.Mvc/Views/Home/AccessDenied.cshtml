@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.Title = "Não Autorizado";
+}
+
+<div class="white-row">
+    <article class="alert alert-danger text-justify">
+        <h3><b>Prezado(a) usuário(a)</b>
+        </h3>
+        <p>
+            Informamos que o seu perfil não possui permissão para realizar esta operação.
+        </p>
+        <p>
+            Para maiores esclarecimentos, informe-se com o seu gestor.
+        </p>
+        <br>
+    </article>
+    <button class="btn btn-primary btn-specific" id="btnVoltarNaoAutorizado">Voltar a tela anterior</button>
+    <br>
+</div>
+
+@section Scripts {
+    <script>
+        $("#btnVoltarNaoAutorizado").click(function () {
+            window.history.back();
+        });
+    </script>
+}

@@ -1,0 +1,680 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{EAFBDFCC-3DC8-4A72-AE20-AB4CE1D3EF00}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ArchitectureTemplate.Mvc</RootNamespace>
+    <AssemblyName>ArchitectureTemplate.Mvc</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TypeScriptToolsVersion>1.8</TypeScriptToolsVersion>
+    <Use64BitIISExpress />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=4.2.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.4.2.1\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="BarcodeLib, Version=1.0.0.20, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\BarcodeLib.1.0.0.20\lib\net20\BarcodeLib.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus, Version=4.1.0.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.4.1.0\lib\net40\EPPlus.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.8.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SimpleInjector, Version=3.1.3.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\packages\SimpleInjector.3.1.3\lib\net45\SimpleInjector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SimpleInjector.Integration.Web, Version=3.1.3.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\packages\SimpleInjector.Integration.Web.3.1.3\lib\net40\SimpleInjector.Integration.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SimpleInjector.Integration.Web.Mvc, Version=3.1.3.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\packages\SimpleInjector.Integration.Web.Mvc.3.1.3\lib\net40\SimpleInjector.Integration.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.FileSystem.Primitives, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.FileSystem.Primitives.4.3.0\lib\net46\System.IO.FileSystem.Primitives.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\ResponseHeaders.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\SimpleInjectorInitializer.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\PermissaoMenuController.cs" />
+    <Compile Include="Controllers\MenuController.cs" />
+    <Compile Include="Controllers\PermissaoController.cs" />
+    <Compile Include="Controllers\LogController.cs" />
+    <Compile Include="Controllers\Shared\ActionType.cs" />
+    <Compile Include="Controllers\Shared\IsAuthorize.cs" />
+    <Compile Include="Controllers\TelaController.cs" />
+    <Compile Include="Controllers\HierarquiaController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\Shared\CustomController.cs" />
+    <Compile Include="Controllers\PerfilController.cs" />
+    <Compile Include="Controllers\UsuarioController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\ButtomHelper.cs" />
+    <Compile Include="Helpers\HelperBase.cs" />
+    <Compile Include="Helpers\HierarquiaHelper.cs" />
+    <Compile Include="Helpers\UtilHelper.cs" />
+    <Compile Include="Mappers\AutoMapperConfig.cs" />
+    <Compile Include="Mappers\DomainToModelMappingProfile.cs" />
+    <Compile Include="Mappers\ModelToDomainMappingProfile.cs" />
+    <Compile Include="Models\HierarquiaDetalheModel.cs" />
+    <Compile Include="Models\LogModel.cs" />
+    <Compile Include="Models\PermissaoModel.cs" />
+    <Compile Include="Models\HierarquiaModel.cs" />
+    <Compile Include="Models\LoginModel.cs" />
+    <Compile Include="Controllers\Shared\AppUser.cs" />
+    <Compile Include="Models\Shared\ValidationAttributeExtention.cs" />
+    <Compile Include="Models\Shared\Message.cs" />
+    <Compile Include="Models\PerfilModel.cs" />
+    <Compile Include="Models\MenuModel.cs" />
+    <Compile Include="Models\TelaModel.cs" />
+    <Compile Include="Models\UsuarioModel.cs" />
+    <Compile Include="Models\Shared\DecimalModelBinder.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="wwwroot\css\animate.css" />
+    <Content Include="wwwroot\css\font-face.css" />
+    <Content Include="wwwroot\images\about\060.jpg" />
+    <Content Include="wwwroot\images\about\061.jpg" />
+    <Content Include="wwwroot\images\about\062.jpg" />
+    <Content Include="wwwroot\images\about\063.jpg" />
+    <Content Include="wwwroot\images\about\064.jpg" />
+    <Content Include="wwwroot\images\about\065.jpg" />
+    <Content Include="wwwroot\images\about\066.jpg" />
+    <Content Include="wwwroot\images\about\067.jpg" />
+    <Content Include="wwwroot\images\about\068.jpg" />
+    <Content Include="wwwroot\images\about\069.jpg" />
+    <Content Include="wwwroot\images\about\070.jpg" />
+    <Content Include="wwwroot\images\about\071.jpg" />
+    <Content Include="wwwroot\images\about\072.jpg" />
+    <Content Include="wwwroot\images\about\073.jpg" />
+    <Content Include="wwwroot\images\about\074.jpg" />
+    <Content Include="wwwroot\images\about\075.jpg" />
+    <Content Include="wwwroot\images\about\076.jpg" />
+    <Content Include="wwwroot\images\about\077.jpg" />
+    <Content Include="wwwroot\images\about\078.jpg" />
+    <Content Include="wwwroot\images\about\079.jpg" />
+    <Content Include="wwwroot\images\about\080.jpg" />
+    <Content Include="wwwroot\images\about\081.jpg" />
+    <Content Include="wwwroot\images\about\082.jpg" />
+    <Content Include="wwwroot\images\about\083.jpg" />
+    <Content Include="wwwroot\images\about\084.jpg" />
+    <Content Include="wwwroot\images\about\085.jpg" />
+    <Content Include="wwwroot\images\about\086.jpg" />
+    <Content Include="wwwroot\images\about\087.jpg" />
+    <Content Include="wwwroot\images\about\088.jpg" />
+    <Content Include="wwwroot\images\about\089.jpg" />
+    <Content Include="wwwroot\images\about\090.jpg" />
+    <Content Include="wwwroot\images\about\091.jpg" />
+    <Content Include="wwwroot\images\about\092.jpg" />
+    <Content Include="wwwroot\images\about\093.jpg" />
+    <Content Include="wwwroot\images\about\094.jpg" />
+    <Content Include="wwwroot\images\about\095.jpg" />
+    <Content Include="wwwroot\images\about\096.jpg" />
+    <Content Include="wwwroot\js\views\hierarquia.js" />
+    <Content Include="wwwroot\js\views\menu.js" />
+    <Content Include="wwwroot\plugins\bootstrap-datetimepicker\css\bootstrap-datetimepicker-standalone.css" />
+    <Content Include="wwwroot\plugins\bootstrap-datetimepicker\css\bootstrap-datetimepicker.css" />
+    <Content Include="wwwroot\plugins\bootstrap-datetimepicker\css\bootstrap-datetimepicker.min.css" />
+    <Content Include="wwwroot\plugins\bootstrap-datetimepicker\js\bootstrap-datetimepicker.min.js" />
+    <Content Include="wwwroot\plugins\bootstrap-datetimepicker\js\pt-br.js" />
+    <Content Include="wwwroot\plugins\jquery-ui\jquery-ui-autocomplete.js" />
+    <Content Include="wwwroot\plugins\jquery-ui\jquery-ui-autocomplete.min.js" />
+    <Content Include="wwwroot\plugins\jquery-ui\jquery-ui-interactions.js" />
+    <Content Include="wwwroot\plugins\jquery-ui\jquery-ui.js" />
+    <Content Include="wwwroot\css\blog.css" />
+    <Content Include="wwwroot\css\countdown.css" />
+    <Content Include="wwwroot\css\essentials.css" />
+    <Content Include="wwwroot\css\font-awesome.css" />
+    <Content Include="wwwroot\css\font-awesome.min.css" />
+    <Content Include="wwwroot\css\layout-responsive.css" />
+    <Content Include="wwwroot\css\layout.css" />
+    <Content Include="wwwroot\css\portfolio.css" />
+    <Content Include="wwwroot\css\realestate.css" />
+    <Content Include="wwwroot\css\shop.css" />
+    <Content Include="wwwroot\css\menus.css" />
+    <Content Include="wwwroot\css\site.css" />
+    <Content Include="wwwroot\css\superslides.css" />
+    <Content Include="wwwroot\images\about\001.jpg" />
+    <Content Include="wwwroot\images\about\002.jpg" />
+    <Content Include="wwwroot\images\about\003.jpg" />
+    <Content Include="wwwroot\images\about\004.jpg" />
+    <Content Include="wwwroot\images\about\005.jpg" />
+    <Content Include="wwwroot\images\about\006.jpg" />
+    <Content Include="wwwroot\images\about\007.jpg" />
+    <Content Include="wwwroot\images\about\008.jpg" />
+    <Content Include="wwwroot\images\about\009.jpg" />
+    <Content Include="wwwroot\images\about\010.jpg" />
+    <Content Include="wwwroot\images\about\011.jpg" />
+    <Content Include="wwwroot\images\about\012.jpg" />
+    <Content Include="wwwroot\images\about\013.jpg" />
+    <Content Include="wwwroot\images\about\014.jpg" />
+    <Content Include="wwwroot\images\about\015.jpg" />
+    <Content Include="wwwroot\images\about\016.jpg" />
+    <Content Include="wwwroot\images\about\017.jpg" />
+    <Content Include="wwwroot\images\about\018.jpg" />
+    <Content Include="wwwroot\images\about\019.jpg" />
+    <Content Include="wwwroot\images\about\020.jpg" />
+    <Content Include="wwwroot\images\about\021.jpg" />
+    <Content Include="wwwroot\images\about\022.jpg" />
+    <Content Include="wwwroot\images\about\023.jpg" />
+    <Content Include="wwwroot\images\about\024.jpg" />
+    <Content Include="wwwroot\images\about\025.jpg" />
+    <Content Include="wwwroot\images\about\026.jpg" />
+    <Content Include="wwwroot\images\about\027.jpg" />
+    <Content Include="wwwroot\images\about\028.jpg" />
+    <Content Include="wwwroot\images\about\029.jpg" />
+    <Content Include="wwwroot\images\about\030.jpg" />
+    <Content Include="wwwroot\images\about\031.jpg" />
+    <Content Include="wwwroot\images\about\032.jpg" />
+    <Content Include="wwwroot\images\about\033.jpg" />
+    <Content Include="wwwroot\images\about\034.jpg" />
+    <Content Include="wwwroot\images\about\035.jpg" />
+    <Content Include="wwwroot\images\about\036.jpg" />
+    <Content Include="wwwroot\images\about\037.jpg" />
+    <Content Include="wwwroot\images\about\038.jpg" />
+    <Content Include="wwwroot\images\about\039.jpg" />
+    <Content Include="wwwroot\images\about\040.jpg" />
+    <Content Include="wwwroot\images\about\041.jpg" />
+    <Content Include="wwwroot\images\about\042.jpg" />
+    <Content Include="wwwroot\images\about\043.jpg" />
+    <Content Include="wwwroot\images\about\044.jpg" />
+    <Content Include="wwwroot\images\about\045.jpg" />
+    <Content Include="wwwroot\images\about\046.jpg" />
+    <Content Include="wwwroot\images\about\047.jpg" />
+    <Content Include="wwwroot\images\about\048.jpg" />
+    <Content Include="wwwroot\images\about\049.jpg" />
+    <Content Include="wwwroot\images\about\050.jpg" />
+    <Content Include="wwwroot\images\about\051.jpg" />
+    <Content Include="wwwroot\images\about\052.jpg" />
+    <Content Include="wwwroot\images\about\053.jpg" />
+    <Content Include="wwwroot\images\about\054.jpg" />
+    <Content Include="wwwroot\images\about\055.jpg" />
+    <Content Include="wwwroot\images\about\056.jpg" />
+    <Content Include="wwwroot\images\about\057.jpg" />
+    <Content Include="wwwroot\images\about\058.jpg" />
+    <Content Include="wwwroot\images\about\059.jpg" />
+    <Content Include="wwwroot\images\bullet.png" />
+    <Content Include="wwwroot\images\footer_sprite.png" />
+    <Content Include="wwwroot\images\header_shadow.png" />
+    <Content Include="wwwroot\images\logo.png" />
+    <Content Include="wwwroot\images\logo_footer.png" />
+    <Content Include="wwwroot\images\male.png" />
+    <Content Include="wwwroot\images\noimg.png" />
+    <Content Include="wwwroot\images\patterns\none.jpg" />
+    <Content Include="wwwroot\images\patterns\pattern1.png" />
+    <Content Include="wwwroot\images\patterns\pattern10.png" />
+    <Content Include="wwwroot\images\patterns\pattern2.png" />
+    <Content Include="wwwroot\images\patterns\pattern3.png" />
+    <Content Include="wwwroot\images\patterns\pattern4.png" />
+    <Content Include="wwwroot\images\patterns\pattern5.png" />
+    <Content Include="wwwroot\images\patterns\pattern6.png" />
+    <Content Include="wwwroot\images\patterns\pattern7.png" />
+    <Content Include="wwwroot\images\patterns\pattern8.png" />
+    <Content Include="wwwroot\images\patterns\pattern9.png" />
+    <Content Include="wwwroot\images\shadow1.png" />
+    <Content Include="wwwroot\images\slider_pagebullet.png" />
+    <Content Include="wwwroot\fonts\fontawesome-webfonte0a5.html" />
+    <Content Include="wwwroot\fonts\fontawesome-webfonte0a5.svg" />
+    <Content Include="wwwroot\js\countdown.js" />
+    <Content Include="wwwroot\js\menu_lateral.js" />
+    <Content Include="wwwroot\js\pt-Br.js" />
+    <Content Include="wwwroot\js\scripts.js" />
+    <Content Include="wwwroot\js\scripts.min.js" />
+    <Content Include="wwwroot\js\slider_revolution.js" />
+    <Content Include="wwwroot\js\views\arquivo-filebox.js" />
+    <Content Include="wwwroot\plugins\bootbox\bootbox.js" />
+    <Content Include="wwwroot\plugins\bootbox\bootbox.min.js" />
+    <Content Include="wwwroot\plugins\bootstrap-datepicker\css\bootstrap-datepicker3.css" />
+    <Content Include="wwwroot\plugins\bootstrap\css\bootstrap.css" />
+    <Content Include="wwwroot\plugins\bootstrap\css\bootstrap.min.css" />
+    <Content Include="wwwroot\plugins\bootstrap\fonts\glyphicons-halflings-regular.html" />
+    <Content Include="wwwroot\plugins\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="wwwroot\plugins\bootstrap\js\bootstrap.js" />
+    <Content Include="wwwroot\plugins\bootstrap\js\bootstrap.min.js" />
+    <Content Include="wwwroot\plugins\egorkhmelev-jslider\css\_pack.css" />
+    <Content Include="wwwroot\plugins\egorkhmelev-jslider\img\jslider.blue.png" />
+    <Content Include="wwwroot\plugins\egorkhmelev-jslider\img\jslider.plastic.png" />
+    <Content Include="wwwroot\plugins\egorkhmelev-jslider\img\jslider.png" />
+    <Content Include="wwwroot\plugins\egorkhmelev-jslider\img\jslider.round.plastic.png" />
+    <Content Include="wwwroot\plugins\egorkhmelev-jslider\img\jslider.round.png" />
+    <Content Include="wwwroot\plugins\egorkhmelev-jslider\js\_pack.js" />
+    <Content Include="wwwroot\plugins\bootstrap-fileinput\css\fileinput.css" />
+    <Content Include="wwwroot\plugins\bootstrap-fileinput\css\fileinput.min.css" />
+    <Content Include="wwwroot\plugins\bootstrap-fileinput\img\loading-sm.gif" />
+    <Content Include="wwwroot\plugins\bootstrap-fileinput\img\loading.gif" />
+    <Content Include="wwwroot\plugins\bootstrap-fileinput\js\fileinput.js" />
+    <Content Include="wwwroot\plugins\bootstrap-fileinput\js\fileinput.min.js" />
+    <Content Include="wwwroot\plugins\bootstrap-fileinput\js\plugins\canvas-to-blob.js" />
+    <Content Include="wwwroot\plugins\bootstrap-fileinput\js\plugins\canvas-to-blob.min.js" />
+    <Content Include="wwwroot\plugins\bootstrap-fileinput\js\plugins\purify.js" />
+    <Content Include="wwwroot\plugins\bootstrap-fileinput\js\plugins\purify.min.js" />
+    <Content Include="wwwroot\plugins\bootstrap-fileinput\js\plugins\sortable.js" />
+    <Content Include="wwwroot\plugins\bootstrap-fileinput\js\plugins\sortable.min.js" />
+    <Content Include="wwwroot\plugins\globalize\cultures\globalize.culture.en-US.js" />
+    <Content Include="wwwroot\plugins\globalize\cultures\globalize.culture.pt-BR.js" />
+    <Content Include="wwwroot\plugins\globalize\globalize.js" />
+    <Content Include="wwwroot\plugins\holder.js" />
+    <Content Include="wwwroot\plugins\html_summernote\summernote.min.js" />
+    <Content Include="wwwroot\plugins\jquery-2.1.4.min.js" />
+    <Content Include="wwwroot\plugins\jquery-countdown\jquery.countdown.min.js" />
+    <Content Include="wwwroot\plugins\jquery-mask\jquery.mask.js" />
+    <Content Include="wwwroot\plugins\jquery-mask\jquery.mask.min.js" />
+    <Content Include="wwwroot\plugins\jquery-migrate-1.2.1.min.html" />
+    <Content Include="wwwroot\plugins\jquery-ui\jquery-ui-interactions.min.js" />
+    <Content Include="wwwroot\plugins\jquery-validation\additional-methods.js" />
+    <Content Include="wwwroot\plugins\jquery-validation\additional-methods.min.js" />
+    <Content Include="Views\Perfil\Create.cshtml" />
+    <Content Include="Views\Perfil\Edit.cshtml" />
+    <Content Include="Views\Perfil\Index.cshtml" />
+    <Content Include="Views\Shared\_MenuLateral.cshtml" />
+    <Content Include="Views\Shared\_MenuInfo.cshtml" />
+    <Content Include="Views\Shared\_MenuTop.cshtml" />
+    <Content Include="wwwroot\fonts\59ZRklaO5bWGqF5A9baEERJtnKITppOI_IvcXXDNrsc.woff2" />
+    <Content Include="wwwroot\fonts\cJZKeOuBrn4kERxqtaUH3VtXRa8TVwTICgirnJhmVJw.woff2" />
+    <Content Include="wwwroot\fonts\DXI1ORHCpsQm3Vp6mXoaTa-j2U0lmluP9RWlSytm3ho.woff2" />
+    <Content Include="wwwroot\fonts\DXI1ORHCpsQm3Vp6mXoaTaaRobkAwv3vxw3jMhVENGA.woff2" />
+    <Content Include="wwwroot\fonts\DXI1ORHCpsQm3Vp6mXoaTegdm0LZdjqr5-oayXSOefg.woff2" />
+    <Content Include="wwwroot\fonts\DXI1ORHCpsQm3Vp6mXoaTf8zf_FOSsgRmwsS7Aa9k2w.woff2" />
+    <Content Include="wwwroot\fonts\DXI1ORHCpsQm3Vp6mXoaTRWV49_lSm1NYrwo-zkhivY.woff2" />
+    <Content Include="wwwroot\fonts\DXI1ORHCpsQm3Vp6mXoaTT0LW-43aMEzIO6XUTLjad8.woff2" />
+    <Content Include="wwwroot\fonts\DXI1ORHCpsQm3Vp6mXoaTZX5f-9o1vgP2EXwfjgl7AY.woff2" />
+    <Content Include="wwwroot\fonts\EInbV5DfGHOiMmvb1Xr-hhWV49_lSm1NYrwo-zkhivY.woff2" />
+    <Content Include="wwwroot\fonts\EInbV5DfGHOiMmvb1Xr-hj0LW-43aMEzIO6XUTLjad8.woff2" />
+    <Content Include="wwwroot\fonts\EInbV5DfGHOiMmvb1Xr-hpX5f-9o1vgP2EXwfjgl7AY.woff2" />
+    <Content Include="wwwroot\fonts\EInbV5DfGHOiMmvb1Xr-hq-j2U0lmluP9RWlSytm3ho.woff2" />
+    <Content Include="wwwroot\fonts\EInbV5DfGHOiMmvb1Xr-hqaRobkAwv3vxw3jMhVENGA.woff2" />
+    <Content Include="wwwroot\fonts\EInbV5DfGHOiMmvb1Xr-hugdm0LZdjqr5-oayXSOefg.woff2" />
+    <Content Include="wwwroot\fonts\EInbV5DfGHOiMmvb1Xr-hv8zf_FOSsgRmwsS7Aa9k2w.woff2" />
+    <Content Include="wwwroot\fonts\k3k702ZOKiLJc3WVjuplzBWV49_lSm1NYrwo-zkhivY.woff2" />
+    <Content Include="wwwroot\fonts\k3k702ZOKiLJc3WVjuplzD0LW-43aMEzIO6XUTLjad8.woff2" />
+    <Content Include="wwwroot\fonts\k3k702ZOKiLJc3WVjuplzJX5f-9o1vgP2EXwfjgl7AY.woff2" />
+    <Content Include="wwwroot\fonts\k3k702ZOKiLJc3WVjuplzK-j2U0lmluP9RWlSytm3ho.woff2" />
+    <Content Include="wwwroot\fonts\k3k702ZOKiLJc3WVjuplzKaRobkAwv3vxw3jMhVENGA.woff2" />
+    <Content Include="wwwroot\fonts\k3k702ZOKiLJc3WVjuplzOgdm0LZdjqr5-oayXSOefg.woff2" />
+    <Content Include="wwwroot\fonts\k3k702ZOKiLJc3WVjuplzP8zf_FOSsgRmwsS7Aa9k2w.woff2" />
+    <Content Include="wwwroot\fonts\K88pR3goAWT7BTt32Z01mxJtnKITppOI_IvcXXDNrsc.woff2" />
+    <Content Include="wwwroot\fonts\LWCjsQkB6EMdfHrEVqA1KRJtnKITppOI_IvcXXDNrsc.woff2" />
+    <Content Include="wwwroot\fonts\RjgO7rYTmqiVp7vzi-Q5URJtnKITppOI_IvcXXDNrsc.woff2" />
+    <Content Include="wwwroot\fonts\u-WUoqrET9fUeobQW7jkRRJtnKITppOI_IvcXXDNrsc.woff2" />
+    <Content Include="wwwroot\fonts\xozscpT2726on7jbcb_pAhJtnKITppOI_IvcXXDNrsc.woff2" />
+    <Content Include="Views\Log\Index.cshtml" />
+    <Content Include="Views\Tela\Index.cshtml" />
+    <Content Include="Views\Tela\Edit.cshtml" />
+    <Content Include="Views\Permissao\Index.cshtml" />
+    <Content Include="Views\Permissao\_List.cshtml" />
+    <Content Include="Views\Menu\Index.cshtml" />
+    <Content Include="Views\Menu\_List.cshtml" />
+    <Content Include="Views\Home\AccessDenied.cshtml" />
+    <Content Include="Views\Hierarquia\Index.cshtml" />
+    <Content Include="Views\Hierarquia\Create.cshtml" />
+    <Content Include="Views\Hierarquia\Edit.cshtml" />
+    <None Include="wwwroot\plugins\jquery-validation\jquery.validate-vsdoc.js" />
+    <Content Include="wwwroot\plugins\jquery-validation\jquery.validate.globalize.js" />
+    <Content Include="wwwroot\plugins\jquery-validation\jquery.validate.globalize.min.js" />
+    <Content Include="wwwroot\plugins\jquery-validation\jquery.validate.js" />
+    <Content Include="wwwroot\plugins\jquery-validation\jquery.validate.min.js" />
+    <Content Include="wwwroot\plugins\jquery-validation\jquery.validate.unobtrusive.js" />
+    <Content Include="wwwroot\plugins\jquery-validation\jquery.validate.unobtrusive.min.js" />
+    <Content Include="wwwroot\plugins\jquery.appear.js" />
+    <Content Include="wwwroot\plugins\jquery.backstretch.min.js" />
+    <Content Include="wwwroot\plugins\jquery.cookie.js" />
+    <Content Include="wwwroot\plugins\jquery.easing.1.3.js" />
+    <Content Include="wwwroot\plugins\jquery.isotope.js" />
+    <Content Include="wwwroot\plugins\jquery.mb.YTPlayer.js" />
+    <Content Include="wwwroot\plugins\jquery.nav.min.js" />
+    <Content Include="wwwroot\plugins\jquery\jquery.js" />
+    <Content Include="wwwroot\plugins\jquery\jquery.min.js" />
+    <Content Include="wwwroot\plugins\jquery\jquery.unobtrusive-ajax.js" />
+    <Content Include="wwwroot\plugins\jquery\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="wwwroot\plugins\jscolor\jscolor.js" />
+    <Content Include="wwwroot\plugins\jscolor\jscolor.min.js" />
+    <Content Include="wwwroot\plugins\knob\js\jquery.knob.js" />
+    <Content Include="wwwroot\plugins\magnific-popup\jquery.magnific-popup.min.js" />
+    <Content Include="wwwroot\plugins\magnific-popup\magnific-popup.css" />
+    <Content Include="wwwroot\plugins\masonry.js" />
+    <Content Include="wwwroot\plugins\mediaelement\build\flashmediaelement.swf" />
+    <Content Include="wwwroot\plugins\mediaelement\build\mediaelement-and-player.min.js" />
+    <Content Include="wwwroot\plugins\modernizr.min.js" />
+    <Content Include="wwwroot\plugins\bootstrap-datepicker\js\bootstrap-datepicker.js" />
+    <Content Include="wwwroot\plugins\moment\moment.js" />
+    <Content Include="wwwroot\plugins\moment\moment.min.js" />
+    <Content Include="wwwroot\plugins\owl-carousel\AjaxLoader.gif" />
+    <Content Include="wwwroot\plugins\owl-carousel\grabbing.png" />
+    <Content Include="wwwroot\plugins\owl-carousel\owl.carousel.css" />
+    <Content Include="wwwroot\plugins\owl-carousel\owl.carousel.min.js" />
+    <Content Include="wwwroot\plugins\owl-carousel\owl.theme.css" />
+    <Content Include="wwwroot\plugins\owl-carousel\owl.transitions.css" />
+    <Content Include="wwwroot\plugins\revolution-slider\assets\arrowleft.png" />
+    <Content Include="wwwroot\plugins\revolution-slider\assets\arrowright.png" />
+    <Content Include="wwwroot\plugins\revolution-slider\assets\arrow_left.png" />
+    <Content Include="wwwroot\plugins\revolution-slider\assets\arrow_left2.png" />
+    <Content Include="wwwroot\plugins\revolution-slider\assets\arrow_right.png" />
+    <Content Include="wwwroot\plugins\revolution-slider\assets\arrow_right2.png" />
+    <Content Include="wwwroot\plugins\revolution-slider\assets\boxed_bgtile.png" />
+    <Content Include="wwwroot\plugins\revolution-slider\assets\bullet.png" />
+    <Content Include="wwwroot\plugins\revolution-slider\assets\bullets.png" />
+    <Content Include="wwwroot\plugins\revolution-slider\assets\bullets2.png" />
+    <Content Include="wwwroot\plugins\revolution-slider\assets\bullet_boxed.png" />
+    <Content Include="wwwroot\plugins\revolution-slider\assets\coloredbg.png" />
+    <Content Include="wwwroot\plugins\revolution-slider\assets\gridtile.png" />
+    <Content Include="wwwroot\plugins\revolution-slider\assets\gridtile_3x3.png" />
+    <Content Include="wwwroot\plugins\revolution-slider\assets\gridtile_3x3_white.png" />
+    <Content Include="wwwroot\plugins\revolution-slider\assets\gridtile_white.png" />
+    <Content Include="wwwroot\plugins\revolution-slider\assets\large_left.png" />
+    <Content Include="wwwroot\plugins\revolution-slider\assets\large_right.png" />
+    <Content Include="wwwroot\plugins\revolution-slider\assets\loader.gif" />
+    <Content Include="wwwroot\plugins\revolution-slider\assets\navigdots.png" />
+    <Content Include="wwwroot\plugins\revolution-slider\assets\navigdots_bgtile.png" />
+    <Content Include="wwwroot\plugins\revolution-slider\assets\shadow1.png" />
+    <Content Include="wwwroot\plugins\revolution-slider\assets\shadow2.png" />
+    <Content Include="wwwroot\plugins\revolution-slider\assets\shadow3.png" />
+    <Content Include="wwwroot\plugins\revolution-slider\assets\small_left.png" />
+    <Content Include="wwwroot\plugins\revolution-slider\assets\small_left_boxed.png" />
+    <Content Include="wwwroot\plugins\revolution-slider\assets\small_right.png" />
+    <Content Include="wwwroot\plugins\revolution-slider\assets\small_right_boxed.png" />
+    <Content Include="wwwroot\plugins\revolution-slider\assets\timer.png" />
+    <Content Include="wwwroot\plugins\revolution-slider\css\settings.css" />
+    <Content Include="wwwroot\plugins\revolution-slider\font\revicons90c6.svg" />
+    <Content Include="wwwroot\plugins\revolution-slider\images\gradient\g30.png" />
+    <Content Include="wwwroot\plugins\revolution-slider\images\gradient\g40.png" />
+    <Content Include="wwwroot\plugins\revolution-slider\js\jquery.themepunch.revolution.min.js" />
+    <Content Include="wwwroot\plugins\revolution-slider\js\jquery.themepunch.tools.min.js" />
+    <Content Include="wwwroot\plugins\stellar\jquery.stellar.min.js" />
+    <Content Include="wwwroot\plugins\styleswitcher\styleswitcher.css" />
+    <Content Include="wwwroot\plugins\styleswitcher\styleswitcher.js" />
+    <Content Include="wwwroot\plugins\superslides\dist\jquery.superslides.min.js" />
+    <Content Include="favicon.ico" />
+    <Content Include="wwwroot\fonts\fontawesome-webfont.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="wwwroot\fonts\FontAwesome.otf" />
+    <Content Include="wwwroot\fonts\fontawesome-webfont.woff2" />
+    <Content Include="wwwroot\fonts\fontawesome-webfont.woff" />
+    <Content Include="wwwroot\fonts\fontawesome-webfont.ttf" />
+    <Content Include="wwwroot\fonts\fontawesome-webfont.eot" />
+    <Content Include="wwwroot\fonts\fontawesome-webfontd41d.eot" />
+    <Content Include="wwwroot\fonts\fontawesome-webfonte0a5.eot" />
+    <Content Include="wwwroot\fonts\fontawesome-webfonte0a5.ttf" />
+    <Content Include="wwwroot\fonts\fontawesome-webfonte0a5.woff" />
+    <Content Include="wwwroot\plugins\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="wwwroot\plugins\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="wwwroot\plugins\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="wwwroot\plugins\bootstrap\fonts\glyphicons-halflings-regulard41d.eot" />
+    <Content Include="wwwroot\plugins\revolution-slider\font\revicons90c6.eot" />
+    <Content Include="wwwroot\plugins\revolution-slider\font\revicons90c6.ttf" />
+    <Content Include="wwwroot\plugins\revolution-slider\font\revicons90c6.woff" />
+    <Content Include="wwwroot\js\views\usuario.js" />
+    <Content Include="wwwroot\js\layout.js" />
+    <Content Include="wwwroot\js\modernizr-2.6.2.js" />
+    <Content Include="wwwroot\js\respond.js" />
+    <Content Include="wwwroot\js\respond.min.js" />
+    <Content Include="wwwroot\js\_references.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\_LayoutLogin.cshtml" />
+    <Content Include="Views\Shared\_Message.cshtml" />
+    <Content Include="Views\Shared\_ShowMessage.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="wwwroot\plugins\jquery-validation\jquery.validate.globalize.min.js.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\PublishProfiles\Deploy.pubxml" />
+    <Content Include="Views\Usuario\Index.cshtml" />
+    <Content Include="Views\Usuario\Create.cshtml" />
+    <Content Include="Views\Usuario\Edit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ArchitectureTemplate.Business\ArchitectureTemplate.Business.csproj">
+      <Project>{57F6AF5C-C804-4992-AB66-53CE627CBD3F}</Project>
+      <Name>ArchitectureTemplate.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ArchitectureTemplate.Infraestrutura.CrossCutting.Support\ArchitectureTemplate.Infraestrutura.CrossCutting.Support.csproj">
+      <Project>{927553C4-E24C-473B-ADD9-354497324AAF}</Project>
+      <Name>ArchitectureTemplate.Infraestrutura.CrossCutting.Support</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ArchitectureTemplate.Infrastructure.CrossCutting.IoC\ArchitectureTemplate.Infrastructure.CrossCutting.IoC.csproj">
+      <Project>{66B226F1-E997-4138-BD83-0D1DB7C76FB5}</Project>
+      <Name>ArchitectureTemplate.Infrastructure.CrossCutting.IoC</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="wwwroot\plugins\jquery\jquery.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Login\_Logar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Login\RecoverPassword.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Login\EditPassword.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Login\ResetPassword.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Files\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>6061</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:6061/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

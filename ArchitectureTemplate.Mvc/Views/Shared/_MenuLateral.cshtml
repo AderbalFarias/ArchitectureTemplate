@@ -1,0 +1,370 @@
+﻿@using System.Security.Claims
+@{
+    var idsMenus = ((ClaimsIdentity)User.Identity).FindFirst("IdsMenu").Value;
+
+    var menusEnabled = !string.IsNullOrEmpty(idsMenus)
+        ? idsMenus.Split('|').Select(int.Parse).ToList()
+        : new List<int>();
+}
+
+@Html.Hidden("ProcessoId")
+<button class="btn btn-mobile" data-toggle="collapse" data-target="x" id="btnMobile">
+    <i class="fa fa-bars"></i>
+</button>
+
+<div class="menu-close display-none">
+    <i class="fa fa-times-circle-o fa-2x" aria-hidden="true"></i>
+</div>
+
+<div id="menu-lateral" class="nav-right-collapse">
+    <div class="text-center menu-title">
+        <b>Navegador</b>
+    </div>
+    <nav role="navigation">
+        <ul>
+            @if (menusEnabled.Contains(33))
+            {
+                <li children="false">
+                    <a href="#" class="linkto" linkto="/Processo/Edit/">
+                        <i class="fa fa-lg fa-fw fa-id-card"></i>
+                        <span class="menu-item-parent" id="Menu_33">Dados do Processo</span>
+                    </a>
+                </li>
+            }
+            @if (menusEnabled.Contains(68))
+            {
+                <li children="false">
+                    <a title="Participantes" class="linkto" linkto="/Cliente/Index/">
+                        <i class="fa fa-lg fa-fw fa fa-users"></i>
+                        <span class="menu-item-parent" id="Menu_68">Participantes</span>
+                    </a>
+                </li>
+            }
+            @if (menusEnabled.Contains(49))
+            {
+                <li children="false">
+                    <a title="Garantia" class="linkto" linkto="/Garantia/Index/">
+                        <i class="fa fa-lg fa-fw fa fa-calendar-check-o"></i>
+                        <span class="menu-item-parent" id="Menu_49">Dados da Garantia</span>
+                    </a>
+                </li>
+            }            
+            @if (menusEnabled.Contains(34))
+            {
+                <li children="false">
+                    <a title="Status do Processo" class="linkto" linkto="/StatusProcesso/Index/">
+                        <i class="fa fa-lg fa-fw fa fa-check-square"></i>
+                        <span class="menu-item-parent" id="Menu_34">Status do Processo</span>
+                    </a>
+                </li>
+            }
+            @if (menusEnabled.Contains(35))
+            {
+                <li>
+                    <a title="Fluxo do Processo">
+                        <i class="fa fa-lg fa-fw fa-sitemap"></i>
+                        <span class="menu-item-parent" id="Menu_35">Fluxo do Processo</span>
+                        <b class="collapse-sign">
+                            <em class="fa fa-plus-square-o"></em>
+                        </b>
+                    </a>
+                    <ul>
+                        @if (menusEnabled.Contains(36))
+                        {
+                            <li>
+                                <a title="Fluxo do Processo" class="linkto" linkto="/Workflow/Open/">
+                                    <span class="menu-item-parent" id="Menu_36">
+                                        <i class="fa fa-caret-square-o-right"></i> Atividades pendentes
+                                    </span>
+                                </a>
+                            </li>
+                        }
+                        @if (menusEnabled.Contains(37))
+                        {
+                            <li>
+                                <a title="Fluxo do Processo" class="linkto" linkto="/Workflow/Scheduling/">
+                                    <span class="menu-item-parent" id="Menu_37">
+                                        <i class="fa fa-calendar-o"></i> Atividades agendadas
+                                    </span>
+                                </a>
+                            </li>
+                        }
+                        @if (menusEnabled.Contains(38))
+                        {
+                            <li>
+                                <a title="Fluxo do Processo" class="linkto" linkto="/HistoricoWorkflow/Index/">
+                                    <span class="menu-item-parent" id="Menu_38">
+                                        <i class="fa fa-history"></i> Histórico do Processo
+                                    </span>
+                                </a>
+                            </li>
+                        }
+                        @if (menusEnabled.Contains(39))
+                        {
+                            <li>
+                                <a title="Fluxo do Processo" class="linkto" linkto="/Workflow/Index/">
+                                    <span class="menu-item-parent" id="Menu_39">
+                                        <i class="fa fa-share-alt-square"></i> Fluxo Completo
+                                    </span>
+                                </a>
+                            </li>
+                        }
+                    </ul>
+                </li>
+            }
+            @if (menusEnabled.Contains(40))
+            {
+                <li>
+                    <a title="Arquivos do Processo">
+                        <i class="fa fa-lg fa-fw fa-archive"></i>
+                        <span class="menu-item-parent" id="Menu_40">Arquivos do Processo</span>
+                        <b class="collapse-sign">
+                            <em class="fa fa-plus-square-o"></em>
+                        </b>
+                    </a>
+                    <ul>
+                        @if (menusEnabled.Contains(41))
+                        {
+                            <li>
+                                <a title="Arquivos do Processo" class="linkto" linkto="/Arquivo/Index/">
+                                    <span class="menu-item-parent" id="Menu_41">
+                                        <i class="fa fa-cloud-upload"></i> Enviar Arquivos
+                                    </span>
+                                </a>
+                            </li>
+                        }
+                        @if (menusEnabled.Contains(42))
+                        {
+                            <li>
+                                <a title="Arquivos do Processo" class="linkto" linkto="/Arquivo/HistoricoEnvio/">
+                                    <span class="menu-item-parent" id="Menu_42">
+                                        <i class="fa fa-list-alt"></i> Histórico de Envio
+                                    </span>
+                                </a>
+                            </li>
+                        }
+                        @if (menusEnabled.Contains(43))
+                        {
+                            <li>
+                                <a title="Arquivos do Processo" class="linkto" linkto="/Arquivo/Indexar/">
+                                    <span class="menu-item-parent" id="Menu_43">
+                                        <i class="fa fa-list-ul"></i> Indexar Arquivos
+                                    </span>
+                                </a>
+                            </li>
+                        }
+                    </ul>
+                </li>
+            }
+            @if (menusEnabled.Contains(44))
+            {
+                <li>
+                    <a title="Checklist">
+                        <i class="fa fa-lg fa-fw fa-list-ol"></i>
+                        <span class="menu-item-parent" id="Menu_44">Checklist</span>
+                        <b class="collapse-sign">
+                            <em class="fa fa-plus-square-o"></em>
+                        </b>
+                    </a>
+                    <ul>
+                        @if (menusEnabled.Contains(45))
+                        {
+                            <li>
+                                <a title="Checklist" class="linkto" linkto="/Checklist/ApontarPendencia/">
+                                    <span class="menu-item-parent" id="Menu_45">
+                                        <i class="fa fa-product-hunt"></i> Apontar Pendências
+                                    </span>
+                                </a>
+                            </li>
+                        }
+                        @if (menusEnabled.Contains(46))
+                        {
+                            <li>
+                                <a title="Checklist" class="linkto" linkto="/Checklist/ResolverPendencia/">
+                                    <span class="menu-item-parent" id="Menu_46">
+                                        <i class="fa fa-check-circle"></i> Resolver Pendências
+                                    </span>
+                                </a>
+                            </li>
+                        }
+                        @if (menusEnabled.Contains(47))
+                        {
+                            <li>
+                                <a title="Checklist" class="linkto" linkto="/Checklist/Index/">
+                                    <span class="menu-item-parent" id="Menu_47">
+                                        <i class="fa fa-history"></i> Histórico do Checklist
+                                    </span>
+                                </a>
+                            </li>
+                        }
+                    </ul>
+                </li>
+            }
+            @if (menusEnabled.Contains(69))
+            {
+                <li children="false">
+                    <a title="Avaliação" class="linkto" linkto="/Avaliacao/Index/">
+                        <i class="fa fa-lg fa-fw fa fa-university"></i>
+                        <span class="menu-item-parent" id="Menu_69">Avaliação</span>
+                    </a>
+                </li>
+            }
+            @if (menusEnabled.Contains(48))
+            {
+                <li children="false">
+                    <a title="Folheteria" class="linkto" linkto="/Folheteria/Index/">
+                        <i class="fa fa-lg fa-fw fa fa-file-text-o"></i>
+                        <span class="menu-item-parent" id="Menu_48">Folheteria</span>
+                    </a>
+                </li>
+            }
+            @if (menusEnabled.Contains(66))
+            {
+                <li children="false">
+                    <a title="Alertas" class="linkto" linkto="/AlertaPorProcesso/Edit/">
+                        <i class="fa fa-lg fa-fw fa fa-exclamation-triangle"></i>
+                        <span class="menu-item-parent" id="Menu_66">Alertas</span>
+                    </a>
+                </li>
+            }            
+            @if (menusEnabled.Contains(50))
+            {
+                <li class="display-none" tipo="repasse">
+                    <a title="Empreendimento">
+                        <i class="fa fa-lg fa-fw fa-building"></i>
+                        <span class="menu-item-parent" id="Menu_50">Empreendimento</span>
+                        <b class="collapse-sign">
+                            <em class="fa fa-plus-square-o"></em>
+                        </b>
+                    </a>
+                    <ul>
+                        @if (menusEnabled.Contains(51))
+                        {
+                            <li>
+                                <a title="Empreendimento" class="linkto" linkto="/Empreendimento/FichaTecnica/">
+                                    <span class="menu-item-parent" id="Menu_51">
+                                        <i class="fa fa-file-text-o"></i> Ficha Técnica
+                                    </span>
+                                </a>
+                            </li>
+                        }
+                        @if (menusEnabled.Contains(52))
+                        {
+                            <li>
+                                <a title="Empreendimento" class="linkto" linkto="/Empreendimento/Documentacao/">
+                                    <span class="menu-item-parent" id="Menu_52">
+                                        <i class="fa fa-folder-open-o"></i> Documentação
+                                    </span>
+                                </a>
+                            </li>
+                        }
+                        @if (menusEnabled.Contains(53))
+                        {
+                            <li>
+                                <a title="Empreendimento" class="linkto" linkto="/Empreendimento/AndamentoObra/">
+                                    <span class="menu-item-parent" id="Menu_53">
+                                        <i class="fa fa-tasks"></i> Andamento da Obra
+                                    </span>
+                                </a>
+                            </li>
+                        }
+                        @if (menusEnabled.Contains(54))
+                        {
+                            <li>
+                                <a title="Empreendimento" class="linkto" linkto="/Empreendimento/Agendamento/">
+                                    <span class="menu-item-parent" id="Menu_54">
+                                        <i class="fa fa-calendar-o"></i> Agendamentos
+                                    </span>
+                                </a>
+                            </li>
+                        }
+                        @if (menusEnabled.Contains(55))
+                        {
+                            <li>
+                                <a title="Empreendimento" class="linkto" linkto="/Empreendimento/GuiaCliente/">
+                                    <span class="menu-item-parent" id="Menu_55">
+                                        <i class="fa fa-address-card-o"></i> Guia do Cliente
+                                    </span>
+                                </a>
+                            </li>
+                        }
+                    </ul>
+                </li>
+            }
+            @if (menusEnabled.Contains(56))
+            {
+                <li class="display-none" tipo="repasse">
+                    <a title="Financiamento">
+                        <i class="fa fa-lg fa-fw fa-money"></i>
+                        <span class="menu-item-parent" id="Menu_56">Financiamento</span>
+                        <b class="collapse-sign">
+                            <em class="fa fa-plus-square-o"></em>
+                        </b>
+                    </a>
+                    <ul>
+                        @if (menusEnabled.Contains(71))
+                        {
+                            <li>
+                                <a title="Financiamento" class="linkto" linkto="/Financiamento/Simuladores/">
+                                    <span class="menu-item-parent" id="Menu_71">
+                                        <i class="fa fa-envelope-o"></i> Simuladores
+                                    </span>
+                                </a>
+                            </li>
+                        }
+                        @if (menusEnabled.Contains(57))
+                        {
+                            <li>
+                                <a title="Financiamento" class="linkto" linkto="">
+                                    <span class="menu-item-parent" id="Menu_57">
+                                        <i class="fa fa-envelope-o"></i> Boleto
+                                    </span>
+                                </a>
+                            </li>
+                        }
+                        @if (menusEnabled.Contains(58))
+                        {
+                            <li>
+                                <a title="Financiamento" class="linkto" linkto="">
+                                    <span class="menu-item-parent" id="Menu_58">
+                                        <i class="fa fa-undo"></i> Antecipação
+                                    </span>
+                                </a>
+                            </li>
+                        }
+                        @if (menusEnabled.Contains(59))
+                        {
+                            <li>
+                                <a title="Financiamento" class="linkto" linkto="">
+                                    <span class="menu-item-parent" id="Menu_59">
+                                        <i class="fa fa-pencil-square-o"></i> Renegociação
+                                    </span>
+                                </a>
+                            </li>
+                        }
+                        @if (menusEnabled.Contains(60))
+                        {
+                            <li>
+                                <a title="Financiamento" class="linkto" linkto="/Financiamento/ExtratoFinanceiro/">
+                                    <span class="menu-item-parent" id="Menu_60">
+                                        <i class="fa fa-list-alt"></i> Extrato Financeiro
+                                    </span>
+                                </a>
+                            </li>
+                        }
+                        @if (menusEnabled.Contains(61))
+                        {
+                            <li>
+                                <a title="Financiamento" class="linkto" linkto="/Financiamento/DemonstrativoPagamento/">
+                                    <span class="menu-item-parent" id="Menu_61">
+                                        <i class="fa fa-newspaper-o"></i> Demonstrativo de Pagamentos
+                                    </span>
+                                </a>
+                            </li>
+                        }
+                    </ul>
+                </li>
+            }
+        </ul>
+    </nav>
+</div>

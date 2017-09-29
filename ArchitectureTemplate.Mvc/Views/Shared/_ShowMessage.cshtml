@@ -1,0 +1,13 @@
+﻿@using ArchitectureTemplate.Mvc.Models.Shared
+@{
+    var message = (Message) TempData["ExibirMessagem"] ?? (Message) ViewBag.ExibirMessagem;   
+}
+
+@if (message != null)
+{
+    <script type ="text/javascript">
+        $(function () {
+            ShowMessage('@message.Kind', '@message.Title', '@message.Detail', '@message.TimeoutSeconds');
+        });
+    </script>
+}

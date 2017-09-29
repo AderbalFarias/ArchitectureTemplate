@@ -1,0 +1,21 @@
+﻿@model IEnumerable<ArchitectureTemplate.Mvc.Models.HierarquiaModel>
+@{
+    ViewBag.Title = "Hierarquia";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="white-row">
+    <h3>
+        <strong>Hierarquia</strong>
+    </h3>
+
+
+    <div class="row">
+        @Html.HierarquiaTree(Model.ToList(), true)
+    </div>
+</div>
+
+@section Scripts {
+    <script type="text/javascript" src="~/wwwroot/plugins/bootbox/bootbox.js"></script>
+    <script type="text/javascript" src="~/wwwroot/js/views/hierarquia.js@("?v201703221651?")"></script>
+}

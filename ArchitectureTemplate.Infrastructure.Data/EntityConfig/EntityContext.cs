@@ -1,0 +1,67 @@
+using ArchitectureTemplate.Business.DataEntities;
+using ArchitectureTemplate.Infrastructure.Data.EntityConfig.Mapping;
+using System.Data.Entity;
+using System.Data.Entity.ModelConfiguration.Conventions;
+
+namespace ArchitectureTemplate.Infrastructure.Data.EntityConfig
+{
+    public class EntityContext : DbContext
+    {
+        public EntityContext()
+            : base("name=EntityContext")
+        {
+            Configuration.LazyLoadingEnabled = false;
+            Configuration.ProxyCreationEnabled = false;
+        }
+
+        public virtual DbSet<Hierarquia> Hierarquia { get; set; }
+        public virtual DbSet<HierarquiaDetalhe> HierarquiaDetalhe { get; set; }
+        public virtual DbSet<Log> Log { get; set; }
+        public virtual DbSet<LogType> LogType { get; set; }
+        public virtual DbSet<Perfil> Perfil { get; set; }
+        public virtual DbSet<PerfilPorTela> PerfilPorTela { get; set; }
+        public virtual DbSet<Tela> Tela { get; set; }
+        public virtual DbSet<TipoHierarquia> TipoHierarquia { get; set; }
+        public virtual DbSet<Usuario> Usuario { get; set; }
+        public virtual DbSet<Menu> Menu { get; set; }
+        public virtual DbSet<PerfilPorMenu> PerfilPorMenu { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+            modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
+            modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
+
+            //modelBuilder.Properties()
+            //    .Where(p => p.Name == (p.ReflectedType != null ?
+            //        p.ReflectedType.Name + "Id" : "Id"))
+            //            .Configure(p => p.IsKey());
+
+            modelBuilder.Properties<string>()
+                .Configure(p => p.HasColumnType("varchar"));
+
+            modelBuilder.Properties<decimal>()
+                .Configure(p => p.HasPrecision(12, 2));
+
+            modelBuilder.Properties<string>()
+                .Configure(p => p.HasMaxLength(100));
+
+            modelBuilder.Configurations.Add(new HierarquiaMap());
+            modelBuilder.Configurations.Add(new HierarquiaDetalhesMap());
+            modelBuilder.Configurations.Add(new LogMap());
+            modelBuilder.Configurations.Add(new LogTypeMap());
+            modelBuilder.Configurations.Add(new PerfilMap());
+            modelBuilder.Configurations.Add(new PerfilPorTelaMap());
+            modelBuilder.Configurations.Add(new TelaMap());
+            modelBuilder.Configurations.Add(new UsuarioMap());
+            modelBuilder.Configurations.Add(new MenuMap());
+            modelBuilder.Configurations.Add(new PerfilPorMenuMap());
+        }
+    }
+}
+
+
+
+
+
+

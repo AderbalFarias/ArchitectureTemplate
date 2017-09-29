@@ -1,0 +1,30 @@
+﻿@model ArchitectureTemplate.Mvc.Models.LoginModel
+
+<div class="pull-right nav signin-dd">
+    <a id="quick_sign_in" href="#" data-toggle="dropdown"><i class="fa fa-users"></i><span class="hidden-xs"> Login</span></a>
+    <div class="dropdown-menu" role="menu" aria-labelledby="quick_sign_in">
+        <h4>Login</h4>
+        @using (Html.BeginForm("LogIn", "Login", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-group">
+                @Html.EditorFor(model => model.Login, new { htmlAttributes = new { @class = "form-control", @placeholder = "Informe seu Login", @required = "required" } })
+            </div>
+            <div class="input-group">
+                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", @placeholder = "Informe sua Senha", @required = "required" } })
+                <span class="input-group-btn">
+                    <button class="btn btn-primary">Entrar</button>
+                </span>
+            </div>
+            <div class="checkbox">
+                <label>
+                    @Html.CheckBoxFor(model => model.RememberMe) Mantenha-me conectado
+                </label>
+            </div>
+        }
+
+        <hr />
+        <a href="@Url.Action("RecoverPassword", "Login")">Esqueci minha senha?</a>
+    </div>
+</div>

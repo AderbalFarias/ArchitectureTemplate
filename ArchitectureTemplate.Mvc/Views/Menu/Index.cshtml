@@ -1,0 +1,69 @@
+﻿@model ArchitectureTemplate.Mvc.Models.MenuModel
+@{
+    ViewBag.Title = "Permissões de Menus";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="white-row">
+    <h3>
+        <strong>Permissões de Menus</strong>
+    </h3>
+
+    <div class="form-horizontal">
+        <div class="form-group">
+            @Html.HiddenFor(model => model.Scroll)
+            @Html.LabelFor(model => model.PerfilId, new {@class = "control-label col-md-5"})
+            <div class="col-md-3">
+                @Html.DropDownListFor(model => model.PerfilId, new SelectList(Model.PerfilDictionary, "Key", "Value"), "Selecione o Perfil", new {@class = "form-control"})
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <div id="DivDados">
+        @if (Model.PerfilPorMenuList?.Any() ?? false)
+        {
+            @Html.Partial("_List", Model)
+        }
+        else
+        {
+            <div class="table-responsive border-ddd">
+                <table class="table table-bordered table-hover">
+                    <tr>
+                        <th class="text-center" colspan="5">
+                            <span class="uppercase">Lista de menus existentes no sistema</span>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Id)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Nome)
+                        </th>
+                    </tr>
+
+                    @foreach (var item in Model.MenuList)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Id)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Nome)
+                            </td>
+                        </tr>
+                    }
+                </table>
+            </div>
+        }
+    </div>
+
+    <button class="btn btn-primary btn-specific" id="btnSincronizar">Sincronizar</button>
+    @*@Html.ActionLink("Exportar para Excel", "ExportToExcel", null, new { @class = "btn btn-primary btn-specific" })*@
+</div>
+
+@section Scripts {
+    <script type="text/javascript" src="~/wwwroot/js/views/menu.js@("?v201703221651?")"></script>
+}
