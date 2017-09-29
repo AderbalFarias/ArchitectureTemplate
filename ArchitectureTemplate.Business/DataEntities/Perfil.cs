@@ -15,3 +15,5 @@ namespace ArchitectureTemplate.Business.DataEntities
         public virtual IEnumerable<PerfilPorMenu> PerfilPorMenu { get; set; }
     }
 }
+
+

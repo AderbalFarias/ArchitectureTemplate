@@ -25,3 +25,4 @@ namespace ArchitectureTemplate.Business.DataEntities
         public virtual IEnumerable<Log> Log { get; set; }
     }
 }
+
