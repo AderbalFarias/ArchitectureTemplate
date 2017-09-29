@@ -712,29 +712,3 @@ jQuery("#gmap").length > 0 && showMap("contactMap"), jQuery("div.fb-like").lengt
             })
         }
     }(jQuery);
-
-$(window).on('mouseover', (function () {
-    window.onbeforeunload = null;
-}));
-$(window).on('mouseout', (function () {
-    window.onbeforeunload = ConfirmLeave;
-}));
-
-//var prevKey = "";
-//$(document).keydown(function (e) {
-
-//    e = e || window.event;
-
-//    if ((e.key == "W" || e.key == "w") && prevKey == "CONTROL") {
-//        window.onbeforeunload = ConfirmLeave;
-//    } else if ((e.key == "R" || e.key == "r") && prevKey == "CONTROL") {
-//        window.onbeforeunload = ConfirmLeave;
-//    } else if (e.key == "F4" && (prevKey == "ALT" || prevKey == "CONTROL")) {
-//        window.onbeforeunload = ConfirmLeave;
-//    }
-//    else if (e.key == "F4" && (e.altKey || e.ctrlKey)) {
-//        window.onbeforeunload = ConfirmLeave;
-//    }
-
-//    prevKey = e.key;
-//});

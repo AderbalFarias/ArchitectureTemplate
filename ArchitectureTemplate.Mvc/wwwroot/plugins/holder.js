@@ -30,8 +30,8 @@ if (!canvas.getContext) {
 }
 
 if(!fallback){
-    dpr = window.devicePixelRatio || 1,
-    bsr = ctx.webkitBackingStorePixelRatio || ctx.mozBackingStorePixelRatio || ctx.msBackingStorePixelRatio || ctx.oBackingStorePixelRatio || ctx.backingStorePixelRatio || 1;
+	dpr = window.devicePixelRatio || 1,
+	bsr = ctx.webkitBackingStorePixelRatio || ctx.mozBackingStorePixelRatio || ctx.msBackingStorePixelRatio || ctx.oBackingStorePixelRatio || ctx.backingStorePixelRatio || 1;
 }
 
 var ratio = dpr / bsr;
@@ -162,12 +162,12 @@ function extend(a,b){
 
 //hasOwnProperty polyfill
 if (!Object.prototype.hasOwnProperty)
-    /*jshint -W001, -W103 */
-    Object.prototype.hasOwnProperty = function(prop) {
+	/*jshint -W001, -W103 */
+	Object.prototype.hasOwnProperty = function(prop) {
 		var proto = this.__proto__ || this.constructor.prototype;
 		return (prop in this) && (!(prop in proto) || proto[prop] !== this[prop]);
 	}
-    /*jshint +W001, +W103 */
+	/*jshint +W001, +W103 */
 
 function text_size(width, height, template) {
 	height = parseInt(height, 10);
