@@ -211,7 +211,7 @@ header#topNav div.nav-main-collapse.in {
 }
 
 header#topNav nav ul.nav-main {
-	margin: -2px 0 8px 0;
+	margin: -4px 0 8px 0;
 	z-index:300;
 }
 
@@ -286,18 +286,18 @@ header#topNav nav ul.nav-main li.dropdown.open a.dropdown-toggle {
 	border-radius: 5px 5px 0px 0px;
 }
 
-header#topNav nav ul.nav-main ul.dropdown-menu,
+/*header#topNav nav ul.nav-main ul.dropdown-menu,
 header#topNav nav ul.nav-main li.dropdown.open a.dropdown-toggle,
 header#topNav nav ul.nav-main li.active a {
 	background-color: transparent;
-}
+}*/
 
 header#topNav nav ul.nav-main ul.dropdown-menu {
 	top: auto;
-	border: 0;
+	/*border: 0;*/
 	border-radius: 6px;
 
-	margin: 0 0 0 0;
+	margin: 20px 0 0 0;
 	padding: 10px 0;
 
 	-webkit-border-radius: 6px;

@@ -15,10 +15,10 @@ namespace ArchitectureTemplate.Mvc
             routes.MapRoute("Info", "Info/{action}",
                 new { controller = "Info", action = "Index" });
 
-            routes.MapRoute("Processo", 
-               url: "{controller}/{action}/{processoId}/{id}",
+            routes.MapRoute("Processo",
+               url: "{controller}/{action}/{testId}/{id}",
                defaults: new { controller = "Arquivo", action = "Index" },
-               constraints: new { processoId = @"\d+"});
+               constraints: new { testId = @"\d+" });
 
             //Funciona
             //routes.MapRoute("Wf", "{controller}/{action}/{id}/{reload}",

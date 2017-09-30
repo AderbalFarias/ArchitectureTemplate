@@ -44,7 +44,7 @@ namespace ArchitectureTemplate.Mvc.Controllers
 
         // GET: Usuario
         [HttpGet]
-        //[Authorize(Roles = "Administrador")]
+        //[Authorize(Roles = "Administrator")]
         [IsAuthorize]
         [ActionType(AccessType.Read)]
         public async Task<ActionResult> Index(int idPag = 0)

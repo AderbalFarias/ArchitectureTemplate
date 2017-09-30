@@ -1,13 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Web.Mvc;
-using AutoMapper;
-using ArchitectureTemplate.Business.DataEntities;
+﻿using ArchitectureTemplate.Business.DataEntities;
 using ArchitectureTemplate.Business.Interfaces.Services;
 using ArchitectureTemplate.Infraestrutura.CrossCutting.Support.Extensions;
 using ArchitectureTemplate.Infraestrutura.CrossCutting.Support.Resources;
 using ArchitectureTemplate.Mvc.Controllers.Shared;
 using ArchitectureTemplate.Mvc.Models;
+using AutoMapper;
+using System;
+using System.Collections.Generic;
+using System.Web.Mvc;
 
 namespace ArchitectureTemplate.Mvc.Controllers
 {
@@ -35,19 +35,19 @@ namespace ArchitectureTemplate.Mvc.Controllers
         [AcceptVerbs(HttpVerbs.Get | HttpVerbs.Post)]
         [IsAuthorize]
         [ActionType(AccessType.Read)]
-        public ActionResult Index(int idPag = 0, long? processoId = null, string key = null)
+        public ActionResult Index(int idPag = 0, long? testId = null, string key = null)
         {
             try
             {
                 _pagination.PaginaAtual = idPag;
 
-                var entidade = _logService.Get(_pagination, processoId, key);
+                var entidade = _logService.Get(_pagination, testId, key);
                 var model = Mapper.Map<IEnumerable<Log>, IEnumerable<LogModel>>(entidade);
 
-                var paginar = _pagination.CalcularPagination(_pagination, _logService.Count(processoId, key));
+                var paginar = _pagination.CalcularPagination(_pagination, _logService.Count(testId, key));
                 ViewBag.PaginaAtual = paginar.PaginaAtual;
                 ViewBag.QtdePaginas = paginar.QtdePaginas;
-                ViewBag.ProcessoId = processoId;
+                ViewBag.TestId = testId;
                 ViewBag.Key = key;
 
                 return View(model);

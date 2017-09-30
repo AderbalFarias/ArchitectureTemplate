@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
-using ArchitectureTemplate.Business.DataEntities;
+﻿using ArchitectureTemplate.Business.DataEntities;
 using ArchitectureTemplate.Infraestrutura.CrossCutting.Support.Extensions;
+using System.Collections.Generic;
 
 namespace ArchitectureTemplate.Business.Interfaces.Repositories
 {
@@ -8,7 +8,7 @@ namespace ArchitectureTemplate.Business.Interfaces.Repositories
     {
         void Add(Log entity);
         IEnumerable<Log> Get();
-        IEnumerable<Log> Get(Pagination paginar, long? processoId = null, string key = null);
-        int Count(long? processoId = null, string key = null);
+        IEnumerable<Log> Get(Pagination paginar, long? testId = null, string key = null);
+        int Count(long? testId = null, string key = null);
     }
 }

@@ -46,18 +46,18 @@
     });
 
     $("#menu-lateral li a.linkto").click(function () {
-        if ($(this).attr("linkto").length !== 0 && $("#ProcessoId").val() > 0) {
-            window.location.href = $(this).attr("linkto") + $("#ProcessoId").val();
+        if ($(this).attr("linkto").length !== 0 && $("#TestId").val() > 0) {
+            window.location.href = $(this).attr("linkto") + $("#TestId").val();
         }
     });
 
-    if ($("#ProcessoId").val() > 0) {
+    if ($("#TestId").val() > 0) {
         $("#aside-nav").removeClass();
 
         $.ajax({
             url: "/Pesquisa/GetInfo",
             type: "GET",
-            data: { id: $("#ProcessoId").val() },
+            data: { id: $("#TestId").val() },
             dataType: "html",
             cache: false,
             success: function (data) {

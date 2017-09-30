@@ -36,7 +36,7 @@ namespace ArchitectureTemplate.Infrastructure.Data.Repositories
                 .ToList();
         }
 
-        public IEnumerable<Log> Get(Pagination paginar, long? processoId = null, string key = null)
+        public IEnumerable<Log> Get(Pagination paginar, long? testId = null, string key = null)
         {
             //return _context.Log
             //    .Include(i => i.LogType)
@@ -53,7 +53,7 @@ namespace ArchitectureTemplate.Infrastructure.Data.Repositories
                     from Log l
                     inner join LogType lt on lt.Id = l.LogTypeId                
                     left join Usuario u on u.Id = l.UsuarioId
-                    where {_log.Where(processoId, key)} 
+                    where {_log.Where(testId, key)} 
                     {paginar.GeneretePaginationSql(paginar, "l.Id")}",
                     (l, lt, u) =>
                     {
@@ -66,14 +66,14 @@ namespace ArchitectureTemplate.Infrastructure.Data.Repositories
             return resultList.ToList();
         }
 
-        public int Count(long? processoId = null, string key = null)
+        public int Count(long? testId = null, string key = null)
         {
             return _contextDapper
                 .Query<int>($@"select Count(l.Id)
                     from Log l
                     inner join LogType lt on lt.Id = l.LogTypeId                
                     left join Usuario u on u.Id = l.UsuarioId
-                    where {_log.Where(processoId, key)}")
+                    where {_log.Where(testId, key)}")
                 .Single();
         }
 

@@ -1,8 +1,8 @@
-﻿using System.Collections.Generic;
-using ArchitectureTemplate.Business.DataEntities;
+﻿using ArchitectureTemplate.Business.DataEntities;
 using ArchitectureTemplate.Business.Interfaces.Repositories;
 using ArchitectureTemplate.Business.Interfaces.Services;
 using ArchitectureTemplate.Infraestrutura.CrossCutting.Support.Extensions;
+using System.Collections.Generic;
 
 namespace ArchitectureTemplate.Business.Services
 {
@@ -24,7 +24,7 @@ namespace ArchitectureTemplate.Business.Services
         #endregion
 
         #region Methods
-        
+
         public void Add(Log entity)
         {
             _logRepository.Add(entity);
@@ -35,14 +35,14 @@ namespace ArchitectureTemplate.Business.Services
             return _logRepository.Get();
         }
 
-        public IEnumerable<Log> Get(Pagination paginar, long? processoId = null, string key = null)
+        public IEnumerable<Log> Get(Pagination paginar, long? testId = null, string key = null)
         {
-            return _logRepository.Get(paginar, processoId, key);
+            return _logRepository.Get(paginar, testId, key);
         }
 
-        public int Count(long? processoId = null, string key = null)
+        public int Count(long? testId = null, string key = null)
         {
-            return _logRepository.Count(processoId, key);
+            return _logRepository.Count(testId, key);
         }
 
         #endregion

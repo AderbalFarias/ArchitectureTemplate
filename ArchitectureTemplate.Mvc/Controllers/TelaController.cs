@@ -35,7 +35,7 @@ namespace ArchitectureTemplate.Mvc.Controllers
         #region Actions
 
         [HttpGet]
-        [Authorize(Roles = "Administrador")]
+        [Authorize(Roles = "Administrator")]
         [ActionType(AccessType.Read)]
         public ActionResult Index(int idPag = 0)
         {
@@ -62,7 +62,7 @@ namespace ArchitectureTemplate.Mvc.Controllers
 
         [HttpGet]
         //[IsAuthorize]
-        [Authorize(Roles = "Administrador")]
+        [Authorize(Roles = "Administrator")]
         [ActionType(AccessType.Update)]
         public ActionResult Synchronize()
         {
@@ -83,7 +83,7 @@ namespace ArchitectureTemplate.Mvc.Controllers
         }
 
         [HttpGet]
-        [Authorize(Roles = "Administrador")]
+        [Authorize(Roles = "Administrator")]
         [ActionType(AccessType.Update)]
         public async Task<ActionResult> Edit(long id)
         {
@@ -100,7 +100,7 @@ namespace ArchitectureTemplate.Mvc.Controllers
         }
 
         [HttpPut]
-        [Authorize(Roles = "Administrador")]
+        [Authorize(Roles = "Administrator")]
         [ActionType(AccessType.Update)]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(TelaModel model)

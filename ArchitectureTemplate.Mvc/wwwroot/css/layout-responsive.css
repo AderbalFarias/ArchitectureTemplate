@@ -323,6 +323,8 @@
 		-moz-box-shadow: none;
 		-webkit-box-shadow: none;
 		box-shadow: none;
+	    border: none;
+	    margin: 0;
 	}
 
 	header#topNav nav.nav-main li.resp-active > ul.dropdown-menu {

@@ -239,7 +239,7 @@ namespace ArchitectureTemplate.Mvc.Controllers
             var menus = _menuService.GetIdsPorPerfil(user.PerfilId);
             var hierarquias = user.HierarquiaId != null
                 ? _hierarquiaService.GetHierarquiaIdsForUser(user.HierarquiaId)
-                : user.PerfilId.Equals(PerfilResource.Administrador)
+                : user.PerfilId.Equals(PerfilResource.Administrator)
                     ? _hierarquiaService.GetAllHierarquiaIds()
                     : null;
 

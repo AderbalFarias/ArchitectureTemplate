@@ -23,12 +23,12 @@
                     var docIdDestino = parseInt(docId);
                     var ddId = $(event.target).attr("id").replace(/file_/g, "");
                     var docOrigemId = $("#OrigemFile").val();
-                    var processoId = $("#ProcessoId").val();
+                    var TestId = $("#TestId").val();
 
                     $.ajax({
                         url: "/Arquivo/AtribuirDocumento",
                         type: "POST",
-                        data: { processoId: processoId, ddId: ddId, docId: docId, docOrigemId },
+                        data: { TestId: TestId, ddId: ddId, docId: docId, docOrigemId },
                         dataType: "html",
                         cache: false,
                         success: function (data) {

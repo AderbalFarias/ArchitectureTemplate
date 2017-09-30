@@ -1,6 +1,6 @@
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using Newtonsoft.Json;
 
 namespace ArchitectureTemplate.Business.DataEntities
 {
@@ -20,7 +20,7 @@ namespace ArchitectureTemplate.Business.DataEntities
 
         public Log GeneratedForEntity<TEntity>(long userId, TEntity entity, int logType, bool refenciaCircular = false)
         {
-            string serializeJson = refenciaCircular 
+            string serializeJson = refenciaCircular
                 ? JsonConvert.SerializeObject(entity, Formatting.Indented,
                     new JsonSerializerSettings
                     {
@@ -41,7 +41,7 @@ namespace ArchitectureTemplate.Business.DataEntities
 
         public Log GeneratedForEntity<TEntity>(long userId, IEnumerable<TEntity> entity, int logType, bool refenciaCircular = false)
         {
-            string serializeJson = refenciaCircular 
+            string serializeJson = refenciaCircular
                 ? JsonConvert.SerializeObject(entity, Formatting.Indented,
                     new JsonSerializerSettings
                     {
@@ -60,7 +60,7 @@ namespace ArchitectureTemplate.Business.DataEntities
             };
         }
 
-        public string Where(long? processoId = null, string key = null)
+        public string Where(long? testId = null, string key = null)
         {
             var where = !string.IsNullOrEmpty(key)
                 ? $"(l.Conteudo like'%{key}%' or l.Mensagem like'%{key}%' " +
@@ -68,8 +68,8 @@ namespace ArchitectureTemplate.Business.DataEntities
                   $"or u.Login like'%{key}%')"
                 : "l.Id > 0";
 
-            where = where + (processoId.HasValue
-                ? $" and l.Conteudo like'%\"ProcessoId\": {processoId}%'"
+            where = where + (testId.HasValue
+                ? $" and l.Conteudo like'%\"TestId\": {testId}%'"
                 : string.Empty);
 
             return where;

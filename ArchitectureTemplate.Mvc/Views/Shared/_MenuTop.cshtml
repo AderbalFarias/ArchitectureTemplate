@@ -21,162 +21,6 @@
                     <a href="@Url.Action("Index", "Home")"><i class="fa fa-home"></i>Home</a>
                 </li>
 
-                @if (Model.Contains(3))
-                {
-                    <li class="dropdown" id="Menu_3">
-                        <a class="dropdown-toggle" href="#">
-                            <i class="fa fa-users"></i>
-                            <span>Menu</span>
-                            <i class="fa fa-angle-down"></i>
-                        </a>
-                        <ul class="dropdown-menu">
-                            @if (Model.Contains(4))
-                            {
-                                <li id="Menu_4">
-                                    <a href="@Url.Action("Index", "Pesquisa")"><i class="fa fa-search"></i>Localizar Processo</a>
-                                </li>
-                            }
-                            @if (Model.Contains(5))
-                            {
-                                <li id="Menu_5">
-                                    <a href="@Url.Action("Create", "Processo")"><i class="fa fa-clone"></i>Cadastro de Processo</a>
-                                </li>
-                            }
-                            @if (Model.Contains(6))
-                            {
-                                <li id="Menu_6">
-                                    <a href="@Url.Action("Index", "AtividadeExecutar")"><i class="fa fa-cogs"></i>Atividades a Executar</a>
-                                </li>
-                            }
-                            @if (Model.Contains(67))
-                            {
-                                <li id="Menu_67">
-                                    <a href="@Url.Action("Index", "WorkflowLote")"><i class="fa fa-cubes"></i>Atividades em Lote</a>
-                                </li>
-                            }
-                            @if (Model.Contains(7))
-                            {
-                                <li id="Menu_7">
-                                    <a href="@Url.Action("Index", "PesquisaAvancada")"><i class="fa fa-list-ul"></i>Pesquisa Avançada</a>
-                                </li>
-                            }
-                            @if (Model.Contains(8))
-                            {
-                                <li id="Menu_8">
-                                    <a href="@Url.Action("Index", "AtividadesConcluidas")"><i class="fa fa-list-ul"></i>Atividades Concluídas</a>
-                                </li>
-                            }
-                            @if (Model.Contains(9))
-                            {
-                                <li id="Menu_9">
-                                    <a href="@Url.Action("Index", "Dashboard")"><i class="fa fa-tachometer"></i>Dashboard</a>
-                                </li>
-                            }
-                            @if (Model.Contains(71))
-                            {
-                                <li id="Menu_71">
-                                    <a href="@Url.Action("Index", "Gravacao")"><i class="fa fa-file-audio-o"></i>Localizar Gravações</a>
-                                </li>
-                            }
-                            @if (Model.Contains(10))
-                            {
-                                <li id="Menu_10">
-                                    <a href="@Url.Action("Index", "Formularios")"><i class="fa fa-wpforms"></i>Formulários</a>
-                                </li>
-                            }                            
-                            @if (Model.Contains(12))
-                            {
-                                <li id="Menu_12">
-                                    <a href="@Url.Action("Index", "Malote")"><i class="fa fa-folder-o"></i>Controle de Malotes</a>
-                                </li>
-                            }
-                            @if (Model.Contains(63))
-                            {
-                                <li id="Menu_63">
-                                    <a href="@Url.Action("Index", "Etiqueta")"><i class="fa fa-barcode"></i>Etiquetagem</a>
-                                </li>
-                            }
-                            @if (Model.Contains(64))
-                            {
-                                <li id="Menu_64">
-                                    <a href="@Url.Action("Index", "CaixaDeProcesso")"><i class="fa fa-inbox"></i>Arquivo Morto</a>
-                                </li>
-                            }
-                            @if (Model.Contains(70))
-                            {
-                                <li id="Menu_70">
-                                    <a href="@Url.Action("Index", "Simuladores")"><i class="fa fa-calculator"></i>Simuladores</a>
-                                </li>
-                            }
-                            @if (Model.Contains(11))
-                            {
-                                <li id="Menu_11">
-                                    <a href="@Url.Action("Index", "Treinamento")"><i class="fa fa-keyboard-o"></i>Treinamento on-line</a>
-                                </li>
-                            }
-                        </ul>
-                    </li>
-                }
-                @if (Model.Contains(13))
-                {
-                    <li class="dropdown" id="Menu_13">
-                        <a class="dropdown-toggle" href="#">
-                            <i class="fa fa-wrench"></i>
-                            <span>Ferramentas</span>
-                            <i class="fa fa-angle-down"></i>
-                        </a>
-                        <ul class="dropdown-menu">
-                            @if (Model.Contains(62))
-                            {
-                                <li id="Menu_62" menu="principal">
-                                    <a href="https://app.contako.com.br/"><i class="fa fa-comments-o"></i>Chat</a>
-                                </li>
-                            }
-                            <li menu="principal">
-                                <a href="#"><i class="fa fa-long-arrow-right"></i>SMS Unidirecional</a>
-                            </li>
-                            <li menu="principal">
-                                <a href="#"><i class="fa fa-arrows-h"></i>SMS Bidirecional</a>
-                            </li>
-                            <li menu="principal">
-                                <a href="#"><i class="fa fa-volume-control-phone"></i>SMS to Call</a>
-                            </li>
-                            <li menu="principal">
-                                <a href="#"><i class="fa fa-phone"></i>Click to Call</a>
-                            </li>
-                            <li menu="principal">
-                                <a href="#"><i class="fa fa-mobile-phone"></i>Landing page</a>
-                            </li>
-                            <li menu="principal">
-                                <a href="#"><i class="fa fa-tty"></i>Agente virtual</a>
-                            </li>
-                            @if (Model.Contains(14))
-                            {
-                                <li id="Menu_14">
-                                    <a href="#"><i class="fa fa-television"></i>Monitoramento</a>
-                                </li>
-                            }
-                            @*@if (Model.Contains(15))
-                            {
-                                <li id="Menu_15">
-                                    <a href="#"><i class="fa fa-bar-chart"></i>Relatórios</a>
-                                </li>
-                            }*@
-                            @if (Model.Contains(16))
-                            {
-                                <li id="Menu_16">
-                                    <a href="#"><i class="fa fa-bullhorn"></i>Campanhas</a>
-                                </li>
-                            }
-                            @if (Model.Contains(17))
-                            {
-                                <li id="Menu_17">
-                                    <a href="#"><i class="fa fa-money"></i>Financeiro</a>
-                                </li>
-                            }
-                        </ul>
-                    </li>
-                }
                 @if (Model.Contains(1))
                 {
                     <li class="dropdown" id="Menu_1">
@@ -186,93 +30,39 @@
                             <i class="fa fa-angle-down"></i>
                         </a>
                         <ul class="dropdown-menu">
-                            @if (Model.Contains(18))
+                            @if (Model.Contains(6))
                             {
-                                <li id="Menu_18">
-                                    <a href="@Url.Action("Index", "Blacklist")"><i class="fa fa-list-alt"></i>Blacklist</a>
-                                </li>
-                            }
-                            @if (Model.Contains(19))
-                            {
-                                <li id="Menu_19">
-                                    <a href="@Url.Action("Index", "Documento")"><i class="fa fa-file-o"></i>Documentos</a>
-                                </li>
-                            }
-                            @if (Model.Contains(20))
-                            {
-                                <li id="Menu_20">
-                                    <a href="@Url.Action("Index", "Feriado")"><i class="fa fa-calendar-check-o"></i>Feriado</a>
-                                </li>
-                            }
-                            @if (Model.Contains(21))
-                            {
-                                <li id="Menu_21">
+                                <li id="Menu_6">
                                     <a href="@Url.Action("Index", "Hierarquia")"><i class="fa fa-indent"></i>Hierarquia</a>
                                 </li>
                             }
-                            @if (Model.Contains(22))
+                            @if (Model.Contains(5))
                             {
-                                <li id="Menu_22">
-                                    <a href="@Url.Action("Index", "Timeline")"><i class="fa fa-exchange"></i>Linha do Tempo</a>
-                                </li>
-                            }
-                            @if (Model.Contains(23))
-                            {
-                                <li id="Menu_23">
+                                <li id="Menu_5">
                                     <a href="@Url.Action("Index", "Log")"><i class="fa fa-info-circle"></i>Logs</a>
                                 </li>
                             }
-                            @if (Model.Contains(24))
+                            @if (Model.Contains(7))
                             {
-                                <li id="Menu_24">
-                                    <a href="@Url.Action("Index", "Alerta")"><i class="fa fa-window-maximize"></i>Modelo de Alertas</a>
-                                </li>
-                            }
-                            @if (Model.Contains(25))
-                            {
-                                <li id="Menu_25">
-                                    <a href="@Url.Action("Index", "EmailTemplate")"><i class="fa fa-send-o"></i>Modelo de E-mail</a>
-                                </li>
-                            }
-                            @if (Model.Contains(26))
-                            {
-                                <li id="Menu_26">
-                                    <a href="@Url.Action("Index", "SmsTemplate")"><i class="fa fa-tablet"></i>Modelo de Sms</a>
-                                </li>
-                            }
-                            @if (Model.Contains(27))
-                            {
-                                <li id="Menu_27">
+                                <li id="Menu_7">
                                     <a href="@Url.Action("Index", "Perfil")"><i class="fa fa-id-badge"></i>Perfis</a>
                                 </li>
                             }
-                            @if (Model.Contains(28))
+                            @if (Model.Contains(3))
                             {
-                                <li id="Menu_28">
+                                <li id="Menu_3">
                                     <a href="@Url.Action("Index", "Permissao")"><i class="fa fa-legal"></i>Permissões</a>
                                 </li>
                             }
-                            @if (Model.Contains(29))
+                            @if (Model.Contains(4))
                             {
-                                <li id="Menu_29">
-                                    <a href="@Url.Action("Index", "Produto")"><i class="fa fa-list-alt"></i>Produto/Serviço</a>
-                                </li>
-                            }
-                            @if (Model.Contains(30))
-                            {
-                                <li id="Menu_30">
-                                    <a href="@Url.Action("Index", "DocumentoPorProduto")"><i class="fa fa-file-text-o"></i>Produtos por Documentos</a>
-                                </li>
-                            }
-                            @if (Model.Contains(31))
-                            {
-                                <li id="Menu_31">
+                                <li id="Menu_4">
                                     <a href="@Url.Action("Index", "Tela")"><i class="fa fa-desktop"></i>Telas</a>
                                 </li>
                             }
-                            @if (Model.Contains(32))
+                            @if (Model.Contains(8))
                             {
-                                <li id="Menu_32">
+                                <li id="Menu_8">
                                     <a href="@Url.Action("Index", "Usuario")"><i class="fa fa-user-o"></i>Usuários</a>
                                 </li>
                             }
@@ -282,21 +72,9 @@
                                     <a href="@Url.Action("Index", "Menu")"><i class="fa fa-bars"></i>Parametrização de Menus</a>
                                 </li>
                             }
-                            @if (Model.Contains(65))
-                            {
-                                <li id="Menu_65">
-                                    <a href="@Url.Action("Index", "Alcada")"><i class="fa fa-square-o"></i>Limite de Alçadas</a>
-                                </li>
-                            }
                         </ul>
                     </li>
                 }
-                @*@if (Model.Contains(62))
-                    {
-                        <li id="Menu_62" menu="principal">
-                            <a href="https://app.contako.com.br/"><i class="fa fa-comments-o"></i>Chat</a>
-                        </li>
-                    }*@
             </ul>
         </nav>
     </div>

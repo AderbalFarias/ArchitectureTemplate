@@ -1,11 +1,11 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using ArchitectureTemplate.Business.DataEntities;
+﻿using ArchitectureTemplate.Business.DataEntities;
 using ArchitectureTemplate.Business.Interfaces.Repositories;
 using ArchitectureTemplate.Business.Interfaces.Services;
 using ArchitectureTemplate.Infraestrutura.CrossCutting.Support.Extensions;
 using ArchitectureTemplate.Infraestrutura.CrossCutting.Support.Resources;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace ArchitectureTemplate.Business.Services
 {
@@ -16,7 +16,7 @@ namespace ArchitectureTemplate.Business.Services
         private readonly IHierarquiaRepository _hierarquiaRepository;
 
         #endregion
-        
+
         #region Constructors
 
         public HierarquiaService(IHierarquiaRepository hierarquiaRepository)
@@ -131,7 +131,7 @@ namespace ArchitectureTemplate.Business.Services
 
         public IEnumerable<Hierarquia> GetHierarquiaDown(long userId, int perfilId, bool all = true)
         {
-            if (perfilId == PerfilResource.Administrador)
+            if (perfilId == PerfilResource.Administrator)
             {
                 var hList = _hierarquiaRepository
                     .GetList(w => w.HierarquiaPaiId == null)

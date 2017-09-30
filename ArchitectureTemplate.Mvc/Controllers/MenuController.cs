@@ -32,7 +32,7 @@ namespace ArchitectureTemplate.Mvc.Controllers
 
         [HttpGet]
         //[IsAuthorize]
-        [Authorize(Roles = "Administrador")]
+        [Authorize(Roles = "Administrator")]
         [ActionType(AccessType.Read)]
         public async Task<ActionResult> Index(int id = 0, double scroll = 0)
         {
@@ -65,7 +65,7 @@ namespace ArchitectureTemplate.Mvc.Controllers
 
         [HttpGet]
         //[IsAuthorize]
-        [Authorize(Roles = "Administrador")]
+        [Authorize(Roles = "Administrator")]
         [ActionType(AccessType.Read)]
         //public PartialViewResult List(int id)
         public ActionResult List(int id)
@@ -89,7 +89,7 @@ namespace ArchitectureTemplate.Mvc.Controllers
 
         [HttpPost]
         //[IsAuthorize]
-        [Authorize(Roles = "Administrador")]
+        [Authorize(Roles = "Administrator")]
         [ActionType(AccessType.Update)]
         public JsonResult Synchronize(IEnumerable<string> menuList)
         {
@@ -107,7 +107,7 @@ namespace ArchitectureTemplate.Mvc.Controllers
 
         [HttpGet]
         //[IsAuthorize]
-        [Authorize(Roles = "Administrador")]
+        [Authorize(Roles = "Administrator")]
         [ActionType(AccessType.Update)]
         public ActionResult EnableOrDisable(int id, int menuId, long permissaoId = 0, double scroll = 0)
         {
@@ -126,7 +126,7 @@ namespace ArchitectureTemplate.Mvc.Controllers
 
         [HttpGet]
         //[IsAuthorize]
-        [Authorize(Roles = "Administrador")]
+        [Authorize(Roles = "Administrator")]
         [ActionType(AccessType.Update)]
         public ActionResult EnableOrDisableAll(int id, bool ativar, double scroll = 0)
         {
@@ -144,7 +144,7 @@ namespace ArchitectureTemplate.Mvc.Controllers
 
         [HttpGet]
         //[IsAuthorize]
-        [Authorize(Roles = "Administrador")]
+        [Authorize(Roles = "Administrator")]
         [ActionType(AccessType.Read)]
         public JsonResult GetHtml()
         {

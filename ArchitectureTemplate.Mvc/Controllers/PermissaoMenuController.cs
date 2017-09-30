@@ -33,7 +33,7 @@ namespace ArchitectureTemplate.Mvc.Controllers
 
         [HttpGet]
         //[IsAuthorize]
-        [Authorize(Roles = "Administrador")]
+        [Authorize(Roles = "Administrator")]
         [ActionType(AccessType.Read)]
         public async Task<ActionResult> Index(int id = 0)
         {
@@ -65,7 +65,7 @@ namespace ArchitectureTemplate.Mvc.Controllers
 
         [HttpGet]
         //[IsAuthorize]
-        [Authorize(Roles = "Administrador")]
+        [Authorize(Roles = "Administrator")]
         [ActionType(AccessType.Read)]
         //public PartialViewResult List(int id)
         public ActionResult List(int id)
