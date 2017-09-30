@@ -11,7 +11,7 @@ namespace ArchitectureTemplate.Mvc.Models
         public int Id { get; set; }
 
         [DisplayName(@"Nome")]
-        [Required(ErrorMessage = @"Campo Obrigatório")]
+        [Required(ErrorMessage = @"Field Required")]
         [StringLength(50, ErrorMessage = @"O campo deve ter no máximo 100 caracteres")]
         public string Nome { get; set; }
 

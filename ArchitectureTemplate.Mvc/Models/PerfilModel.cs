@@ -8,11 +8,11 @@ namespace ArchitectureTemplate.Mvc.Models
     public class PerfilModel
     {
         [Key]
-        [DisplayName(@"Código")]
+        [DisplayName(@"Code")]
         public int Id { get; set; }
 
-        [DisplayName(@"Perfil")]
-        [Required(ErrorMessage = @"Campo Obrigatório")]
+        [DisplayName(@"Role")]
+        [Required(ErrorMessage = @"Field Required")]
         [StringLength(50, ErrorMessage = @"O campo deve ter no máximo 50 caracters")]
         public string Nome { get; set; }
 
@@ -20,7 +20,7 @@ namespace ArchitectureTemplate.Mvc.Models
 
         public string Solicitante { get; set; }
 
-        [DisplayName(@"Data de Cadastro")]
+        [DisplayName(@"Date of Create")]
         //[DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime DataCadastro { get; set; }
 

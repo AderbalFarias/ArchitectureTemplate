@@ -124,8 +124,8 @@ namespace ArchitectureTemplate.Mvc.Controllers
                         {
                             From = ConfigurationManager.AppSettings["EmailFrom"],
                             To = new List<string> { model.Email },
-                            Subject = "test",
-                            Body = "test"
+                            Subject = "New User",
+                            Body = "You are a new user of the system..."
                         };
 
                         _emailMailService.SendEmail(email);

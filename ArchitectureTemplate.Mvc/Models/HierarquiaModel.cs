@@ -16,7 +16,7 @@ namespace ArchitectureTemplate.Mvc.Models
         public long? HierarquiaPaiId { get; set; }
 
         //[DisplayName(@"Hierarquia")]
-        [Required(ErrorMessage = @"Campo Obrigatório")]
+        [Required(ErrorMessage = @"Field Required")]
         [StringLength(100, ErrorMessage = @"O campo deve ter no máximo 100 characteres")]
         public string Nome { get; set; }
 

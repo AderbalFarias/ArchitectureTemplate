@@ -13,7 +13,7 @@ namespace ArchitectureTemplate.Mvc.Models
         [DisplayName(@"Hierarquia")]
         public long? HierarquiaId { get; set; }
 
-        [Required(ErrorMessage = @"Campo Obrigatório")]
+        [Required(ErrorMessage = @"Field Required")]
         [DisplayName(@"Perfil")]
         public int PerfilId { get; set; }
 
@@ -23,16 +23,16 @@ namespace ArchitectureTemplate.Mvc.Models
         [DisplayName(@"Ramal do Agente")]
         public int? RamalAgente { get; set; }
 
-        [Required(ErrorMessage = @"Campo Obrigatório")]
+        [Required(ErrorMessage = @"Field Required")]
         public string Nome { get; set; }
 
         [DataType(DataType.Text)]
-        [Required(ErrorMessage = @"Campo Obrigatório")]
+        [Required(ErrorMessage = @"Field Required")]
         [DisplayFormat(DataFormatString = "{0:000\\.000\\.000-00}")]
         [DisplayName(@"Cpf")]
         public long? Cpf { get; set; }
 
-        [Required(ErrorMessage = @"Campo Obrigatório")]
+        [Required(ErrorMessage = @"Field Required")]
         [DataType(DataType.EmailAddress)]
         [RegularExpression(@"^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$", ErrorMessage = @"Endereço de e-mail inválido")]
         public string Email { get; set; }
@@ -41,7 +41,7 @@ namespace ArchitectureTemplate.Mvc.Models
         [DisplayFormat(DataFormatString = "{0:(00)000000000}")]
         public string Telefone { get; set; }
 
-        [Required(ErrorMessage = @"Campo Obrigatório")]
+        [Required(ErrorMessage = @"Field Required")]
         public string Login { get; set; }
 
         [DataType(DataType.Password)]
