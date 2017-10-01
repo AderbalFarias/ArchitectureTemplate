@@ -83,17 +83,11 @@
         @Html.Partial("_MenuLateral")
     </aside>
 
-    <!-- Conteúdo -->
     <section class="page-content">
-        @*<header id="page-title">
-            <h3 class="container">@ViewBag.ContentTitle</h3>
-        </header>*@
-
         <section class="container">
             @RenderBody()
         </section>
     </section>
-    <!-- /Conteúdo -->
 
     <footer>
         <div class="footer-bar">
@@ -106,7 +100,6 @@
 
     <!-- js -->
     @Scripts.Render("~/bundles/plugins")
-    @*<script type="text/javascript" src="~/wwwroot/plugins/bootstrap/js/bootstrap.min.js"></script>*@
     <script type="text/javascript" src="~/wwwroot/js/layout.js@("?v201703221651?")"></script>
     <script type="text/javascript" src="~/wwwroot/js/menu_lateral.js@("?v201703221651?")"></script>
     <script type="text/javascript" src="~/wwwroot/js/scripts.js@("?v201708141110?")"></script>
