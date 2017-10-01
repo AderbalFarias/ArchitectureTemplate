@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ArchitectureTemplate.Infrastructure.WindowService.Service.Services;
+using SimpleInjector;
+using System;
 using System.ServiceProcess;
 
 namespace ArchitectureTemplate.Infrastructure.WindowService.Service
@@ -7,12 +9,15 @@ namespace ArchitectureTemplate.Infrastructure.WindowService.Service
     {
         #region Fields
 
+        private readonly Container _container = new Container();
+
         #endregion
 
         #region Constructors
 
         public StartService()
         {
+            InitializeContainer(_container);
             InitializeComponent();
         }
 
@@ -40,6 +45,8 @@ namespace ArchitectureTemplate.Infrastructure.WindowService.Service
             {
                 //int hora = int.Parse(ConfigurationManager.AppSettings["HoraInicio"]);
                 //if (DateTime.Now.Hour < hora) return;
+
+                _container.GetInstance<UserService>().Action();
 
                 timerStart.Stop();
                 //code to do something here
