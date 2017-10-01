@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Presentation", "1 - Presentation", "{4651BA28-022B-4E06-B9BE-8F2FE79DCBC9}"
 EndProject
@@ -28,6 +28,12 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArchitectureTemplate.Infrastructure.WindowService.Service", "ArchitectureTemplate.Infrastructure.WindowService.Service\ArchitectureTemplate.Infrastructure.WindowService.Service.csproj", "{54514C2A-9B1F-4760-8AC9-DBD0ED2542E1}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.4 - WCF", "3.4 - WCF", "{7D25F572-A499-4F7C-A399-E63EFACD3A36}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArchitectureTemplate.Infrastructure.WCF.Contracts", "ArchitectureTemplate.Infrastructure.WCF.Contracts\ArchitectureTemplate.Infrastructure.WCF.Contracts.csproj", "{00053BA0-B3F1-4D52-8074-B902E6515A7F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArchitectureTemplate.Infrastructure.WCF.Managers", "ArchitectureTemplate.Infrastructure.WCF.Managers\ArchitectureTemplate.Infrastructure.WCF.Managers.csproj", "{040E9A72-CCDD-45D9-9D31-C216DB12280C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArchitectureTemplate.Infrastructure.WCF.Proxies", "ArchitectureTemplate.Infrastructure.WCF.Proxies\ArchitectureTemplate.Infrastructure.WCF.Proxies.csproj", "{5CFAEA04-654E-4404-883F-BE9A0BB708C5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -59,6 +65,18 @@ Global
 		{54514C2A-9B1F-4760-8AC9-DBD0ED2542E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{54514C2A-9B1F-4760-8AC9-DBD0ED2542E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{54514C2A-9B1F-4760-8AC9-DBD0ED2542E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00053BA0-B3F1-4D52-8074-B902E6515A7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00053BA0-B3F1-4D52-8074-B902E6515A7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00053BA0-B3F1-4D52-8074-B902E6515A7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00053BA0-B3F1-4D52-8074-B902E6515A7F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{040E9A72-CCDD-45D9-9D31-C216DB12280C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{040E9A72-CCDD-45D9-9D31-C216DB12280C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{040E9A72-CCDD-45D9-9D31-C216DB12280C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{040E9A72-CCDD-45D9-9D31-C216DB12280C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5CFAEA04-654E-4404-883F-BE9A0BB708C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5CFAEA04-654E-4404-883F-BE9A0BB708C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5CFAEA04-654E-4404-883F-BE9A0BB708C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5CFAEA04-654E-4404-883F-BE9A0BB708C5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -74,5 +92,11 @@ Global
 		{EA40395C-C8C9-4B0F-B8FE-1648A0F53EC8} = {FE884A6F-3E51-4E8B-9C8F-F852A94DD798}
 		{54514C2A-9B1F-4760-8AC9-DBD0ED2542E1} = {EA40395C-C8C9-4B0F-B8FE-1648A0F53EC8}
 		{7D25F572-A499-4F7C-A399-E63EFACD3A36} = {FE884A6F-3E51-4E8B-9C8F-F852A94DD798}
+		{00053BA0-B3F1-4D52-8074-B902E6515A7F} = {7D25F572-A499-4F7C-A399-E63EFACD3A36}
+		{040E9A72-CCDD-45D9-9D31-C216DB12280C} = {7D25F572-A499-4F7C-A399-E63EFACD3A36}
+		{5CFAEA04-654E-4404-883F-BE9A0BB708C5} = {7D25F572-A499-4F7C-A399-E63EFACD3A36}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {254B5E61-6069-4684-84D3-82FEED7B4E2D}
 	EndGlobalSection
 EndGlobal
