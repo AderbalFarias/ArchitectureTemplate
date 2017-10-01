@@ -12,20 +12,20 @@ namespace ArchitectureTemplate.Mvc
             //config.EnableCors();
 
             //// Web API routes
-            //config.MapHttpAttributeRoutes();
+            config.MapHttpAttributeRoutes();
 
             ////Remove o formato Xml que vem como padrão
-            //config.Formatters.Remove(config.Formatters.XmlFormatter);
+            config.Formatters.Remove(config.Formatters.XmlFormatter);
 
-            //config.Routes.MapHttpRoute(
-            //    "MapByAction",
-            //    "api/{controller}/{action}/{id}",
-            //    new { id = RouteParameter.Optional });
+            config.Routes.MapHttpRoute(
+                "MapByAction",
+                "api/{controller}/{action}/{id}",
+                new { id = RouteParameter.Optional });
 
-            //config.Routes.MapHttpRoute(
-            //    "DefaultApi",
-            //    "api/{controller}/{id}",
-            //    new { id = RouteParameter.Optional });
+            config.Routes.MapHttpRoute(
+                "DefaultApi",
+                "api/{controller}/{id}",
+                new { id = RouteParameter.Optional });
         }
     }
 }
