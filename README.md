@@ -13,7 +13,9 @@ This repository implement a template of architecture with Technologies like:
 - AutoMapper
 - Linq Lambda Expressions
 - Layered Architecture
+- WEB Api
 - Windows Service
+- WCF
 
 ## Configuration
 
