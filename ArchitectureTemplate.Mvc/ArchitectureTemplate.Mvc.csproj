@@ -201,7 +201,7 @@
     <Compile Include="App_Start\SimpleInjectorInitializer.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\Api\PerfilApiController.cs" />
-    <Compile Include="Controllers\PermissaoMenuController.cs" />
+    <Compile Include="Controllers\Api\PermissaoApiController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\PermissaoController.cs" />
     <Compile Include="Controllers\LogController.cs" />
