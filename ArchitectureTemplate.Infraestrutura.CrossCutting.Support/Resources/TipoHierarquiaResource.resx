@@ -118,14 +118,14 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="IdRaiz" type="System.Int32, mscorlib">
+  <data name="IdRoot" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
   <data name="IdUnidade" type="System.Int32, mscorlib">
     <value>4</value>
   </data>
-  <data name="Raiz" xml:space="preserve">
-    <value>Raiz</value>
+  <data name="Root" xml:space="preserve">
+    <value>Root</value>
   </data>
   <data name="Unidade" xml:space="preserve">
     <value>Unidade</value>

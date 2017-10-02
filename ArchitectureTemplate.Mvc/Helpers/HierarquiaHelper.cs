@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using ArchitectureTemplate.Mvc.Models;
+using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
-using ArchitectureTemplate.Mvc.Models;
 
 namespace ArchitectureTemplate.Mvc.Helpers
 {
@@ -16,22 +16,22 @@ namespace ArchitectureTemplate.Mvc.Helpers
             var ul = new TagBuilder("ul");
             ul.GenerateId("ulTreeOne");
 
-            var raiz = hList.First(f => f.TipoHierarquia.Descricao.Equals("Raiz"));
-            var filhosRaiz = hList.Where(w => w.HierarquiaPaiId == raiz.Id).ToList();
+            var root = hList.First(f => f.TipoHierarquia.Descricao.Equals("Root"));
+            var filhosRoot = hList.Where(w => w.HierarquiaPaiId == root.Id).ToList();
 
-            var conteudoArvore = filhosRaiz
+            var conteudoArvore = filhosRoot
                 .Aggregate(string.Empty, (current, item) => current + item.TreeHierarquia(item, openAll));
 
-            var acoes = $"<a href=\"\\Hierarquia\\Create?idPai={raiz.Id}\">" +
+            var acoes = $"<a href=\"\\Hierarquia\\Create?idPai={root.Id}\">" +
                         $"<i class=\"fa fa-plus-square-o\"></i></a>" +
-                    $"<a href=\"\\Hierarquia\\Edit\\{raiz.Id}\" ><i class=\"fa fa-edit\"></i></a>" +
-                    $"<a onclick=\"ConfirmDialog('/Hierarquia/Delete/{raiz.Id}', " +
-                        $"'Deseja realmente excluir a hierarquia {raiz.Nome}')\">" +
+                    $"<a href=\"\\Hierarquia\\Edit\\{root.Id}\" ><i class=\"fa fa-edit\"></i></a>" +
+                    $"<a onclick=\"ConfirmDialog('/Hierarquia/Delete/{root.Id}', " +
+                        $"'Deseja realmente excluir a hierarquia {root.Nome}')\">" +
                             $"<i class=\"fa fa-remove\"></i></a>";
 
             var li = new TagBuilder("li")
             {
-                InnerHtml = $"{raiz.Nome} {acoes} <ul>{conteudoArvore}</ul>"
+                InnerHtml = $"{root.Nome} {acoes} <ul>{conteudoArvore}</ul>"
             };
 
             ul.InnerHtml = $"{MvcHtmlString.Create(li.ToString(TagRenderMode.Normal))}";

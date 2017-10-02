@@ -1,3 +1,5 @@
+using ArchitectureTemplate.Business.DataEntities;
+using ArchitectureTemplate.Mvc.Controllers.Shared;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -5,9 +7,8 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.CompilerServices;
+using System.Web.Http;
 using System.Web.Mvc;
-using ArchitectureTemplate.Business.DataEntities;
-using ArchitectureTemplate.Mvc.Controllers.Shared;
 
 namespace ArchitectureTemplate.Mvc.Models
 {
@@ -26,7 +27,7 @@ namespace ArchitectureTemplate.Mvc.Models
 
         [DisplayName(@"Data de Cadastro")]
         public DateTime DataCadastro { get; set; }
-        
+
         public bool Ativo { get; set; }
 
         [DisplayName(@"Cadastrar")]
@@ -40,7 +41,7 @@ namespace ArchitectureTemplate.Mvc.Models
 
         [DisplayName(@"Deletar")]
         public bool Delete { get; set; }
-        
+
         //public ICollection<PerfilPorTela> PerfilPorTela { get; set; }
 
         public IEnumerable<object> MapperActions()
@@ -71,19 +72,24 @@ namespace ArchitectureTemplate.Mvc.Models
         {
             var actionList = Assembly.GetAssembly(typeof(MvcApplication))
                 .GetTypes()
-                .Where(type => typeof(Controller).IsAssignableFrom(type) 
-                    && !type.Name.Equals("CustomController") && type.IsPublic 
-                    && !type.GetCustomAttributes(typeof(CompilerGeneratedAttribute), true).Any())
+                .Where(type => (typeof(Controller).IsAssignableFrom(type)
+                    || typeof(ApiController).IsAssignableFrom(type))
+                        && !type.Name.Equals("CustomController") && type.IsPublic
+                        && !type.GetCustomAttributes(typeof(CompilerGeneratedAttribute), true).Any())
                 .Select(s => new Tela
                 {
                     Nome = s.Name.Replace("Controller", ""),
                     ControllerName = s.Name,
                     DataCadastro = DateTime.Now,
                     Ativo = true,
-                    Create = GetAccessType(s.GetMethods(BindingFlags.Instance | BindingFlags.DeclaredOnly | BindingFlags.Public), AccessType.Create),
-                    Read = GetAccessType(s.GetMethods(BindingFlags.Instance | BindingFlags.DeclaredOnly | BindingFlags.Public), AccessType.Read),
-                    Update = GetAccessType(s.GetMethods(BindingFlags.Instance | BindingFlags.DeclaredOnly | BindingFlags.Public), AccessType.Update),
-                    Delete = GetAccessType(s.GetMethods(BindingFlags.Instance | BindingFlags.DeclaredOnly | BindingFlags.Public), AccessType.Delete),
+                    Create = GetAccessType(s.GetMethods(BindingFlags.Instance
+                        | BindingFlags.DeclaredOnly | BindingFlags.Public), AccessType.Create),
+                    Read = GetAccessType(s.GetMethods(BindingFlags.Instance
+                        | BindingFlags.DeclaredOnly | BindingFlags.Public), AccessType.Read),
+                    Update = GetAccessType(s.GetMethods(BindingFlags.Instance
+                        | BindingFlags.DeclaredOnly | BindingFlags.Public), AccessType.Update),
+                    Delete = GetAccessType(s.GetMethods(BindingFlags.Instance
+                        | BindingFlags.DeclaredOnly | BindingFlags.Public), AccessType.Delete),
                 })
                 .OrderBy(x => x.ControllerName)
                 .ToList();
