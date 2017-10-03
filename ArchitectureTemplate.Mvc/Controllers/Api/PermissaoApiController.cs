@@ -1,9 +1,7 @@
-﻿using ArchitectureTemplate.Business.DataEntities;
-using ArchitectureTemplate.Business.Interfaces.Services;
+﻿using ArchitectureTemplate.Business.Interfaces.Services;
 using ArchitectureTemplate.Mvc.Controllers.Shared;
-using ArchitectureTemplate.Mvc.Models;
 using System;
-using System.Collections.Generic;
+using System.Security.Claims;
 using System.Web.Http;
 
 namespace ArchitectureTemplate.Mvc.Controllers.Api
@@ -12,74 +10,72 @@ namespace ArchitectureTemplate.Mvc.Controllers.Api
     {
         #region Fields
 
-        private readonly IMenuService _menuService;
-        private readonly IDictionaryAllService _dictionaryAllService;
+        #region Fields
+
+        private readonly IPermissaoService _permissaoService;
 
         #endregion
 
         #region Constructors
 
-        public PermissaoApiController(IMenuService menuService,
-            IDictionaryAllService dictionaryAllService)
+        public PermissaoApiController(IPermissaoService permissaoService)
         {
-            _menuService = menuService;
-            _dictionaryAllService = dictionaryAllService;
+            _permissaoService = permissaoService;
         }
 
         #endregion
 
-        #region Actions
 
+        [HttpGet]
         [IsAuthorize]
-        [ActionType(AccessType.Read)]
-        public IHttpActionResult Index(int id = 0)
+        [Authorize(Roles = "Administrator")]
+        [ActionType(AccessType.Update)]
+        //public PartialViewResult List(int id)
+        public IHttpActionResult EnableOrDisable(int id, int telaId, string parametro, long permissaoId = 0, double scroll = 0)
         {
             try
             {
-                var model = new MenuModel
-                {
-                    PerfilId = id,
-                    PerfilDictionary = _dictionaryAllService.GetPerfilDictionary()
-                };
+                var userClain = this.User.Identity as ClaimsIdentity;
+                var x = Convert.ToInt64(userClain?.FindFirst(ClaimTypes.NameIdentifier).Value);
 
-                if (id == 0)
-                {
-                    model.MenuList = _menuService.GetAll();
-                }
-                else
-                {
-                    model.PerfilPorMenuList = new List<PerfilPorMenu>();
-                }
-
-                return Ok(model);
+                _permissaoService.EnableOrDisabled(id, telaId, parametro, permissaoId, x);
+                //ShowMessageDialog(MensagensResource.SucessoAtualizar, Message.MessageKind.Success);
             }
             catch (Exception e)
             {
-                //ShowMessageDialog(MensagensResource.ErroCarregar, e);
-                return BadRequest(e.ToString());
-            }
-        }
-
-        [IsAuthorize]
-        [ActionType(AccessType.Read)]
-        public IHttpActionResult List(int id)
-        {
-            try
-            {
-                var model = new MenuModel
-                {
-                    PerfilId = id,
-                    PerfilPorMenuList = new List<PerfilPorMenu>()
-                };
-
-                return Ok(model);
-            }
-            catch (Exception e)
-            {
+                //ShowMessageDialog("Ocorreu um erro ao tentar atualizar as permissões", e);
                 //LogException(e);
                 return BadRequest(e.ToString());
             }
+
+            return Ok();
         }
+
+        [HttpGet]
+        [IsAuthorize]
+        [Authorize(Roles = "Administrator")]
+        [ActionType(AccessType.Update)]
+        //public PartialViewResult List(int id)
+        public IHttpActionResult EnableOrDisableAll(int id, int telaId, bool ativar, long permissaoId = 0, double scroll = 0)
+        {
+            try
+            {
+                var userClain = this.User.Identity as ClaimsIdentity;
+                var x = Convert.ToInt64(userClain?.FindFirst(ClaimTypes.NameIdentifier).Value);
+
+                _permissaoService.EnableOrDisabled(id, telaId, ativar, permissaoId, x);
+                //ShowMessageDialog(MensagensResource.SucessoAtualizar, Message.MessageKind.Success);
+            }
+            catch (Exception e)
+            {
+                //ShowMessageDialog("Ocorreu um erro ao tentar atualizar as permissões", e);
+                //LogException(e);
+                return BadRequest(e.ToString());
+            }
+
+            return Ok();
+        }
+
 
         #endregion
     }

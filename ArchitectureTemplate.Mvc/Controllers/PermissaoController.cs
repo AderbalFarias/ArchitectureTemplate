@@ -1,18 +1,18 @@
-﻿using System;
-using System.Threading.Tasks;
-using System.Web.Mvc;
-using ArchitectureTemplate.Business.Interfaces.Services;
+﻿using ArchitectureTemplate.Business.Interfaces.Services;
 using ArchitectureTemplate.Infraestrutura.CrossCutting.Support.Resources;
 using ArchitectureTemplate.Mvc.Controllers.Shared;
 using ArchitectureTemplate.Mvc.Models;
 using OfficeOpenXml;
+using System;
+using System.Threading.Tasks;
+using System.Web.Mvc;
 
 namespace ArchitectureTemplate.Mvc.Controllers
 {
     public class PermissaoController : CustomController
     {
         #region Fields
-        
+
         private readonly IPermissaoService _permissaoService;
         private readonly ITelaService _telaService;
         private readonly IDictionaryAllService _dictionaryAllService;
@@ -21,7 +21,7 @@ namespace ArchitectureTemplate.Mvc.Controllers
 
         #region Constructors
 
-        public PermissaoController(IPermissaoService permissaoService, ITelaService telaService, 
+        public PermissaoController(IPermissaoService permissaoService, ITelaService telaService,
             IDictionaryAllService dictionaryAllService)
         {
             _permissaoService = permissaoService;
@@ -89,7 +89,7 @@ namespace ArchitectureTemplate.Mvc.Controllers
                 return Content("Error");
             }
         }
-        
+
         [HttpGet]
         //[IsAuthorize]
         [Authorize(Roles = "Administrator")]
