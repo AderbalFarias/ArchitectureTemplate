@@ -29,7 +29,7 @@ namespace ArchitectureTemplate.Mvc
 
             bundles.Add(new ScriptBundle("~/bundles/mask")
                 .Include("~/wwwroot/plugins/jquery-mask/jquery.mask.js"));
-            
+
             var oJqueryval = new ScriptBundle("~/bundles/jqueryval")
                 .Include("~/wwwroot/plugins/jquery-validation/jquery.validate-vsdoc.js",
                     "~/wwwroot/plugins/jquery-validation/jquery.validate.js",
@@ -47,7 +47,7 @@ namespace ArchitectureTemplate.Mvc
                 .Include("~/wwwroot/plugins/highcharts/highcharts.js",
                     "~/wwwroot/plugins/highcharts/highcharts_pt-Br.js",
                     "~/wwwroot/plugins/highcharts/highcharts-3d.js");
-                    //"~/wwwroot/plugins/highcharts/exporting.js");
+            //"~/wwwroot/plugins/highcharts/exporting.js");
 
             oHighcharts.Orderer = new AsIsBundleOrderer();
             bundles.Add(oHighcharts);
@@ -60,24 +60,6 @@ namespace ArchitectureTemplate.Mvc
 
             oDatetimepicker.Orderer = new AsIsBundleOrderer();
             bundles.Add(oDatetimepicker);
-
-            //bundles.Add(new ScriptBundle("~/bundles/inputmask").Include(
-            //        "~/wwwroot/plugins/jquery-inputmask/inputmask.js",
-            //        "~/wwwroot/plugins/jquery-inputmask/inputmask*",
-            //        "~/wwwroot/plugins/jquery-inputmask/jquery.inputmask.js"));
-
-            //// Use the development version of Modernizr to develop with and learn from. Then, when you're
-            //// ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
-            //bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
-            //            "~/Scripts/modernizr-*"));
-
-            //bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-            //          "~/Scripts/bootstrap.js",
-            //          "~/Scripts/respond.js"));
-
-            //bundles.Add(new StyleBundle("~/Content/css").Include(
-            //          "~/Content/bootstrap.css",
-            //          "~/Content/site.css"));
 
             BundleTable.EnableOptimizations = false;
         }

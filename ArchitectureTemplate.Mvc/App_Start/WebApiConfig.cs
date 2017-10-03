@@ -14,7 +14,7 @@ namespace ArchitectureTemplate.Mvc
             //// Web API routes
             config.MapHttpAttributeRoutes();
 
-            ////Remove o formato Xml que vem como padrão
+            ////Remove xml format because it's default
             config.Formatters.Remove(config.Formatters.XmlFormatter);
 
             config.Routes.MapHttpRoute(
