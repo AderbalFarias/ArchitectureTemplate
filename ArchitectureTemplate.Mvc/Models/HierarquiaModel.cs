@@ -17,17 +17,17 @@ namespace ArchitectureTemplate.Mvc.Models
 
         //[DisplayName(@"Hierarquia")]
         [Required(ErrorMessage = @"Field Required")]
-        [StringLength(100, ErrorMessage = @"O campo deve ter no máximo 100 characteres")]
+        [StringLength(100, ErrorMessage = @"Field must be 100 characters or less")]
         public string Nome { get; set; }
 
-        [DisplayName(@"Descrição")]
-        [StringLength(500, ErrorMessage = @"O campo deve ter no máximo 500 characteres")]
+        [DisplayName(@"Description")]
+        [StringLength(500, ErrorMessage = @"Field must be 500 characters or less")]
         public string Descricao { get; set; }
 
-        [DisplayName(@"Ativa")]
+        [DisplayName(@"Active")]
         public bool Ativo { get; set; } = true;
 
-        [DisplayName(@"Tipo da Hierarquia")]
+        [DisplayName(@"Kind of Hierarquia")]
         public int? TipoHierarquiaId { get; set; }
 
         public bool Vertical { get; set; }

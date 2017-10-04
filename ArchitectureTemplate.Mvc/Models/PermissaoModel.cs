@@ -1,12 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using ArchitectureTemplate.Business.DataEntities;
+using System.Collections.Generic;
 using System.ComponentModel;
-using ArchitectureTemplate.Business.DataEntities;
 
 namespace ArchitectureTemplate.Mvc.Models
 {
     public class PermissaoModel
     {
-        [DisplayName(@"Perfil")]
+        [DisplayName(@"Role")]
         public int PerfilId { get; set; }
 
         public IEnumerable<Tela> TelaList { get; set; }

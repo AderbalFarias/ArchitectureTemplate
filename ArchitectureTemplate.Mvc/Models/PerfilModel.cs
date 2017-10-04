@@ -13,7 +13,7 @@ namespace ArchitectureTemplate.Mvc.Models
 
         [DisplayName(@"Role")]
         [Required(ErrorMessage = @"Field Required")]
-        [StringLength(50, ErrorMessage = @"O campo deve ter no máximo 50 caracters")]
+        [StringLength(50, ErrorMessage = @"Field must be 50 characters or less")]
         public string Nome { get; set; }
 
         public bool Ativo { get; set; }

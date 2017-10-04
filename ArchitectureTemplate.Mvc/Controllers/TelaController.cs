@@ -72,7 +72,7 @@ namespace ArchitectureTemplate.Mvc.Controllers
                 var controllersList = model.MapperControllers();
                 _telaService.Synchronize(controllersList, CurrentUser.UserId);
 
-                ShowMessageDialog("Telas sincronizadas com sucesso", Message.MessageKind.Success);
+                ShowMessageDialog("Screens synchronized successfully", Message.MessageKind.Success);
             }
             catch (Exception e)
             {

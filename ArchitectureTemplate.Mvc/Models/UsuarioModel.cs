@@ -17,12 +17,6 @@ namespace ArchitectureTemplate.Mvc.Models
         [DisplayName(@"Perfil")]
         public int PerfilId { get; set; }
 
-        [DisplayName(@"Código do Agente")]
-        public int? CodigoAgente { get; set; }
-
-        [DisplayName(@"Ramal do Agente")]
-        public int? RamalAgente { get; set; }
-
         [Required(ErrorMessage = @"Field Required")]
         public string Nome { get; set; }
 

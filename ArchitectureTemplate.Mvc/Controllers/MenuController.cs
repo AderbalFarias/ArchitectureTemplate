@@ -1,11 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using System.Web.Mvc;
-using ArchitectureTemplate.Business.Interfaces.Services;
+﻿using ArchitectureTemplate.Business.Interfaces.Services;
 using ArchitectureTemplate.Infraestrutura.CrossCutting.Support.Resources;
 using ArchitectureTemplate.Mvc.Controllers.Shared;
 using ArchitectureTemplate.Mvc.Models;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using System.Web.Mvc;
 
 namespace ArchitectureTemplate.Mvc.Controllers
 {
@@ -76,7 +76,7 @@ namespace ArchitectureTemplate.Mvc.Controllers
                 {
                     PerfilId = id,
                     PerfilPorMenuList = _menuService.GetPorPerfil(id)
-            };
+                };
 
                 return PartialView("_List", model);
             }
@@ -118,7 +118,7 @@ namespace ArchitectureTemplate.Mvc.Controllers
             }
             catch (Exception e)
             {
-                ShowMessageDialog("Ocorreu um erro ao tentar atualizar os menus", e);
+                ShowMessageDialog("There was an error when you trying to update the menu", e);
             }
 
             return RedirectToAction("Index", new { id, scroll });
@@ -136,7 +136,7 @@ namespace ArchitectureTemplate.Mvc.Controllers
             }
             catch (Exception e)
             {
-                ShowMessageDialog("Ocorreu um erro ao tentar atualizar os menus", e);
+                ShowMessageDialog("There was an error when you trying to update the menu", e);
             }
 
             return RedirectToAction("Index", new { id, scroll });

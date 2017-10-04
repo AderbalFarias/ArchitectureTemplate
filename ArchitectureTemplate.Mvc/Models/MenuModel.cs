@@ -1,21 +1,21 @@
+using ArchitectureTemplate.Business.DataEntities;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using ArchitectureTemplate.Business.DataEntities;
 
 namespace ArchitectureTemplate.Mvc.Models
 {
     public class MenuModel
     {
-        [DisplayName(@"Identificador")]
+        [DisplayName(@"Identify")]
         public int Id { get; set; }
 
-        [DisplayName(@"Nome")]
+        [DisplayName(@"Name")]
         [Required(ErrorMessage = @"Field Required")]
-        [StringLength(50, ErrorMessage = @"O campo deve ter no máximo 100 caracteres")]
+        [StringLength(50, ErrorMessage = @"Field must be 100 characters or less")]
         public string Nome { get; set; }
 
-        [DisplayName(@"Perfil")]
+        [DisplayName(@"Role")]
         public int PerfilId { get; set; }
 
         public IEnumerable<Menu> MenuList { get; set; }

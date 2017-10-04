@@ -6,37 +6,37 @@ namespace ArchitectureTemplate.Mvc.Models
     public class LoginModel
     {
         [Required(ErrorMessage = @"Field Required")]
-        [DisplayName(@"Login")]
+        [DisplayName(@"User")]
         public string Login { get; set; }
 
         [Required(ErrorMessage = @"Field Required")]
-        [DisplayName(@"Senha")]
+        [DisplayName(@"Passward")]
         [DataType(DataType.Password)]
         public string Password { get; set; }
 
-        [DisplayName(@"Lembrar")]
+        [DisplayName(@"Remember-Me")]
         public bool RememberMe { get; set; }
 
         [Required(ErrorMessage = @"Field Required")]
         [DataType(DataType.EmailAddress)]
-        [EmailAddress(ErrorMessage = @"Preencha com um e-mail válido")]
-        [DisplayName(@"E-mail")]
+        [EmailAddress(ErrorMessage = @"Your must be valid")]
+        [DisplayName(@"Email")]
         public string Email { get; set; }
 
         [Required(ErrorMessage = @"Field Required")]
-        [DisplayName(@"Código Recuperação")]
+        [DisplayName(@"Code Recover")]
         public string CodigoRecover { get; set; }
 
         [Required(ErrorMessage = @"Field Required")]
-        [StringLength(100, ErrorMessage = @"O campo deve ter no mínimo {2} characters", MinimumLength = 6)]
+        [StringLength(100, ErrorMessage = @"Field must be at least {2} characters", MinimumLength = 6)]
         [DataType(DataType.Password)]
-        [Display(Name = @"Nova Senha")]
+        [Display(Name = @"New Password")]
         public string NewPassword { get; set; }
 
         [Required(ErrorMessage = @"Field Required")]
         [DataType(DataType.Password)]
-        [Display(Name = @"Confirme a nova senha")]
-        [Compare("NewPassword", ErrorMessage = @"A nova senha e a confimirmação não conferem.")]
+        [Display(Name = @"Confirm New Password")]
+        [Compare("NewPassword", ErrorMessage = @"New password and confirmation does not match.")]
         public string ConfirmPassword { get; set; }
     }
 }

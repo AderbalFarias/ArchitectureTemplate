@@ -6,26 +6,26 @@ namespace ArchitectureTemplate.Mvc.Models
 {
     public class LogModel
     {
-        [DisplayName(@"Id do Log")]
+        [DisplayName(@"Id of Log")]
         public long Id { get; set; }
 
-        [DisplayName(@"Tipo de Log")]
+        [DisplayName(@"King of Log")]
         public int LogTypeId { get; set; }
 
-        [DisplayName(@"Tela")]
+        [DisplayName(@"Screen")]
         public int? TelaId { get; set; }
-        
+
         public long? UsuarioId { get; set; }
-        
+
         public string Mensagem { get; set; }
 
-        [DisplayName(@"Entidade")]
+        [DisplayName(@"Entity")]
         public string NomeClasse { get; set; }
 
-        [DisplayName(@"Conteúdo")]
+        [DisplayName(@"Content")]
         public string Conteudo { get; set; }
 
-        [DisplayName(@"Data de Cadastro")]
+        [DisplayName(@"Date of Create")]
         public DateTime DataCadastro { get; set; }
 
         //public Tela Tela { get; set; }

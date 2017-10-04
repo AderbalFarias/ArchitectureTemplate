@@ -18,12 +18,12 @@ namespace ArchitectureTemplate.Mvc.Models
         public long? CpfCnpj { get; set; }
         public string Telefone { get; set; }
 
-        [StringLength(100, ErrorMessage = @"O campo deve ter no máximo 100 characteres")]
+        [StringLength(100, ErrorMessage = @"Field must be 100 characters or less")]
         [DataType(DataType.EmailAddress)]
         [RegularExpression(@"^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$", ErrorMessage = @"Endereço de e-mail inválido")]
         public string Email { get; set; }
 
-        [DisplayName(@"Código")]
+        [DisplayName(@"Code")]
         public int? Codigo { get; set; }
         public virtual Hierarquia Hierarquia { get; set; }
     }

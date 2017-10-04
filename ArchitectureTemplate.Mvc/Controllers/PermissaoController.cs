@@ -104,7 +104,7 @@ namespace ArchitectureTemplate.Mvc.Controllers
             }
             catch (Exception e)
             {
-                ShowMessageDialog("Ocorreu um erro ao tentar atualizar as permissões", e);
+                ShowMessageDialog("There was an error when you trying to update the permissions", e);
             }
 
             return RedirectToAction("Index", new { id, scroll });
@@ -124,7 +124,7 @@ namespace ArchitectureTemplate.Mvc.Controllers
             }
             catch (Exception e)
             {
-                ShowMessageDialog("Ocorreu um erro ao tentar atualizar as permissões", e);
+                ShowMessageDialog("There was an error when you trying to update the permissions", e);
             }
 
             return RedirectToAction("Index", new { id, scroll });
@@ -144,7 +144,7 @@ namespace ArchitectureTemplate.Mvc.Controllers
                     _permissaoService.LoadExportToExcel(pck);
 
                     return File(pck.GetAsByteArray(), "application/vnd.ms-excel",
-                        $"Permissoes_{DateTime.Now.ToString("yyyyMMdd_HHmm")}.xlsx");
+                        $"Permissions_{DateTime.Now.ToString("yyyyMMdd_HHmm")}.xlsx");
                 }
             }
             catch (Exception e)
