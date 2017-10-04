@@ -14,32 +14,32 @@ namespace ArchitectureTemplate.Mvc.Models
 {
     public class TelaModel
     {
-        [DisplayName(@"identificador")]
+        [DisplayName(@"Identifier")]
         public int Id { get; set; }
 
-        [DisplayName(@"Nome")]
+        [DisplayName(@"Name")]
         [Required(ErrorMessage = @"Field Required")]
-        [StringLength(50, ErrorMessage = @"O campo deve ter no máximo 50 caracteres")]
+        [StringLength(50, ErrorMessage = @"Field must be 50 characters or less")]
         public string Nome { get; set; }
 
         [DisplayName(@"Controller")]
         public string ControllerName { get; set; }
 
-        [DisplayName(@"Data de Cadastro")]
+        [DisplayName(@"Date of Create")]
         public DateTime DataCadastro { get; set; }
 
         public bool Ativo { get; set; }
 
-        [DisplayName(@"Cadastrar")]
+        [DisplayName(@"Cread")]
         public bool Create { get; set; }
 
-        [DisplayName(@"Consultar")]
+        [DisplayName(@"Read")]
         public bool Read { get; set; }
 
-        [DisplayName(@"Atualizar")]
+        [DisplayName(@"Update")]
         public bool Update { get; set; }
 
-        [DisplayName(@"Deletar")]
+        [DisplayName(@"Delete")]
         public bool Delete { get; set; }
 
         //public ICollection<PerfilPorTela> PerfilPorTela { get; set; }

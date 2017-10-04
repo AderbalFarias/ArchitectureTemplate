@@ -11,7 +11,7 @@ namespace ArchitectureTemplate.Mvc.Models
         [DisplayName(@"Code")]
         public int Id { get; set; }
 
-        [DisplayName(@"Role")]
+        [DisplayName(@"Profile")]
         [Required(ErrorMessage = @"Field Required")]
         [StringLength(50, ErrorMessage = @"Field must be 50 characters or less")]
         public string Nome { get; set; }

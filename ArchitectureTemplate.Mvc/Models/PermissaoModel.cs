@@ -6,7 +6,7 @@ namespace ArchitectureTemplate.Mvc.Models
 {
     public class PermissaoModel
     {
-        [DisplayName(@"Role")]
+        [DisplayName(@"Profile")]
         public int PerfilId { get; set; }
 
         public IEnumerable<Tela> TelaList { get; set; }

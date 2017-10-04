@@ -7,7 +7,7 @@ namespace ArchitectureTemplate.Mvc.Models
 {
     public class MenuModel
     {
-        [DisplayName(@"Identify")]
+        [DisplayName(@"Identifier")]
         public int Id { get; set; }
 
         [DisplayName(@"Name")]
@@ -15,7 +15,7 @@ namespace ArchitectureTemplate.Mvc.Models
         [StringLength(50, ErrorMessage = @"Field must be 100 characters or less")]
         public string Nome { get; set; }
 
-        [DisplayName(@"Role")]
+        [DisplayName(@"Profile")]
         public int PerfilId { get; set; }
 
         public IEnumerable<Menu> MenuList { get; set; }

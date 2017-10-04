@@ -14,7 +14,7 @@ namespace ArchitectureTemplate.Mvc.Models
         public long? HierarquiaId { get; set; }
 
         [Required(ErrorMessage = @"Field Required")]
-        [DisplayName(@"Perfil")]
+        [DisplayName(@"Profile")]
         public int PerfilId { get; set; }
 
         [Required(ErrorMessage = @"Field Required")]
@@ -44,17 +44,17 @@ namespace ArchitectureTemplate.Mvc.Models
         public string Token { get; set; }
 
         //[DataType(DataType.Date)]
-        [DisplayName(@"Data de Expiração da Senha")]
+        [DisplayName(@"Password Expiration Date")]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime? DataExpiracaoSenha { get; set; }
 
         //[DataType(DataType.Date)]
-        [DisplayName(@"Data Inicial de Invalidação")]
+        [DisplayName(@"Begin Invalidation Date")]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime? InvalidacaoProgramadaInicio { get; set; }
 
         //[DataType(DataType.Date)]
-        [DisplayName(@"Data Final de Invalidação")]
+        [DisplayName(@"End Invalidation Date")]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime? InvalidacaoProgramadaFim { get; set; }
 
