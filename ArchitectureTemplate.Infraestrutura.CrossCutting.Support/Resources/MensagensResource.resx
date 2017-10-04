@@ -118,45 +118,39 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ErroAtualizar" xml:space="preserve">
-    <value>Ocorreu um problema ao tentar realizar atualização de dados</value>
+    <value>There was a problem trying to perform data refresh</value>
   </data>
   <data name="SucessoAtualizar" xml:space="preserve">
-    <value>Dados atualizados com sucesso</value>
+    <value>Data successfully updated</value>
   </data>
   <data name="ErroCarregar" xml:space="preserve">
-    <value>Ocorreu um problema ao tentar carregar dados para a tela</value>
+    <value>There was a problem trying to load data to the screen</value>
   </data>
   <data name="ErroCadastrar" xml:space="preserve">
-    <value>Ocorreu um problema ao tentar cadastrar dados</value>
+    <value>There was a problem trying to register data</value>
   </data>
   <data name="SucessoCadastrarSucessoEmail" xml:space="preserve">
-    <value>Dados cadastrados com sucesso e email enviado</value>
+    <value>Successfully registered data and sent email</value>
   </data>
   <data name="SucessoCadastrarErroEmail" xml:space="preserve">
-    <value>Dados cadastrados com sucesso, porém ocorreu um erro ao enviar email</value>
+    <value>Data successfully registered, but there was an error sending email</value>
   </data>
   <data name="SucessoCadastrar" xml:space="preserve">
-    <value>Dados cadastrados com sucesso</value>
+    <value>Data successfully registered</value>
   </data>
   <data name="ErroSalvar" xml:space="preserve">
-    <value>Ocorreu um erro ao tentar salvar dados</value>
+    <value>An error occurred while trying to save data</value>
   </data>
   <data name="SucessoWorkflow" xml:space="preserve">
-    <value>Atividade concluída com sucesso</value>
-  </data>
-  <data name="WarningSalvarProcesso" xml:space="preserve">
-    <value>Processo cadastrado, porém ocorreu um erro ao tentar salvar dados de inicialização para o fluxo do processo</value>
+    <value>Activity completed successfully</value>
   </data>
   <data name="ErroExcluir" xml:space="preserve">
-    <value>Ocorreu um problema ao tentar excluir dados</value>
+    <value>There was a problem trying to delete data</value>
   </data>
   <data name="ErroDownload" xml:space="preserve">
-    <value>Erro ao realizar download de arquivo</value>
-  </data>
-  <data name="ProcessoSemEmpreendimento" xml:space="preserve">
-    <value>Não há empreendimento associado para o processo</value>
+    <value>Error downloading file</value>
   </data>
   <data name="EmailExistente" xml:space="preserve">
-    <value>E-mail já cadastrado no sistema</value>
+    <value>Email already exists on the system</value>
   </data>
 </root>

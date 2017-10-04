@@ -19,7 +19,7 @@ namespace ArchitectureTemplate.Infraestrutura.CrossCutting.Support.Resources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class MensagensResource {
@@ -62,7 +62,7 @@ namespace ArchitectureTemplate.Infraestrutura.CrossCutting.Support.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to E-mail já cadastrado no sistema.
+        ///   Looks up a localized string similar to Email already exists on the system.
         /// </summary>
         public static string EmailExistente {
             get {
@@ -71,7 +71,7 @@ namespace ArchitectureTemplate.Infraestrutura.CrossCutting.Support.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Ocorreu um problema ao tentar realizar atualização de dados.
+        ///   Looks up a localized string similar to There was a problem trying to perform data refresh.
         /// </summary>
         public static string ErroAtualizar {
             get {
@@ -80,7 +80,7 @@ namespace ArchitectureTemplate.Infraestrutura.CrossCutting.Support.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Ocorreu um problema ao tentar cadastrar dados.
+        ///   Looks up a localized string similar to There was a problem trying to register data.
         /// </summary>
         public static string ErroCadastrar {
             get {
@@ -89,7 +89,7 @@ namespace ArchitectureTemplate.Infraestrutura.CrossCutting.Support.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Ocorreu um problema ao tentar carregar dados para a tela.
+        ///   Looks up a localized string similar to There was a problem trying to load data to the screen.
         /// </summary>
         public static string ErroCarregar {
             get {
@@ -98,7 +98,7 @@ namespace ArchitectureTemplate.Infraestrutura.CrossCutting.Support.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Erro ao realizar download de arquivo.
+        ///   Looks up a localized string similar to Error downloading file.
         /// </summary>
         public static string ErroDownload {
             get {
@@ -107,7 +107,7 @@ namespace ArchitectureTemplate.Infraestrutura.CrossCutting.Support.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Ocorreu um problema ao tentar excluir dados.
+        ///   Looks up a localized string similar to There was a problem trying to delete data.
         /// </summary>
         public static string ErroExcluir {
             get {
@@ -116,7 +116,7 @@ namespace ArchitectureTemplate.Infraestrutura.CrossCutting.Support.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Ocorreu um erro ao tentar salvar dados.
+        ///   Looks up a localized string similar to An error occurred while trying to save data.
         /// </summary>
         public static string ErroSalvar {
             get {
@@ -125,16 +125,7 @@ namespace ArchitectureTemplate.Infraestrutura.CrossCutting.Support.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Não há empreendimento associado para o processo.
-        /// </summary>
-        public static string ProcessoSemEmpreendimento {
-            get {
-                return ResourceManager.GetString("ProcessoSemEmpreendimento", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Dados atualizados com sucesso.
+        ///   Looks up a localized string similar to Data successfully updated.
         /// </summary>
         public static string SucessoAtualizar {
             get {
@@ -143,7 +134,7 @@ namespace ArchitectureTemplate.Infraestrutura.CrossCutting.Support.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Dados cadastrados com sucesso.
+        ///   Looks up a localized string similar to Data successfully registered.
         /// </summary>
         public static string SucessoCadastrar {
             get {
@@ -152,7 +143,7 @@ namespace ArchitectureTemplate.Infraestrutura.CrossCutting.Support.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Dados cadastrados com sucesso, porém ocorreu um erro ao enviar email.
+        ///   Looks up a localized string similar to Data successfully registered, but there was an error sending email.
         /// </summary>
         public static string SucessoCadastrarErroEmail {
             get {
@@ -161,7 +152,7 @@ namespace ArchitectureTemplate.Infraestrutura.CrossCutting.Support.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Dados cadastrados com sucesso e email enviado.
+        ///   Looks up a localized string similar to Successfully registered data and sent email.
         /// </summary>
         public static string SucessoCadastrarSucessoEmail {
             get {
@@ -170,20 +161,11 @@ namespace ArchitectureTemplate.Infraestrutura.CrossCutting.Support.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Atividade concluída com sucesso.
+        ///   Looks up a localized string similar to Activity completed successfully.
         /// </summary>
         public static string SucessoWorkflow {
             get {
                 return ResourceManager.GetString("SucessoWorkflow", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Processo cadastrado, porém ocorreu um erro ao tentar salvar dados de inicialização para o fluxo do processo.
-        /// </summary>
-        public static string WarningSalvarProcesso {
-            get {
-                return ResourceManager.GetString("WarningSalvarProcesso", resourceCulture);
             }
         }
     }
