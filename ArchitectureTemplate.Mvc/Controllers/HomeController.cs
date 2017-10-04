@@ -19,7 +19,7 @@ namespace ArchitectureTemplate.Mvc.Controllers
         [ActionType(AccessType.Read)]
         public ActionResult AccessDenied(string id)
         {
-            ShowMessageDialog($"O perfil {CurrentUser.PerfilName} não possui permissão de acesso para a funcionalidade {id}", Message.MessageKind.Error, 10);
+            ShowMessageDialog($"The role {CurrentUser.PerfilName} can't accessn the function with Id: {id}", Message.MessageKind.Error, 10);
             return View();
         }
     }

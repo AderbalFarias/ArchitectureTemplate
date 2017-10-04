@@ -81,11 +81,11 @@ namespace ArchitectureTemplate.Mvc.Controllers
                     return RedirectToAction("Index");
                 }
 
-                ShowMessageDialog("Usuário e/ou senha inválidos", Message.MessageKind.Error);
+                ShowMessageDialog("User and/or passward invalid", Message.MessageKind.Error);
             }
             catch (Exception exception)
             {
-                ShowMessageDialog("Ocorreu um erro ao tentar efetuar login!", exception);
+                ShowMessageDialog("Something wrong happened when you tried to login!", exception);
             }
 
             return View("Index");
@@ -129,16 +129,16 @@ namespace ArchitectureTemplate.Mvc.Controllers
                     };
 
                     _emailMailService.SendEmail(modelEmail);
-                    ShowMessageDialog("Email enviado com sucesso!", Message.MessageKind.Success);
+                    ShowMessageDialog("Email successfully sent", Message.MessageKind.Success);
                 }
                 else
                 {
-                    ShowMessageDialog("Email não encontrado na base de dados!", Message.MessageKind.Warning);
+                    ShowMessageDialog("Email not found in database", Message.MessageKind.Warning);
                 }
             }
             catch (Exception exception)
             {
-                ShowMessageDialog("Ocorreu um erro ao tentar enviar o email de recuperação da senha!", exception);
+                ShowMessageDialog("Something wrong happened when you tried to send email for password recover", exception);
             }
 
             return RedirectToAction("Index");
@@ -161,7 +161,7 @@ namespace ArchitectureTemplate.Mvc.Controllers
             try
             {
                 _usuarioService.ResetSenha(model.Login, model.CodigoRecover, model.NewPassword);
-                ShowMessageDialog("Senha alterada com sucesso!", Message.MessageKind.Success);
+                ShowMessageDialog("Password changed successfully", Message.MessageKind.Success);
             }
             catch (Exception exception)
             {
@@ -202,13 +202,13 @@ namespace ArchitectureTemplate.Mvc.Controllers
             try
             {
                 _usuarioService.EditSenha(CurrentUser.UserId, model.Password, model.NewPassword);
-                ShowMessageDialog("Senha alterada com sucesso!", Message.MessageKind.Success);
+                ShowMessageDialog("Password changed successfully", Message.MessageKind.Success);
 
                 return RedirectToAction("LogOff");
             }
             catch (Exception exception)
             {
-                ShowMessageDialog("Não foi possível alterar a senha!", exception);
+                ShowMessageDialog("Could not change password!", exception);
                 return RedirectToAction("Index", "Home");
             }
         }
@@ -217,7 +217,8 @@ namespace ArchitectureTemplate.Mvc.Controllers
         [AllowAnonymous]
         public ActionResult AccessDenied(string id)
         {
-            ShowMessageDialog($"Não há permissão de acesso para a funcionalidade {id} sem acessar o sitema", Message.MessageKind.Error, 10);
+            ShowMessageDialog($"There is no access permission for functionality {id} " +
+                $"without of the system, without login on system, You have to log in", Message.MessageKind.Error, 10);
             return View("Index");
         }
 
@@ -225,7 +226,7 @@ namespace ArchitectureTemplate.Mvc.Controllers
         [AllowAnonymous]
         public ActionResult InvalidToken(long id)
         {
-            ShowMessageDialog($"Seu usuário foi ativado em uma outra sessão mais recente!", Message.MessageKind.Error, 20);
+            ShowMessageDialog($"Your user has been activated in a later session!", Message.MessageKind.Error, 20);
             return View("Index");
         }
 

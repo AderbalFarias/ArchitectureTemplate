@@ -9,12 +9,12 @@ namespace ArchitectureTemplate.Mvc
         {
             context.PreSendRequestHeaders += OnPreSendRequestHeaders;
         }
- 
+
         public void Dispose() { }
- 
+
         void OnPreSendRequestHeaders(object sender, EventArgs e)
         {
-            HttpContext.Current.Response.Headers.Set("Server", "Ops não sei!");
+            HttpContext.Current.Response.Headers.Set("Server", "Ops I don't know!");
         }
     }
 }

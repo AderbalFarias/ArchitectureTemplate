@@ -20,10 +20,6 @@ namespace ArchitectureTemplate.Mvc
                defaults: new { controller = "Arquivo", action = "Index" },
                constraints: new { testId = @"\d+" });
 
-            //Funciona
-            //routes.MapRoute("Wf", "{controller}/{action}/{id}/{reload}",
-            //    new { controller = "Workflow", action = "Index", id = 0, reload = UrlParameter.Optional });
-
             routes.MapRoute("Default", "{controller}/{action}/{id}",
                 new { controller = "Home", action = "Index", id = UrlParameter.Optional });
         }

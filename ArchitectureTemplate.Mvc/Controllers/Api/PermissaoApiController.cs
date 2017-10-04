@@ -10,8 +10,6 @@ namespace ArchitectureTemplate.Mvc.Controllers.Api
     {
         #region Fields
 
-        #region Fields
-
         private readonly IPermissaoService _permissaoService;
 
         #endregion
@@ -25,6 +23,7 @@ namespace ArchitectureTemplate.Mvc.Controllers.Api
 
         #endregion
 
+        #region Actions
 
         [HttpGet]
         [IsAuthorize]
@@ -35,7 +34,7 @@ namespace ArchitectureTemplate.Mvc.Controllers.Api
         {
             try
             {
-                var userClain = this.User.Identity as ClaimsIdentity;
+                var userClain = User.Identity as ClaimsIdentity;
                 var x = Convert.ToInt64(userClain?.FindFirst(ClaimTypes.NameIdentifier).Value);
 
                 _permissaoService.EnableOrDisabled(id, telaId, parametro, permissaoId, x);
@@ -60,7 +59,7 @@ namespace ArchitectureTemplate.Mvc.Controllers.Api
         {
             try
             {
-                var userClain = this.User.Identity as ClaimsIdentity;
+                var userClain = User.Identity as ClaimsIdentity;
                 var x = Convert.ToInt64(userClain?.FindFirst(ClaimTypes.NameIdentifier).Value);
 
                 _permissaoService.EnableOrDisabled(id, telaId, ativar, permissaoId, x);

@@ -6,11 +6,6 @@ namespace ArchitectureTemplate.Mvc
     {
         public static void Register(HttpConfiguration config)
         {
-            // Web API configuration and services
-
-            //Habilitando Cors (Cross-Origin Resource Sharing)
-            //config.EnableCors();
-
             //// Web API routes
             config.MapHttpAttributeRoutes();
 

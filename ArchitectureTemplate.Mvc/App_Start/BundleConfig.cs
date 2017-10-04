@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Web.Optimization;
+﻿using System.Web.Optimization;
 
 namespace ArchitectureTemplate.Mvc
 {
@@ -8,10 +7,6 @@ namespace ArchitectureTemplate.Mvc
         // For more information on bundling, visit http://go.microsoft.com/fwlink/?LinkId=301862
         public static void RegisterBundles(BundleCollection bundles)
         {
-            //bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-            //            "~/Scripts/jquery-{version}.js"));
-
-
             var oPlugins = new ScriptBundle("~/bundles/plugins")
                 .Include("~/wwwroot/plugins/jquery-2.1.4.min.js",
                     "~/wwwroot/plugins/jquery.easing.1.3.js",
@@ -63,14 +58,5 @@ namespace ArchitectureTemplate.Mvc
 
             BundleTable.EnableOptimizations = false;
         }
-    }
-}
-
-
-public class AsIsBundleOrderer : IBundleOrderer
-{
-    public IEnumerable<BundleFile> OrderFiles(BundleContext context, IEnumerable<BundleFile> files)
-    {
-        return files;
     }
 }
