@@ -12,13 +12,13 @@ namespace ArchitectureTemplate.Mvc.Helpers
         /// </summary>
         /// <typeparam name="TModel"></typeparam>
         /// <param name="helper">Helper</param>
-        /// <param name="url">Caminho da action</param>
-        /// <param name="pagAtual">Página que recebeu o evento</param>
-        /// <param name="qtdePag">Quantidade de páginas existentes</param>
-        /// <param name="formId">Formulário para serializar</param>
-        /// <param name="divLocation">Div para retorno da paginação</param>
-        /// <param name="beginEnd">Indica se a paginação contem os elementos inicial e final</param>
-        /// <returns>Elemento nav com itens para paginação de dados</returns>
+        /// <param name="url">adress of action</param>
+        /// <param name="pagAtual">Page that receives the event</param>
+        /// <param name="qtdePag">Number of existing pages</param>
+        /// <param name="formId">Form to serialize</param>
+        /// <param name="divLocation">Div for pagination return</param>
+        /// <param name="beginEnd">Indicates whether pagination contains the start and end elements</param>
+        /// <returns>Element nav with itens for pagination of data</returns>
         public static MvcHtmlString Pagination<TModel>(this HtmlHelper<TModel> helper, string url, int pagAtual,
             int qtdePag, string formId = null, string divLocation = null, bool beginEnd = true)
         {
@@ -223,8 +223,8 @@ namespace ArchitectureTemplate.Mvc.Helpers
         /// </summary>
         /// <param name="helper">Helper</param>
         /// <param name="cssClass">class css</param>
-        /// <param name="html">Html para customização</param>
-        /// <returns>Elemento hr para separar conteúdo</returns>
+        /// <param name="html">Html for customize</param>
+        /// <returns>Hr element to separate content</returns>
         public static MvcHtmlString Separador(this HtmlHelper helper, string cssClass = null, Object html = null)
         {
             var tag = new TagBuilder("hr"); //gera uma tag input no html

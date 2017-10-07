@@ -1,12 +1,12 @@
 ﻿@model ArchitectureTemplate.Mvc.Models.HierarquiaModel
 @{
-    ViewBag.Title = "Novo Item na Hierarquia";
+    ViewBag.Title = "Hierarchy";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div class="white-row">
     <h3>
-        <strong>Adicionar Item na Hierarquia</strong>
+        <strong>Edit item on the Hierarchy</strong>
     </h3>
 
     @using (Html.BeginForm("Edit", "Hierarquia", FormMethod.Post, new { @id = "formHierarquia" }))

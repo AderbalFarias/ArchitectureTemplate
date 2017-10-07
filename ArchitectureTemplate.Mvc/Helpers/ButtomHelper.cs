@@ -7,14 +7,14 @@ namespace ArchitectureTemplate.Mvc.Helpers
     public static class ButtomHelper
     {
         /// <summary>
-        /// Cria um helper para utilização de botão com chamada js
+        /// It creates a helper for button use with call js
         /// </summary>
         /// <param name="helper">Helper .Net Razor</param>
-        /// <param name="text">Texto do botão</param>
-        /// <param name="document">Expecifica o tipo</param>
-        /// <param name="url">Url da requisição</param>
+        /// <param name="text">Button text</param>
+        /// <param name="document">Specifies the type</param>
+        /// <param name="url">Request Url</param>
         /// <param name="html"></param>
-        /// <returns>retorna helper que gera html</returns>
+        /// <returns>Returns helper that generates html</returns>
         public static MvcHtmlString ButtonOnclick(this HtmlHelper helper, string text, string document, string url, Object html = null)
         {
             var caminho = $"document.{document} ='/{url}'";
@@ -34,21 +34,21 @@ namespace ArchitectureTemplate.Mvc.Helpers
         }
 
         /// <summary>
-        /// Cria helper que submita o form via js
+        /// It creates helper that submits the form via js
         /// </summary>
         /// <param name="helper">Helper .Net Razor</param>
-        /// <param name="text">Texto do botão</param>
-        /// <param name="url">Url da requisição</param>
-        /// <param name="html">Inclusão de atributos html caso necessário</param>
-        /// <returns>retorna helper que gera html</returns>
+        /// <param name="text">Button text</param>
+        /// <param name="url">Request Url</param>
+        /// <param name="html">Inclusion of html attributes if necessary</param>
+        /// <returns>Returns helper that generates html</returns>
         public static MvcHtmlString ButtonSubmit(this HtmlHelper helper, string text, string url, Object html = null)
         {
             var caminho = $"formSubmit(this, '{url}')";
 
             var id = "idBotao" + text.Replace(" ", "").Replace("_", "").Replace(".", "").Replace("´", "").Replace("^", "").Replace("~", "").Replace("`", "").Replace("?", "");
 
-            var tag = new TagBuilder("input"); //gera uma tag input no html
-            tag.MergeAttribute("value", text); //exibe o texto passado 
+            var tag = new TagBuilder("input"); //generete a tag input on html
+            tag.MergeAttribute("value", text);
             tag.MergeAttribute("type", "button");
             tag.MergeAttribute("onclick", caminho);
             tag.AddCssClass("btn");
@@ -57,13 +57,13 @@ namespace ArchitectureTemplate.Mvc.Helpers
         }
 
         /// <summary>
-        /// Cria um helper input / botão do tipo específicado
+        /// It creates a helper input / button of the specified type
         /// </summary>
         /// <param name="helper">Helper .Net Razor</param>
-        /// <param name="text">texto do input (botão)</param>
-        /// <param name="type">tipo do botão (Ex: submit, button, reset, ...)</param>
-        /// <param name="html">Inclusão de atributos html caso necessário</param>
-        /// <returns>retorna helper que gera html</returns>
+        /// <param name="text">Button text</param>
+        /// <param name="type">King of input (Ex: submit, button, reset, ...)</param>
+        /// <param name="html">Inclusion of html attributes if necessary</param>
+        /// <returns>Returns helper that generates html</returns>
         public static MvcHtmlString Button(this HtmlHelper helper, string text, string type, Object html = null)
         {
             var id = "idBotao" + text.Replace(" ", "").Replace("_", "").Replace(".", "").Replace("´", "").Replace("^", "").Replace("~", "").Replace("`", "").Replace("?", "");
@@ -78,24 +78,24 @@ namespace ArchitectureTemplate.Mvc.Helpers
         }
 
         /// <summary>
-        /// Cria helper com a seguinte estrutura: '<a><input></input></a>'
+        /// This creates a helper with the following structure: '<a><input></input></a>'
         /// </summary>
         /// <param name="helper">Helper .Net Razor</param>
-        /// <param name="buttonText">Texto do button</param>
-        /// <param name="contentPath">Mapeamento de rota</param>
-        /// <param name="actionName">Action da controller indicada</param>
-        /// <param name="controllerName">Controller que será realizada a requisição</param>
-        /// <param name="aHtml">Inclusão de atributos html para a tag: '<a></a>', caso necessári</param>
-        /// <param name="inputHtml">Inclusão de atributos html para o button caso necessário</param>
-        /// <returns>retorna helper que gera html</returns>
+        /// <param name="buttonText">Button text</param>
+        /// <param name="contentPath">Route map</param>
+        /// <param name="actionName">Action of indicated controller</param>
+        /// <param name="controllerName">Controller that the requisition will be performed</param>
+        /// <param name="aHtml">Including html attributes for the tag: '<a></a>', if necessary</param>
+        /// <param name="inputHtml">Including html attributes for the button if needed</param>
+        /// <returns>Returns helper that generates html</returns>
         public static MvcHtmlString ActionLinkButton(this HtmlHelper helper, string buttonText, string contentPath, string actionName, string controllerName, Object aHtml = null, Object inputHtml = null)
         {
             var id = "idBotao" + buttonText.Replace(" ", "").Replace("_", "").Replace(".", "").Replace("´", "").Replace("^", "").Replace("~", "").Replace("`", "").Replace("?", "");
-         
+
             var tagA = new TagBuilder("a");
             var tagInput = new TagBuilder("input");
 
-            var aUrl = (actionName == "Index" 
+            var aUrl = (actionName == "Index"
                 ? $"{contentPath}{controllerName}"
                 : $"{contentPath}{controllerName}/{actionName}");
 
