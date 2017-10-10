@@ -31,7 +31,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.4 - WCF", "3.4 - WCF", "{
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArchitectureTemplate.Infrastructure.WCF.Contracts", "ArchitectureTemplate.Infrastructure.WCF.Contracts\ArchitectureTemplate.Infrastructure.WCF.Contracts.csproj", "{00053BA0-B3F1-4D52-8074-B902E6515A7F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArchitectureTemplate.Infrastructure.WCF.Services", "ArchitectureTemplate.Infrastructure.WCF.Managers\ArchitectureTemplate.Infrastructure.WCF.Services.csproj", "{040E9A72-CCDD-45D9-9D31-C216DB12280C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArchitectureTemplate.Infrastructure.WCF.Services", "ArchitectureTemplate.Infrastructure.WCF.Services\ArchitectureTemplate.Infrastructure.WCF.Services.csproj", "{040E9A72-CCDD-45D9-9D31-C216DB12280C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArchitectureTemplate.Infrastructure.WCF.Proxies", "ArchitectureTemplate.Infrastructure.WCF.Proxies\ArchitectureTemplate.Infrastructure.WCF.Proxies.csproj", "{5CFAEA04-654E-4404-883F-BE9A0BB708C5}"
 EndProject
