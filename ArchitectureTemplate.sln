@@ -35,6 +35,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArchitectureTemplate.Infras
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArchitectureTemplate.Infrastructure.WCF.Proxies", "ArchitectureTemplate.Infrastructure.WCF.Proxies\ArchitectureTemplate.Infrastructure.WCF.Proxies.csproj", "{5CFAEA04-654E-4404-883F-BE9A0BB708C5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArchitectureTemplate.Infrastructure.WCF.Host", "ArchitectureTemplate.Infrastructure.WCF.Host\ArchitectureTemplate.Infrastructure.WCF.Host.csproj", "{590BA6D9-B596-4935-9F29-9BF0330CD8E1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -77,6 +79,10 @@ Global
 		{5CFAEA04-654E-4404-883F-BE9A0BB708C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5CFAEA04-654E-4404-883F-BE9A0BB708C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5CFAEA04-654E-4404-883F-BE9A0BB708C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{590BA6D9-B596-4935-9F29-9BF0330CD8E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{590BA6D9-B596-4935-9F29-9BF0330CD8E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{590BA6D9-B596-4935-9F29-9BF0330CD8E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{590BA6D9-B596-4935-9F29-9BF0330CD8E1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -95,6 +101,7 @@ Global
 		{00053BA0-B3F1-4D52-8074-B902E6515A7F} = {7D25F572-A499-4F7C-A399-E63EFACD3A36}
 		{040E9A72-CCDD-45D9-9D31-C216DB12280C} = {7D25F572-A499-4F7C-A399-E63EFACD3A36}
 		{5CFAEA04-654E-4404-883F-BE9A0BB708C5} = {7D25F572-A499-4F7C-A399-E63EFACD3A36}
+		{590BA6D9-B596-4935-9F29-9BF0330CD8E1} = {7D25F572-A499-4F7C-A399-E63EFACD3A36}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {254B5E61-6069-4684-84D3-82FEED7B4E2D}

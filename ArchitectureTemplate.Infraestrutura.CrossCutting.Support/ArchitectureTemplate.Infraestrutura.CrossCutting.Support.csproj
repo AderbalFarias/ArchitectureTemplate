@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Extensions\EmailMail.cs" />
+    <Compile Include="Extensions\SimpleMapper.cs" />
     <Compile Include="Extensions\Pagination.cs" />
     <Compile Include="Extensions\Word.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

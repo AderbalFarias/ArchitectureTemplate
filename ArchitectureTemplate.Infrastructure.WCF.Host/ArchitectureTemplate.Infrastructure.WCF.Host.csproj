@@ -1,22 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{66B226F1-E997-4138-BD83-0D1DB7C76FB5}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ArchitectureTemplate.Infrastructure.CrossCutting.IoC</RootNamespace>
-    <AssemblyName>ArchitectureTemplate.Infrastructure.CrossCutting.IoC</AssemblyName>
+    <ProjectGuid>{590BA6D9-B596-4935-9F29-9BF0330CD8E1}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>ArchitectureTemplate.Infrastructure.WCF.Host</RootNamespace>
+    <AssemblyName>ArchitectureTemplate.Infrastructure.WCF.Host</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <SccProjectName>SAK</SccProjectName>
-    <SccLocalPath>SAK</SccLocalPath>
-    <SccAuxPath>SAK</SccAuxPath>
-    <SccProvider>SAK</SccProvider>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -26,6 +23,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -34,20 +32,28 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="SimpleInjector, Version=3.1.3.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
       <HintPath>..\packages\SimpleInjector.3.1.3\lib\net45\SimpleInjector.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BootstrapperWcf.cs" />
-    <Compile Include="BootstrapperService.cs" />
-    <Compile Include="Bootstrapper.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -55,21 +61,18 @@
       <Project>{57F6AF5C-C804-4992-AB66-53CE627CBD3F}</Project>
       <Name>ArchitectureTemplate.Business</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ArchitectureTemplate.Infraestrutura.CrossCutting.Support\ArchitectureTemplate.Infraestrutura.CrossCutting.Support.csproj">
-      <Project>{927553C4-E24C-473B-ADD9-354497324AAF}</Project>
-      <Name>ArchitectureTemplate.Infraestrutura.CrossCutting.Support</Name>
+    <ProjectReference Include="..\ArchitectureTemplate.Infrastructure.CrossCutting.IoC\ArchitectureTemplate.Infrastructure.CrossCutting.IoC.csproj">
+      <Project>{66b226f1-e997-4138-bd83-0d1db7c76fb5}</Project>
+      <Name>ArchitectureTemplate.Infrastructure.CrossCutting.IoC</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ArchitectureTemplate.Infrastructure.Data\ArchitectureTemplate.Infrastructure.Data.csproj">
-      <Project>{A77DBFBB-C288-4577-8DF2-8511DEC4DD2C}</Project>
-      <Name>ArchitectureTemplate.Infrastructure.Data</Name>
+    <ProjectReference Include="..\ArchitectureTemplate.Infrastructure.WCF.Contracts\ArchitectureTemplate.Infrastructure.WCF.Contracts.csproj">
+      <Project>{00053ba0-b3f1-4d52-8074-b902e6515a7f}</Project>
+      <Name>ArchitectureTemplate.Infrastructure.WCF.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ArchitectureTemplate.Infrastructure.WCF.Services\ArchitectureTemplate.Infrastructure.WCF.Services.csproj">
+      <Project>{040E9A72-CCDD-45D9-9D31-C216DB12280C}</Project>
+      <Name>ArchitectureTemplate.Infrastructure.WCF.Services</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
 </Project>
