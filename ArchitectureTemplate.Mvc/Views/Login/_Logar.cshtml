@@ -9,22 +9,22 @@
             @Html.AntiForgeryToken()
 
             <div class="form-group">
-                @Html.EditorFor(model => model.Login, new { htmlAttributes = new { @class = "form-control", @placeholder = "Informe seu Login", @required = "required" } })
+                @Html.EditorFor(model => model.Login, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter your Login", @required = "required" } })
             </div>
             <div class="input-group">
-                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", @placeholder = "Informe sua Senha", @required = "required" } })
+                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter your password", @required = "required" } })
                 <span class="input-group-btn">
                     <button class="btn btn-primary">Entrar</button>
                 </span>
             </div>
             <div class="checkbox">
                 <label>
-                    @Html.CheckBoxFor(model => model.RememberMe) Mantenha-me conectado
+                    @Html.CheckBoxFor(model => model.RememberMe) Remember-Me
                 </label>
             </div>
         }
 
         <hr />
-        <a href="@Url.Action("RecoverPassword", "Login")">Esqueci minha senha?</a>
+        <a href="@Url.Action("RecoverPassword", "Login")">I forgot my password?</a>
     </div>
 </div>
