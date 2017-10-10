@@ -1,10 +1,10 @@
 using System;
 using System.Runtime.Serialization;
 
-namespace ArchitectureTemplate.Infrastructure.WCF.Contracts.Entity
+namespace ArchitectureTemplate.Infrastructure.WCF.Contracts.Entities
 {
     [DataContract]
-    public class Usuario
+    public class UsuarioContract
     {
         [DataMember]
         public long Id { get; set; }
@@ -44,7 +44,7 @@ namespace ArchitectureTemplate.Infrastructure.WCF.Contracts.Entity
 
         //public virtual Hierarquia Hierarquia { get; set; }
 
-        public virtual Perfil Perfil { get; set; }
+        public virtual PerfilContract Perfil { get; set; }
 
         //public virtual IEnumerable<Log> Log { get; set; }
     }

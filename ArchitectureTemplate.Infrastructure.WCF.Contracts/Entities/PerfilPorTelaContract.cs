@@ -1,9 +1,9 @@
 using System.Runtime.Serialization;
 
-namespace ArchitectureTemplate.Infrastructure.WCF.Contracts.Entity
+namespace ArchitectureTemplate.Infrastructure.WCF.Contracts.Entities
 {
     [DataContract]
-    public class PerfilPorTela
+    public class PerfilPorTelaContract
     {
         [DataMember]
         public long Id { get; set; }
@@ -27,9 +27,9 @@ namespace ArchitectureTemplate.Infrastructure.WCF.Contracts.Entity
         public bool Delete { get; set; }
 
         [DataMember]
-        public virtual Perfil Perfil { get; set; }
+        public virtual PerfilContract Perfil { get; set; }
 
         [DataMember]
-        public virtual Tela Tela { get; set; }
+        public virtual TelaContract Tela { get; set; }
     }
 }

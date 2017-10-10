@@ -1,10 +1,10 @@
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
-namespace ArchitectureTemplate.Infrastructure.WCF.Contracts.Entity
+namespace ArchitectureTemplate.Infrastructure.WCF.Contracts.Entities
 {
     [DataContract]
-    public class Menu
+    public class MenuContract
     {
         [DataMember]
         public int Id { get; set; }
@@ -13,6 +13,6 @@ namespace ArchitectureTemplate.Infrastructure.WCF.Contracts.Entity
         public string Nome { get; set; }
 
         [DataMember]
-        public virtual ICollection<PerfilPorMenu> PerfilPorMenu { get; set; }
+        public virtual ICollection<PerfilPorMenuContract> PerfilPorMenu { get; set; }
     }
 }

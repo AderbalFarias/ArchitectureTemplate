@@ -7,8 +7,8 @@
     <ProjectGuid>{040E9A72-CCDD-45D9-9D31-C216DB12280C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ArchitectureTemplate.Infrastructure.WCF.Managers</RootNamespace>
-    <AssemblyName>ArchitectureTemplate.Infrastructure.WCF.Managers</AssemblyName>
+    <RootNamespace>ArchitectureTemplate.Infrastructure.WCF.Services</RootNamespace>
+    <AssemblyName>ArchitectureTemplate.Infrastructure.WCF.Services</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -40,7 +40,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="TelaManeger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ArchitectureTemplate.Business\ArchitectureTemplate.Business.csproj">
+      <Project>{57F6AF5C-C804-4992-AB66-53CE627CBD3F}</Project>
+      <Name>ArchitectureTemplate.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ArchitectureTemplate.Infraestrutura.CrossCutting.Support\ArchitectureTemplate.Infraestrutura.CrossCutting.Support.csproj">
+      <Project>{927553C4-E24C-473B-ADD9-354497324AAF}</Project>
+      <Name>ArchitectureTemplate.Infraestrutura.CrossCutting.Support</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ArchitectureTemplate.Infrastructure.WCF.Contracts\ArchitectureTemplate.Infrastructure.WCF.Contracts.csproj">
+      <Project>{00053BA0-B3F1-4D52-8074-B902E6515A7F}</Project>
+      <Name>ArchitectureTemplate.Infrastructure.WCF.Contracts</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

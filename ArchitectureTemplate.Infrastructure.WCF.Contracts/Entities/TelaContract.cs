@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
-namespace ArchitectureTemplate.Infrastructure.WCF.Contracts.Entity
+namespace ArchitectureTemplate.Infrastructure.WCF.Contracts.Entities
 {
     [DataContract]
-    public class Tela
+    public class TelaContract
     {
         [DataMember]
         public int Id { get; set; }
@@ -32,6 +32,6 @@ namespace ArchitectureTemplate.Infrastructure.WCF.Contracts.Entity
         public bool Delete { get; set; }
 
         [DataMember]
-        public ICollection<PerfilPorTela> PerfilPorTela { get; set; }
+        public ICollection<PerfilPorTelaContract> PerfilPorTela { get; set; }
     }
 }

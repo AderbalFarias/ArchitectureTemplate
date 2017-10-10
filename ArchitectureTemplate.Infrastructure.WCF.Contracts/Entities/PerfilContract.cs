@@ -2,10 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
-namespace ArchitectureTemplate.Infrastructure.WCF.Contracts.Entity
+namespace ArchitectureTemplate.Infrastructure.WCF.Contracts.Entities
 {
     [DataContract]
-    public class Perfil
+    public class PerfilContract
     {
 
         [DataMember]
@@ -24,13 +24,13 @@ namespace ArchitectureTemplate.Infrastructure.WCF.Contracts.Entity
         public DateTime DataCadastro { get; set; }
 
         [DataMember]
-        public virtual IEnumerable<Usuario> Usuario { get; set; }
+        public virtual IEnumerable<UsuarioContract> Usuario { get; set; }
 
         [DataMember]
-        public virtual ICollection<PerfilPorTela> PerfilPorTela { get; set; }
+        public virtual ICollection<PerfilPorTelaContract> PerfilPorTela { get; set; }
 
         [DataMember]
-        public virtual IEnumerable<PerfilPorMenu> PerfilPorMenu { get; set; }
+        public virtual IEnumerable<PerfilPorMenuContract> PerfilPorMenu { get; set; }
     }
 }
 
