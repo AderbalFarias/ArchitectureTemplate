@@ -15,7 +15,7 @@ namespace ArchitectureTemplate.Infrastructure.WCF.Client
 
         private static void GetWithTcp()
         {
-            TelaClient proxy = new TelaClient("tcpEP");
+            TelaClient proxy = new TelaClient("tcpEp");
             var data = proxy.GetByName("Usuario");
 
             proxy.Close();
