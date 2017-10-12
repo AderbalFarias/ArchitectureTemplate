@@ -1,6 +1,5 @@
 ﻿using ArchitectureTemplate.Infrastructure.CrossCutting.IoC;
 using ArchitectureTemplate.Infrastructure.WindowService.Service.Services;
-using SimpleInjector;
 using System.Configuration;
 
 namespace ArchitectureTemplate.Infrastructure.WindowService.Service
@@ -44,10 +43,10 @@ namespace ArchitectureTemplate.Infrastructure.WindowService.Service
             ((System.ComponentModel.ISupportInitialize)(timerStart)).EndInit();
         }
 
-        private void InitializeContainer(Container container)
+        private void InitializeContainer()
         {
             BootstrapperService.RegisterServices(_container);
-            container.Register<UserService>();
+            _container.Register<UserService>();
         }
 
         #endregion

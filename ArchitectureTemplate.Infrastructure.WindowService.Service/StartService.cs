@@ -17,7 +17,7 @@ namespace ArchitectureTemplate.Infrastructure.WindowService.Service
 
         public StartService()
         {
-            InitializeContainer(_container);
+            InitializeContainer();
             InitializeComponent();
         }
 
