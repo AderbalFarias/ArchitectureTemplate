@@ -10,6 +10,7 @@ namespace ArchitectureTemplate.Infrastructure.WCF.Client
         static void Main(string[] args)
         {
             GetWithTcp();
+            GetWithHttp();
         }
 
         private static void GetWithTcp()
