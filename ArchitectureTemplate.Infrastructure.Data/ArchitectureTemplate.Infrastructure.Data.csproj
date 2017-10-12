@@ -52,8 +52,6 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
-    <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.Security" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DapperConfig\DapperContext.cs" />
