@@ -4,15 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{5CFAEA04-654E-4404-883F-BE9A0BB708C5}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ArchitectureTemplate.Infrastructure.WCF.Proxies</RootNamespace>
-    <AssemblyName>ArchitectureTemplate.Infrastructure.WCF.Proxies</AssemblyName>
+    <ProjectGuid>{47768E86-E64A-45E5-8485-57FDC3F4C5A0}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>ArchitectureTemplate.Infrastructure.WCF.Client</RootNamespace>
+    <AssemblyName>ArchitectureTemplate.Infrastructure.WCF.Client</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -22,6 +23,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -41,13 +43,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="TelaClient.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\ArchitectureTemplate.Infrastructure.WCF.Contracts\ArchitectureTemplate.Infrastructure.WCF.Contracts.csproj">
-      <Project>{00053BA0-B3F1-4D52-8074-B902E6515A7F}</Project>
+      <Project>{00053ba0-b3f1-4d52-8074-b902e6515a7f}</Project>
       <Name>ArchitectureTemplate.Infrastructure.WCF.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ArchitectureTemplate.Infrastructure.WCF.Proxies\ArchitectureTemplate.Infrastructure.WCF.Proxies.csproj">
+      <Project>{5cfaea04-654e-4404-883f-be9a0bb708c5}</Project>
+      <Name>ArchitectureTemplate.Infrastructure.WCF.Proxies</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
