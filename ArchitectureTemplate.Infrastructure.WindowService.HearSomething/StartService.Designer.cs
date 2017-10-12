@@ -1,8 +1,8 @@
 ﻿using ArchitectureTemplate.Infrastructure.CrossCutting.IoC;
-using ArchitectureTemplate.Infrastructure.WindowService.Service.Services;
+using ArchitectureTemplate.Infrastructure.WindowService.HearSomething.Services;
 using System.Configuration;
 
-namespace ArchitectureTemplate.Infrastructure.WindowService.Service
+namespace ArchitectureTemplate.Infrastructure.WindowService.HearSomething
 {
     partial class StartService
     {

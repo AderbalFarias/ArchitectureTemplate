@@ -1,9 +1,9 @@
-﻿using ArchitectureTemplate.Infrastructure.WindowService.Service.Services;
+﻿using ArchitectureTemplate.Infrastructure.WindowService.HearSomething.Services;
 using SimpleInjector;
 using System;
 using System.ServiceProcess;
 
-namespace ArchitectureTemplate.Infrastructure.WindowService.Service
+namespace ArchitectureTemplate.Infrastructure.WindowService.HearSomething
 {
     public partial class StartService : ServiceBase
     {

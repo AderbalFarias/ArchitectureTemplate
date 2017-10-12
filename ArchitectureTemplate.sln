@@ -25,7 +25,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArchitectureTemplate.Infrae
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.3 - WindowsService", "3.3 - WindowsService", "{EA40395C-C8C9-4B0F-B8FE-1648A0F53EC8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArchitectureTemplate.Infrastructure.WindowService.Service", "ArchitectureTemplate.Infrastructure.WindowService.Service\ArchitectureTemplate.Infrastructure.WindowService.Service.csproj", "{54514C2A-9B1F-4760-8AC9-DBD0ED2542E1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArchitectureTemplate.Infrastructure.WindowService.HearSomething", "ArchitectureTemplate.Infrastructure.WindowService.HearSomething\ArchitectureTemplate.Infrastructure.WindowService.HearSomething.csproj", "{54514C2A-9B1F-4760-8AC9-DBD0ED2542E1}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.4 - WCF", "3.4 - WCF", "{7D25F572-A499-4F7C-A399-E63EFACD3A36}"
 EndProject

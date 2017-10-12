@@ -1,6 +1,7 @@
-﻿using System.ServiceProcess;
+﻿using ArchitectureTemplate.Infrastructure.WindowService.Service;
+using System.ServiceProcess;
 
-namespace ArchitectureTemplate.Infrastructure.WindowService.Service
+namespace ArchitectureTemplate.Infrastructure.WindowService.HearSomething
 {
     static class Program
     {

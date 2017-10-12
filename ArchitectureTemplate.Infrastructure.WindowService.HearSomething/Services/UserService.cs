@@ -1,6 +1,6 @@
 ﻿using ArchitectureTemplate.Business.Interfaces.Services;
 
-namespace ArchitectureTemplate.Infrastructure.WindowService.Service.Services
+namespace ArchitectureTemplate.Infrastructure.WindowService.HearSomething.Services
 {
     public class UserService
     {

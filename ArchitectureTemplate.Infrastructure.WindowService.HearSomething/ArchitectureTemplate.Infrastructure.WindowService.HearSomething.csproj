@@ -7,8 +7,8 @@
     <ProjectGuid>{54514C2A-9B1F-4760-8AC9-DBD0ED2542E1}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ArchitectureTemplate.Infrastructure.WindowService.Service</RootNamespace>
-    <AssemblyName>ArchitectureTemplate.Infrastructure.WindowService.Service</AssemblyName>
+    <RootNamespace>ArchitectureTemplate.Infrastructure.WindowService.HearSomething</RootNamespace>
+    <AssemblyName>ArchitectureTemplate.Infrastructure.WindowService.HearSomething</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SccProjectName>SAK</SccProjectName>
