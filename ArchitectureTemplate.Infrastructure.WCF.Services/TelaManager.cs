@@ -1,7 +1,9 @@
 ﻿using ArchitectureTemplate.Business.Interfaces.Services;
 using ArchitectureTemplate.Infraestrutura.CrossCutting.Support.Extensions;
+using ArchitectureTemplate.Infrastructure.CrossCutting.IoC;
 using ArchitectureTemplate.Infrastructure.WCF.Contracts.Entities;
 using ArchitectureTemplate.Infrastructure.WCF.Contracts.ServiceInterfaces;
+using SimpleInjector;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -13,7 +15,9 @@ namespace ArchitectureTemplate.Infrastructure.WCF.Services
 
         public TelaManager()
         {
-
+            var container = new Container();
+            BootstrapperWcf.RegisterServices(container);
+            _telaService = container.GetInstance<ITelaService>();
         }
 
         public TelaManager(ITelaService telaService)
