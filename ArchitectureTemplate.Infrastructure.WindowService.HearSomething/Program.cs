@@ -1,5 +1,4 @@
-﻿using ArchitectureTemplate.Infrastructure.WindowService.Service;
-using System.ServiceProcess;
+﻿using System.ServiceProcess;
 
 namespace ArchitectureTemplate.Infrastructure.WindowService.HearSomething
 {

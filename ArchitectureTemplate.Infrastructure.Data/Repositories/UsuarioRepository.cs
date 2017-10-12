@@ -1,5 +1,5 @@
-﻿using ArchitectureTemplate.Business.DataEntities;
-using ArchitectureTemplate.Business.Interfaces.Repositories;
+﻿using ArchitectureTemplate.Domain.DataEntities;
+using ArchitectureTemplate.Domain.Interfaces.Repositories;
 using ArchitectureTemplate.Infraestrutura.CrossCutting.Support.Extensions;
 using ArchitectureTemplate.Infraestrutura.CrossCutting.Support.Resources;
 using System.Collections.Generic;

@@ -1,4 +1,4 @@
-﻿using ArchitectureTemplate.Business.DataEntities;
+﻿using ArchitectureTemplate.Domain.DataEntities;
 using ArchitectureTemplate.Mvc.Models;
 using AutoMapper;
 

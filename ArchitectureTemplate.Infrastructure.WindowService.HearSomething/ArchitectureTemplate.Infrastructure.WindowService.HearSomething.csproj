@@ -120,9 +120,9 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ArchitectureTemplate.Business\ArchitectureTemplate.Business.csproj">
+    <ProjectReference Include="..\ArchitectureTemplate.Domain\ArchitectureTemplate.Domain.csproj">
       <Project>{57f6af5c-c804-4992-ab66-53ce627cbd3f}</Project>
-      <Name>ArchitectureTemplate.Business</Name>
+      <Name>ArchitectureTemplate.Domain</Name>
     </ProjectReference>
     <ProjectReference Include="..\ArchitectureTemplate.Infrastructure.CrossCutting.IoC\ArchitectureTemplate.Infrastructure.CrossCutting.IoC.csproj">
       <Project>{66b226f1-e997-4138-bd83-0d1db7c76fb5}</Project>

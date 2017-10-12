@@ -1,8 +1,8 @@
-using ArchitectureTemplate.Business.DataEntities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using ArchitectureTemplate.Domain.DataEntities;
 
 namespace ArchitectureTemplate.Mvc.Models
 {

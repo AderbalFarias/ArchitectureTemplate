@@ -1,10 +1,10 @@
-﻿using ArchitectureTemplate.Business.DataEntities;
-using ArchitectureTemplate.Business.Interfaces.Repositories;
-using ArchitectureTemplate.Infraestrutura.CrossCutting.Support.Extensions;
+﻿using ArchitectureTemplate.Infraestrutura.CrossCutting.Support.Extensions;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
+using ArchitectureTemplate.Domain.DataEntities;
+using ArchitectureTemplate.Domain.Interfaces.Repositories;
 
 namespace ArchitectureTemplate.Infrastructure.Data.Repositories
 {

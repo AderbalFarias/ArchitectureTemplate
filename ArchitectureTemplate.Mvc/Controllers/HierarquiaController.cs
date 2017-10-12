@@ -1,6 +1,4 @@
-﻿using ArchitectureTemplate.Business.DataEntities;
-using ArchitectureTemplate.Business.Interfaces.Services;
-using ArchitectureTemplate.Infraestrutura.CrossCutting.Support.Resources;
+﻿using ArchitectureTemplate.Infraestrutura.CrossCutting.Support.Resources;
 using ArchitectureTemplate.Mvc.Controllers.Shared;
 using ArchitectureTemplate.Mvc.Models;
 using ArchitectureTemplate.Mvc.Models.Shared;
@@ -9,6 +7,8 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Web.Mvc;
+using ArchitectureTemplate.Domain.DataEntities;
+using ArchitectureTemplate.Domain.Interfaces.Services;
 
 namespace ArchitectureTemplate.Mvc.Controllers
 {

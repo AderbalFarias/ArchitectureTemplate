@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Presentation", "1 - Presentation", "{4651BA28-022B-4E06-B9BE-8F2FE79DCBC9}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Business", "2 - Business", "{28FDA2C7-D23D-429C-8E91-7E517A25D34B}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Domain", "2 - Domain", "{28FDA2C7-D23D-429C-8E91-7E517A25D34B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Infrastructure", "3 - Infrastructure", "{FE884A6F-3E51-4E8B-9C8F-F852A94DD798}"
 EndProject
@@ -15,7 +15,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.2 - CrossCutting", "3.2 -
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArchitectureTemplate.Mvc", "ArchitectureTemplate.Mvc\ArchitectureTemplate.Mvc.csproj", "{EAFBDFCC-3DC8-4A72-AE20-AB4CE1D3EF00}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArchitectureTemplate.Business", "ArchitectureTemplate.Business\ArchitectureTemplate.Business.csproj", "{57F6AF5C-C804-4992-AB66-53CE627CBD3F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArchitectureTemplate.Domain", "ArchitectureTemplate.Domain\ArchitectureTemplate.Domain.csproj", "{57F6AF5C-C804-4992-AB66-53CE627CBD3F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArchitectureTemplate.Infrastructure.Data", "ArchitectureTemplate.Infrastructure.Data\ArchitectureTemplate.Infrastructure.Data.csproj", "{A77DBFBB-C288-4577-8DF2-8511DEC4DD2C}"
 EndProject

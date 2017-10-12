@@ -1,4 +1,4 @@
-﻿using ArchitectureTemplate.Business.Interfaces.Services;
+﻿using ArchitectureTemplate.Domain.Interfaces.Services;
 
 namespace ArchitectureTemplate.Infrastructure.WindowService.HearSomething.Services
 {

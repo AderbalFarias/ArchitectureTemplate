@@ -1,5 +1,5 @@
-using ArchitectureTemplate.Business.DataEntities;
 using System.Data.Entity.ModelConfiguration;
+using ArchitectureTemplate.Domain.DataEntities;
 
 namespace ArchitectureTemplate.Infrastructure.Data.EntityConfig.Mapping
 {

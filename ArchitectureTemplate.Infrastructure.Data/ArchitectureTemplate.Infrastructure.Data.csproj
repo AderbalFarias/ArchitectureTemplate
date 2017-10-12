@@ -87,9 +87,9 @@
     <Compile Include="Repositories\UsuarioRepository.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ArchitectureTemplate.Business\ArchitectureTemplate.Business.csproj">
+    <ProjectReference Include="..\ArchitectureTemplate.Domain\ArchitectureTemplate.Domain.csproj">
       <Project>{57F6AF5C-C804-4992-AB66-53CE627CBD3F}</Project>
-      <Name>ArchitectureTemplate.Business</Name>
+      <Name>ArchitectureTemplate.Domain</Name>
     </ProjectReference>
     <ProjectReference Include="..\ArchitectureTemplate.Infraestrutura.CrossCutting.Support\ArchitectureTemplate.Infraestrutura.CrossCutting.Support.csproj">
       <Project>{927553C4-E24C-473B-ADD9-354497324AAF}</Project>

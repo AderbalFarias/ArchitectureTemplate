@@ -1,6 +1,6 @@
-﻿using ArchitectureTemplate.Business.DataEntities;
-using System;
+﻿using System;
 using System.ComponentModel;
+using ArchitectureTemplate.Domain.DataEntities;
 
 namespace ArchitectureTemplate.Mvc.Models
 {

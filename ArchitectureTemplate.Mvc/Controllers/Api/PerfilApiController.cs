@@ -1,5 +1,5 @@
-﻿using ArchitectureTemplate.Business.DataEntities;
-using ArchitectureTemplate.Business.Interfaces.Services;
+﻿using ArchitectureTemplate.Domain.DataEntities;
+using ArchitectureTemplate.Domain.Interfaces.Services;
 using ArchitectureTemplate.Mvc.Controllers.Shared;
 using System.Collections.Generic;
 using System.Linq;

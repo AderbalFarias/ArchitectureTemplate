@@ -1,6 +1,4 @@
-﻿using ArchitectureTemplate.Business.DataEntities;
-using ArchitectureTemplate.Business.Interfaces.Repositories;
-using ArchitectureTemplate.Infraestrutura.CrossCutting.Support.Extensions;
+﻿using ArchitectureTemplate.Infraestrutura.CrossCutting.Support.Extensions;
 using ArchitectureTemplate.Infrastructure.Data.DapperConfig;
 using ArchitectureTemplate.Infrastructure.Data.EntityConfig;
 using Dapper;
@@ -8,6 +6,8 @@ using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
+using ArchitectureTemplate.Domain.DataEntities;
+using ArchitectureTemplate.Domain.Interfaces.Repositories;
 
 namespace ArchitectureTemplate.Infrastructure.Data.Repositories
 {

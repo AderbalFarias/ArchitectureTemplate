@@ -1,9 +1,9 @@
-﻿using ArchitectureTemplate.Business.Interfaces.Repositories;
-using ArchitectureTemplate.Infrastructure.Data.EntityConfig;
+﻿using ArchitectureTemplate.Infrastructure.Data.EntityConfig;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
+using ArchitectureTemplate.Domain.Interfaces.Repositories;
 
 namespace ArchitectureTemplate.Infrastructure.Data.Repositories
 {

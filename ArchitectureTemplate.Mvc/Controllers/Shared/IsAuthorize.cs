@@ -1,8 +1,8 @@
-﻿using ArchitectureTemplate.Business.Interfaces.Services;
-using System;
+﻿using System;
 using System.Linq;
 using System.Security.Claims;
 using System.Web.Mvc;
+using ArchitectureTemplate.Domain.Interfaces.Services;
 
 namespace ArchitectureTemplate.Mvc.Controllers.Shared
 {

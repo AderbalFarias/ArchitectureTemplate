@@ -1,4 +1,4 @@
-﻿using ArchitectureTemplate.Business.Interfaces.Services;
+﻿using ArchitectureTemplate.Domain.Interfaces.Services;
 using ArchitectureTemplate.Mvc.Controllers.Shared;
 using System;
 using System.Security.Claims;

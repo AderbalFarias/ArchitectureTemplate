@@ -1,4 +1,4 @@
-﻿using ArchitectureTemplate.Business.Interfaces.Services;
+﻿using ArchitectureTemplate.Domain.Interfaces.Services;
 using ArchitectureTemplate.Infraestrutura.CrossCutting.Support.Extensions;
 using ArchitectureTemplate.Infrastructure.CrossCutting.IoC;
 using ArchitectureTemplate.Infrastructure.WCF.Contracts.Entities;

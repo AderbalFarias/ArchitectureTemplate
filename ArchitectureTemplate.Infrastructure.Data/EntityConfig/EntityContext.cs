@@ -1,7 +1,7 @@
-using ArchitectureTemplate.Business.DataEntities;
 using ArchitectureTemplate.Infrastructure.Data.EntityConfig.Mapping;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
+using ArchitectureTemplate.Domain.DataEntities;
 
 namespace ArchitectureTemplate.Infrastructure.Data.EntityConfig
 {

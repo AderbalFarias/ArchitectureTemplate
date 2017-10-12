@@ -1,4 +1,4 @@
-﻿namespace ArchitectureTemplate.Infrastructure.WindowService.Service
+﻿namespace ArchitectureTemplate.Infrastructure.WindowService.HearSomething
 {
     partial class ProjectInstaller
     {

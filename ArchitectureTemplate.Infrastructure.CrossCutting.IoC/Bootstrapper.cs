@@ -1,6 +1,6 @@
-﻿using ArchitectureTemplate.Business.Interfaces.Repositories;
-using ArchitectureTemplate.Business.Interfaces.Services;
-using ArchitectureTemplate.Business.Services;
+﻿using ArchitectureTemplate.Domain.Interfaces.Repositories;
+using ArchitectureTemplate.Domain.Interfaces.Services;
+using ArchitectureTemplate.Domain.Services;
 using ArchitectureTemplate.Infraestrutura.CrossCutting.Support.Extensions;
 using ArchitectureTemplate.Infrastructure.Data.Repositories;
 using SimpleInjector;
