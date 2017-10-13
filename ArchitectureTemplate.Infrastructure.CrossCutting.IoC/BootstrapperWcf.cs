@@ -13,8 +13,8 @@ namespace ArchitectureTemplate.Infrastructure.CrossCutting.IoC
             container.Register(typeof(IServiceBase<>), typeof(ServiceBase<>));
             container.Register(typeof(IRepositoryBase<>), typeof(RepositoryBase<>));
 
-            container.Register<ITelaService, TelaService>();
-            container.Register<ITelaRepository, TelaRepository>();
+            container.Register<ITelaService, TelaService>(Lifestyle.Scoped);
+            container.Register<ITelaRepository, TelaRepository>(Lifestyle.Scoped);
         }
     }
 }

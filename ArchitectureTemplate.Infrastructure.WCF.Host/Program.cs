@@ -1,21 +1,39 @@
-﻿using ArchitectureTemplate.Infrastructure.WCF.Services;
+﻿using ArchitectureTemplate.Infrastructure.CrossCutting.IoC;
+using ArchitectureTemplate.Infrastructure.WCF.Contracts.ServiceInterfaces;
+using ArchitectureTemplate.Infrastructure.WCF.Services;
+using SimpleInjector;
+using SimpleInjector.Integration.Wcf;
 using System;
 using System.ServiceModel;
 
 namespace ArchitectureTemplate.Infrastructure.WCF.Host
 {
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {
-            ServiceHost hostGeoManager = new ServiceHost(typeof(TelaManager));
-            hostGeoManager.Open();
+            var container = InitializeContainer();
 
+            ServiceHost serviceHost = new SimpleInjectorServiceHost(container, typeof(TelaManager));
+            serviceHost.Open();
 
             Console.WriteLine("Services started. Press [Enter] to exit.");
             Console.ReadLine();
 
-            hostGeoManager.Close();
+            serviceHost.Close();
+        }
+
+        private static Container InitializeContainer()
+        {
+            var container = new Container();
+
+            container.Options.DefaultScopedLifestyle = new WcfOperationLifestyle(false);
+            container.Register<ITelaServiceContract, TelaManager>(Lifestyle.Scoped);
+
+            BootstrapperWcf.RegisterServices(container);
+            container.Verify();
+
+            return container;
         }
     }
 }

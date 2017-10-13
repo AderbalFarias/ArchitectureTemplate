@@ -23,7 +23,7 @@ namespace ArchitectureTemplate.Infrastructure.WCF.Client
 
         private static void GetWithHttp()
         {
-            EndpointAddress address = new EndpointAddress("net.tcp://localhost:8009/TelaService");
+            EndpointAddress address = new EndpointAddress("net.tcp://localhost:8009/WcfService");
             Binding binding = new NetTcpBinding();
 
             TelaClient proxy = new TelaClient(binding, address);
