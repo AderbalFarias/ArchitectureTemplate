@@ -1,12 +1,12 @@
 ﻿@model ArchitectureTemplate.Mvc.Models.PerfilModel
 @{
-    ViewBag.Title = "Editar Perfil";
+    ViewBag.Title = "Edit Profile";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div class="white-row">
     <h3>
-        <strong>Editar Perfil</strong>
+        <strong>Edit Profile</strong>
     </h3>
 
     @using (Html.BeginForm("Edit", "Perfil", FormMethod.Post, new { @id = "formPerfil" }))
@@ -22,7 +22,7 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.Nome, new { @class = "control-label col-md-3" })
                 <div class="col-md-4">
-                    @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @class = "form-control", @required = true, @maxlength = 50, @placeholder = "Informe o nome do perfil" } })
+                    @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @class = "form-control", @required = true, @maxlength = 50, @placeholder = "Enter the name of the profile" } })
                     @Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -30,7 +30,7 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.Solicitante, new {@class = "control-label col-md-3"})
                 <div class="col-md-7">
-                    @Html.EditorFor(model => model.Solicitante, new {htmlAttributes = new {@class = "form-control", @required = true, @maxlength = 100, @placeholder = "Informe o nome do solicitante",}})
+                    @Html.EditorFor(model => model.Solicitante, new {htmlAttributes = new {@class = "form-control", @required = true, @maxlength = 100, @placeholder = "Enter the name of the requester", }})
                     @Html.ValidationMessageFor(model => model.Solicitante, "", new {@class = "text-danger"})
                 </div>
             </div>
@@ -47,8 +47,8 @@
 
             <div class="form-group">
                 <div class="col-md-offset-3 col-md-9">
-                    <input type="submit" value="Salvar" class="btn btn-primary btn-specific" />
-                    @Html.ActionLink("Cancelar", "Index", null, new { @class = "btn btn-primary btn-specific" })
+                    <input type="submit" value="Save" class="btn btn-primary btn-specific" />
+                    @Html.ActionLink("Cancel", "Index", null, new { @class = "btn btn-primary btn-specific" })
                 </div>
             </div>
         </div>

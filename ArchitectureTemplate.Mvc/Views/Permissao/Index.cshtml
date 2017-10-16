@@ -1,12 +1,12 @@
 ﻿@model ArchitectureTemplate.Mvc.Models.PermissaoModel
 @{
-    ViewBag.Title = "Permissões de Acesso";
+    ViewBag.Title = "Access Permissions";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div class="white-row">
     <h3>
-        <strong>Permissões de Acesso</strong>
+        <strong>Access Permissions</strong>
     </h3>
 
     <div class="form-horizontal">
@@ -37,19 +37,19 @@
                     </tr>
                     <tr>
                         <th>
-                            Nome da Tela
+                            Screen Name
                         </th>
                         <th>
-                            Nome da Controller
+                            Controller
                         </th>
                         <th>
-                            Data de Cadastro
+                            Date of Creation
                         </th>
                         <th>
-                            Ativa
+                            Active
                         </th>
                         <th>
-                            Funcionalidades
+                            Features
                         </th>
                     </tr>
 
@@ -78,7 +78,7 @@
         }
     </div>
 
-    @Html.ActionLink("Exportar para Excel", "ExportToExcel", null, new { @class = "btn btn-primary btn-specific" })
+    @Html.ActionLink("Export to Excel", "ExportToExcel", null, new { @class = "btn btn-primary btn-specific" })
 </div>
 
 @section Scripts {
@@ -100,7 +100,7 @@
                         $("#DivDados").html(data);
                     },
                     error: function () {
-                        ShowMessage("Error", "Ocorreu um problema inesperado ao tentar carregar os dados", null, 2);
+                        ShowMessage("Error", "An unexpected problem occurred while trying to load data", null, 2);
                     }
                 });
             });

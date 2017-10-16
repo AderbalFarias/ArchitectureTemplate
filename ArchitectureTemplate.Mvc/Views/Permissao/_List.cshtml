@@ -4,33 +4,33 @@
     <table class="table table-bordered table-hover">
         <tr>
             <th class="text-center" colspan="8">
-                <span class="uppercase">Lista de permissões por tela para o perfil selecionado</span>
+                <span class="uppercase">Permission list of the screen for selected profile</span>
             </th>
         </tr>
         <tr>
             <th>
-                Nome da Tela
+                Screen Name
             </th>
             @*<th>
                 Nome da Controller
             </th>*@
             <th>
-                Funcionalidades
+                Features
             </th>
             <th>
-                Consultar
+                Read
             </th>
             <th>
-                Cadastrar
+                Create
             </th>
             <th>
-                Atualizar
+                Update
             </th>
             <th>
-                Deletar
+                Delete
             </th>
             <th>
-                Todas
+                All
             </th>
         </tr>
 
@@ -59,8 +59,8 @@
                     @Html.ButtonDisableOrEnable(item.Delete, Url.Action("EnableOrDisable", new { id = Model.PerfilId, telaId = item.Tela.Id, parametro = "Delete", permissaoId = item.Id }), item.Tela.Delete)
                 </td>
                 <td class="text-center">
-                    <a link="@Url.Action("EnableOrDisableAll", new { id = Model.PerfilId, telaId = item.Tela.Id, ativar = true, permissaoId = item.Id })" title="Ativar todos"><i class="fa fa-md fa-plus-circle"></i></a> |
-                    <a link="@Url.Action("EnableOrDisableAll", new { id = Model.PerfilId, telaId = item.Tela.Id, ativar = false, permissaoId = item.Id })" title="Desativar todos"><i class="fa fa-md fa-remove"></i></a>
+                    <a link="@Url.Action("EnableOrDisableAll", new { id = Model.PerfilId, telaId = item.Tela.Id, ativar = true, permissaoId = item.Id })" title="Enable all"><i class="fa fa-md fa-plus-circle"></i></a> |
+                    <a link="@Url.Action("EnableOrDisableAll", new { id = Model.PerfilId, telaId = item.Tela.Id, ativar = false, permissaoId = item.Id })" title="Disable all"><i class="fa fa-md fa-remove"></i></a>
                 </td>
             </tr>
         }

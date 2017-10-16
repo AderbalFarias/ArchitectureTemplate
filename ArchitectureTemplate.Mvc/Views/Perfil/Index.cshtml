@@ -1,12 +1,12 @@
 ﻿@model IEnumerable<ArchitectureTemplate.Mvc.Models.PerfilModel>
 @{
-    ViewBag.Title = "Lista de Perfis";
+    ViewBag.Title = "Profiles Registration";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div class="white-row">
     <h3>
-        <strong>Cadastro de Perfis</strong>
+        <strong>Profiles Registration</strong>
     </h3>
 
     <div class="table-responsive table-responsive-specific">
@@ -49,8 +49,8 @@
                         @Html.DisplayAtivo(item.Ativo)
                     </td>
                     <td class="text-center acao">
-                        <a href="@Url.Action("Edit", new {id = item.Id})" title="Editar"><i class="fa fa-md fa-edit"></i></a> |
-                        @Html.ButtonDisableOrEnable(item.Ativo, Url.Action("Delete", new { id = item.Id }), $"o perfil {item.Nome}")
+                        <a href="@Url.Action("Edit", new {id = item.Id})" title="Edit"><i class="fa fa-md fa-edit"></i></a> |
+                        @Html.ButtonDisableOrEnable(item.Ativo, Url.Action("Delete", new { id = item.Id }), $"the profile {item.Nome}")
                     </td>
                 </tr>
             }
@@ -60,7 +60,7 @@
     @Html.Pagination(@Url.Action("Index", "Perfil"), (int) ViewBag.PaginaAtual, (int) ViewBag.QtdePaginas)
     
     <div>
-        @Html.ActionLink("Adicionar Novo", "Create", null, new {@class = "btn btn-primary btn-specific"})
+        @Html.ActionLink("Add New", "Create", null, new {@class = "btn btn-primary btn-specific"})
     </div>
 </div>
 
