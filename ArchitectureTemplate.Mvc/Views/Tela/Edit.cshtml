@@ -1,12 +1,12 @@
 ﻿@model ArchitectureTemplate.Mvc.Models.TelaModel
 @{
-    ViewBag.Title = "Editar Tela";
+    ViewBag.Title = "Edit Screen";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div class="white-row">
     <h3>
-        <strong>Editar Tela</strong>
+        <strong>Edit Screen</strong>
     </h3>
 
     @using (Html.BeginForm("Edit", "Tela", FormMethod.Post, new { @id = "formTela" }))
@@ -94,8 +94,8 @@
 
             <div class="form-group">
                 <div class="col-md-offset-3 col-md-9">
-                    <input type="submit" value="Salvar" class="btn btn-primary btn-specific" />
-                    @Html.ActionLink("Cancelar", "Index", null, new { @class = "btn btn-primary btn-specific" })
+                    <input type="submit" value="Save" class="btn btn-primary btn-specific" />
+                    @Html.ActionLink("Cancel", "Index", null, new { @class = "btn btn-primary btn-specific" })
                 </div>
             </div>
         </div>

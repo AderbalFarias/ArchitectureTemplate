@@ -1,12 +1,12 @@
 ﻿@model IEnumerable<ArchitectureTemplate.Mvc.Models.TelaModel>
 @{
-    ViewBag.Title = "Telas";
+    ViewBag.Title = "Screens";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div class="white-row">
     <h3>
-        <strong>Lista de Telas</strong>
+        <strong>List of Screens</strong>
     </h3>
 
     <div class="table-responsive border-ddd">
@@ -83,6 +83,6 @@
     @Html.Pagination(@Url.Action("Index", "Tela"), (int) ViewBag.PaginaAtual, (int) ViewBag.QtdePaginas)
     
     <div>
-        @Html.ActionLink("Sincronizar", "Synchronize", null, new {@class = "btn btn-primary btn-specific"})
+        @Html.ActionLink("Synchronize", "Synchronize", null, new {@class = "btn btn-primary btn-specific"})
     </div>
 </div>
