@@ -242,7 +242,7 @@ namespace ArchitectureTemplate.Mvc.Helpers
 
         public static MvcHtmlString DisplayAtivo<TModel>(this HtmlHelper<TModel> helper, bool ativo = false)
         {
-            var display = ativo ? "Sim" : "Não";
+            var display = ativo ? "Yes" : "No";
             return MvcHtmlString.Create(display);
         }
 
@@ -252,13 +252,13 @@ namespace ArchitectureTemplate.Mvc.Helpers
             IList<string> list = new List<string>();
 
             if (read)
-                list.Add("Consultar");
+                list.Add("Read");
             if (create)
-                list.Add("Cadastrar");
+                list.Add("Create");
             if (update)
-                list.Add("Atualizar");
+                list.Add("Update");
             if (delete)
-                list.Add("Deletar");
+                list.Add("Delete");
 
             var display = string.Join("; ", list);
             return MvcHtmlString.Create(display);
