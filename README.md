@@ -31,7 +31,7 @@ You have to replace these words:<br />
 **yourpassword:** your password to access the server<br />
 
 The application contains an initialization file that will create the default user.<br />
-**User: admin**<br />
+**User: Admin**<br />
 **Password: 123456**<br />
 
 If you want, you can configure SMTP server to send email on file Web.config as well in these keys.
