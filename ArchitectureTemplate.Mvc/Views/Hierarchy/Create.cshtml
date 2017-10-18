@@ -1,0 +1,110 @@
+﻿@model ArchitectureTemplate.Mvc.Models.HierarchyModel
+@{
+    ViewBag.Title = "Hierarchy";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="white-row">
+    <h3>
+        <strong>Add new item on the Hierarchy</strong>
+    </h3>
+
+    @using (Html.BeginForm("Create", "Hierarchy", FormMethod.Post, new { @id = "formHierarchy" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.HierarchyPaiId)
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Nome, new {@class = "control-label col-md-3"})
+                <div class="col-md-6">
+                    @Html.EditorFor(model => model.Nome, new {htmlAttributes = new {@class = "form-control", @required = true, @maxlength = 50, @placeholder = "Informe o nome"}})
+                    @Html.ValidationMessageFor(model => model.Nome, "", new {@class = "text-danger"})
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.HierarchyTypeId, new { @class = "control-label col-md-3" })
+                <div class="col-md-4">
+                    @Html.DropDownListFor(model => model.HierarchyTypeId, new SelectList(Model.HierarchyTypeDictionary, "Key", "Value"), "Selecione", new { @class = "form-control", @required = true })
+                    @Html.ValidationMessageFor(model => model.HierarchyTypeId, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.HierarchyDetalhe.PessoaFisica, new { @class = "control-label col-md-3" })
+                <div class="col-md-9">
+                    <div class="checkbox">
+                        @Html.CheckBoxFor(model => model.HierarchyDetalhe.PessoaFisica)
+                        @Html.ValidationMessageFor(model => model.HierarchyDetalhe.PessoaFisica, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.HierarchyDetalhe.CpfCnpj, htmlAttributes: new {@class = "control-label col-md-3"})
+                <div class="col-md-3">
+                    @Html.EditorFor(model => model.HierarchyDetalhe.CpfCnpj, new {htmlAttributes = new {@class = "form-control", @maxleght = 18, @cpfCnpj = true}})
+                    @Html.ValidationMessageFor(model => model.HierarchyDetalhe.CpfCnpj, "", new {@class = "text-danger"})
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.HierarchyDetalhe.Email, new { @class = "control-label col-md-3" })
+                <div class="col-md-5">
+                    @Html.EditorFor(model => model.HierarchyDetalhe.Email, new { htmlAttributes = new { @class = "form-control", @placeholder = "Informe o email" } })
+                    @Html.ValidationMessageFor(model => model.HierarchyDetalhe.Email, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.HierarchyDetalhe.Telefone, new { @class = "control-label col-md-3" })
+                <div class="col-md-4">
+                    @Html.EditorFor(model => model.HierarchyDetalhe.Telefone, new { htmlAttributes = new { @class = "form-control", @placeholder = "Informe o telefone" } })
+                    @Html.ValidationMessageFor(model => model.HierarchyDetalhe.Telefone, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            
+            <div class="form-group">
+                @Html.LabelFor(model => model.HierarchyDetalhe.Codigo, new {@class = "control-label col-md-3"})
+                <div class="col-md-2">
+                    @Html.EditorFor(model => model.HierarchyDetalhe.Codigo, new {htmlAttributes = new {@class = "form-control", @placeholder = "Informe o código interno"}})
+                    @Html.ValidationMessageFor(model => model.HierarchyDetalhe.Codigo, "", new {@class = "text-danger"})
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Descricao, new { @class = "control-label col-md-3" })
+                <div class="col-md-8">
+                    <textarea id="Descricao" name="Descricao" class="form-control" rows="3" maxlength="500" placeholder="Informar uma descrição"></textarea>
+                    @Html.ValidationMessageFor(model => model.Descricao, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Ativo, new {@class = "control-label col-md-3"})
+                <div class="col-md-9">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.Ativo)
+                        @Html.ValidationMessageFor(model => model.Ativo, "", new {@class = "text-danger"})
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-3 col-md-9">
+                    <input type="submit" value="Salvar" class="btn btn-primary btn-specific"/>
+                    @Html.ActionLink("Cancelar", "Index", null, new { @class = "btn btn-primary btn-specific" })
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/mask")
+    <script type="text/javascript" src="~/wwwroot/js/views/hierarchy.js@("?v201703221651?")"></script>
+}

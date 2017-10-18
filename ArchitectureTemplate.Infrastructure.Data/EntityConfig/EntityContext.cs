@@ -1,7 +1,7 @@
+using ArchitectureTemplate.Domain.DataEntities;
 using ArchitectureTemplate.Infrastructure.Data.EntityConfig.Mapping;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
-using ArchitectureTemplate.Domain.DataEntities;
 
 namespace ArchitectureTemplate.Infrastructure.Data.EntityConfig
 {
@@ -14,17 +14,17 @@ namespace ArchitectureTemplate.Infrastructure.Data.EntityConfig
             Configuration.ProxyCreationEnabled = false;
         }
 
-        public virtual DbSet<Hierarquia> Hierarquia { get; set; }
-        public virtual DbSet<HierarquiaDetalhe> HierarquiaDetalhe { get; set; }
+        public virtual DbSet<Hierarchy> Hierarchy { get; set; }
+        public virtual DbSet<HierarchyDetail> HierarchyDetalhe { get; set; }
         public virtual DbSet<Log> Log { get; set; }
         public virtual DbSet<LogType> LogType { get; set; }
         public virtual DbSet<Profile> Profile { get; set; }
-        public virtual DbSet<ProfilePorTela> ProfilePorTela { get; set; }
-        public virtual DbSet<Tela> Tela { get; set; }
-        public virtual DbSet<TipoHierarquia> TipoHierarquia { get; set; }
-        public virtual DbSet<Usuario> Usuario { get; set; }
+        public virtual DbSet<ProfileForScreen> ProfilePorScreen { get; set; }
+        public virtual DbSet<Screen> Screen { get; set; }
+        public virtual DbSet<HierarchyType> HierarchyType { get; set; }
+        public virtual DbSet<User> User { get; set; }
         public virtual DbSet<Menu> Menu { get; set; }
-        public virtual DbSet<ProfilePorMenu> ProfilePorMenu { get; set; }
+        public virtual DbSet<ProfileForMenu> ProfilePorMenu { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -46,16 +46,16 @@ namespace ArchitectureTemplate.Infrastructure.Data.EntityConfig
             modelBuilder.Properties<string>()
                 .Configure(p => p.HasMaxLength(100));
 
-            modelBuilder.Configurations.Add(new HierarquiaMap());
-            modelBuilder.Configurations.Add(new HierarquiaDetalhesMap());
+            modelBuilder.Configurations.Add(new HierarchyMap());
+            modelBuilder.Configurations.Add(new HierarchyDetailMap());
             modelBuilder.Configurations.Add(new LogMap());
             modelBuilder.Configurations.Add(new LogTypeMap());
             modelBuilder.Configurations.Add(new ProfileMap());
-            modelBuilder.Configurations.Add(new ProfilePorTelaMap());
-            modelBuilder.Configurations.Add(new TelaMap());
-            modelBuilder.Configurations.Add(new UsuarioMap());
+            modelBuilder.Configurations.Add(new ProfileForScreenMap());
+            modelBuilder.Configurations.Add(new ScreenMap());
+            modelBuilder.Configurations.Add(new UserMap());
             modelBuilder.Configurations.Add(new MenuMap());
-            modelBuilder.Configurations.Add(new ProfilePorMenuMap());
+            modelBuilder.Configurations.Add(new ProfileForMenuMap());
         }
     }
 }

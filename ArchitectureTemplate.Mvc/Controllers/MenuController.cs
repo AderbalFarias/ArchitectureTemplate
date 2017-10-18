@@ -1,11 +1,11 @@
-﻿using ArchitectureTemplate.Infraestrutura.CrossCutting.Support.Resources;
+﻿using ArchitectureTemplate.Domain.Interfaces.Services;
+using ArchitectureTemplate.Infraestrutura.CrossCutting.Support.Resources;
 using ArchitectureTemplate.Mvc.Controllers.Shared;
 using ArchitectureTemplate.Mvc.Models;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Web.Mvc;
-using ArchitectureTemplate.Domain.Interfaces.Services;
 
 namespace ArchitectureTemplate.Mvc.Controllers
 {
@@ -109,11 +109,11 @@ namespace ArchitectureTemplate.Mvc.Controllers
         //[IsAuthorize]
         [Authorize(Roles = "Administrator")]
         [ActionType(AccessType.Update)]
-        public ActionResult EnableOrDisable(int id, int menuId, long permissaoId = 0, double scroll = 0)
+        public ActionResult EnableOrDisable(int id, int menuId, long permissionId = 0, double scroll = 0)
         {
             try
             {
-                _menuService.EnableOrDisabled(id, menuId, permissaoId, CurrentUser.UserId);
+                _menuService.EnableOrDisabled(id, menuId, permissionId, CurrentUser.UserId);
                 //ShowMessageDialog(MensagensResource.SucessoAtualizar, Message.MessageKind.Success);
             }
             catch (Exception e)

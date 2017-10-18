@@ -1,6 +1,6 @@
 ﻿@using System.Security.Claims
 @{
-    var idsMenus = ((ClaimsIdentity)User.Identity).FindFirst("IdsMenu").Value;
+    var idsMenus = ((ClaimsIdentity)User.Identity).FindFirst("MenuIds").Value;
 
     var menusEnabled = !string.IsNullOrEmpty(idsMenus)
         ? idsMenus.Split('|').Select(int.Parse).ToList()

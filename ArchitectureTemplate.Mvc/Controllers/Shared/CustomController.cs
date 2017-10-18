@@ -37,7 +37,7 @@ namespace ArchitectureTemplate.Mvc.Controllers.Shared
         }
 
         /// <summary>
-        /// Exibe um mensagem na tela
+        /// Exibe um mensagem na screen
         /// </summary>
         /// <param name="mensagem">mensagem desejada</param>
         /// <param name="tipoMensagem">tipos: Sucesso, Informação, Warning, Error</param>

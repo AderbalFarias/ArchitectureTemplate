@@ -18,23 +18,23 @@ namespace ArchitectureTemplate.Infrastructure.Data.Repositories
         #region Methods
 
         /// <summary>
-        /// Busca tipo de hierarquia
+        /// Busca tipo de hierarchy
         /// </summary>
         /// <returns>Dicionário contendo código e descrição</returns>
-        public IDictionary<int, string> GetTipoHierarquiaDictionary()
+        public IDictionary<int, string> GetHierarchyTypeDictionary()
         {
-            return _context.TipoHierarquia
+            return _context.HierarchyType
                 .OrderBy(o => o.Descricao)
                 .ToDictionary(k => k.Id, v => v.Descricao);
         }
 
         /// <summary>
-        /// Busca tipo de hierarquia de forma assíncrona
+        /// Busca tipo de hierarchy de forma assíncrona
         /// </summary>
         /// <returns>Dicionário contendo código e descrição</returns>
-        public async Task<IDictionary<int, string>> GetTipoHierarquiaDictionaryAsync()
+        public async Task<IDictionary<int, string>> GetHierarchyTypeDictionaryAsync()
         {
-            return await _context.TipoHierarquia
+            return await _context.HierarchyType
                 .OrderBy(o => o.Descricao)
                 .ToDictionaryAsync(k => k.Id, v => v.Descricao);
         }

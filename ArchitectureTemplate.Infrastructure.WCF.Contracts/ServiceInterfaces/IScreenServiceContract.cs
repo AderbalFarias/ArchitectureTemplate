@@ -13,10 +13,10 @@ namespace ArchitectureTemplate.Infrastructure.WCF.Contracts.ServiceInterfaces
         [OperationContract]
         ScreenContract GetByName(string name);
 
-        [OperationContract(Name = "GetTelasByContains")]
-        IEnumerable<ScreenContract> GetTelas(string key);
+        [OperationContract(Name = "GetScreensByContains")]
+        IEnumerable<ScreenContract> GetScreens(string key);
 
-        [OperationContract(Name = "GetTelasByRange")]
-        IEnumerable<ScreenContract> GetTelas(int idBegin, int idEnd);
+        [OperationContract(Name = "GetScreensByRange")]
+        IEnumerable<ScreenContract> GetScreens(int idBegin, int idEnd);
     }
 }

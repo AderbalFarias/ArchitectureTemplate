@@ -9,42 +9,42 @@ namespace ArchitectureTemplate.Infrastructure.WCF.Services
 {
     public class ScreenManager : IScreenServiceContract
     {
-        private readonly ITelaService _telaService;
+        private readonly IScreenService _screenService;
 
-        public ScreenManager(ITelaService telaService)
+        public ScreenManager(IScreenService screenService)
         {
-            _telaService = telaService;
+            _screenService = screenService;
         }
 
         public ScreenContract GetById(int id)
         {
-            var tela = _telaService.GetId(id);
-            return tela.Cast<ScreenContract>();
+            var screen = _screenService.GetId(id);
+            return screen.Cast<ScreenContract>();
         }
 
         public ScreenContract GetByName(string name)
         {
-            var tela = _telaService.Get(t => t.Nome == name);
-            return tela.Cast<ScreenContract>();
+            var screen = _screenService.Get(t => t.Nome == name);
+            return screen.Cast<ScreenContract>();
         }
 
-        public IEnumerable<ScreenContract> GetTelas(string key)
+        public IEnumerable<ScreenContract> GetScreens(string key)
         {
-            var telaList = _telaService
+            var screenList = _screenService
                 .GetList(t => t.Nome.Contains(key)
                     || t.ControllerName.Contains(key))
                 .ToList();
 
-            return telaList.CastAll<ScreenContract>();
+            return screenList.CastAll<ScreenContract>();
         }
 
-        public IEnumerable<ScreenContract> GetTelas(int idBegin, int idEnd)
+        public IEnumerable<ScreenContract> GetScreens(int idBegin, int idEnd)
         {
-            var telaList = _telaService
+            var screenList = _screenService
                 .GetList(t => t.Id >= idBegin && t.Id <= idEnd)
                 .ToList();
 
-            return telaList.Cast<ScreenContract>();
+            return screenList.Cast<ScreenContract>();
         }
     }
 }

@@ -195,42 +195,42 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\SimpleInjectorInitializer.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\Api\PerfilApiController.cs" />
-    <Compile Include="Controllers\Api\PermissaoApiController.cs" />
+    <Compile Include="Controllers\Api\ProfileApiController.cs" />
+    <Compile Include="Controllers\Api\PermissionApiController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
-    <Compile Include="Controllers\PermissaoController.cs" />
+    <Compile Include="Controllers\PermissionController.cs" />
     <Compile Include="Controllers\LogController.cs" />
     <Compile Include="Controllers\Shared\ActionType.cs" />
     <Compile Include="Controllers\Shared\IsAuthorize.cs" />
-    <Compile Include="Controllers\TelaController.cs" />
-    <Compile Include="Controllers\HierarquiaController.cs" />
+    <Compile Include="Controllers\ScreenController.cs" />
+    <Compile Include="Controllers\HierarchyController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\Shared\CustomController.cs" />
-    <Compile Include="Controllers\PerfilController.cs" />
-    <Compile Include="Controllers\UsuarioController.cs" />
+    <Compile Include="Controllers\ProfileController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\ButtomHelper.cs" />
     <Compile Include="Helpers\HelperBase.cs" />
-    <Compile Include="Helpers\HierarquiaHelper.cs" />
+    <Compile Include="Helpers\HierarchyHelper.cs" />
     <Compile Include="Helpers\UtilHelper.cs" />
     <Compile Include="Mappers\AutoMapperConfig.cs" />
     <Compile Include="Mappers\DomainToModelMappingProfile.cs" />
     <Compile Include="Mappers\ModelToDomainMappingProfile.cs" />
-    <Compile Include="Models\HierarquiaDetalheModel.cs" />
+    <Compile Include="Models\HierarchyDetalheModel.cs" />
     <Compile Include="Models\LogModel.cs" />
-    <Compile Include="Models\PermissaoModel.cs" />
-    <Compile Include="Models\HierarquiaModel.cs" />
+    <Compile Include="Models\PermissionModel.cs" />
+    <Compile Include="Models\HierarchyModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Controllers\Shared\AppUser.cs" />
     <Compile Include="Models\Shared\ValidationAttributeExtention.cs" />
     <Compile Include="Models\Shared\Message.cs" />
-    <Compile Include="Models\PerfilModel.cs" />
+    <Compile Include="Models\ProfileModel.cs" />
     <Compile Include="Models\MenuModel.cs" />
-    <Compile Include="Models\TelaModel.cs" />
-    <Compile Include="Models\UsuarioModel.cs" />
+    <Compile Include="Models\ScreenModel.cs" />
+    <Compile Include="Models\UserModel.cs" />
     <Compile Include="Models\Shared\DecimalModelBinder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -238,7 +238,7 @@
   <ItemGroup>
     <Content Include="wwwroot\css\animate.css" />
     <Content Include="wwwroot\css\font-face.css" />
-    <Content Include="wwwroot\js\views\hierarquia.js" />
+    <Content Include="wwwroot\js\views\hierarchy.js" />
     <Content Include="wwwroot\js\views\menu.js" />
     <Content Include="wwwroot\plugins\bootstrap-datetimepicker\css\bootstrap-datetimepicker-standalone.css" />
     <Content Include="wwwroot\plugins\bootstrap-datetimepicker\css\bootstrap-datetimepicker.css" />
@@ -314,9 +314,9 @@
     <Content Include="wwwroot\plugins\jquery-ui\jquery-ui-interactions.min.js" />
     <Content Include="wwwroot\plugins\jquery-validation\additional-methods.js" />
     <Content Include="wwwroot\plugins\jquery-validation\additional-methods.min.js" />
-    <Content Include="Views\Perfil\Create.cshtml" />
-    <Content Include="Views\Perfil\Edit.cshtml" />
-    <Content Include="Views\Perfil\Index.cshtml" />
+    <Content Include="Views\Profile\Create.cshtml" />
+    <Content Include="Views\Profile\Edit.cshtml" />
+    <Content Include="Views\Profile\Index.cshtml" />
     <Content Include="Views\Shared\_MenuLateral.cshtml" />
     <Content Include="Views\Shared\_MenuInfo.cshtml" />
     <Content Include="Views\Shared\_MenuTop.cshtml" />
@@ -349,16 +349,16 @@
     <Content Include="wwwroot\fonts\u-WUoqrET9fUeobQW7jkRRJtnKITppOI_IvcXXDNrsc.woff2" />
     <Content Include="wwwroot\fonts\xozscpT2726on7jbcb_pAhJtnKITppOI_IvcXXDNrsc.woff2" />
     <Content Include="Views\Log\Index.cshtml" />
-    <Content Include="Views\Tela\Index.cshtml" />
-    <Content Include="Views\Tela\Edit.cshtml" />
-    <Content Include="Views\Permissao\Index.cshtml" />
-    <Content Include="Views\Permissao\_List.cshtml" />
+    <Content Include="Views\Screen\Index.cshtml" />
+    <Content Include="Views\Screen\Edit.cshtml" />
+    <Content Include="Views\Permission\Index.cshtml" />
+    <Content Include="Views\Permission\_List.cshtml" />
     <Content Include="Views\Menu\Index.cshtml" />
     <Content Include="Views\Menu\_List.cshtml" />
     <Content Include="Views\Home\AccessDenied.cshtml" />
-    <Content Include="Views\Hierarquia\Index.cshtml" />
-    <Content Include="Views\Hierarquia\Create.cshtml" />
-    <Content Include="Views\Hierarquia\Edit.cshtml" />
+    <Content Include="Views\Hierarchy\Index.cshtml" />
+    <Content Include="Views\Hierarchy\Create.cshtml" />
+    <Content Include="Views\Hierarchy\Edit.cshtml" />
     <None Include="wwwroot\plugins\jquery-validation\jquery.validate-vsdoc.js" />
     <Content Include="wwwroot\plugins\jquery-validation\jquery.validate.globalize.js" />
     <Content Include="wwwroot\plugins\jquery-validation\jquery.validate.globalize.min.js" />
@@ -413,7 +413,7 @@
     <Content Include="wwwroot\plugins\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="wwwroot\plugins\bootstrap\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="wwwroot\plugins\bootstrap\fonts\glyphicons-halflings-regulard41d.eot" />
-    <Content Include="wwwroot\js\views\usuario.js" />
+    <Content Include="wwwroot\js\views\user.js" />
     <Content Include="wwwroot\js\layout.js" />
     <Content Include="wwwroot\js\modernizr-2.6.2.js" />
     <Content Include="wwwroot\js\respond.js" />
@@ -441,9 +441,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\PublishProfiles\Deploy.pubxml" />
-    <Content Include="Views\Usuario\Index.cshtml" />
-    <Content Include="Views\Usuario\Create.cshtml" />
-    <Content Include="Views\Usuario\Edit.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
+    <Content Include="Views\User\Create.cshtml" />
+    <Content Include="Views\User\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

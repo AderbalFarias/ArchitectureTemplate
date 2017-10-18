@@ -22,13 +22,13 @@ namespace ArchitectureTemplate.Infrastructure.Data.EntityConfig.Mapping
                 .WithMany()
                 .HasForeignKey(f => f.LogTypeId);
 
-            HasOptional(p => p.Tela)
+            HasOptional(p => p.Screen)
                 .WithMany()
-                .HasForeignKey(f => f.TelaId);
+                .HasForeignKey(f => f.ScreenId);
 
-            HasOptional(p => p.Usuario)
+            HasOptional(p => p.User)
                 .WithMany()
-                .HasForeignKey(f => f.UsuarioId);
+                .HasForeignKey(f => f.UserId);
         }
     }
 }

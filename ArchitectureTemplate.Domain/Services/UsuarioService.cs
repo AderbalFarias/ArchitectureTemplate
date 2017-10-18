@@ -1,75 +1,75 @@
-﻿using System;
+﻿using ArchitectureTemplate.Domain.DataEntities;
+using ArchitectureTemplate.Domain.Interfaces.Repositories;
+using ArchitectureTemplate.Domain.Interfaces.Services;
+using ArchitectureTemplate.Infraestrutura.CrossCutting.Support.Extensions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
-using ArchitectureTemplate.Domain.DataEntities;
-using ArchitectureTemplate.Domain.Interfaces.Repositories;
-using ArchitectureTemplate.Domain.Interfaces.Services;
-using ArchitectureTemplate.Infraestrutura.CrossCutting.Support.Extensions;
 
 namespace ArchitectureTemplate.Domain.Services
 {
-    public class UsuarioService : ServiceBase<Usuario>, IUsuarioService
+    public class UserService : ServiceBase<User>, IUserService
     {
         #region Fields
 
-        private readonly IUsuarioRepository _usuarioRepository;
+        private readonly IUserRepository _userRepository;
 
         #endregion
 
         #region Constructors
 
-        public UsuarioService(IUsuarioRepository usuarioRepository)
-            : base(usuarioRepository)
+        public UserService(IUserRepository userRepository)
+            : base(userRepository)
         {
-            _usuarioRepository = usuarioRepository;
+            _userRepository = userRepository;
         }
 
         #endregion
 
         #region Methods
 
-        public IEnumerable<Usuario> Get(Pagination paginar)
+        public IEnumerable<User> Get(Pagination paginar)
         {
-            return _usuarioRepository.Get(paginar);
+            return _userRepository.Get(paginar);
         }
 
-        public async Task<IEnumerable<Usuario>> GetAsync(Pagination paginar)
+        public async Task<IEnumerable<User>> GetAsync(Pagination paginar)
         {
-            return await _usuarioRepository.GetAsync(paginar);
+            return await _userRepository.GetAsync(paginar);
         }
 
-        public void DisableOrEnable(long usuarioId, long userId)
+        public void DisableOrEnable(long userId, long userAutenticationId)
         {
-            var ativo = _usuarioRepository.GetId(usuarioId).Ativo;
-            _usuarioRepository.DisableOrEnable(usuarioId, userId, !ativo);
+            var ativo = _userRepository.GetId(userId).Ativo;
+            _userRepository.DisableOrEnable(userId, userAutenticationId, !ativo);
         }
 
-        public Usuario Login(string user, string password)
+        public User Login(string user, string password)
         {
-            return _usuarioRepository.Login(user, CriptografarSenha(password), password);
+            return _userRepository.Login(user, CriptografarSenha(password), password);
         }
 
-        public Usuario RecuperarSenha(string email)
+        public User RecuperarSenha(string email)
         {
-            return _usuarioRepository.RecuperarSenha(email, GetCodigoRecover(), CriptografarSenha(GetCodigoRecover()));
+            return _userRepository.RecuperarSenha(email, GetCodigoRecover(), CriptografarSenha(GetCodigoRecover()));
         }
 
         public void ResetSenha(string login, string codRecover, string newPassword)
         {
-            _usuarioRepository.ResetSenha(login, codRecover, CriptografarSenha(newPassword));
+            _userRepository.ResetSenha(login, codRecover, CriptografarSenha(newPassword));
         }
 
         public void EditSenha(long userId, string password, string newPassword)
         {
-            _usuarioRepository.EditSenha(userId, CriptografarSenha(password), CriptografarSenha(newPassword));
+            _userRepository.EditSenha(userId, CriptografarSenha(password), CriptografarSenha(newPassword));
         }
 
-        public string GetSenha(long usuarioId)
+        public string GetSenha(long userId)
         {
-            return _usuarioRepository.GetSenha(usuarioId);
+            return _userRepository.GetSenha(userId);
         }
 
         public string GetCodigoRecover()
@@ -86,14 +86,14 @@ namespace ArchitectureTemplate.Domain.Services
         {
             var token = GetCodigoRecover();
 
-            _usuarioRepository.InsertToken(userId, token);
+            _userRepository.InsertToken(userId, token);
 
             return token;
         }
 
         public void CleanToken(long userId)
         {
-            _usuarioRepository.InsertToken(userId, null);
+            _userRepository.InsertToken(userId, null);
         }
 
         #endregion

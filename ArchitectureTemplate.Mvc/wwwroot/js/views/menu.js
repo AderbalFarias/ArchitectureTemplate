@@ -63,13 +63,13 @@ $(document).ready(function () {
     }
 
     $("#ProfileId").change(function () {
-        var ProfileId = $(this).val();
+        var profileId = $(this).val();
 
-        if (ProfileId != 0) {
+        if (profileId != 0) {
             $.ajax({
                 url: "/Menu/List",
                 type: "Get",
-                data: { id: ProfileId },
+                data: { id: profileId },
                 dataType: "html",
                 cache: false,
                 success: function (data) {

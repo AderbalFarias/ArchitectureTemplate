@@ -6,6 +6,6 @@ namespace ArchitectureTemplate.Domain.DataEntities
     {
         public int Id { get; set; }
         public string Nome { get; set; }
-        public virtual ICollection<ProfilePorMenu> ProfilePorMenu { get; set; }
+        public virtual ICollection<ProfileForMenu> ProfilePorMenu { get; set; }
     }
 }

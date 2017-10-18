@@ -1,18 +1,18 @@
-﻿using System;
+﻿using ArchitectureTemplate.Domain.Interfaces.Services;
+using System;
 using System.Linq;
 using System.Security.Claims;
 using System.Web.Mvc;
-using ArchitectureTemplate.Domain.Interfaces.Services;
 
 namespace ArchitectureTemplate.Mvc.Controllers.Shared
 {
     public class IsAuthorize : ActionFilterAttribute
     {
-        private readonly IPermissaoService _permissaoService;
+        private readonly IPermissionService _permissionService;
 
         public IsAuthorize()
         {
-            _permissaoService = DependencyResolver.Current.GetService<IPermissaoService>();
+            _permissionService = DependencyResolver.Current.GetService<IPermissionService>();
         }
 
         public override void OnActionExecuting(ActionExecutingContext filterContext)
@@ -24,11 +24,11 @@ namespace ArchitectureTemplate.Mvc.Controllers.Shared
             {
                 var clains = (ClaimsIdentity)filterContext.HttpContext.User.Identity;
 
-                var ProfileId = Convert.ToInt32(clains.FindFirst("ProfileId").Value);
+                var profileId = Convert.ToInt32(clains.FindFirst("ProfileId").Value);
 
                 var userId = Convert.ToInt32(clains.FindFirst(ClaimTypes.Authentication).Value);
                 var tokenClain = clains.FindFirst("Token").Value;
-                var tokenDatabase = _permissaoService.GetToken(userId);
+                var tokenDatabase = _permissionService.GetToken(userId);
 
                 if (!tokenDatabase.Equals(tokenClain))
                 {
@@ -51,25 +51,25 @@ namespace ArchitectureTemplate.Mvc.Controllers.Shared
                         {
                             case AccessType.Create:
                                 {
-                                    if (_permissaoService.AllowAccess(ProfileId, controllerName, "Create")) return;
+                                    if (_permissionService.AllowAccess(profileId, controllerName, "Create")) return;
                                     id = "Cadastrar";
                                     break;
                                 }
                             case AccessType.Read:
                                 {
-                                    if (_permissaoService.AllowAccess(ProfileId, controllerName, "Read")) return;
+                                    if (_permissionService.AllowAccess(profileId, controllerName, "Read")) return;
                                     id = "Consultar";
                                     break;
                                 }
                             case AccessType.Update:
                                 {
-                                    if (_permissaoService.AllowAccess(ProfileId, controllerName, "Update")) return;
+                                    if (_permissionService.AllowAccess(profileId, controllerName, "Update")) return;
                                     id = "Atualizar";
                                     break;
                                 }
                             case AccessType.Delete:
                                 {
-                                    if (_permissaoService.AllowAccess(ProfileId, controllerName, "Delete")) return;
+                                    if (_permissionService.AllowAccess(profileId, controllerName, "Delete")) return;
                                     id = "Deletar";
                                     break;
                                 }

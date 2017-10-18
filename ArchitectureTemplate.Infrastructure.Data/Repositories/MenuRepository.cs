@@ -1,22 +1,22 @@
-﻿using System.Collections.Generic;
+﻿using ArchitectureTemplate.Domain.DataEntities;
+using ArchitectureTemplate.Domain.Interfaces.Repositories;
+using ArchitectureTemplate.Infraestrutura.CrossCutting.Support.Extensions;
+using ArchitectureTemplate.Infraestrutura.CrossCutting.Support.Resources;
+using ArchitectureTemplate.Infrastructure.Data.DapperConfig;
+using Dapper;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Migrations;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
-using ArchitectureTemplate.Domain.DataEntities;
-using ArchitectureTemplate.Domain.Interfaces.Repositories;
-using Dapper;
-using ArchitectureTemplate.Infraestrutura.CrossCutting.Support.Extensions;
-using ArchitectureTemplate.Infraestrutura.CrossCutting.Support.Resources;
-using ArchitectureTemplate.Infrastructure.Data.DapperConfig;
 
 namespace ArchitectureTemplate.Infrastructure.Data.Repositories
 {
     public class MenuRepository : RepositoryBase<Menu>, IMenuRepository
     {
         #region Fields
-        
+
         private readonly SqlConnection _contextDapper = new DapperContext().SqlConnection();
         private readonly ILogRepository _logRepository = new LogRepository();
 
@@ -24,7 +24,7 @@ namespace ArchitectureTemplate.Infrastructure.Data.Repositories
 
         #region Methods
 
-        public void AddProfilePorMenu(ProfilePorMenu entity, long userId)
+        public void AddProfilePorMenu(ProfileForMenu entity, long userId)
         {
             _context.ProfilePorMenu.Add(entity);
             _context.SaveChanges();
@@ -32,7 +32,7 @@ namespace ArchitectureTemplate.Infrastructure.Data.Repositories
             _logRepository.Add(new Log().GeneratedForEntity(userId, entity, LogTypeResource.Insert));
         }
 
-        public void AddRangeProfilePorMenu(IList<ProfilePorMenu> entity, long userId)
+        public void AddRangeProfilePorMenu(IList<ProfileForMenu> entity, long userId)
         {
             _context.ProfilePorMenu.AddRange(entity);
             _context.SaveChanges();
@@ -71,24 +71,24 @@ namespace ArchitectureTemplate.Infrastructure.Data.Repositories
                 .QueryAsync<Menu>($"select * from Menu {pagination.GeneretePaginationSql(pagination, "Id")}");
         }
 
-        public IEnumerable<int> GetIdsPorProfile(int ProfileId)
+        public IEnumerable<int> GetIdsPorProfile(int profileId)
         {
             return _contextDapper
                 .Query<int>($"select distinct m.Id from Menu m " +
                     $"inner join ProfilePorMenu pm on pm.MenuId = m.Id " +
-                    $"where pm.ProfileId = {ProfileId} " +
+                    $"where pm.ProfileId = {profileId} " +
                     $"order by m.Id")
                 .ToList();
         }
 
 
-        public IEnumerable<ProfilePorMenu> GetPorProfile(int ProfileId)
+        public IEnumerable<ProfileForMenu> GetPorProfile(int profileId)
         {
-            var resultList = _contextDapper.Query<ProfilePorMenu, Menu, ProfilePorMenu>($@"
+            var resultList = _contextDapper.Query<ProfileForMenu, Menu, ProfileForMenu>($@"
                 select pm.Id, pm.MenuId, pm.ProfileId, 
                     m.Id, m.Nome 
                 from Menu m
-                left join ProfilePorMenu pm on pm.MenuId = m.Id and pm.ProfileId = {ProfileId}",
+                left join ProfilePorMenu pm on pm.MenuId = m.Id and pm.ProfileId = {profileId}",
                 (pm, m) =>
                 {
                     pm.Menu = m;
@@ -98,7 +98,7 @@ namespace ArchitectureTemplate.Infrastructure.Data.Repositories
 
             return resultList.ToList();
         }
-        
+
         public void Remove(int menuId, long userId)
         {
             var menu = _context.Menu
@@ -110,16 +110,16 @@ namespace ArchitectureTemplate.Infrastructure.Data.Repositories
             _context.SaveChanges();
             _logRepository.Add(new Log().GeneratedForEntity(userId, menu, LogTypeResource.Delete, true));
         }
-        
-        public void RemoveProfilePorMenu(long ProfilePorMenuId, long userId)
-        {
-            var ProfilePorMenu = _context.ProfilePorMenu
-                .First(f => f.Id == ProfilePorMenuId);
 
-            _context.ProfilePorMenu.Remove(ProfilePorMenu);
+        public void RemoveProfilePorMenu(long profileForMenuId, long userId)
+        {
+            var profileForMenu = _context.ProfilePorMenu
+                .First(f => f.Id == profileForMenuId);
+
+            _context.ProfilePorMenu.Remove(profileForMenu);
 
             _context.SaveChanges();
-            _logRepository.Add(new Log().GeneratedForEntity(userId, ProfilePorMenu, LogTypeResource.Delete, true));
+            _logRepository.Add(new Log().GeneratedForEntity(userId, profileForMenu, LogTypeResource.Delete, true));
         }
 
         #endregion

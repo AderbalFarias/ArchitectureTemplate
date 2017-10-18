@@ -24,14 +24,14 @@ namespace ArchitectureTemplate.Domain.Services
 
         #region Methods
 
-        public IDictionary<int, string> GetTipoHierarquiaDictionary()
+        public IDictionary<int, string> GetHierarchyTypeDictionary()
         {
-            return _dictionaryAllRepository.GetTipoHierarquiaDictionary();
+            return _dictionaryAllRepository.GetHierarchyTypeDictionary();
         }
 
-        public async Task<IDictionary<int, string>> GetTipoHierarquiaDictionaryAsync()
+        public async Task<IDictionary<int, string>> GetHierarchyTypeDictionaryAsync()
         {
-            return await _dictionaryAllRepository.GetTipoHierarquiaDictionaryAsync();
+            return await _dictionaryAllRepository.GetHierarchyTypeDictionaryAsync();
         }
 
         public IDictionary<int, string> GetProfileDictionary()

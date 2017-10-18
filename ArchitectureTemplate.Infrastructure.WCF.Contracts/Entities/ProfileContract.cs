@@ -24,10 +24,10 @@ namespace ArchitectureTemplate.Infrastructure.WCF.Contracts.Entities
         public DateTime DataCadastro { get; set; }
 
         [DataMember]
-        public virtual IEnumerable<UserContract> Usuario { get; set; }
+        public virtual IEnumerable<UserContract> User { get; set; }
 
         [DataMember]
-        public virtual ICollection<ProfileForScreenContract> ProfilePorTela { get; set; }
+        public virtual ICollection<ProfileForScreenContract> ProfilePorScreen { get; set; }
 
         [DataMember]
         public virtual IEnumerable<ProfilePorMenuContract> ProfilePorMenu { get; set; }

@@ -25,11 +25,11 @@ namespace ArchitectureTemplate.Mvc.Controllers.Shared
 
         public int ProfileId => Convert.ToInt32(FindFirst("ProfileId").Value);
 
-        public long? HierarquiaId => Convert.ToInt64(FindFirst("HierarquiaId").Value);
+        public long? HierarchyId => Convert.ToInt64(FindFirst("HierarchyId").Value);
 
-        public IEnumerable<int> IdsMenu => FindFirst("IdsMenu").Value?.Split('|').Select(int.Parse);
+        public IEnumerable<int> MenuIds => FindFirst("MenuIds").Value?.Split('|').Select(int.Parse);
 
-        public IEnumerable<long> IdsHierarquia => FindFirst("IdsHierarquia").Value?.Split('|').Select(long.Parse);
+        public IEnumerable<long> HierarchyIds => FindFirst("HierarchyIds").Value?.Split('|').Select(long.Parse);
 
         public string Token => FindFirst("Token").Value;
     }

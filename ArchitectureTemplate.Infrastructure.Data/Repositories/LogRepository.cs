@@ -40,27 +40,27 @@ namespace ArchitectureTemplate.Infrastructure.Data.Repositories
         {
             //return _context.Log
             //    .Include(i => i.LogType)
-            //    .Include(i => i.Usuario)
-            //    .Include(i => i.Tela)
+            //    .Include(i => i.User)
+            //    .Include(i => i.Screen)
             //    .Skip(paginar.SkipPagina(paginar))
             //    .Take(paginar.QtdeItensPagina)
             //    .ToList();
 
-            var resultList = _contextDapper.Query<Log, LogType, Usuario, Log>($@"
-                    select l.Id, l.TelaId, l.Mensagem, l.Conteudo, l.DataCadastro, l.NomeClasse,
+            var resultList = _contextDapper.Query<Log, LogType, User, Log>($@"
+                    select l.Id, l.ScreenId, l.Mensagem, l.Conteudo, l.DataCadastro, l.NomeClasse,
                         l.LogTypeId, lt.Id, lt.Descricao,
-                        l.UsuarioId, u.Id, u.Nome, u.Login
+                        l.UserId, u.Id, u.Nome, u.Login
                     from Log l
                     inner join LogType lt on lt.Id = l.LogTypeId                
-                    left join Usuario u on u.Id = l.UsuarioId
+                    left join User u on u.Id = l.UserId
                     where {_log.Where(testId, key)} 
                     {paginar.GeneretePaginationSql(paginar, "l.Id")}",
                     (l, lt, u) =>
                     {
                         l.LogType = lt;
-                        l.Usuario = u;
+                        l.User = u;
                         return l;
-                    }, splitOn: "LogTypeId, UsuarioId")
+                    }, splitOn: "LogTypeId, UserId")
                 .AsQueryable();
 
             return resultList.ToList();
@@ -72,7 +72,7 @@ namespace ArchitectureTemplate.Infrastructure.Data.Repositories
                 .Query<int>($@"select Count(l.Id)
                     from Log l
                     inner join LogType lt on lt.Id = l.LogTypeId                
-                    left join Usuario u on u.Id = l.UsuarioId
+                    left join User u on u.Id = l.UserId
                     where {_log.Where(testId, key)}")
                 .Single();
         }

@@ -1,0 +1,68 @@
+﻿@model ArchitectureTemplate.Mvc.Models.PermissionModel
+
+<div class="table-responsive border-ddd">
+    <table class="table table-bordered table-hover">
+        <tr>
+            <th class="text-center" colspan="8">
+                <span class="uppercase">Permission list of the screen for selected profile</span>
+            </th>
+        </tr>
+        <tr>
+            <th>
+                Screen Name
+            </th>
+            @*<th>
+                Nome da Controller
+            </th>*@
+            <th>
+                Features
+            </th>
+            <th>
+                Read
+            </th>
+            <th>
+                Create
+            </th>
+            <th>
+                Update
+            </th>
+            <th>
+                Delete
+            </th>
+            <th>
+                All
+            </th>
+        </tr>
+
+        @foreach (var item in Model.ProfilePorScreenList)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Screen.Nome)
+                </td>
+                @*<td>
+                    @Html.DisplayFor(modelItem => item.Screen.ControllerName)
+                </td>*@
+                <td>
+                    @Html.DisplayFuncionalidades(item.Screen.Create, item.Screen.Read, item.Screen.Update, item.Screen.Delete)
+                </td>
+                <td class="text-center">
+                    @Html.ButtonDisableOrEnable(item.Read, Url.Action("EnableOrDisable", new {id = Model.ProfileId, screenId = item.Screen.Id, parametro = "Read", permissionId = item.Id }), item.Screen.Read)
+                </td>
+                <td class="text-center">
+                    @Html.ButtonDisableOrEnable(item.Create, Url.Action("EnableOrDisable", new { id = Model.ProfileId, screenId = item.Screen.Id, parametro = "Create", permissionId = item.Id }), item.Screen.Create)
+                </td>
+                <td class="text-center">
+                    @Html.ButtonDisableOrEnable(item.Update, Url.Action("EnableOrDisable", new { id = Model.ProfileId, screenId = item.Screen.Id, parametro = "Update", permissionId = item.Id }), item.Screen.Update)
+                </td>
+                <td class="text-center">
+                    @Html.ButtonDisableOrEnable(item.Delete, Url.Action("EnableOrDisable", new { id = Model.ProfileId, screenId = item.Screen.Id, parametro = "Delete", permissionId = item.Id }), item.Screen.Delete)
+                </td>
+                <td class="text-center">
+                    <a link="@Url.Action("EnableOrDisableAll", new { id = Model.ProfileId, screenId = item.Screen.Id, ativar = true, permissionId = item.Id })" title="Enable all"><i class="fa fa-md fa-plus-circle"></i></a> |
+                    <a link="@Url.Action("EnableOrDisableAll", new { id = Model.ProfileId, screenId = item.Screen.Id, ativar = false, permissionId = item.Id })" title="Disable all"><i class="fa fa-md fa-remove"></i></a>
+                </td>
+            </tr>
+        }
+    </table>
+</div>

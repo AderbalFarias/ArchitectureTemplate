@@ -7,40 +7,40 @@ namespace ArchitectureTemplate.Infrastructure.Data.Migrations
         public override void Up()
         {
             CreateTable(
-                "dbo.Hierarquia",
+                "dbo.Hierarchy",
                 c => new
                 {
                     Id = c.Long(nullable: false, identity: true),
-                    HierarquiaPaiId = c.Long(),
+                    HierarchyPaiId = c.Long(),
                     Nome = c.String(nullable: false, maxLength: 100, unicode: false),
                     Ativo = c.Boolean(nullable: false),
-                    TipoHierarquiaId = c.Int(),
+                    HierarchyTypeId = c.Int(),
                     Vertical = c.Boolean(nullable: false),
                     Descricao = c.String(maxLength: 500, unicode: false),
                 })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Hierarquia", t => t.HierarquiaPaiId)
-                .ForeignKey("dbo.TipoHierarquia", t => t.TipoHierarquiaId)
-                .Index(t => t.HierarquiaPaiId)
-                .Index(t => t.TipoHierarquiaId);
+                .ForeignKey("dbo.Hierarchy", t => t.HierarchyPaiId)
+                .ForeignKey("dbo.HierarchyType", t => t.HierarchyTypeId)
+                .Index(t => t.HierarchyPaiId)
+                .Index(t => t.HierarchyTypeId);
 
             CreateTable(
-                "dbo.HierarquiaDetalhe",
+                "dbo.HierarchyDetalhe",
                 c => new
                 {
-                    HierarquiaId = c.Long(nullable: false),
+                    HierarchyId = c.Long(nullable: false),
                     PessoaContato = c.String(maxLength: 70, unicode: false),
                     CpfCnpj = c.Long(),
                     Telefone = c.String(maxLength: 15, unicode: false),
                     Email = c.String(maxLength: 100, unicode: false),
                     Codigo = c.Int(),
                 })
-                .PrimaryKey(t => t.HierarquiaId)
-                .ForeignKey("dbo.Hierarquia", t => t.HierarquiaId)
-                .Index(t => t.HierarquiaId);
+                .PrimaryKey(t => t.HierarchyId)
+                .ForeignKey("dbo.Hierarchy", t => t.HierarchyId)
+                .Index(t => t.HierarchyId);
 
             CreateTable(
-                "dbo.TipoHierarquia",
+                "dbo.HierarchyType",
                 c => new
                 {
                     Id = c.Int(nullable: false, identity: true),
@@ -54,8 +54,8 @@ namespace ArchitectureTemplate.Infrastructure.Data.Migrations
                 {
                     Id = c.Long(nullable: false, identity: true),
                     LogTypeId = c.Int(nullable: false),
-                    TelaId = c.Int(),
-                    UsuarioId = c.Long(),
+                    ScreenId = c.Int(),
+                    UserId = c.Long(),
                     Mensagem = c.String(nullable: false, maxLength: 1000, unicode: false),
                     NomeClasse = c.String(maxLength: 100, unicode: false),
                     Conteudo = c.String(nullable: false, unicode: false),
@@ -63,11 +63,11 @@ namespace ArchitectureTemplate.Infrastructure.Data.Migrations
                 })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.LogType", t => t.LogTypeId)
-                .ForeignKey("dbo.Tela", t => t.TelaId)
-                .ForeignKey("dbo.Usuario", t => t.UsuarioId)
+                .ForeignKey("dbo.Screen", t => t.ScreenId)
+                .ForeignKey("dbo.User", t => t.UserId)
                 .Index(t => t.LogTypeId)
-                .Index(t => t.TelaId)
-                .Index(t => t.UsuarioId);
+                .Index(t => t.ScreenId)
+                .Index(t => t.UserId);
 
             CreateTable(
                 "dbo.LogType",
@@ -80,7 +80,7 @@ namespace ArchitectureTemplate.Infrastructure.Data.Migrations
                 .Index(t => t.Descricao, unique: true, name: "UQ_LogType_Description");
 
             CreateTable(
-                "dbo.Tela",
+                "dbo.Screen",
                 c => new
                 {
                     Id = c.Int(nullable: false, identity: true),
@@ -96,12 +96,12 @@ namespace ArchitectureTemplate.Infrastructure.Data.Migrations
                 .PrimaryKey(t => t.Id);
 
             CreateTable(
-                "dbo.PerfilPorTela",
+                "dbo.PerfilPorScreen",
                 c => new
                 {
                     Id = c.Long(nullable: false, identity: true),
                     PerfilId = c.Int(nullable: false),
-                    TelaId = c.Int(nullable: false),
+                    ScreenId = c.Int(nullable: false),
                     Create = c.Boolean(nullable: false),
                     Read = c.Boolean(nullable: false),
                     Update = c.Boolean(nullable: false),
@@ -109,9 +109,9 @@ namespace ArchitectureTemplate.Infrastructure.Data.Migrations
                 })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Perfil", t => t.PerfilId)
-                .ForeignKey("dbo.Tela", t => t.TelaId, cascadeDelete: true)
+                .ForeignKey("dbo.Screen", t => t.ScreenId, cascadeDelete: true)
                 .Index(t => t.PerfilId)
-                .Index(t => t.TelaId);
+                .Index(t => t.ScreenId);
 
             CreateTable(
                 "dbo.Perfil",
@@ -126,11 +126,11 @@ namespace ArchitectureTemplate.Infrastructure.Data.Migrations
                 .PrimaryKey(t => t.Id);
 
             CreateTable(
-                "dbo.Usuario",
+                "dbo.User",
                 c => new
                 {
                     Id = c.Long(nullable: false, identity: true),
-                    HierarquiaId = c.Long(),
+                    HierarchyId = c.Long(),
                     PerfilId = c.Int(nullable: false),
                     Nome = c.String(nullable: false, maxLength: 80, unicode: false),
                     Cpf = c.Long(),
@@ -146,12 +146,12 @@ namespace ArchitectureTemplate.Infrastructure.Data.Migrations
                     CodigoRecover = c.String(maxLength: 20, unicode: false),
                 })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Hierarquia", t => t.HierarquiaId)
+                .ForeignKey("dbo.Hierarchy", t => t.HierarchyId)
                 .ForeignKey("dbo.Perfil", t => t.PerfilId)
-                .Index(t => t.HierarquiaId)
+                .Index(t => t.HierarchyId)
                 .Index(t => t.PerfilId)
-                .Index(t => t.Email, unique: true, name: "UQ_Usuario_Email")
-                .Index(t => t.Login, unique: true, name: "UQ_Usuario_Login");
+                .Index(t => t.Email, unique: true, name: "UQ_User_Email")
+                .Index(t => t.Login, unique: true, name: "UQ_User_Login");
 
             CreateTable(
                 "dbo.Menu",
@@ -183,43 +183,43 @@ namespace ArchitectureTemplate.Infrastructure.Data.Migrations
         {
             DropForeignKey("dbo.PerfilPorMenu", "PerfilId", "dbo.Perfil");
             DropForeignKey("dbo.PerfilPorMenu", "MenuId", "dbo.Menu");
-            DropForeignKey("dbo.Log", "UsuarioId", "dbo.Usuario");
-            DropForeignKey("dbo.Usuario", "PerfilId", "dbo.Perfil");
-            DropForeignKey("dbo.Usuario", "HierarquiaId", "dbo.Hierarquia");
-            DropForeignKey("dbo.Log", "TelaId", "dbo.Tela");
-            DropForeignKey("dbo.PerfilPorTela", "TelaId", "dbo.Tela");
-            DropForeignKey("dbo.PerfilPorTela", "PerfilId", "dbo.Perfil");
+            DropForeignKey("dbo.Log", "UserId", "dbo.User");
+            DropForeignKey("dbo.User", "PerfilId", "dbo.Perfil");
+            DropForeignKey("dbo.User", "HierarchyId", "dbo.Hierarchy");
+            DropForeignKey("dbo.Log", "ScreenId", "dbo.Screen");
+            DropForeignKey("dbo.PerfilPorScreen", "ScreenId", "dbo.Screen");
+            DropForeignKey("dbo.PerfilPorScreen", "PerfilId", "dbo.Perfil");
             DropForeignKey("dbo.Log", "LogTypeId", "dbo.LogType");
-            DropForeignKey("dbo.Hierarquia", "TipoHierarquiaId", "dbo.TipoHierarquia");
-            DropForeignKey("dbo.Hierarquia", "HierarquiaPaiId", "dbo.Hierarquia");
-            DropForeignKey("dbo.HierarquiaDetalhe", "HierarquiaId", "dbo.Hierarquia");
+            DropForeignKey("dbo.Hierarchy", "HierarchyTypeId", "dbo.HierarchyType");
+            DropForeignKey("dbo.Hierarchy", "HierarchyPaiId", "dbo.Hierarchy");
+            DropForeignKey("dbo.HierarchyDetalhe", "HierarchyId", "dbo.Hierarchy");
             DropIndex("dbo.PerfilPorMenu", new[] { "MenuId" });
             DropIndex("dbo.PerfilPorMenu", new[] { "PerfilId" });
             DropIndex("dbo.Menu", "UQ_Menu_Nome");
-            DropIndex("dbo.Usuario", "UQ_Usuario_Login");
-            DropIndex("dbo.Usuario", "UQ_Usuario_Email");
-            DropIndex("dbo.Usuario", new[] { "PerfilId" });
-            DropIndex("dbo.Usuario", new[] { "HierarquiaId" });
-            DropIndex("dbo.PerfilPorTela", new[] { "TelaId" });
-            DropIndex("dbo.PerfilPorTela", new[] { "PerfilId" });
+            DropIndex("dbo.User", "UQ_User_Login");
+            DropIndex("dbo.User", "UQ_User_Email");
+            DropIndex("dbo.User", new[] { "PerfilId" });
+            DropIndex("dbo.User", new[] { "HierarchyId" });
+            DropIndex("dbo.PerfilPorScreen", new[] { "ScreenId" });
+            DropIndex("dbo.PerfilPorScreen", new[] { "PerfilId" });
             DropIndex("dbo.LogType", "UQ_LogType_Description");
-            DropIndex("dbo.Log", new[] { "UsuarioId" });
-            DropIndex("dbo.Log", new[] { "TelaId" });
+            DropIndex("dbo.Log", new[] { "UserId" });
+            DropIndex("dbo.Log", new[] { "ScreenId" });
             DropIndex("dbo.Log", new[] { "LogTypeId" });
-            DropIndex("dbo.HierarquiaDetalhe", new[] { "HierarquiaId" });
-            DropIndex("dbo.Hierarquia", new[] { "TipoHierarquiaId" });
-            DropIndex("dbo.Hierarquia", new[] { "HierarquiaPaiId" });
+            DropIndex("dbo.HierarchyDetalhe", new[] { "HierarchyId" });
+            DropIndex("dbo.Hierarchy", new[] { "HierarchyTypeId" });
+            DropIndex("dbo.Hierarchy", new[] { "HierarchyPaiId" });
             DropTable("dbo.PerfilPorMenu");
             DropTable("dbo.Menu");
-            DropTable("dbo.Usuario");
+            DropTable("dbo.User");
             DropTable("dbo.Perfil");
-            DropTable("dbo.PerfilPorTela");
-            DropTable("dbo.Tela");
+            DropTable("dbo.PerfilPorScreen");
+            DropTable("dbo.Screen");
             DropTable("dbo.LogType");
             DropTable("dbo.Log");
-            DropTable("dbo.TipoHierarquia");
-            DropTable("dbo.HierarquiaDetalhe");
-            DropTable("dbo.Hierarquia");
+            DropTable("dbo.HierarchyType");
+            DropTable("dbo.HierarchyDetalhe");
+            DropTable("dbo.Hierarchy");
         }
     }
 }

@@ -19,14 +19,14 @@ namespace ArchitectureTemplate.Infrastructure.CrossCutting.IoC
 
             container.Register<IEmailMailService, EmailMailService>(Lifestyle.Scoped);
 
-            container.Register<IUsuarioService, UsuarioService>(Lifestyle.Scoped);
-            container.Register<IUsuarioRepository, UsuarioRepository>(Lifestyle.Scoped);
+            container.Register<IUserService, UserService>(Lifestyle.Scoped);
+            container.Register<IUserRepository, UserRepository>(Lifestyle.Scoped);
 
             container.Register<IProfileService, ProfileService>(Lifestyle.Scoped);
             container.Register<IProfileRepository, ProfileRepository>(Lifestyle.Scoped);
 
-            container.Register<IHierarquiaService, HierarquiaService>(Lifestyle.Scoped);
-            container.Register<IHierarquiaRepository, HierarquiaRepository>(Lifestyle.Scoped);
+            container.Register<IHierarchyService, HierarchyService>(Lifestyle.Scoped);
+            container.Register<IHierarchyRepository, HierarchyRepository>(Lifestyle.Scoped);
 
             container.Register<IDictionaryAllService, DictionaryAllService>(Lifestyle.Scoped);
             container.Register<IDictionaryAllRepository, DictionaryAllRepository>(Lifestyle.Scoped);
@@ -34,11 +34,11 @@ namespace ArchitectureTemplate.Infrastructure.CrossCutting.IoC
             container.Register<ILogService, LogService>(Lifestyle.Scoped);
             container.Register<ILogRepository, LogRepository>(Lifestyle.Scoped);
 
-            container.Register<IPermissaoService, PermissaoService>(Lifestyle.Scoped);
-            container.Register<IPermissaoRepository, PermissaoRepository>(Lifestyle.Scoped);
+            container.Register<IPermissionService, PermissionService>(Lifestyle.Scoped);
+            container.Register<IPermissionRepository, PermissionRepository>(Lifestyle.Scoped);
 
-            container.Register<ITelaService, TelaService>(Lifestyle.Scoped);
-            container.Register<ITelaRepository, TelaRepository>(Lifestyle.Scoped);
+            container.Register<IScreenService, ScreenService>(Lifestyle.Scoped);
+            container.Register<IScreenRepository, ScreenRepository>(Lifestyle.Scoped);
 
             container.Register<IMenuService, MenuService>(Lifestyle.Scoped);
             container.Register<IMenuRepository, MenuRepository>(Lifestyle.Scoped);

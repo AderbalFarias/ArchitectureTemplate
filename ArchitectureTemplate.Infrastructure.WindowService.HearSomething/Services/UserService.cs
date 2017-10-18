@@ -4,16 +4,16 @@ namespace ArchitectureTemplate.Infrastructure.WindowService.HearSomething.Servic
 {
     public class UserService
     {
-        private readonly IUsuarioService _usuarioService;
+        private readonly IUserService _userService;
 
-        public UserService(IUsuarioService usuarioService)
+        public UserService(IUserService userService)
         {
-            _usuarioService = usuarioService;
+            _userService = userService;
         }
 
         public void Action()
         {
-            var getUsers = _usuarioService.GetAll();
+            var getUsers = _userService.GetAll();
         }
     }
 }

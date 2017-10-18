@@ -1,19 +1,19 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-using ArchitectureTemplate.Domain.DataEntities;
+﻿using ArchitectureTemplate.Domain.DataEntities;
 using ArchitectureTemplate.Infraestrutura.CrossCutting.Support.Extensions;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace ArchitectureTemplate.Domain.Interfaces.Services
 {
     public interface IMenuService : IServiceBase<Menu>
     {
         void Synchronize(IEnumerable<string> menuList, long userId);
-        IEnumerable<Menu> Get(Pagination pagination); 
+        IEnumerable<Menu> Get(Pagination pagination);
         Task<IEnumerable<Menu>> GetAsync(Pagination pagination);
-        IEnumerable<int> GetIdsPorProfile(int ProfileId);
-        IEnumerable<ProfilePorMenu> GetPorProfile(int ProfileId);
-        void EnableOrDisabled(int ProfileId, int menuId, long permissaoId, long userId);
-        void EnableOrDisabledAll(int ProfileId, bool ativar, long userId);
+        IEnumerable<int> GetIdsPorProfile(int profileId);
+        IEnumerable<ProfileForMenu> GetPorProfile(int profileId);
+        void EnableOrDisabled(int profileId, int menuId, long permissionId, long userId);
+        void EnableOrDisabledAll(int profileId, bool ativar, long userId);
         void Update(Menu entity, long userId);
     }
 }

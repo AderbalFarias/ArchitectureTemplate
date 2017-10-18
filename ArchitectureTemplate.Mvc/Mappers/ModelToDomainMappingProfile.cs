@@ -1,21 +1,20 @@
 ﻿using ArchitectureTemplate.Domain.DataEntities;
 using ArchitectureTemplate.Mvc.Models;
-using AutoMapper;
 
 namespace ArchitectureTemplate.Mvc.Mappers
 {
-    public class ModelToDomainMappingProfile : Profile
+    public class ModelToDomainMappingProfile : AutoMapper.Profile
     {
         public override string ProfileName => "ModelToDomainMappings";
 
         protected override void Configure()
         {
-            CreateMap<UsuarioModel, Usuario>();
-            CreateMap<ProfileModel, Profile>();
-            CreateMap<HierarquiaModel, Hierarquia>();
-            CreateMap<HierarquiaDetalheModel, HierarquiaDetalhe>();
+            CreateMap<UserModel, User>();
+            CreateMap<ProfileModel, Domain.DataEntities.Profile>();
+            CreateMap<HierarchyModel, Hierarchy>();
+            CreateMap<HierarchyDetalheModel, HierarchyDetail>();
             CreateMap<LogModel, Log>();
-            CreateMap<TelaModel, Tela>();
+            CreateMap<ScreenModel, Screen>();
         }
     }
 }

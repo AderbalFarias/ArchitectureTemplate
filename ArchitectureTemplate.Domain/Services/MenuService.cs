@@ -1,11 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using ArchitectureTemplate.Domain.DataEntities;
+﻿using ArchitectureTemplate.Domain.DataEntities;
 using ArchitectureTemplate.Domain.Interfaces.Repositories;
 using ArchitectureTemplate.Domain.Interfaces.Services;
 using ArchitectureTemplate.Infraestrutura.CrossCutting.Support.Extensions;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace ArchitectureTemplate.Domain.Services
 {
@@ -16,7 +16,7 @@ namespace ArchitectureTemplate.Domain.Services
         private readonly IMenuRepository _menuRepository;
 
         #endregion
-        
+
         #region Constructors
 
         public MenuService(IMenuRepository menuRepository)
@@ -28,7 +28,7 @@ namespace ArchitectureTemplate.Domain.Services
         #endregion
 
         #region Methods
-       
+
         public void Synchronize(IEnumerable<string> menuList, long userId)
         {
             IList<Menu> entityList = menuList
@@ -81,28 +81,28 @@ namespace ArchitectureTemplate.Domain.Services
         {
             return await _menuRepository.GetAsync(pagination);
         }
-        
-        public IEnumerable<int> GetIdsPorProfile(int ProfileId)
+
+        public IEnumerable<int> GetIdsPorProfile(int profileId)
         {
-            return _menuRepository.GetIdsPorProfile(ProfileId);
+            return _menuRepository.GetIdsPorProfile(profileId);
         }
 
-        public IEnumerable<ProfilePorMenu> GetPorProfile(int ProfileId)
+        public IEnumerable<ProfileForMenu> GetPorProfile(int profileId)
         {
-            return _menuRepository.GetPorProfile(ProfileId);
+            return _menuRepository.GetPorProfile(profileId);
         }
 
-        public void EnableOrDisabled(int ProfileId, int menuId, long permissaoId, long userId)
+        public void EnableOrDisabled(int profileId, int menuId, long permissionId, long userId)
         {
-            if (permissaoId != 0)
+            if (permissionId != 0)
             {
-                _menuRepository.RemoveProfilePorMenu(permissaoId, userId);
+                _menuRepository.RemoveProfilePorMenu(permissionId, userId);
             }
             else
             {
-                var pm = new ProfilePorMenu
+                var pm = new ProfileForMenu
                 {
-                    ProfileId = ProfileId,
+                    ProfileId = profileId,
                     MenuId = menuId,
                 };
 
@@ -110,13 +110,13 @@ namespace ArchitectureTemplate.Domain.Services
             }
         }
 
-        public void EnableOrDisabledAll(int ProfileId, bool ativar, long userId)
+        public void EnableOrDisabledAll(int profileId, bool ativar, long userId)
         {
-            var ProfilePorMenus = _menuRepository.GetPorProfile(ProfileId);
+            var profileForMenus = _menuRepository.GetPorProfile(profileId);
 
             if (ativar == false)
             {
-                var delete = ProfilePorMenus
+                var delete = profileForMenus
                     .Where(w => w.Id != 0)
                     .ToList();
 
@@ -127,14 +127,15 @@ namespace ArchitectureTemplate.Domain.Services
             }
             else
             {
-                var create = ProfilePorMenus
+                var create = profileForMenus
                     .Where(w => w.Id == 0)
                     .Select(s => s.Menu)
                     .ToList();
 
-                var insertList = create.Select(item => new ProfilePorMenu
+                var insertList = create.Select(item => new ProfileForMenu
                 {
-                    ProfileId = ProfileId, MenuId = item.Id
+                    ProfileId = profileId,
+                    MenuId = item.Id
                 }).ToList();
 
                 if (insertList.Any())

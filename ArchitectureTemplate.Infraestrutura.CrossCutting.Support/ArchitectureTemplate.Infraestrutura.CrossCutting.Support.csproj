@@ -61,13 +61,13 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="Resources\PerfilResource.Designer.cs">
+    <Compile Include="Resources\ProfileResource.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>PerfilResource.resx</DependentUpon>
+      <DependentUpon>ProfileResource.resx</DependentUpon>
     </Compile>
-    <Compile Include="Resources\TipoHierarquiaResource.Designer.cs">
-      <DependentUpon>TipoHierarquiaResource.resx</DependentUpon>
+    <Compile Include="Resources\HierarchyTypeResource.Designer.cs">
+      <DependentUpon>HierarchyTypeResource.resx</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
@@ -85,13 +85,13 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>LogTypeResource.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Resources\PerfilResource.resx">
+    <EmbeddedResource Include="Resources\ProfileResource.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>PerfilResource.Designer.cs</LastGenOutput>
+      <LastGenOutput>ProfileResource.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Resources\TipoHierarquiaResource.resx">
+    <EmbeddedResource Include="Resources\HierarchyTypeResource.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>TipoHierarquiaResource.Designer.cs</LastGenOutput>
+      <LastGenOutput>HierarchyTypeResource.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\MensagensResource.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

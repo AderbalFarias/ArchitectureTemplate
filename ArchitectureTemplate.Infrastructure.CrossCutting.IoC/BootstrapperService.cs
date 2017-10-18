@@ -15,8 +15,8 @@ namespace ArchitectureTemplate.Infrastructure.CrossCutting.IoC
 
             container.Register<IEmailMailService, EmailMailService>();
 
-            container.Register<IUsuarioService, UsuarioService>();
-            container.Register<IUsuarioRepository, UsuarioRepository>();
+            container.Register<IUserService, UserService>();
+            container.Register<IUserRepository, UserRepository>();
         }
     }
 }

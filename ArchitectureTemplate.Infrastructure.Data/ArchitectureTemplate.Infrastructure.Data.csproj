@@ -55,16 +55,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DapperConfig\DapperContext.cs" />
+    <Compile Include="EntityConfig\Mapping\HierarchyTypeMap.cs" />
     <Compile Include="EntityConfig\Mapping\MenuMap.cs" />
-    <Compile Include="EntityConfig\Mapping\PerfilPorMenuMap.cs" />
-    <Compile Include="EntityConfig\Mapping\HierarquiaDetalhesMap.cs" />
-    <Compile Include="EntityConfig\Mapping\HierarquiaMap.cs" />
-    <Compile Include="EntityConfig\Mapping\PerfilPorTelaMap.cs" />
-    <Compile Include="EntityConfig\Mapping\TelaMap.cs" />
+    <Compile Include="EntityConfig\Mapping\ProfileForMenuMap.cs" />
+    <Compile Include="EntityConfig\Mapping\HierarchyDetailMap.cs" />
+    <Compile Include="EntityConfig\Mapping\HierarchyMap.cs" />
+    <Compile Include="EntityConfig\Mapping\ProfileForScreenMap.cs" />
+    <Compile Include="EntityConfig\Mapping\ScreenMap.cs" />
     <Compile Include="EntityConfig\Mapping\LogMap.cs" />
     <Compile Include="EntityConfig\Mapping\LogTypeMap.cs" />
-    <Compile Include="EntityConfig\Mapping\PerfilMap.cs" />
-    <Compile Include="EntityConfig\Mapping\UsuarioMap.cs" />
+    <Compile Include="EntityConfig\Mapping\ProfileMap.cs" />
+    <Compile Include="EntityConfig\Mapping\UserMap.cs" />
     <Compile Include="EntityConfig\EntityContext.cs" />
     <Compile Include="Migrations\201709242001395_Initial.cs" />
     <Compile Include="Migrations\201709242001395_Initial.Designer.cs">
@@ -78,13 +79,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\DictionaryAllRepository.cs" />
     <Compile Include="Repositories\MenuRepository.cs" />
-    <Compile Include="Repositories\TelaRepository.cs" />
-    <Compile Include="Repositories\PermissaoRepository.cs" />
+    <Compile Include="Repositories\ScreenRepository.cs" />
+    <Compile Include="Repositories\PermissionRepository.cs" />
     <Compile Include="Repositories\LogRepository.cs" />
-    <Compile Include="Repositories\HierarquiaRepository.cs" />
-    <Compile Include="Repositories\PerfilRepository.cs" />
+    <Compile Include="Repositories\HierarchyRepository.cs" />
+    <Compile Include="Repositories\ProfileRepository.cs" />
     <Compile Include="Repositories\RepositoryBase.cs" />
-    <Compile Include="Repositories\UsuarioRepository.cs" />
+    <Compile Include="Repositories\UserRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ArchitectureTemplate.Domain\ArchitectureTemplate.Domain.csproj">

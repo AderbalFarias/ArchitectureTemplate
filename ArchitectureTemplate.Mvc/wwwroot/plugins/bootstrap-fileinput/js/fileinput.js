@@ -3325,7 +3325,7 @@
             prev: 'Visualizar arquivo anterior',
             next: 'Visualizar próximo arquivo',
             toggleheader: 'Mostrar cabeçalho',
-            fullscreen: 'Ativar tela cheia',
+            fullscreen: 'Ativar screen cheia',
             borderless: 'Ativar modo sem borda',
             close: 'Fechar pré-visualização detalhada'
         }

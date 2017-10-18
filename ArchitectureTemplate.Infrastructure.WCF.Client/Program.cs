@@ -15,8 +15,8 @@ namespace ArchitectureTemplate.Infrastructure.WCF.Client
 
         private static void GetWithTcp()
         {
-            TelaClient proxy = new TelaClient("tcpEp");
-            var data = proxy.GetByName("Usuario");
+            ScreenClient proxy = new ScreenClient("tcpEp");
+            var data = proxy.GetByName("User");
 
             proxy.Close();
         }
@@ -26,8 +26,8 @@ namespace ArchitectureTemplate.Infrastructure.WCF.Client
             EndpointAddress address = new EndpointAddress("net.tcp://localhost:8009/WcfService");
             Binding binding = new NetTcpBinding();
 
-            TelaClient proxy = new TelaClient(binding, address);
-            var data = proxy.GetTelas("T");
+            ScreenClient proxy = new ScreenClient(binding, address);
+            var data = proxy.GetScreens("T");
             var teste = data.ToList();
 
             proxy.Close();

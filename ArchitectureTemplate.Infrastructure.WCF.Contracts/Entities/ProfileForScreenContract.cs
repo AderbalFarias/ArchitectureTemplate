@@ -12,7 +12,7 @@ namespace ArchitectureTemplate.Infrastructure.WCF.Contracts.Entities
         public int ProfileId { get; set; }
 
         [DataMember]
-        public int TelaId { get; set; }
+        public int ScreenId { get; set; }
 
         [DataMember]
         public bool Create { get; set; }
@@ -30,6 +30,6 @@ namespace ArchitectureTemplate.Infrastructure.WCF.Contracts.Entities
         public virtual ProfileContract Profile { get; set; }
 
         [DataMember]
-        public virtual ScreenContract Tela { get; set; }
+        public virtual ScreenContract Screen { get; set; }
     }
 }

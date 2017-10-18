@@ -13,9 +13,9 @@ namespace ArchitectureTemplate.Mvc.Models
         public int LogTypeId { get; set; }
 
         [DisplayName(@"Screen")]
-        public int? TelaId { get; set; }
+        public int? ScreenId { get; set; }
 
-        public long? UsuarioId { get; set; }
+        public long? UserId { get; set; }
 
         public string Mensagem { get; set; }
 
@@ -28,10 +28,10 @@ namespace ArchitectureTemplate.Mvc.Models
         [DisplayName(@"Date of Create")]
         public DateTime DataCadastro { get; set; }
 
-        //public Tela Tela { get; set; }
+        //public Screen Screen { get; set; }
 
         public LogType LogType { get; set; }
 
-        public UsuarioModel Usuario { get; set; }
+        public UserModel User { get; set; }
     }
 }

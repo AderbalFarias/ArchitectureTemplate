@@ -8,15 +8,15 @@ namespace ArchitectureTemplate.Domain.DataEntities
     {
         public long Id { get; set; }
         public int LogTypeId { get; set; }
-        public int? TelaId { get; set; }
-        public long? UsuarioId { get; set; }
+        public int? ScreenId { get; set; }
+        public long? UserId { get; set; }
         public string Mensagem { get; set; }
         public string NomeClasse { get; set; }
         public string Conteudo { get; set; }
         public DateTime DataCadastro { get; set; }
-        public virtual Tela Tela { get; set; }
+        public virtual Screen Screen { get; set; }
         public virtual LogType LogType { get; set; }
-        public virtual Usuario Usuario { get; set; }
+        public virtual User User { get; set; }
 
         public Log GeneratedForEntity<TEntity>(long userId, TEntity entity, int logType, bool refenciaCircular = false)
         {
@@ -30,7 +30,7 @@ namespace ArchitectureTemplate.Domain.DataEntities
 
             return new Log
             {
-                UsuarioId = userId,
+                UserId = userId,
                 DataCadastro = DateTime.Now,
                 Mensagem = "Registrando dados de entidades",
                 NomeClasse = entity.GetType().Name,
@@ -51,7 +51,7 @@ namespace ArchitectureTemplate.Domain.DataEntities
 
             return new Log
             {
-                UsuarioId = userId,
+                UserId = userId,
                 DataCadastro = DateTime.Now,
                 Mensagem = "Registrando dados de entidades",
                 NomeClasse = typeof(TEntity).Name,

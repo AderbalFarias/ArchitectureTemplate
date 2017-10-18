@@ -1,4 +1,5 @@
-﻿using ArchitectureTemplate.Infraestrutura.CrossCutting.Support.Extensions;
+﻿using ArchitectureTemplate.Domain.Interfaces.Services;
+using ArchitectureTemplate.Infraestrutura.CrossCutting.Support.Extensions;
 using ArchitectureTemplate.Infraestrutura.CrossCutting.Support.Resources;
 using ArchitectureTemplate.Mvc.Controllers.Shared;
 using ArchitectureTemplate.Mvc.Models;
@@ -13,7 +14,6 @@ using System.IO;
 using System.Security.Claims;
 using System.Web;
 using System.Web.Mvc;
-using ArchitectureTemplate.Domain.Interfaces.Services;
 
 namespace ArchitectureTemplate.Mvc.Controllers
 {
@@ -21,10 +21,10 @@ namespace ArchitectureTemplate.Mvc.Controllers
     {
         #region Fields
 
-        private readonly IUsuarioService _usuarioService;
+        private readonly IUserService _userService;
         private readonly IEmailMailService _emailMailService;
         private readonly IMenuService _menuService;
-        private readonly IHierarquiaService _hierarquiaService;
+        private readonly IHierarchyService _hierarchyService;
 
         private IAuthenticationManager AuthenticationManager => HttpContext
             .GetOwinContext().Authentication;
@@ -33,13 +33,13 @@ namespace ArchitectureTemplate.Mvc.Controllers
 
         #region Constructors
 
-        public LoginController(IUsuarioService usuarioService, IEmailMailService emailMailService,
-            IMenuService menuService, IHierarquiaService hierarquiaService)
+        public LoginController(IUserService userService, IEmailMailService emailMailService,
+            IMenuService menuService, IHierarchyService hierarchyService)
         {
-            _usuarioService = usuarioService;
+            _userService = userService;
             _emailMailService = emailMailService;
             _menuService = menuService;
-            _hierarquiaService = hierarquiaService;
+            _hierarchyService = hierarchyService;
         }
 
         #endregion
@@ -69,7 +69,7 @@ namespace ArchitectureTemplate.Mvc.Controllers
             try
             {
                 LogAcesso(model.Login);
-                var user = _usuarioService.Login(model.Login, model.Password);
+                var user = _userService.Login(model.Login, model.Password);
                 if (user != null)
                 {
                     if (user.CodigoRecover != null)
@@ -116,9 +116,9 @@ namespace ArchitectureTemplate.Mvc.Controllers
         {
             try
             {
-                var usuario = _usuarioService.RecuperarSenha(model.Email);
+                var user = _userService.RecuperarSenha(model.Email);
 
-                if (usuario != null)
+                if (user != null)
                 {
                     var modelEmail = new EmailMail
                     {
@@ -160,7 +160,7 @@ namespace ArchitectureTemplate.Mvc.Controllers
         {
             try
             {
-                _usuarioService.ResetSenha(model.Login, model.CodigoRecover, model.NewPassword);
+                _userService.ResetSenha(model.Login, model.CodigoRecover, model.NewPassword);
                 ShowMessageDialog("Password changed successfully", Message.MessageKind.Success);
             }
             catch (Exception exception)
@@ -201,7 +201,7 @@ namespace ArchitectureTemplate.Mvc.Controllers
         {
             try
             {
-                _usuarioService.EditSenha(CurrentUser.UserId, model.Password, model.NewPassword);
+                _userService.EditSenha(CurrentUser.UserId, model.Password, model.NewPassword);
                 ShowMessageDialog("Password changed successfully", Message.MessageKind.Success);
 
                 return RedirectToAction("LogOff");
@@ -238,10 +238,10 @@ namespace ArchitectureTemplate.Mvc.Controllers
         {
             var userId = user.Id.ToString(CultureInfo.InvariantCulture);
             var menus = _menuService.GetIdsPorProfile(user.ProfileId);
-            var hierarquias = user.HierarquiaId != null
-                ? _hierarquiaService.GetHierarquiaIdsForUser(user.HierarquiaId)
+            var hierarchys = user.HierarchyId != null
+                ? _hierarchyService.GetHierarchyIdsForUser(user.HierarchyId)
                 : user.ProfileId.Equals(ProfileResource.Administrator)
-                    ? _hierarquiaService.GetAllHierarquiaIds()
+                    ? _hierarchyService.GetAllHierarchyIds()
                     : null;
 
             var clains = new List<Claim>
@@ -252,14 +252,14 @@ namespace ArchitectureTemplate.Mvc.Controllers
                 new Claim(ClaimTypes.Name, user.Nome),
                 new Claim(ClaimTypes.Email, user.Email),
                 new Claim("Login", user.Login),
-                new Claim("Token", _usuarioService.GenerateToken((long)user.Id)),
+                new Claim("Token", _userService.GenerateToken((long)user.Id)),
                 new Claim("Cpf", user.Cpf.ToString(CultureInfo.InvariantCulture)),
                 new Claim("ProfileId", user.ProfileId.ToString(CultureInfo.InvariantCulture)),
-                new Claim("HierarquiaId", user.HierarquiaId != null
-                    ? user.HierarquiaId.ToString(CultureInfo.InvariantCulture)
+                new Claim("HierarchyId", user.HierarchyId != null
+                    ? user.HierarchyId.ToString(CultureInfo.InvariantCulture)
                     : string.Empty),
                 new Claim("IdsMenu", string.Join("|", menus)),
-                new Claim("IdsHierarquia", string.Join("|", hierarquias ?? "0"))
+                new Claim("HierarchyIds", string.Join("|", hierarchys ?? "0"))
             };
 
             var identity = new ClaimsIdentity(clains, DefaultAuthenticationTypes.ApplicationCookie);
