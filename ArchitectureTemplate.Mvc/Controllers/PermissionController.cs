@@ -54,7 +54,7 @@ namespace ArchitectureTemplate.Mvc.Controllers
                 }
                 else
                 {
-                    model.ProfilePorScreenList = _permissionService.GetProfilePorScreen(id);
+                    model.ProfileForScreenList = _permissionService.GetProfileForScreen(id);
                 }
 
                 return View(model);
@@ -78,7 +78,7 @@ namespace ArchitectureTemplate.Mvc.Controllers
                 var model = new PermissionModel
                 {
                     ProfileId = id,
-                    ProfilePorScreenList = _permissionService.GetProfilePorScreen(id)
+                    ProfileForScreenList = _permissionService.GetProfileForScreen(id)
                 };
 
                 return PartialView("_List", model);

@@ -51,7 +51,7 @@ namespace ArchitectureTemplate.Mvc.Controllers
                 }
                 else
                 {
-                    model.ProfilePorMenuList = _menuService.GetPorProfile(id);
+                    model.ProfileForMenuList = _menuService.GetPorProfile(id);
                 }
 
                 return View(model);
@@ -75,7 +75,7 @@ namespace ArchitectureTemplate.Mvc.Controllers
                 var model = new MenuModel
                 {
                     ProfileId = id,
-                    ProfilePorMenuList = _menuService.GetPorProfile(id)
+                    ProfileForMenuList = _menuService.GetPorProfile(id)
                 };
 
                 return PartialView("_List", model);

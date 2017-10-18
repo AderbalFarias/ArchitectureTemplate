@@ -33,7 +33,7 @@ namespace ArchitectureTemplate.Infrastructure.Data.Repositories
             if (screenId == null)
                 return false;
 
-            var select = $"select pt.Id from ProfilePorScreen pt where pt.ProfileId = {profileId} " +
+            var select = $"select pt.Id from ProfileForScreen pt where pt.ProfileId = {profileId} " +
                 $"and pt.ScreenId = {screenId.Value} and pt.[{accessType}] = 'True'";
 
             return _contextDapper.Query<long>(select).Any();
@@ -52,7 +52,7 @@ namespace ArchitectureTemplate.Infrastructure.Data.Repositories
                     select pt.Id, pt.[Create], pt.[Read], pt.[Update], pt.[Delete],
                         t.Id, t.Nome, t.ControllerName, t.DataCadastro, t.Ativo, t.[Create], t.[Read], t.[Update], t.[Delete],
                         p.Id, p.Nome, p.Ativo, p.Solicitante, p.DataCadastro
-                    from ProfilePorScreen pt
+                    from ProfileForScreen pt
                     left join Screen t on t.Id = pt.ScreenId 
                     left join Profile p on p.Id = pt.ProfileId 
                     order by p.Nome, t.Nome asc",
@@ -67,13 +67,13 @@ namespace ArchitectureTemplate.Infrastructure.Data.Repositories
             return resultList.ToList();
         }
 
-        public IEnumerable<ProfileForScreen> GetProfilePorScreen(int profileId)
+        public IEnumerable<ProfileForScreen> GetProfileForScreen(int profileId)
         {
             var resultList = _contextDapper.Query<ProfileForScreen, Screen, ProfileForScreen>($@"
                     select pt.Id, pt.[Create], pt.[Read], pt.[Update], pt.[Delete],
                         t.Id, t.Nome, t.ControllerName, t.DataCadastro, t.Ativo, t.[Create], t.[Read], t.[Update], t.[Delete]
                     from Screen t
-                    left join ProfilePorScreen pt on pt.ScreenId = t.Id and pt.ProfileId = {profileId}",
+                    left join ProfileForScreen pt on pt.ScreenId = t.Id and pt.ProfileId = {profileId}",
                     (pt, t) =>
                     {
                         pt.Screen = t;
@@ -84,10 +84,10 @@ namespace ArchitectureTemplate.Infrastructure.Data.Repositories
             return resultList.ToList();
         }
 
-        public ProfileForScreen GetProfilePorScreen(long id)
+        public ProfileForScreen GetProfileForScreen(long id)
         {
             return _contextDapper
-                .Query<ProfileForScreen>($"select * from ProfilePorScreen where Id = {id}")
+                .Query<ProfileForScreen>($"select * from ProfileForScreen where Id = {id}")
                 .Single();
         }
 
@@ -100,7 +100,7 @@ namespace ArchitectureTemplate.Infrastructure.Data.Repositories
 
         public void EnableOrDisabled(ProfileForScreen entity, long userId)
         {
-            _context.ProfilePorScreen.AddOrUpdate(entity);
+            _context.ProfileForScreen.AddOrUpdate(entity);
             _context.SaveChanges();
 
             _logRepository.Add(new Log().GeneratedForEntity(userId, entity, entity.Id != 0 ? LogTypeResource.Update : LogTypeResource.Insert));

@@ -59,7 +59,7 @@ namespace ArchitectureTemplate.Infrastructure.Data.Repositories
         public void Remove(int screenId, long userId)
         {
             var screen = _context.Screen
-                .Include(i => i.ProfilePorScreen)
+                .Include(i => i.ProfileForScreen)
                 .First(f => f.Id == screenId);
 
             _context.Screen.Remove(screen);

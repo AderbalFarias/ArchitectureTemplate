@@ -75,6 +75,14 @@
     <Compile Include="Migrations\201709292249108_IncludeData.Designer.cs">
       <DependentUpon>201709292249108_IncludeData.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710181823215_RefactoringTablesName.cs" />
+    <Compile Include="Migrations\201710181823215_RefactoringTablesName.Designer.cs">
+      <DependentUpon>201710181823215_RefactoringTablesName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710181835331_UpdateData.cs" />
+    <Compile Include="Migrations\201710181835331_UpdateData.Designer.cs">
+      <DependentUpon>201710181835331_UpdateData.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\DictionaryAllRepository.cs" />
@@ -106,6 +114,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201709292249108_IncludeData.resx">
       <DependentUpon>201709292249108_IncludeData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710181823215_RefactoringTablesName.resx">
+      <DependentUpon>201710181823215_RefactoringTablesName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710181835331_UpdateData.resx">
+      <DependentUpon>201710181835331_UpdateData.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

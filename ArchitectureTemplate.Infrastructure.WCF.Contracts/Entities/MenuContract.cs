@@ -13,6 +13,6 @@ namespace ArchitectureTemplate.Infrastructure.WCF.Contracts.Entities
         public string Nome { get; set; }
 
         [DataMember]
-        public virtual ICollection<ProfilePorMenuContract> ProfilePorMenu { get; set; }
+        public virtual ICollection<ProfileForMenuContract> ProfileForMenu { get; set; }
     }
 }

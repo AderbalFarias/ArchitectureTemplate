@@ -37,9 +37,9 @@ namespace ArchitectureTemplate.Domain.Services
             return _permissionRepository.GetToken(userId);
         }
 
-        public IEnumerable<ProfileForScreen> GetProfilePorScreen(int profileId)
+        public IEnumerable<ProfileForScreen> GetProfileForScreen(int profileId)
         {
-            return _permissionRepository.GetProfilePorScreen(profileId);
+            return _permissionRepository.GetProfileForScreen(profileId);
         }
 
         public void EnableOrDisabled(int profileId, int screenId, string parametro, long permissionId, long userId)
@@ -48,7 +48,7 @@ namespace ArchitectureTemplate.Domain.Services
 
             if (permissionId != 0)
             {
-                permission = _permissionRepository.GetProfilePorScreen(permissionId);
+                permission = _permissionRepository.GetProfileForScreen(permissionId);
             }
             else
             {
@@ -89,7 +89,7 @@ namespace ArchitectureTemplate.Domain.Services
 
             if (permissionId != 0)
             {
-                permission = _permissionRepository.GetProfilePorScreen(permissionId);
+                permission = _permissionRepository.GetProfileForScreen(permissionId);
             }
             else
             {

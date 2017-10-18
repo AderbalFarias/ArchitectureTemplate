@@ -17,7 +17,7 @@
             <th></th>
         </tr>
 
-        @foreach (var item in Model.ProfilePorMenuList)
+        @foreach (var item in Model.ProfileForMenuList)
         {
             <tr>
                 <td>
@@ -46,11 +46,11 @@
                 <b>All</b>
             </td>
             <td class="text-center">
-                @if (Model.ProfilePorMenuList.Count(w => w.Id == 0) > 0)
+                @if (Model.ProfileForMenuList.Count(w => w.Id == 0) > 0)
                 {
                     <a link="@Url.Action("EnableOrDisableAll", new { id = Model.ProfileId, ativar = true })" title="Enable all"><i class="fa fa-plus-circle"></i></a>
                 }
-                @if (Model.ProfilePorMenuList.Count(w => w.Id != 0) > 0)
+                @if (Model.ProfileForMenuList.Count(w => w.Id != 0) > 0)
                 {
                     <a link="@Url.Action("EnableOrDisableAll", new { id = Model.ProfileId, ativar = false })" title="Disable all"><i class="fa fa-remove"></i></a>
                 }

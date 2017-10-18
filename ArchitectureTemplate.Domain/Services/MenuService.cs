@@ -96,7 +96,7 @@ namespace ArchitectureTemplate.Domain.Services
         {
             if (permissionId != 0)
             {
-                _menuRepository.RemoveProfilePorMenu(permissionId, userId);
+                _menuRepository.RemoveProfileForMenu(permissionId, userId);
             }
             else
             {
@@ -106,7 +106,7 @@ namespace ArchitectureTemplate.Domain.Services
                     MenuId = menuId,
                 };
 
-                _menuRepository.AddProfilePorMenu(pm, userId);
+                _menuRepository.AddProfileForMenu(pm, userId);
             }
         }
 
@@ -122,7 +122,7 @@ namespace ArchitectureTemplate.Domain.Services
 
                 foreach (var pm in delete)
                 {
-                    _menuRepository.RemoveProfilePorMenu(pm.Id, userId);
+                    _menuRepository.RemoveProfileForMenu(pm.Id, userId);
                 }
             }
             else
@@ -139,7 +139,7 @@ namespace ArchitectureTemplate.Domain.Services
                 }).ToList();
 
                 if (insertList.Any())
-                    _menuRepository.AddRangeProfilePorMenu(insertList, userId);
+                    _menuRepository.AddRangeProfileForMenu(insertList, userId);
             }
         }
 

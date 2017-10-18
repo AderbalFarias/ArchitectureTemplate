@@ -20,7 +20,7 @@ namespace ArchitectureTemplate.Mvc.Models
 
         public IEnumerable<Menu> MenuList { get; set; }
 
-        public IEnumerable<ProfileForMenu> ProfilePorMenuList { get; set; }
+        public IEnumerable<ProfileForMenu> ProfileForMenuList { get; set; }
 
         public IDictionary<int, string> ProfileDictionary { get; set; }
 

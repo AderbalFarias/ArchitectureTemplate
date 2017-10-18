@@ -27,10 +27,10 @@ namespace ArchitectureTemplate.Infrastructure.WCF.Contracts.Entities
         public virtual IEnumerable<UserContract> User { get; set; }
 
         [DataMember]
-        public virtual ICollection<ProfileForScreenContract> ProfilePorScreen { get; set; }
+        public virtual ICollection<ProfileForScreenContract> ProfileForScreen { get; set; }
 
         [DataMember]
-        public virtual IEnumerable<ProfilePorMenuContract> ProfilePorMenu { get; set; }
+        public virtual IEnumerable<ProfileForMenuContract> ProfileForMenu { get; set; }
     }
 }
 

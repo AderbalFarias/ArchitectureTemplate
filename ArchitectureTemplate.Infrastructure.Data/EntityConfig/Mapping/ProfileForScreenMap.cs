@@ -10,11 +10,11 @@ namespace ArchitectureTemplate.Infrastructure.Data.EntityConfig.Mapping
             HasKey(k => k.Id);
 
             HasRequired(p => p.Profile)
-                .WithMany(w => w.ProfilePorScreen)
+                .WithMany(w => w.ProfileForScreen)
                 .HasForeignKey(f => f.ProfileId);
 
             HasRequired(p => p.Screen)
-                .WithMany(w => w.ProfilePorScreen)
+                .WithMany(w => w.ProfileForScreen)
                 .HasForeignKey(f => f.ScreenId)
                 .WillCascadeOnDelete(true);
         }

@@ -32,6 +32,6 @@ namespace ArchitectureTemplate.Infrastructure.WCF.Contracts.Entities
         public bool Delete { get; set; }
 
         [DataMember]
-        public ICollection<ProfileForScreenContract> ProfilePorScreen { get; set; }
+        public ICollection<ProfileForScreenContract> ProfileForScreen { get; set; }
     }
 }

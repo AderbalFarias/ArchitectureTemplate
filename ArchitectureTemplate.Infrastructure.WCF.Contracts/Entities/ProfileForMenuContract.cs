@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 namespace ArchitectureTemplate.Infrastructure.WCF.Contracts.Entities
 {
     [DataContract]
-    public class ProfilePorMenuContract
+    public class ProfileForMenuContract
     {
         [DataMember]
         public long Id { get; set; }

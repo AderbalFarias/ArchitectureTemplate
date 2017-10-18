@@ -14,7 +14,7 @@ namespace ArchitectureTemplate.Infrastructure.Data.EntityConfig.Mapping
                 .HasForeignKey(f => f.ProfileId);
 
             HasRequired(p => p.Menu)
-                .WithMany(w => w.ProfilePorMenu)
+                .WithMany(w => w.ProfileForMenu)
                 .HasForeignKey(f => f.MenuId)
                 .WillCascadeOnDelete(true);
         }

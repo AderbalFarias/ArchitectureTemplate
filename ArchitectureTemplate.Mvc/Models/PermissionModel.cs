@@ -11,7 +11,7 @@ namespace ArchitectureTemplate.Mvc.Models
 
         public IEnumerable<Screen> ScreenList { get; set; }
 
-        public IEnumerable<ProfileForScreen> ProfilePorScreenList { get; set; }
+        public IEnumerable<ProfileForScreen> ProfileForScreenList { get; set; }
 
         public IDictionary<int, string> ProfileDictionary { get; set; }
 

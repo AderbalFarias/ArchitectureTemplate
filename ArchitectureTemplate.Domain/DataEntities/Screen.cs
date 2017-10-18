@@ -14,6 +14,6 @@ namespace ArchitectureTemplate.Domain.DataEntities
         public bool Read { get; set; }
         public bool Update { get; set; }
         public bool Delete { get; set; }
-        public virtual ICollection<ProfileForScreen> ProfilePorScreen { get; set; }
+        public virtual ICollection<ProfileForScreen> ProfileForScreen { get; set; }
     }
 }

@@ -19,12 +19,12 @@ namespace ArchitectureTemplate.Infrastructure.Data.EntityConfig
         public virtual DbSet<Log> Log { get; set; }
         public virtual DbSet<LogType> LogType { get; set; }
         public virtual DbSet<Profile> Profile { get; set; }
-        public virtual DbSet<ProfileForScreen> ProfilePorScreen { get; set; }
+        public virtual DbSet<ProfileForScreen> ProfileForScreen { get; set; }
         public virtual DbSet<Screen> Screen { get; set; }
         public virtual DbSet<HierarchyType> HierarchyType { get; set; }
         public virtual DbSet<User> User { get; set; }
         public virtual DbSet<Menu> Menu { get; set; }
-        public virtual DbSet<ProfileForMenu> ProfilePorMenu { get; set; }
+        public virtual DbSet<ProfileForMenu> ProfileForMenu { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
