@@ -9,7 +9,7 @@ namespace ArchitectureTemplate.Infrastructure.Data.Migrations
             Sql(@"DECLARE @PerfilId INTEGER 
                 INSERT [dbo].[Perfil](Nome, Ativo, DataCadastro) VALUES ('Administrator', 1, GETDATE())
                 set @PerfilId = SCOPE_IDENTITY() 
-                INSERT [dbo].[User](PerfilId, Nome, Cpf, Email, Telefone, Login, Senha, Ativo) 
+                INSERT [dbo].[Usuario](PerfilId, Nome, Cpf, Email, Telefone, Login, Senha, Ativo) 
                     VALUES (@PerfilId, 'Admin Test', 22815616319, 'test@test.com', 1232242412, 'Admin', 'T8BDdQokQd79jjXS4j6E8A==', 1)
 
                 SET IDENTITY_INSERT [dbo].[LogType] ON
@@ -22,7 +22,7 @@ namespace ArchitectureTemplate.Infrastructure.Data.Migrations
                 INSERT [dbo].[Menu] ([Id], [Nome]) VALUES (1, N'Configurações')
                 INSERT [dbo].[Menu] ([Id], [Nome]) VALUES (2, N'Parametrização de Menus')
                 INSERT [dbo].[Menu] ([Id], [Nome]) VALUES (3, N'Permissões')
-                INSERT [dbo].[Menu] ([Id], [Nome]) VALUES (4, N'Screens')
+                INSERT [dbo].[Menu] ([Id], [Nome]) VALUES (4, N'Telas')
 
                 INSERT [dbo].[PerfilPorMenu] (MenuId, PerfilId) SELECT Id, @PerfilId FROM [dbo].[Menu]");
         }
@@ -31,7 +31,7 @@ namespace ArchitectureTemplate.Infrastructure.Data.Migrations
         {
             Sql("DELETE [dbo].[Log]");
             Sql("DELETE [dbo].[LogType]");
-            Sql("DELETE [dbo].[User]");
+            Sql("DELETE [dbo].[Usuario]");
             Sql("DELETE [dbo].[Perfil]");
             Sql("DELETE [dbo].[PerfilPorMenu]");
             Sql("DELETE [dbo].[Menu]");
