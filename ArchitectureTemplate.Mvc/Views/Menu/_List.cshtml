@@ -17,7 +17,7 @@
             <th></th>
         </tr>
 
-        @foreach (var item in Model.PerfilPorMenuList)
+        @foreach (var item in Model.ProfilePorMenuList)
         {
             <tr>
                 <td>
@@ -29,11 +29,11 @@
                 <td class="text-center">
                     @if (item.Id == 0)
                     {
-                        <a link="@Url.Action("EnableOrDisable", new { id = Model.PerfilId, menuId = item.Menu.Id })" title="Enable"><i class="fa fa-plus-circle"></i></a>
+                        <a link="@Url.Action("EnableOrDisable", new { id = Model.ProfileId, menuId = item.Menu.Id })" title="Enable"><i class="fa fa-plus-circle"></i></a>
                     }
                     else
                     {
-                        <a link="@Url.Action("EnableOrDisable", new { id = Model.PerfilId, menuId = item.Menu.Id, permissaoId = item.Id })" title="Desativar"><i class="fa fa-remove"></i></a>
+                        <a link="@Url.Action("EnableOrDisable", new { id = Model.ProfileId, menuId = item.Menu.Id, permissaoId = item.Id })" title="Desativar"><i class="fa fa-remove"></i></a>
                     }
                 </td>
             </tr>
@@ -46,13 +46,13 @@
                 <b>All</b>
             </td>
             <td class="text-center">
-                @if (Model.PerfilPorMenuList.Count(w => w.Id == 0) > 0)
+                @if (Model.ProfilePorMenuList.Count(w => w.Id == 0) > 0)
                 {
-                    <a link="@Url.Action("EnableOrDisableAll", new { id = Model.PerfilId, ativar = true })" title="Enable all"><i class="fa fa-plus-circle"></i></a>
+                    <a link="@Url.Action("EnableOrDisableAll", new { id = Model.ProfileId, ativar = true })" title="Enable all"><i class="fa fa-plus-circle"></i></a>
                 }
-                @if (Model.PerfilPorMenuList.Count(w => w.Id != 0) > 0)
+                @if (Model.ProfilePorMenuList.Count(w => w.Id != 0) > 0)
                 {
-                    <a link="@Url.Action("EnableOrDisableAll", new { id = Model.PerfilId, ativar = false })" title="Disable all"><i class="fa fa-remove"></i></a>
+                    <a link="@Url.Action("EnableOrDisableAll", new { id = Model.ProfileId, ativar = false })" title="Disable all"><i class="fa fa-remove"></i></a>
                 }
             </td>
         </tr>

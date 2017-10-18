@@ -1,4 +1,4 @@
-﻿@model ArchitectureTemplate.Mvc.Models.PerfilModel
+﻿@model ArchitectureTemplate.Mvc.Models.ProfileModel
 @{
     ViewBag.Title = "Edit Profile";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -9,7 +9,7 @@
         <strong>Edit Profile</strong>
     </h3>
 
-    @using (Html.BeginForm("Edit", "Perfil", FormMethod.Post, new { @id = "formPerfil" }))
+    @using (Html.BeginForm("Edit", "Profile", FormMethod.Post, new { @id = "formProfile" }))
     {
         @Html.HttpMethodOverride(HttpVerbs.Put)
         @Html.AntiForgeryToken()

@@ -3,18 +3,18 @@ using ArchitectureTemplate.Domain.DataEntities;
 
 namespace ArchitectureTemplate.Infrastructure.Data.EntityConfig.Mapping
 {
-    public class PerfilPorTelaMap : EntityTypeConfiguration<PerfilPorTela>
+    public class ProfilePorTelaMap : EntityTypeConfiguration<ProfilePorTela>
     {
-        public PerfilPorTelaMap()
+        public ProfilePorTelaMap()
         {
             HasKey(k => k.Id);
 
-            HasRequired(p => p.Perfil)
-                .WithMany(w => w.PerfilPorTela)
-                .HasForeignKey(f => f.PerfilId);
+            HasRequired(p => p.Profile)
+                .WithMany(w => w.ProfilePorTela)
+                .HasForeignKey(f => f.ProfileId);
 
             HasRequired(p => p.Tela)
-                .WithMany(w => w.PerfilPorTela)
+                .WithMany(w => w.ProfilePorTela)
                 .HasForeignKey(f => f.TelaId)
                 .WillCascadeOnDelete(true);
         }

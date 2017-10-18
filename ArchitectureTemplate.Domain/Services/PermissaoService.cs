@@ -27,9 +27,9 @@ namespace ArchitectureTemplate.Domain.Services
 
         #region Methods
 
-        public bool AllowAccess(int perfilId, string controllerName, string accessType)
+        public bool AllowAccess(int ProfileId, string controllerName, string accessType)
         {
-            return _permissaoRepository.AllowAccess(perfilId, controllerName, accessType);
+            return _permissaoRepository.AllowAccess(ProfileId, controllerName, accessType);
         }
 
         public string GetToken(long userId)
@@ -37,24 +37,24 @@ namespace ArchitectureTemplate.Domain.Services
             return _permissaoRepository.GetToken(userId);
         }
 
-        public IEnumerable<PerfilPorTela> GetPerfilPorTela(int perfilId)
+        public IEnumerable<ProfilePorTela> GetProfilePorTela(int ProfileId)
         {
-            return _permissaoRepository.GetPerfilPorTela(perfilId);
+            return _permissaoRepository.GetProfilePorTela(ProfileId);
         }
 
-        public void EnableOrDisabled(int perfilId, int telaId, string parametro, long permissaoId, long userId)
+        public void EnableOrDisabled(int ProfileId, int telaId, string parametro, long permissaoId, long userId)
         {
-            PerfilPorTela permissao;
+            ProfilePorTela permissao;
 
             if (permissaoId != 0)
             {
-                permissao = _permissaoRepository.GetPerfilPorTela(permissaoId);
+                permissao = _permissaoRepository.GetProfilePorTela(permissaoId);
             }
             else
             {
-                permissao = new PerfilPorTela
+                permissao = new ProfilePorTela
                 {
-                    PerfilId = perfilId,
+                    ProfileId = ProfileId,
                     TelaId = telaId,
                 };
             }
@@ -83,19 +83,19 @@ namespace ArchitectureTemplate.Domain.Services
             _permissaoRepository.EnableOrDisabled(permissao, userId);
         }
 
-        public void EnableOrDisabled(int perfilId, int telaId, bool ativar, long permissaoId, long userId)
+        public void EnableOrDisabled(int ProfileId, int telaId, bool ativar, long permissaoId, long userId)
         {
-            PerfilPorTela permissao;
+            ProfilePorTela permissao;
 
             if (permissaoId != 0)
             {
-                permissao = _permissaoRepository.GetPerfilPorTela(permissaoId);
+                permissao = _permissaoRepository.GetProfilePorTela(permissaoId);
             }
             else
             {
-                permissao = new PerfilPorTela
+                permissao = new ProfilePorTela
                 {
-                    PerfilId = perfilId,
+                    ProfileId = ProfileId,
                     TelaId = telaId,
                 };
             }
@@ -136,7 +136,7 @@ namespace ArchitectureTemplate.Domain.Services
             ExcelWorksheet wsRelatorio = pck.Workbook.Worksheets.Add("Dados");
 
             //Escrevendo cabeçalho da tabela
-            wsRelatorio.Cells[linha, coluna++].Value = "Perfil";
+            wsRelatorio.Cells[linha, coluna++].Value = "Profile";
             wsRelatorio.Cells[linha, coluna++].Value = "Nome da Tela";
             wsRelatorio.Cells[linha, coluna++].Value = "Funcionalidades";
             wsRelatorio.Cells[linha, coluna++].Value = "Consultar";
@@ -162,7 +162,7 @@ namespace ArchitectureTemplate.Domain.Services
                 coluna = 1;
                 linha++;
 
-                wsRelatorio.Cells[linha, coluna++].Value = item.Perfil.Nome;
+                wsRelatorio.Cells[linha, coluna++].Value = item.Profile.Nome;
                 wsRelatorio.Cells[linha, coluna++].Value = item.Tela.Nome;
                 wsRelatorio.Cells[linha, coluna++].Value = item.DisplayFuncionalidades(item);
                 wsRelatorio.Cells[linha, coluna++].Value = item.DisplayBool(item.Read);

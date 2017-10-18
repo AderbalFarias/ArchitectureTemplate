@@ -22,8 +22,8 @@ namespace ArchitectureTemplate.Infrastructure.CrossCutting.IoC
             container.Register<IUsuarioService, UsuarioService>(Lifestyle.Scoped);
             container.Register<IUsuarioRepository, UsuarioRepository>(Lifestyle.Scoped);
 
-            container.Register<IPerfilService, PerfilService>(Lifestyle.Scoped);
-            container.Register<IPerfilRepository, PerfilRepository>(Lifestyle.Scoped);
+            container.Register<IProfileService, ProfileService>(Lifestyle.Scoped);
+            container.Register<IProfileRepository, ProfileRepository>(Lifestyle.Scoped);
 
             container.Register<IHierarquiaService, HierarquiaService>(Lifestyle.Scoped);
             container.Register<IHierarquiaRepository, HierarquiaRepository>(Lifestyle.Scoped);

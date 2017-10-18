@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace ArchitectureTemplate.Infrastructure.WCF.Contracts.Entities
 {
     [DataContract]
-    public class UsuarioContract
+    public class UserContract
     {
         [DataMember]
         public long Id { get; set; }
@@ -12,7 +12,7 @@ namespace ArchitectureTemplate.Infrastructure.WCF.Contracts.Entities
         //public long? HierarquiaId { get; set; }
 
         [DataMember]
-        public int PerfilId { get; set; }
+        public int ProfileId { get; set; }
 
         [DataMember]
         public string Nome { get; set; }
@@ -44,7 +44,7 @@ namespace ArchitectureTemplate.Infrastructure.WCF.Contracts.Entities
 
         //public virtual Hierarquia Hierarquia { get; set; }
 
-        public virtual PerfilContract Perfil { get; set; }
+        public virtual ProfileContract Profile { get; set; }
 
         //public virtual IEnumerable<Log> Log { get; set; }
     }

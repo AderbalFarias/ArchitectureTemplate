@@ -34,14 +34,14 @@ namespace ArchitectureTemplate.Domain.Services
             return await _dictionaryAllRepository.GetTipoHierarquiaDictionaryAsync();
         }
 
-        public IDictionary<int, string> GetPerfilDictionary()
+        public IDictionary<int, string> GetProfileDictionary()
         {
-            return _dictionaryAllRepository.GetPerfilDictionary();
+            return _dictionaryAllRepository.GetProfileDictionary();
         }
 
-        public async Task<IDictionary<int, string>> GetPerfilDictionaryAsync()
+        public async Task<IDictionary<int, string>> GetProfileDictionaryAsync()
         {
-            return await _dictionaryAllRepository.GetPerfilDictionaryAsync();
+            return await _dictionaryAllRepository.GetProfileDictionaryAsync();
         }
 
         #endregion

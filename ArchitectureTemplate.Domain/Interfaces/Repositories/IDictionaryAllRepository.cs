@@ -8,7 +8,7 @@ namespace ArchitectureTemplate.Domain.Interfaces.Repositories
         IDictionary<int, string> GetTipoHierarquiaDictionary();
         Task<IDictionary<int, string>> GetTipoHierarquiaDictionaryAsync();
 
-        IDictionary<int, string> GetPerfilDictionary();
-        Task<IDictionary<int, string>> GetPerfilDictionaryAsync();
+        IDictionary<int, string> GetProfileDictionary();
+        Task<IDictionary<int, string>> GetProfileDictionaryAsync();
     }
 }

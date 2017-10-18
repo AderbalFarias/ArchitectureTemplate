@@ -22,7 +22,7 @@ namespace ArchitectureTemplate.Infrastructure.Data.Repositories
         public IEnumerable<Usuario> Get(Pagination paginar)
         {
             return _context.Usuario
-                .Include(i => i.Perfil)
+                .Include(i => i.Profile)
                 .Include(i => i.Hierarquia)
                 .OrderBy(o => o.Nome)
                 .Skip(paginar.SkipPagina(paginar))
@@ -33,7 +33,7 @@ namespace ArchitectureTemplate.Infrastructure.Data.Repositories
         public async Task<IEnumerable<Usuario>> GetAsync(Pagination paginar)
         {
             return await _context.Usuario
-                .Include(i => i.Perfil)
+                .Include(i => i.Profile)
                 .Include(i => i.Hierarquia)
                 .OrderBy(o => o.Nome)
                 .Skip(paginar.SkipPagina(paginar))
@@ -58,13 +58,13 @@ namespace ArchitectureTemplate.Infrastructure.Data.Repositories
         public Usuario Login(string user, string password, string codRecover)
         {
             var usuario = _context.Usuario
-                .Include(i => i.Perfil)
+                .Include(i => i.Profile)
                 .Include(i => i.Hierarquia)
                 .FirstOrDefault(u => u.Ativo && u.Login == user && u.Senha == password);
 
             if (usuario == null)
                 return _context.Usuario
-                    .Include(i => i.Perfil)
+                    .Include(i => i.Profile)
                     .Include(i => i.Hierarquia)
                     .FirstOrDefault(u => u.Ativo && u.Login == user && u.Senha == codRecover && u.CodigoRecover == codRecover);
 
@@ -116,12 +116,12 @@ namespace ArchitectureTemplate.Infrastructure.Data.Repositories
 
         public IList<string> GetEmails(IEnumerable<int> perfisId)
         {
-            return _context.Usuario.Where(w => perfisId.Contains(w.PerfilId)).Select(s => s.Email).ToList();
+            return _context.Usuario.Where(w => perfisId.Contains(w.ProfileId)).Select(s => s.Email).ToList();
         }
 
         public List<string> GetTelefones(IEnumerable<int> perfisId)
         {
-            return _context.Usuario.Where(w => perfisId.Contains(w.PerfilId)).Select(s => s.Telefone).ToList();
+            return _context.Usuario.Where(w => perfisId.Contains(w.ProfileId)).Select(s => s.Telefone).ToList();
         }
 
         public void InsertToken(long userId, string token)

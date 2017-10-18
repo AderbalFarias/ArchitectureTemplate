@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace ArchitectureTemplate.Mvc.Models
 {
-    public class PerfilModel
+    public class ProfileModel
     {
         [Key]
         [DisplayName(@"Code")]

@@ -12,9 +12,9 @@
     <div class="form-horizontal">
         <div class="form-group">
             @Html.HiddenFor(model => model.Scroll)
-            @Html.LabelFor(model => model.PerfilId, new {@class = "control-label col-md-5"})
+            @Html.LabelFor(model => model.ProfileId, new {@class = "control-label col-md-5"})
             <div class="col-md-3">
-                @Html.DropDownListFor(model => model.PerfilId, new SelectList(Model.PerfilDictionary, "Key", "Value"), "Select Profile", new {@class = "form-control"})
+                @Html.DropDownListFor(model => model.ProfileId, new SelectList(Model.ProfileDictionary, "Key", "Value"), "Select Profile", new {@class = "form-control"})
             </div>
         </div>
     </div>
@@ -22,7 +22,7 @@
     <hr>
 
     <div id="DivDados">
-        @if (Model.PerfilPorMenuList?.Any() ?? false)
+        @if (Model.ProfilePorMenuList?.Any() ?? false)
         {
             @Html.Partial("_List", Model)
         }

@@ -37,13 +37,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\MenuContract.cs" />
-    <Compile Include="Entities\PerfilContract.cs" />
-    <Compile Include="Entities\PerfilPorMenuContract.cs" />
-    <Compile Include="Entities\PerfilPorTelaContract.cs" />
-    <Compile Include="Entities\UsuarioContract.cs" />
-    <Compile Include="ServiceInterfaces\ITelaServiceContract.cs" />
+    <Compile Include="Entities\ProfileContract.cs" />
+    <Compile Include="Entities\ProfileForMenuContract.cs" />
+    <Compile Include="Entities\ProfileForScreenContract.cs" />
+    <Compile Include="Entities\UserContract.cs" />
+    <Compile Include="ServiceInterfaces\IScreenServiceContract.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Entities\TelaContract.cs" />
+    <Compile Include="Entities\ScreenContract.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

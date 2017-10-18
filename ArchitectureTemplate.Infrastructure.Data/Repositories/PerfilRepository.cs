@@ -8,7 +8,7 @@ using ArchitectureTemplate.Domain.Interfaces.Repositories;
 
 namespace ArchitectureTemplate.Infrastructure.Data.Repositories
 {
-    public class PerfilRepository : RepositoryBase<Perfil>, IPerfilRepository
+    public class ProfileRepository : RepositoryBase<Profile>, IProfileRepository
     {
         #region Fields
 
@@ -17,35 +17,35 @@ namespace ArchitectureTemplate.Infrastructure.Data.Repositories
         #region Methods
 
         /// <summary>
-        /// Busca perfil
+        /// Busca Profile
         /// </summary>
-        /// <returns>Dicionário de perfil com código e descrição</returns>
+        /// <returns>Dicionário de Profile com código e descrição</returns>
         public IDictionary<int, string> GetDictionary()
         {
-            return _context.Perfil
+            return _context.Profile
                 .Where(w => w.Ativo)
                 .ToDictionary(k => k.Id, v => v.Nome);
         }
 
         /// <summary>
-        /// Busca perfil de forma assíncrona
+        /// Busca Profile de forma assíncrona
         /// </summary>
-        /// <returns>Dicionário de perfil com código e descrição</returns>
+        /// <returns>Dicionário de Profile com código e descrição</returns>
         public async Task<IDictionary<int, string>> GetDictionaryAsync()
         {
-            return await _context.Perfil
+            return await _context.Profile
                 .Where(w => w.Ativo)
                 .ToDictionaryAsync(k => k.Id, v => v.Nome);
         }
 
         /// <summary>
-        /// Busca perfil
+        /// Busca Profile
         /// </summary>
         /// <param name="paginar">Propriedades para paginação</param>
-        /// <returns>Lista de perfil, limitados por paginação</returns>
-        public IEnumerable<Perfil> Get(Pagination paginar)
+        /// <returns>Lista de Profile, limitados por paginação</returns>
+        public IEnumerable<Profile> Get(Pagination paginar)
         {
-            return _context.Perfil
+            return _context.Profile
                 .OrderBy(o => o.Nome)
                 .Skip(paginar.SkipPagina(paginar))
                 .Take(paginar.QtdeItensPagina)
@@ -53,13 +53,13 @@ namespace ArchitectureTemplate.Infrastructure.Data.Repositories
         }
 
         /// <summary>
-        /// Busca perfil de forma assíncrona
+        /// Busca Profile de forma assíncrona
         /// </summary>
         /// <param name="paginar">Propriedades para paginação</param>
-        /// <returns>Lista de perfil, limitados por paginação</returns>
-        public async Task<IEnumerable<Perfil>> GetAsync(Pagination paginar)
+        /// <returns>Lista de Profile, limitados por paginação</returns>
+        public async Task<IEnumerable<Profile>> GetAsync(Pagination paginar)
         {
-            return await _context.Perfil
+            return await _context.Profile
                 .OrderBy(o => o.Nome)
                 .Skip(paginar.SkipPagina(paginar))
                 .Take(paginar.QtdeItensPagina)

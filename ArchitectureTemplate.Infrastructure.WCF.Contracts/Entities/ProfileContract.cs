@@ -1,12 +1,13 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
 namespace ArchitectureTemplate.Infrastructure.WCF.Contracts.Entities
 {
     [DataContract]
-    public class TelaContract
+    public class ProfileContract
     {
+
         [DataMember]
         public int Id { get; set; }
 
@@ -14,24 +15,23 @@ namespace ArchitectureTemplate.Infrastructure.WCF.Contracts.Entities
         public string Nome { get; set; }
 
         [DataMember]
-        public string ControllerName { get; set; }
-
-        public DateTime DataCadastro { get; set; }
-
         public bool Ativo { get; set; }
 
-        public bool Create { get; set; }
+        [DataMember]
+        public string Solicitante { get; set; }
 
         [DataMember]
-        public bool Read { get; set; }
+        public DateTime DataCadastro { get; set; }
 
         [DataMember]
-        public bool Update { get; set; }
+        public virtual IEnumerable<UserContract> Usuario { get; set; }
 
         [DataMember]
-        public bool Delete { get; set; }
+        public virtual ICollection<ProfileForScreenContract> ProfilePorTela { get; set; }
 
         [DataMember]
-        public ICollection<PerfilPorTelaContract> PerfilPorTela { get; set; }
+        public virtual IEnumerable<ProfilePorMenuContract> ProfilePorMenu { get; set; }
     }
 }
+
+

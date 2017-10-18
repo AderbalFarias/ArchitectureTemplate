@@ -38,9 +38,9 @@ namespace ArchitectureTemplate.Infrastructure.Data.EntityConfig.Mapping
                 .WithMany()//.WithMany(p => p.Usuario)
                 .HasForeignKey(f => f.HierarquiaId);
 
-            HasRequired(p => p.Perfil)
+            HasRequired(p => p.Profile)
                 .WithMany()
-                .HasForeignKey(f => f.PerfilId);
+                .HasForeignKey(f => f.ProfileId);
         }
     }
 }

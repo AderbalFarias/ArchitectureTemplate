@@ -6,7 +6,7 @@ using System.ServiceModel.Channels;
 
 namespace ArchitectureTemplate.Infrastructure.WCF.Proxies
 {
-    public class TelaClient : ClientBase<ITelaServiceContract>, ITelaServiceContract
+    public class TelaClient : ClientBase<IScreenServiceContract>, IScreenServiceContract
     {
         public TelaClient(string endpointName)
             : base(endpointName)
@@ -18,22 +18,22 @@ namespace ArchitectureTemplate.Infrastructure.WCF.Proxies
         {
         }
 
-        public TelaContract GetById(int id)
+        public ScreenContract GetById(int id)
         {
             return Channel.GetById(id);
         }
 
-        public TelaContract GetByName(string name)
+        public ScreenContract GetByName(string name)
         {
             return Channel.GetByName(name);
         }
 
-        public IEnumerable<TelaContract> GetTelas(string key)
+        public IEnumerable<ScreenContract> GetTelas(string key)
         {
             return Channel.GetTelas(key);
         }
 
-        public IEnumerable<TelaContract> GetTelas(int idBegin, int idEnd)
+        public IEnumerable<ScreenContract> GetTelas(int idBegin, int idEnd)
         {
             return Channel.GetTelas(idBegin, idEnd);
         }

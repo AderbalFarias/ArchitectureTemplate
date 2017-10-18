@@ -29,10 +29,10 @@
             </div>
 
             <div class="form-group">
-                @Html.LabelFor(model => model.PerfilId, new {@class = "control-label col-md-3"})
+                @Html.LabelFor(model => model.ProfileId, new {@class = "control-label col-md-3"})
                 <div class="col-md-5">
-                    @Html.DropDownListFor(model => model.PerfilId, new SelectList(Model.PerfilDictionary, "Key", "Value"), "Selecione", new {@class = "form-control", @required = true})
-                    @Html.ValidationMessageFor(model => model.PerfilId, "", new {@class = "text-danger"})
+                    @Html.DropDownListFor(model => model.ProfileId, new SelectList(Model.ProfileDictionary, "Key", "Value"), "Selecione", new {@class = "form-control", @required = true})
+                    @Html.ValidationMessageFor(model => model.ProfileId, "", new {@class = "text-danger"})
                 </div>
             </div>
 

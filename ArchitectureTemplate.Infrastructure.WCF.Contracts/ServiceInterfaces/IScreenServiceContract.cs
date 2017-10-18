@@ -5,18 +5,18 @@ using System.ServiceModel;
 namespace ArchitectureTemplate.Infrastructure.WCF.Contracts.ServiceInterfaces
 {
     [ServiceContract]
-    public interface ITelaServiceContract
+    public interface IScreenServiceContract
     {
         [OperationContract]
-        TelaContract GetById(int id);
+        ScreenContract GetById(int id);
 
         [OperationContract]
-        TelaContract GetByName(string name);
+        ScreenContract GetByName(string name);
 
         [OperationContract(Name = "GetTelasByContains")]
-        IEnumerable<TelaContract> GetTelas(string key);
+        IEnumerable<ScreenContract> GetTelas(string key);
 
         [OperationContract(Name = "GetTelasByRange")]
-        IEnumerable<TelaContract> GetTelas(int idBegin, int idEnd);
+        IEnumerable<ScreenContract> GetTelas(int idBegin, int idEnd);
     }
 }

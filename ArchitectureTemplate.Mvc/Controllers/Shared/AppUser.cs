@@ -19,11 +19,11 @@ namespace ArchitectureTemplate.Mvc.Controllers.Shared
         public string Email => FindFirst(ClaimTypes.Email).Value;
         public long Cpf => Convert.ToInt64(FindFirst("Cpf").Value);
 
-        public string PerfilName => FindFirst(ClaimTypes.Role).Value;
+        public string ProfileName => FindFirst(ClaimTypes.Role).Value;
 
         public string Login => FindFirst("Login").Value;
 
-        public int PerfilId => Convert.ToInt32(FindFirst("PerfilId").Value);
+        public int ProfileId => Convert.ToInt32(FindFirst("ProfileId").Value);
 
         public long? HierarquiaId => Convert.ToInt64(FindFirst("HierarquiaId").Value);
 

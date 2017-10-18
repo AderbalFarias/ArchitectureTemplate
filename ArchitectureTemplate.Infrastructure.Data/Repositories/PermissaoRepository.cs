@@ -24,7 +24,7 @@ namespace ArchitectureTemplate.Infrastructure.Data.Repositories
 
         #region Methods
 
-        public bool AllowAccess(int perfilId, string controllerName, string accessType)
+        public bool AllowAccess(int ProfileId, string controllerName, string accessType)
         {
             var telaId = _contextDapper
                 .Query<int?>($"select Id from Tela where ControllerName = '{controllerName}'")
@@ -33,7 +33,7 @@ namespace ArchitectureTemplate.Infrastructure.Data.Repositories
             if (telaId == null)
                 return false;
 
-            var select = $"select pt.Id from PerfilPorTela pt where pt.PerfilId = {perfilId} " +
+            var select = $"select pt.Id from ProfilePorTela pt where pt.ProfileId = {ProfileId} " +
                 $"and pt.TelaId = {telaId.Value} and pt.[{accessType}] = 'True'";
 
             return _contextDapper.Query<long>(select).Any();
@@ -46,20 +46,20 @@ namespace ArchitectureTemplate.Infrastructure.Data.Repositories
                 .FirstOrDefault();
         }
 
-        public IEnumerable<PerfilPorTela> GetAll()
+        public IEnumerable<ProfilePorTela> GetAll()
         {
-            var resultList = _contextDapper.Query<PerfilPorTela, Tela, Perfil, PerfilPorTela>($@"
+            var resultList = _contextDapper.Query<ProfilePorTela, Tela, Profile, ProfilePorTela>($@"
                     select pt.Id, pt.[Create], pt.[Read], pt.[Update], pt.[Delete],
                         t.Id, t.Nome, t.ControllerName, t.DataCadastro, t.Ativo, t.[Create], t.[Read], t.[Update], t.[Delete],
                         p.Id, p.Nome, p.Ativo, p.Solicitante, p.DataCadastro
-                    from PerfilPorTela pt
+                    from ProfilePorTela pt
                     left join Tela t on t.Id = pt.TelaId 
-                    left join Perfil p on p.Id = pt.PerfilId 
+                    left join Profile p on p.Id = pt.ProfileId 
                     order by p.Nome, t.Nome asc",
                     (pt, t, p) =>
                     {
                         pt.Tela = t;
-                        pt.Perfil = p;
+                        pt.Profile = p;
                         return pt;
                     }, splitOn: "Id, Id")
                 .AsQueryable();
@@ -67,13 +67,13 @@ namespace ArchitectureTemplate.Infrastructure.Data.Repositories
             return resultList.ToList();
         }
 
-        public IEnumerable<PerfilPorTela> GetPerfilPorTela(int perfilId)
+        public IEnumerable<ProfilePorTela> GetProfilePorTela(int ProfileId)
         {
-            var resultList = _contextDapper.Query<PerfilPorTela, Tela, PerfilPorTela>($@"
+            var resultList = _contextDapper.Query<ProfilePorTela, Tela, ProfilePorTela>($@"
                     select pt.Id, pt.[Create], pt.[Read], pt.[Update], pt.[Delete],
                         t.Id, t.Nome, t.ControllerName, t.DataCadastro, t.Ativo, t.[Create], t.[Read], t.[Update], t.[Delete]
                     from Tela t
-                    left join PerfilPorTela pt on pt.TelaId = t.Id and pt.PerfilId = {perfilId}",
+                    left join ProfilePorTela pt on pt.TelaId = t.Id and pt.ProfileId = {ProfileId}",
                     (pt, t) =>
                     {
                         pt.Tela = t;
@@ -84,23 +84,23 @@ namespace ArchitectureTemplate.Infrastructure.Data.Repositories
             return resultList.ToList();
         }
 
-        public PerfilPorTela GetPerfilPorTela(long id)
+        public ProfilePorTela GetProfilePorTela(long id)
         {
             return _contextDapper
-                .Query<PerfilPorTela>($"select * from PerfilPorTela where Id = {id}")
+                .Query<ProfilePorTela>($"select * from ProfilePorTela where Id = {id}")
                 .Single();
         }
 
-        public PerfilPorTela GetTela(int telaId)
+        public ProfilePorTela GetTela(int telaId)
         {
             return _contextDapper
-                .Query<PerfilPorTela>($"select * from Tela where Id = {telaId}")
+                .Query<ProfilePorTela>($"select * from Tela where Id = {telaId}")
                 .Single();
         }
 
-        public void EnableOrDisabled(PerfilPorTela entity, long userId)
+        public void EnableOrDisabled(ProfilePorTela entity, long userId)
         {
-            _context.PerfilPorTela.AddOrUpdate(entity);
+            _context.ProfilePorTela.AddOrUpdate(entity);
             _context.SaveChanges();
 
             _logRepository.Add(new Log().GeneratedForEntity(userId, entity, entity.Id != 0 ? LogTypeResource.Update : LogTypeResource.Insert));

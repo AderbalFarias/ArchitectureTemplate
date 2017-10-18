@@ -3,19 +3,19 @@ using System.Runtime.Serialization;
 namespace ArchitectureTemplate.Infrastructure.WCF.Contracts.Entities
 {
     [DataContract]
-    public class PerfilPorMenuContract
+    public class ProfilePorMenuContract
     {
         [DataMember]
         public long Id { get; set; }
 
         [DataMember]
-        public int PerfilId { get; set; }
+        public int ProfileId { get; set; }
 
         [DataMember]
         public int MenuId { get; set; }
 
         [DataMember]
-        public virtual PerfilContract Perfil { get; set; }
+        public virtual ProfileContract Profile { get; set; }
 
         [DataMember]
         public virtual MenuContract Menu { get; set; }

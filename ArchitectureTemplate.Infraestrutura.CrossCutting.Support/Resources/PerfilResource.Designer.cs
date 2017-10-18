@@ -22,14 +22,14 @@ namespace ArchitectureTemplate.Infraestrutura.CrossCutting.Support.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class PerfilResource {
+    public class ProfileResource {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal PerfilResource() {
+        internal ProfileResource() {
         }
         
         /// <summary>
@@ -39,8 +39,8 @@ namespace ArchitectureTemplate.Infraestrutura.CrossCutting.Support.Resources {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ArchitectureTemplate.Infraestrutura.CrossCutting.Support.Resources.PerfilResource" +
-                            "", typeof(PerfilResource).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ArchitectureTemplate.Infraestrutura.CrossCutting.Support.Resources.ProfileResource" +
+                            "", typeof(ProfileResource).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

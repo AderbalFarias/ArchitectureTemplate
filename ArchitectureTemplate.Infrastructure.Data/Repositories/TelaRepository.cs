@@ -59,7 +59,7 @@ namespace ArchitectureTemplate.Infrastructure.Data.Repositories
         public void Remove(int telaId, long userId)
         {
             var tela = _context.Tela
-                .Include(i => i.PerfilPorTela)
+                .Include(i => i.ProfilePorTela)
                 .First(f => f.Id == telaId);
 
             _context.Tela.Remove(tela);

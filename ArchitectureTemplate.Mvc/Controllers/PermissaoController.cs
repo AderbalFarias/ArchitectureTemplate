@@ -43,8 +43,8 @@ namespace ArchitectureTemplate.Mvc.Controllers
             {
                 var model = new PermissaoModel
                 {
-                    PerfilId = id,
-                    PerfilDictionary = await _dictionaryAllService.GetPerfilDictionaryAsync(),
+                    ProfileId = id,
+                    ProfileDictionary = await _dictionaryAllService.GetProfileDictionaryAsync(),
                     Scroll = scroll
                 };
 
@@ -54,7 +54,7 @@ namespace ArchitectureTemplate.Mvc.Controllers
                 }
                 else
                 {
-                    model.PerfilPorTelaList = _permissaoService.GetPerfilPorTela(id);
+                    model.ProfilePorTelaList = _permissaoService.GetProfilePorTela(id);
                 }
 
                 return View(model);
@@ -77,8 +77,8 @@ namespace ArchitectureTemplate.Mvc.Controllers
             {
                 var model = new PermissaoModel
                 {
-                    PerfilId = id,
-                    PerfilPorTelaList = _permissaoService.GetPerfilPorTela(id)
+                    ProfileId = id,
+                    ProfilePorTelaList = _permissaoService.GetProfilePorTela(id)
                 };
 
                 return PartialView("_List", model);

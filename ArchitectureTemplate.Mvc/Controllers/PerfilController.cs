@@ -13,11 +13,11 @@ using ArchitectureTemplate.Domain.Interfaces.Services;
 
 namespace ArchitectureTemplate.Mvc.Controllers
 {
-    public class PerfilController : CustomController
+    public class ProfileController : CustomController
     {
         #region Fields
 
-        private readonly IPerfilService _perfilService;
+        private readonly IProfileService _ProfileService;
         //private readonly IDictionaryAllService _dictionaryAllService;
         private readonly Pagination _pagination;
 
@@ -25,10 +25,10 @@ namespace ArchitectureTemplate.Mvc.Controllers
 
         #region Constructors
 
-        public PerfilController(IPerfilService perfilService,
+        public ProfileController(IProfileService ProfileService,
             /*IDictionaryAllService dictionaryAllService,*/ Pagination pagination)
         {
-            _perfilService = perfilService;
+            _ProfileService = ProfileService;
             //_dictionaryAllService = dictionaryAllService;
             _pagination = pagination;
         }
@@ -46,10 +46,10 @@ namespace ArchitectureTemplate.Mvc.Controllers
             {
                 _pagination.PaginaAtual = idPag;
 
-                var entidade = _perfilService.GetAsync(_pagination);
-                var model = Mapper.Map<IEnumerable<Perfil>, IEnumerable<PerfilModel>>(await entidade);
+                var entidade = _ProfileService.GetAsync(_pagination);
+                var model = Mapper.Map<IEnumerable<Profile>, IEnumerable<ProfileModel>>(await entidade);
 
-                var paginar = _pagination.CalcularPagination(_pagination, await _perfilService.CountAsync());
+                var paginar = _pagination.CalcularPagination(_pagination, await _ProfileService.CountAsync());
                 ViewBag.PaginaAtual = paginar.PaginaAtual;
                 ViewBag.QtdePaginas = paginar.QtdePaginas;
 
@@ -67,14 +67,14 @@ namespace ArchitectureTemplate.Mvc.Controllers
         [ActionType(AccessType.Create)]
         public ActionResult Create()
         {
-            return View(new PerfilModel { Ativo = true });
+            return View(new ProfileModel { Ativo = true });
         }
 
         [HttpPost]
         [IsAuthorize]
         [ActionType(AccessType.Create)]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(PerfilModel model)
+        public ActionResult Create(ProfileModel model)
         {
             try
             {
@@ -83,7 +83,7 @@ namespace ArchitectureTemplate.Mvc.Controllers
                     try
                     {
                         model.DataCadastro = DateTime.Now;
-                        _perfilService.Add(Mapper.Map<PerfilModel, Perfil>(model), CurrentUser.UserId);
+                        _ProfileService.Add(Mapper.Map<ProfileModel, Profile>(model), CurrentUser.UserId);
                         ShowMessageDialog(MensagensResource.SucessoCadastrar, Message.MessageKind.Success);
                     }
                     catch (Exception e)
@@ -111,7 +111,7 @@ namespace ArchitectureTemplate.Mvc.Controllers
         {
             try
             {
-                var model = Mapper.Map<Perfil, PerfilModel>(await _perfilService.GetIdAsync(id));
+                var model = Mapper.Map<Profile, ProfileModel>(await _ProfileService.GetIdAsync(id));
                 return View(model);
             }
             catch (Exception e)
@@ -125,13 +125,13 @@ namespace ArchitectureTemplate.Mvc.Controllers
         [IsAuthorize]
         [ActionType(AccessType.Update)]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(PerfilModel model)
+        public ActionResult Edit(ProfileModel model)
         {
             try
             {
                 if (ModelState.IsValid)
                 {
-                    _perfilService.Update(Mapper.Map<PerfilModel, Perfil>(model), CurrentUser.UserId);
+                    _ProfileService.Update(Mapper.Map<ProfileModel, Profile>(model), CurrentUser.UserId);
                     ShowMessageDialog(MensagensResource.SucessoAtualizar, Message.MessageKind.Success);
                 }
                 else
@@ -154,7 +154,7 @@ namespace ArchitectureTemplate.Mvc.Controllers
         {
             try
             {
-                _perfilService.DisableOrEnable(id, CurrentUser.UserId);
+                _ProfileService.DisableOrEnable(id, CurrentUser.UserId);
                 ShowMessageDialog(MensagensResource.SucessoAtualizar, Message.MessageKind.Success);
             }
             catch (Exception e)

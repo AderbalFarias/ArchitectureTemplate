@@ -5,11 +5,11 @@ using ArchitectureTemplate.Infraestrutura.CrossCutting.Support.Extensions;
 
 namespace ArchitectureTemplate.Domain.Interfaces.Repositories
 {
-    public interface IPerfilRepository : IRepositoryBase<Perfil>
+    public interface IProfileRepository : IRepositoryBase<Profile>
     {
         IDictionary<int, string> GetDictionary();
         Task<IDictionary<int, string>> GetDictionaryAsync();
-        IEnumerable<Perfil> Get(Pagination paginar);
-        Task<IEnumerable<Perfil>> GetAsync(Pagination paginar);
+        IEnumerable<Profile> Get(Pagination paginar);
+        Task<IEnumerable<Profile>> GetAsync(Pagination paginar);
     }
 }

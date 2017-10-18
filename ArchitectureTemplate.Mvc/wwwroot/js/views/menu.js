@@ -62,14 +62,14 @@ $(document).ready(function () {
         $(window).scrollTop($("#Scroll").val());
     }
 
-    $("#PerfilId").change(function () {
-        var perfilId = $(this).val();
+    $("#ProfileId").change(function () {
+        var ProfileId = $(this).val();
 
-        if (perfilId != 0) {
+        if (ProfileId != 0) {
             $.ajax({
                 url: "/Menu/List",
                 type: "Get",
-                data: { id: perfilId },
+                data: { id: ProfileId },
                 dataType: "html",
                 cache: false,
                 success: function (data) {

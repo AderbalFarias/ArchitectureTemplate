@@ -42,7 +42,7 @@ namespace ArchitectureTemplate.Mvc.Models
         [DisplayName(@"Delete")]
         public bool Delete { get; set; }
 
-        //public ICollection<PerfilPorTela> PerfilPorTela { get; set; }
+        //public ICollection<ProfilePorTela> ProfilePorTela { get; set; }
 
         public IEnumerable<object> MapperActions()
         {

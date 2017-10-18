@@ -1,4 +1,4 @@
-﻿@model ArchitectureTemplate.Mvc.Models.PerfilModel
+﻿@model ArchitectureTemplate.Mvc.Models.ProfileModel
 @{
     ViewBag.Title = "New Profile";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -9,7 +9,7 @@
         <strong>Add Profile</strong>
     </h3>
 
-    @using (Html.BeginForm("Create", "Perfil", FormMethod.Post, new { @id = "formPerfil" }))
+    @using (Html.BeginForm("Create", "Profile", FormMethod.Post, new { @id = "formProfile" }))
     {
         @Html.AntiForgeryToken()
 

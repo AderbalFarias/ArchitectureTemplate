@@ -3,9 +3,9 @@ using ArchitectureTemplate.Domain.DataEntities;
 
 namespace ArchitectureTemplate.Infrastructure.Data.EntityConfig.Mapping
 {
-    public class PerfilMap : EntityTypeConfiguration<Perfil>
+    public class ProfileMap : EntityTypeConfiguration<Profile>
     {
-        public PerfilMap()
+        public ProfileMap()
         {
             HasKey(k => k.Id);
 

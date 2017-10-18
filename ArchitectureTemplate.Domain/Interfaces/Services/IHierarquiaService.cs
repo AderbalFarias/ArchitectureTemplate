@@ -24,7 +24,7 @@ namespace ArchitectureTemplate.Domain.Interfaces.Services
         IEnumerable<Hierarquia> GetHierarquiaUp(long userId);
         IEnumerable<Hierarquia> GetHierarquiaDown(long? hirarquiaId = null, List<Hierarquia> hierarquiaList = null);
         IEnumerable<Hierarquia> GetHierarquiaDown(string tipoHierarquia, List<Hierarquia> hierarquiaList);
-        IEnumerable<Hierarquia> GetHierarquiaDown(long userId, int perfilId, bool all = true);
-        IDictionary<long, string> GetHierarquiaDownDictionary(long userId, int perfilId, bool all = true);
+        IEnumerable<Hierarquia> GetHierarquiaDown(long userId, int ProfileId, bool all = true);
+        IDictionary<long, string> GetHierarquiaDownDictionary(long userId, int ProfileId, bool all = true);
     }
 }

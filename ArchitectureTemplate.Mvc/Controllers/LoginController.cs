@@ -237,10 +237,10 @@ namespace ArchitectureTemplate.Mvc.Controllers
         private void SignInAsync(dynamic user, bool isPersistent)
         {
             var userId = user.Id.ToString(CultureInfo.InvariantCulture);
-            var menus = _menuService.GetIdsPorPerfil(user.PerfilId);
+            var menus = _menuService.GetIdsPorProfile(user.ProfileId);
             var hierarquias = user.HierarquiaId != null
                 ? _hierarquiaService.GetHierarquiaIdsForUser(user.HierarquiaId)
-                : user.PerfilId.Equals(PerfilResource.Administrator)
+                : user.ProfileId.Equals(ProfileResource.Administrator)
                     ? _hierarquiaService.GetAllHierarquiaIds()
                     : null;
 
@@ -248,13 +248,13 @@ namespace ArchitectureTemplate.Mvc.Controllers
             {
                 new Claim(ClaimTypes.Authentication, userId),
                 new Claim(ClaimTypes.NameIdentifier, userId),
-                new Claim(ClaimTypes.Role, user.Perfil.Nome),
+                new Claim(ClaimTypes.Role, user.Profile.Nome),
                 new Claim(ClaimTypes.Name, user.Nome),
                 new Claim(ClaimTypes.Email, user.Email),
                 new Claim("Login", user.Login),
                 new Claim("Token", _usuarioService.GenerateToken((long)user.Id)),
                 new Claim("Cpf", user.Cpf.ToString(CultureInfo.InvariantCulture)),
-                new Claim("PerfilId", user.PerfilId.ToString(CultureInfo.InvariantCulture)),
+                new Claim("ProfileId", user.ProfileId.ToString(CultureInfo.InvariantCulture)),
                 new Claim("HierarquiaId", user.HierarquiaId != null
                     ? user.HierarquiaId.ToString(CultureInfo.InvariantCulture)
                     : string.Empty),

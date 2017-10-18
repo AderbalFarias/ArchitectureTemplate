@@ -18,13 +18,13 @@ namespace ArchitectureTemplate.Infrastructure.Data.EntityConfig
         public virtual DbSet<HierarquiaDetalhe> HierarquiaDetalhe { get; set; }
         public virtual DbSet<Log> Log { get; set; }
         public virtual DbSet<LogType> LogType { get; set; }
-        public virtual DbSet<Perfil> Perfil { get; set; }
-        public virtual DbSet<PerfilPorTela> PerfilPorTela { get; set; }
+        public virtual DbSet<Profile> Profile { get; set; }
+        public virtual DbSet<ProfilePorTela> ProfilePorTela { get; set; }
         public virtual DbSet<Tela> Tela { get; set; }
         public virtual DbSet<TipoHierarquia> TipoHierarquia { get; set; }
         public virtual DbSet<Usuario> Usuario { get; set; }
         public virtual DbSet<Menu> Menu { get; set; }
-        public virtual DbSet<PerfilPorMenu> PerfilPorMenu { get; set; }
+        public virtual DbSet<ProfilePorMenu> ProfilePorMenu { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -50,12 +50,12 @@ namespace ArchitectureTemplate.Infrastructure.Data.EntityConfig
             modelBuilder.Configurations.Add(new HierarquiaDetalhesMap());
             modelBuilder.Configurations.Add(new LogMap());
             modelBuilder.Configurations.Add(new LogTypeMap());
-            modelBuilder.Configurations.Add(new PerfilMap());
-            modelBuilder.Configurations.Add(new PerfilPorTelaMap());
+            modelBuilder.Configurations.Add(new ProfileMap());
+            modelBuilder.Configurations.Add(new ProfilePorTelaMap());
             modelBuilder.Configurations.Add(new TelaMap());
             modelBuilder.Configurations.Add(new UsuarioMap());
             modelBuilder.Configurations.Add(new MenuMap());
-            modelBuilder.Configurations.Add(new PerfilPorMenuMap());
+            modelBuilder.Configurations.Add(new ProfilePorMenuMap());
         }
     }
 }

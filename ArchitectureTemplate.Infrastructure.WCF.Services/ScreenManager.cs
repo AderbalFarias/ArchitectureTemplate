@@ -7,44 +7,44 @@ using System.Linq;
 
 namespace ArchitectureTemplate.Infrastructure.WCF.Services
 {
-    public class TelaManager : ITelaServiceContract
+    public class ScreenManager : IScreenServiceContract
     {
         private readonly ITelaService _telaService;
 
-        public TelaManager(ITelaService telaService)
+        public ScreenManager(ITelaService telaService)
         {
             _telaService = telaService;
         }
 
-        public TelaContract GetById(int id)
+        public ScreenContract GetById(int id)
         {
             var tela = _telaService.GetId(id);
-            return tela.Cast<TelaContract>();
+            return tela.Cast<ScreenContract>();
         }
 
-        public TelaContract GetByName(string name)
+        public ScreenContract GetByName(string name)
         {
             var tela = _telaService.Get(t => t.Nome == name);
-            return tela.Cast<TelaContract>();
+            return tela.Cast<ScreenContract>();
         }
 
-        public IEnumerable<TelaContract> GetTelas(string key)
+        public IEnumerable<ScreenContract> GetTelas(string key)
         {
             var telaList = _telaService
                 .GetList(t => t.Nome.Contains(key)
                     || t.ControllerName.Contains(key))
                 .ToList();
 
-            return telaList.CastAll<TelaContract>();
+            return telaList.CastAll<ScreenContract>();
         }
 
-        public IEnumerable<TelaContract> GetTelas(int idBegin, int idEnd)
+        public IEnumerable<ScreenContract> GetTelas(int idBegin, int idEnd)
         {
             var telaList = _telaService
                 .GetList(t => t.Id >= idBegin && t.Id <= idEnd)
                 .ToList();
 
-            return telaList.Cast<TelaContract>();
+            return telaList.Cast<ScreenContract>();
         }
     }
 }

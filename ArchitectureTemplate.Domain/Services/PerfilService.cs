@@ -7,20 +7,20 @@ using ArchitectureTemplate.Infraestrutura.CrossCutting.Support.Extensions;
 
 namespace ArchitectureTemplate.Domain.Services
 {
-    public class PerfilService : ServiceBase<Perfil>, IPerfilService
+    public class ProfileService : ServiceBase<Profile>, IProfileService
     {
         #region Fields
 
-        private readonly IPerfilRepository _perfilRepository;
+        private readonly IProfileRepository _ProfileRepository;
 
         #endregion
         
         #region Constructors
 
-        public PerfilService(IPerfilRepository perfilRepository)
-            : base(perfilRepository)
+        public ProfileService(IProfileRepository ProfileRepository)
+            : base(ProfileRepository)
         {
-            _perfilRepository = perfilRepository;
+            _ProfileRepository = ProfileRepository;
         }
 
         #endregion
@@ -29,31 +29,31 @@ namespace ArchitectureTemplate.Domain.Services
 
         public IDictionary<int, string> GetDictionary()
         {
-            return _perfilRepository.GetDictionary();
+            return _ProfileRepository.GetDictionary();
         }
 
         public async Task<IDictionary<int, string>> GetDictionaryAsync()
         {
-            return await _perfilRepository.GetDictionaryAsync();
+            return await _ProfileRepository.GetDictionaryAsync();
 
         }
 
-        public IEnumerable<Perfil> Get(Pagination paginar)
+        public IEnumerable<Profile> Get(Pagination paginar)
         {
-            return _perfilRepository.Get(paginar);
+            return _ProfileRepository.Get(paginar);
         }
 
-        public async Task<IEnumerable<Perfil>> GetAsync(Pagination paginar)
+        public async Task<IEnumerable<Profile>> GetAsync(Pagination paginar)
         {
-            return await _perfilRepository.GetAsync(paginar);
+            return await _ProfileRepository.GetAsync(paginar);
         }
 
-        public void DisableOrEnable(long perfilId, long userId)
+        public void DisableOrEnable(long ProfileId, long userId)
         {
-            var perfil = _perfilRepository.GetId(perfilId);
-            perfil.Ativo = !perfil.Ativo;
+            var Profile = _ProfileRepository.GetId(ProfileId);
+            Profile.Ativo = !Profile.Ativo;
 
-            _perfilRepository.Update(perfil, userId, true);
+            _ProfileRepository.Update(Profile, userId, true);
         }
 
         #endregion

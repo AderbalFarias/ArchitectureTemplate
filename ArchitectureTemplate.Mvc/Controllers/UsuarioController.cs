@@ -19,7 +19,7 @@ namespace ArchitectureTemplate.Mvc.Controllers
         #region Fields
 
         private readonly IUsuarioService _usuarioService;
-        private readonly IPerfilService _perfilService;
+        private readonly IProfileService _ProfileService;
         private readonly IHierarquiaService _hierarquiaService;
         private readonly IEmailMailService _emailMailService;
         private readonly Pagination _pagination;
@@ -28,11 +28,11 @@ namespace ArchitectureTemplate.Mvc.Controllers
 
         #region Constructors
 
-        public UsuarioController(IUsuarioService usuarioService, IPerfilService perfilService,
+        public UsuarioController(IUsuarioService usuarioService, IProfileService ProfileService,
             IHierarquiaService hierarquiaService, IEmailMailService emailMailService, Pagination pagination)
         {
             _usuarioService = usuarioService;
-            _perfilService = perfilService;
+            _ProfileService = ProfileService;
             _hierarquiaService = hierarquiaService;
             _emailMailService = emailMailService;
             _pagination = pagination;
@@ -80,7 +80,7 @@ namespace ArchitectureTemplate.Mvc.Controllers
                 return View(new UsuarioModel
                 {
                     Ativo = true,
-                    PerfilDictionary = await _perfilService.GetDictionaryAsync(),
+                    ProfileDictionary = await _ProfileService.GetDictionaryAsync(),
                     HierarquiaDictionary = await _hierarquiaService.GetDictionaryAsync(),
                 });
             }
@@ -108,7 +108,7 @@ namespace ArchitectureTemplate.Mvc.Controllers
                         {
                             ShowMessageDialog(MensagensResource.EmailExistente, Message.MessageKind.Warning);
 
-                            model.PerfilDictionary = _perfilService.GetDictionary();
+                            model.ProfileDictionary = _ProfileService.GetDictionary();
                             model.HierarquiaDictionary = _hierarquiaService.GetDictionary();
 
                             return View(model);
@@ -140,7 +140,7 @@ namespace ArchitectureTemplate.Mvc.Controllers
                 }
                 else
                 {
-                    model.PerfilDictionary = _perfilService.GetDictionary();
+                    model.ProfileDictionary = _ProfileService.GetDictionary();
                     model.HierarquiaDictionary = _hierarquiaService.GetDictionary();
 
                     return View(model);
@@ -163,7 +163,7 @@ namespace ArchitectureTemplate.Mvc.Controllers
             try
             {
                 var model = Mapper.Map<Usuario, UsuarioModel>(_usuarioService.GetId(id));
-                model.PerfilDictionary = await _perfilService.GetDictionaryAsync();
+                model.ProfileDictionary = await _ProfileService.GetDictionaryAsync();
                 model.HierarquiaDictionary = await _hierarquiaService.GetDictionaryAsync();
 
                 return View(model);
@@ -193,7 +193,7 @@ namespace ArchitectureTemplate.Mvc.Controllers
                 }
                 else
                 {
-                    model.PerfilDictionary = _perfilService.GetDictionary();
+                    model.ProfileDictionary = _ProfileService.GetDictionary();
                     model.HierarquiaDictionary = _hierarquiaService.GetDictionary();
 
                     return View(model);

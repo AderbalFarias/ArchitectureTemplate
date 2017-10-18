@@ -82,63 +82,63 @@ namespace ArchitectureTemplate.Domain.Services
             return await _menuRepository.GetAsync(pagination);
         }
         
-        public IEnumerable<int> GetIdsPorPerfil(int perfilId)
+        public IEnumerable<int> GetIdsPorProfile(int ProfileId)
         {
-            return _menuRepository.GetIdsPorPerfil(perfilId);
+            return _menuRepository.GetIdsPorProfile(ProfileId);
         }
 
-        public IEnumerable<PerfilPorMenu> GetPorPerfil(int perfilId)
+        public IEnumerable<ProfilePorMenu> GetPorProfile(int ProfileId)
         {
-            return _menuRepository.GetPorPerfil(perfilId);
+            return _menuRepository.GetPorProfile(ProfileId);
         }
 
-        public void EnableOrDisabled(int perfilId, int menuId, long permissaoId, long userId)
+        public void EnableOrDisabled(int ProfileId, int menuId, long permissaoId, long userId)
         {
             if (permissaoId != 0)
             {
-                _menuRepository.RemovePerfilPorMenu(permissaoId, userId);
+                _menuRepository.RemoveProfilePorMenu(permissaoId, userId);
             }
             else
             {
-                var pm = new PerfilPorMenu
+                var pm = new ProfilePorMenu
                 {
-                    PerfilId = perfilId,
+                    ProfileId = ProfileId,
                     MenuId = menuId,
                 };
 
-                _menuRepository.AddPerfilPorMenu(pm, userId);
+                _menuRepository.AddProfilePorMenu(pm, userId);
             }
         }
 
-        public void EnableOrDisabledAll(int perfilId, bool ativar, long userId)
+        public void EnableOrDisabledAll(int ProfileId, bool ativar, long userId)
         {
-            var perfilPorMenus = _menuRepository.GetPorPerfil(perfilId);
+            var ProfilePorMenus = _menuRepository.GetPorProfile(ProfileId);
 
             if (ativar == false)
             {
-                var delete = perfilPorMenus
+                var delete = ProfilePorMenus
                     .Where(w => w.Id != 0)
                     .ToList();
 
                 foreach (var pm in delete)
                 {
-                    _menuRepository.RemovePerfilPorMenu(pm.Id, userId);
+                    _menuRepository.RemoveProfilePorMenu(pm.Id, userId);
                 }
             }
             else
             {
-                var create = perfilPorMenus
+                var create = ProfilePorMenus
                     .Where(w => w.Id == 0)
                     .Select(s => s.Menu)
                     .ToList();
 
-                var insertList = create.Select(item => new PerfilPorMenu
+                var insertList = create.Select(item => new ProfilePorMenu
                 {
-                    PerfilId = perfilId, MenuId = item.Id
+                    ProfileId = ProfileId, MenuId = item.Id
                 }).ToList();
 
                 if (insertList.Any())
-                    _menuRepository.AddRangePerfilPorMenu(insertList, userId);
+                    _menuRepository.AddRangeProfilePorMenu(insertList, userId);
             }
         }
 

@@ -14,7 +14,7 @@ namespace ArchitectureTemplate.Infrastructure.WCF.Host
         {
             var container = InitializeContainer();
 
-            ServiceHost serviceHost = new SimpleInjectorServiceHost(container, typeof(TelaManager));
+            ServiceHost serviceHost = new SimpleInjectorServiceHost(container, typeof(ScreenManager));
             serviceHost.Open();
 
             Console.WriteLine("Services started. Press [Enter] to exit.");
@@ -28,7 +28,7 @@ namespace ArchitectureTemplate.Infrastructure.WCF.Host
             var container = new Container();
 
             container.Options.DefaultScopedLifestyle = new WcfOperationLifestyle(false);
-            container.Register<ITelaServiceContract, TelaManager>(Lifestyle.Scoped);
+            container.Register<IScreenServiceContract, ScreenManager>(Lifestyle.Scoped);
 
             BootstrapperWcf.RegisterServices(container);
             container.Verify();

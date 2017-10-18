@@ -1,4 +1,4 @@
-﻿@model IEnumerable<ArchitectureTemplate.Mvc.Models.PerfilModel>
+﻿@model IEnumerable<ArchitectureTemplate.Mvc.Models.ProfileModel>
 @{
     ViewBag.Title = "Profiles Registration";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -57,7 +57,7 @@
         </table>
     </div>
 
-    @Html.Pagination(@Url.Action("Index", "Perfil"), (int) ViewBag.PaginaAtual, (int) ViewBag.QtdePaginas)
+    @Html.Pagination(@Url.Action("Index", "Profile"), (int) ViewBag.PaginaAtual, (int) ViewBag.QtdePaginas)
     
     <div>
         @Html.ActionLink("Add New", "Create", null, new {@class = "btn btn-primary btn-specific"})

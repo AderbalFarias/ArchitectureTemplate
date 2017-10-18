@@ -34,7 +34,7 @@
             </th>
         </tr>
 
-        @foreach (var item in Model.PerfilPorTelaList)
+        @foreach (var item in Model.ProfilePorTelaList)
         {
             <tr>
                 <td>
@@ -47,20 +47,20 @@
                     @Html.DisplayFuncionalidades(item.Tela.Create, item.Tela.Read, item.Tela.Update, item.Tela.Delete)
                 </td>
                 <td class="text-center">
-                    @Html.ButtonDisableOrEnable(item.Read, Url.Action("EnableOrDisable", new {id = Model.PerfilId, telaId = item.Tela.Id, parametro = "Read", permissaoId = item.Id }), item.Tela.Read)
+                    @Html.ButtonDisableOrEnable(item.Read, Url.Action("EnableOrDisable", new {id = Model.ProfileId, telaId = item.Tela.Id, parametro = "Read", permissaoId = item.Id }), item.Tela.Read)
                 </td>
                 <td class="text-center">
-                    @Html.ButtonDisableOrEnable(item.Create, Url.Action("EnableOrDisable", new { id = Model.PerfilId, telaId = item.Tela.Id, parametro = "Create", permissaoId = item.Id }), item.Tela.Create)
+                    @Html.ButtonDisableOrEnable(item.Create, Url.Action("EnableOrDisable", new { id = Model.ProfileId, telaId = item.Tela.Id, parametro = "Create", permissaoId = item.Id }), item.Tela.Create)
                 </td>
                 <td class="text-center">
-                    @Html.ButtonDisableOrEnable(item.Update, Url.Action("EnableOrDisable", new { id = Model.PerfilId, telaId = item.Tela.Id, parametro = "Update", permissaoId = item.Id }), item.Tela.Update)
+                    @Html.ButtonDisableOrEnable(item.Update, Url.Action("EnableOrDisable", new { id = Model.ProfileId, telaId = item.Tela.Id, parametro = "Update", permissaoId = item.Id }), item.Tela.Update)
                 </td>
                 <td class="text-center">
-                    @Html.ButtonDisableOrEnable(item.Delete, Url.Action("EnableOrDisable", new { id = Model.PerfilId, telaId = item.Tela.Id, parametro = "Delete", permissaoId = item.Id }), item.Tela.Delete)
+                    @Html.ButtonDisableOrEnable(item.Delete, Url.Action("EnableOrDisable", new { id = Model.ProfileId, telaId = item.Tela.Id, parametro = "Delete", permissaoId = item.Id }), item.Tela.Delete)
                 </td>
                 <td class="text-center">
-                    <a link="@Url.Action("EnableOrDisableAll", new { id = Model.PerfilId, telaId = item.Tela.Id, ativar = true, permissaoId = item.Id })" title="Enable all"><i class="fa fa-md fa-plus-circle"></i></a> |
-                    <a link="@Url.Action("EnableOrDisableAll", new { id = Model.PerfilId, telaId = item.Tela.Id, ativar = false, permissaoId = item.Id })" title="Disable all"><i class="fa fa-md fa-remove"></i></a>
+                    <a link="@Url.Action("EnableOrDisableAll", new { id = Model.ProfileId, telaId = item.Tela.Id, ativar = true, permissaoId = item.Id })" title="Enable all"><i class="fa fa-md fa-plus-circle"></i></a> |
+                    <a link="@Url.Action("EnableOrDisableAll", new { id = Model.ProfileId, telaId = item.Tela.Id, ativar = false, permissaoId = item.Id })" title="Disable all"><i class="fa fa-md fa-remove"></i></a>
                 </td>
             </tr>
         }

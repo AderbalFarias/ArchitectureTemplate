@@ -8,28 +8,28 @@ using System.Web.Http;
 namespace ArchitectureTemplate.Mvc.Controllers.Api
 {
     [Authorize]
-    public class PerfilApiController : ApiController
+    public class ProfileApiController : ApiController
     {
         #region Fields
 
-        private readonly IPerfilService _perfilService;
+        private readonly IProfileService _ProfileService;
 
         #endregion
 
         #region Constructors
 
-        public PerfilApiController(IPerfilService perfilService)
+        public ProfileApiController(IProfileService ProfileService)
         {
-            _perfilService = perfilService;
+            _ProfileService = ProfileService;
         }
 
         #endregion
 
         [IsAuthorize]
         [ActionType(AccessType.Read)]
-        public IEnumerable<Perfil> Get()
+        public IEnumerable<Profile> Get()
         {
-            return _perfilService.GetAll().ToList();
+            return _ProfileService.GetAll().ToList();
         }
 
         [IsAuthorize]
@@ -37,7 +37,7 @@ namespace ArchitectureTemplate.Mvc.Controllers.Api
         // GET api/<controller>/5
         public string Get(int id)
         {
-            return _perfilService.GetId(id).Nome;
+            return _ProfileService.GetId(id).Nome;
         }
 
         // POST api/<controller>

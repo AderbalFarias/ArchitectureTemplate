@@ -7,7 +7,7 @@ namespace ArchitectureTemplate.Domain.DataEntities
     {
         public long Id { get; set; }
         public long? HierarquiaId { get; set; }
-        public int PerfilId { get; set; }
+        public int ProfileId { get; set; }
         public string Nome { get; set; }
         public long? Cpf { get; set; }
         public string Email { get; set; }
@@ -21,7 +21,7 @@ namespace ArchitectureTemplate.Domain.DataEntities
         public bool Ativo { get; set; }
         public string CodigoRecover { get; set; }
         public virtual Hierarquia Hierarquia { get; set; }
-        public virtual Perfil Perfil { get; set; }
+        public virtual Profile Profile { get; set; }
         public virtual IEnumerable<Log> Log { get; set; }
     }
 }

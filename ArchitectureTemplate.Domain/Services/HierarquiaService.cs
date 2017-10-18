@@ -129,9 +129,9 @@ namespace ArchitectureTemplate.Domain.Services
             return _hierarquiaRepository.GetHierarquiaDown(tipoHierarquia, hierarquiaList);
         }
 
-        public IEnumerable<Hierarquia> GetHierarquiaDown(long userId, int perfilId, bool all = true)
+        public IEnumerable<Hierarquia> GetHierarquiaDown(long userId, int ProfileId, bool all = true)
         {
-            if (perfilId == PerfilResource.Administrator)
+            if (ProfileId == ProfileResource.Administrator)
             {
                 var hList = _hierarquiaRepository
                     .GetList(w => w.HierarquiaPaiId == null)
@@ -154,9 +154,9 @@ namespace ArchitectureTemplate.Domain.Services
             return new List<Hierarquia>();
         }
 
-        public IDictionary<long, string> GetHierarquiaDownDictionary(long userId, int perfilId, bool all = true)
+        public IDictionary<long, string> GetHierarquiaDownDictionary(long userId, int ProfileId, bool all = true)
         {
-            return GetHierarquiaDown(userId, perfilId, all)
+            return GetHierarquiaDown(userId, ProfileId, all)
                 .ToDictionary(k => k.Id, v => v.Nome);
         }
 

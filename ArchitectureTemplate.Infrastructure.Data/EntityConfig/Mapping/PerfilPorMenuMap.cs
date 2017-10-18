@@ -3,18 +3,18 @@ using ArchitectureTemplate.Domain.DataEntities;
 
 namespace ArchitectureTemplate.Infrastructure.Data.EntityConfig.Mapping
 {
-    public class PerfilPorMenuMap : EntityTypeConfiguration<PerfilPorMenu>
+    public class ProfilePorMenuMap : EntityTypeConfiguration<ProfilePorMenu>
     {
-        public PerfilPorMenuMap()
+        public ProfilePorMenuMap()
         {
             HasKey(k => k.Id);
 
-            HasRequired(p => p.Perfil)
+            HasRequired(p => p.Profile)
                 .WithMany()
-                .HasForeignKey(f => f.PerfilId);
+                .HasForeignKey(f => f.ProfileId);
 
             HasRequired(p => p.Menu)
-                .WithMany(w => w.PerfilPorMenu)
+                .WithMany(w => w.ProfilePorMenu)
                 .HasForeignKey(f => f.MenuId)
                 .WillCascadeOnDelete(true);
         }

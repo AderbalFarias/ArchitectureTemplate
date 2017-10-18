@@ -15,7 +15,7 @@ namespace ArchitectureTemplate.Mvc.Models
 
         [Required(ErrorMessage = @"Field Required")]
         [DisplayName(@"Profile")]
-        public int PerfilId { get; set; }
+        public int ProfileId { get; set; }
 
         [Required(ErrorMessage = @"Field Required")]
         public string Nome { get; set; }
@@ -64,9 +64,9 @@ namespace ArchitectureTemplate.Mvc.Models
 
         public Hierarquia Hierarquia { get; set; }
 
-        public Perfil Perfil { get; set; }
+        public Profile Profile { get; set; }
 
-        public IDictionary<int, string> PerfilDictionary { get; set; }
+        public IDictionary<int, string> ProfileDictionary { get; set; }
 
         public IDictionary<long, string> HierarquiaDictionary { get; set; }
 

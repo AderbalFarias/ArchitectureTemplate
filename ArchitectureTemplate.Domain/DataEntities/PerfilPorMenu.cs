@@ -1,11 +1,11 @@
 namespace ArchitectureTemplate.Domain.DataEntities
 {
-    public class PerfilPorMenu
+    public class ProfilePorMenu
     {
         public long Id { get; set; }
-        public int PerfilId { get; set; }
+        public int ProfileId { get; set; }
         public int MenuId { get; set; }
-        public virtual Perfil Perfil { get; set; }
+        public virtual Profile Profile { get; set; }
         public virtual Menu Menu { get; set; }
     }
 }

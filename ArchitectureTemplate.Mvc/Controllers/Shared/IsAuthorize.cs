@@ -24,7 +24,7 @@ namespace ArchitectureTemplate.Mvc.Controllers.Shared
             {
                 var clains = (ClaimsIdentity)filterContext.HttpContext.User.Identity;
 
-                var perfilId = Convert.ToInt32(clains.FindFirst("PerfilId").Value);
+                var ProfileId = Convert.ToInt32(clains.FindFirst("ProfileId").Value);
 
                 var userId = Convert.ToInt32(clains.FindFirst(ClaimTypes.Authentication).Value);
                 var tokenClain = clains.FindFirst("Token").Value;
@@ -51,25 +51,25 @@ namespace ArchitectureTemplate.Mvc.Controllers.Shared
                         {
                             case AccessType.Create:
                                 {
-                                    if (_permissaoService.AllowAccess(perfilId, controllerName, "Create")) return;
+                                    if (_permissaoService.AllowAccess(ProfileId, controllerName, "Create")) return;
                                     id = "Cadastrar";
                                     break;
                                 }
                             case AccessType.Read:
                                 {
-                                    if (_permissaoService.AllowAccess(perfilId, controllerName, "Read")) return;
+                                    if (_permissaoService.AllowAccess(ProfileId, controllerName, "Read")) return;
                                     id = "Consultar";
                                     break;
                                 }
                             case AccessType.Update:
                                 {
-                                    if (_permissaoService.AllowAccess(perfilId, controllerName, "Update")) return;
+                                    if (_permissaoService.AllowAccess(ProfileId, controllerName, "Update")) return;
                                     id = "Atualizar";
                                     break;
                                 }
                             case AccessType.Delete:
                                 {
-                                    if (_permissaoService.AllowAccess(perfilId, controllerName, "Delete")) return;
+                                    if (_permissaoService.AllowAccess(ProfileId, controllerName, "Delete")) return;
                                     id = "Deletar";
                                     break;
                                 }

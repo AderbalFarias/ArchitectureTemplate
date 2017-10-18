@@ -3,13 +3,13 @@ using System.Runtime.Serialization;
 namespace ArchitectureTemplate.Infrastructure.WCF.Contracts.Entities
 {
     [DataContract]
-    public class PerfilPorTelaContract
+    public class ProfileForScreenContract
     {
         [DataMember]
         public long Id { get; set; }
 
         [DataMember]
-        public int PerfilId { get; set; }
+        public int ProfileId { get; set; }
 
         [DataMember]
         public int TelaId { get; set; }
@@ -27,9 +27,9 @@ namespace ArchitectureTemplate.Infrastructure.WCF.Contracts.Entities
         public bool Delete { get; set; }
 
         [DataMember]
-        public virtual PerfilContract Perfil { get; set; }
+        public virtual ProfileContract Profile { get; set; }
 
         [DataMember]
-        public virtual TelaContract Tela { get; set; }
+        public virtual ScreenContract Tela { get; set; }
     }
 }

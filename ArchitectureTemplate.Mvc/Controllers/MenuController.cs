@@ -40,8 +40,8 @@ namespace ArchitectureTemplate.Mvc.Controllers
             {
                 var model = new MenuModel
                 {
-                    PerfilId = id,
-                    PerfilDictionary = await _dictionaryAllService.GetPerfilDictionaryAsync(),
+                    ProfileId = id,
+                    ProfileDictionary = await _dictionaryAllService.GetProfileDictionaryAsync(),
                     Scroll = scroll
                 };
 
@@ -51,7 +51,7 @@ namespace ArchitectureTemplate.Mvc.Controllers
                 }
                 else
                 {
-                    model.PerfilPorMenuList = _menuService.GetPorPerfil(id);
+                    model.ProfilePorMenuList = _menuService.GetPorProfile(id);
                 }
 
                 return View(model);
@@ -74,8 +74,8 @@ namespace ArchitectureTemplate.Mvc.Controllers
             {
                 var model = new MenuModel
                 {
-                    PerfilId = id,
-                    PerfilPorMenuList = _menuService.GetPorPerfil(id)
+                    ProfileId = id,
+                    ProfilePorMenuList = _menuService.GetPorProfile(id)
                 };
 
                 return PartialView("_List", model);

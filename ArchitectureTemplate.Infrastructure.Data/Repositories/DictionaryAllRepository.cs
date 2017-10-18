@@ -40,24 +40,24 @@ namespace ArchitectureTemplate.Infrastructure.Data.Repositories
         }
 
         /// <summary>
-        /// Busca perfil
+        /// Busca Profile
         /// </summary>
-        /// <returns>Dicionário de perfil com código e descrição</returns>
-        public IDictionary<int, string> GetPerfilDictionary()
+        /// <returns>Dicionário de Profile com código e descrição</returns>
+        public IDictionary<int, string> GetProfileDictionary()
         {
-            return _context.Perfil
+            return _context.Profile
                 .Where(w => w.Ativo)
                 .OrderBy(o => o.Nome)
                 .ToDictionary(k => k.Id, v => v.Nome);
         }
 
         /// <summary>
-        /// Busca perfil de forma assíncrona
+        /// Busca Profile de forma assíncrona
         /// </summary>
-        /// <returns>Dicionário de perfil com código e descrição</returns>
-        public async Task<IDictionary<int, string>> GetPerfilDictionaryAsync()
+        /// <returns>Dicionário de Profile com código e descrição</returns>
+        public async Task<IDictionary<int, string>> GetProfileDictionaryAsync()
         {
-            return await _context.Perfil
+            return await _context.Profile
                 .Where(w => w.Ativo)
                 .OrderBy(o => o.Nome)
                 .ToDictionaryAsync(k => k.Id, v => v.Nome);

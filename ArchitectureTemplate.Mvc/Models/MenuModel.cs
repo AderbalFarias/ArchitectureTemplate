@@ -16,13 +16,13 @@ namespace ArchitectureTemplate.Mvc.Models
         public string Nome { get; set; }
 
         [DisplayName(@"Profile")]
-        public int PerfilId { get; set; }
+        public int ProfileId { get; set; }
 
         public IEnumerable<Menu> MenuList { get; set; }
 
-        public IEnumerable<PerfilPorMenu> PerfilPorMenuList { get; set; }
+        public IEnumerable<ProfilePorMenu> ProfilePorMenuList { get; set; }
 
-        public IDictionary<int, string> PerfilDictionary { get; set; }
+        public IDictionary<int, string> ProfileDictionary { get; set; }
 
         public double Scroll { get; set; }
     }

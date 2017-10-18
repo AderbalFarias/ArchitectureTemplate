@@ -11,7 +11,7 @@ namespace ArchitectureTemplate.Mvc.Mappers
         protected override void Configure()
         {
             CreateMap<Usuario, UsuarioModel>();
-            CreateMap<Perfil, PerfilModel>();
+            CreateMap<Profile, ProfileModel>();
             CreateMap<Hierarquia, HierarquiaModel>();
             CreateMap<HierarquiaDetalhe, HierarquiaDetalheModel>();
             CreateMap<Log, LogModel>();
