@@ -15,7 +15,9 @@ namespace ArchitectureTemplate.Infrastructure.Data.Migrations
                 UPDATE [dbo].[Menu] set [Nome] = 'Settings' where [Id] = 1
                 UPDATE [dbo].[Menu] set [Nome] = 'Menus Setting' where [Id] = 2
                 UPDATE [dbo].[Menu] set [Nome] = 'Permission' where [Id] = 3
-                UPDATE [dbo].[Menu] set [Nome] = 'Screen' where [Id] = 4");
+                UPDATE [dbo].[Menu] set [Nome] = 'Screen' where [Id] = 4
+
+                INSERT [dbo].[ProfileForMenu] (MenuId, ProfileId) SELECT Id, @ProfileId FROM [dbo].[Menu]");
         }
 
         public override void Down()

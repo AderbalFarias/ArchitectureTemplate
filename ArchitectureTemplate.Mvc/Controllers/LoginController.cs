@@ -258,7 +258,7 @@ namespace ArchitectureTemplate.Mvc.Controllers
                 new Claim("HierarchyId", user.HierarchyId != null
                     ? user.HierarchyId.ToString(CultureInfo.InvariantCulture)
                     : string.Empty),
-                new Claim("IdsMenu", string.Join("|", menus)),
+                new Claim("MenuIds", string.Join("|", menus)),
                 new Claim("HierarchyIds", string.Join("|", hierarchys ?? "0"))
             };
 
