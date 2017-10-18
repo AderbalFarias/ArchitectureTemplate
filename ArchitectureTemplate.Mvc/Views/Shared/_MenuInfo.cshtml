@@ -4,7 +4,7 @@
 {
     <ul class="list-group">
         <li class="text-center menu-title">
-            <b>Processo Acessado</b>
+            <b>Process Accessed</b>
         </li>
         @foreach (var item in Model)
         {
@@ -24,11 +24,11 @@
                         <h4 class="list-group-item-heading">@item.Key</h4>
                         <p class="list-group-item-text">
                             @item.Value
-                            @if ((item.Key.Equals("Telefone") || item.Key.Equals("Celular")) 
+                            @*@if ((item.Key.Equals("Telefone") || item.Key.Equals("Celular")) 
                                 && !string.IsNullOrEmpty(item.Value) && !string.IsNullOrEmpty(ViewBag.CodigoAgente))
                             {
                                 <a onclick="Discar(@item.Value, @ViewBag.TestId)"><i class="fa fw fa-phone"></i></a>
-                            }
+                            }*@
                         </p>
                     </li>
                 }
