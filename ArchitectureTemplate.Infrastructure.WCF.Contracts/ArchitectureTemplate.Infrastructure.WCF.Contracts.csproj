@@ -41,6 +41,7 @@
     <Compile Include="Entities\ProfileForMenuContract.cs" />
     <Compile Include="Entities\ProfileForScreenContract.cs" />
     <Compile Include="Entities\UserContract.cs" />
+    <Compile Include="ServiceInterfaces\IProfileServiceContract.cs" />
     <Compile Include="ServiceInterfaces\IScreenServiceContract.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Entities\ScreenContract.cs" />

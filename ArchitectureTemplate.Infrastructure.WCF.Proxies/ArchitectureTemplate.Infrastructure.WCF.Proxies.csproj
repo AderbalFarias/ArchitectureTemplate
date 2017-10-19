@@ -35,6 +35,7 @@
     <Reference Include="System.ServiceModel" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ProfileClient.cs" />
     <Compile Include="ScreenClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
