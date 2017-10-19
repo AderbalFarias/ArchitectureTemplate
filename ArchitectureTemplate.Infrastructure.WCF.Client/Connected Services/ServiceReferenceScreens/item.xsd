@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/ArchitectureTemplate.Infrastructure.WCF.Contracts.Entities" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/ArchitectureTemplate.Infrastructure.WCF.Contracts.Entities" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ScreenContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ControllerName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Delete" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Nome" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProfileForScreen" nillable="true" type="tns:ArrayOfProfileForScreenContract" />
+      <xs:element minOccurs="0" name="Read" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Update" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ScreenContract" nillable="true" type="tns:ScreenContract" />
+  <xs:complexType name="ArrayOfProfileForScreenContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ProfileForScreenContract" nillable="true" type="tns:ProfileForScreenContract" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfProfileForScreenContract" nillable="true" type="tns:ArrayOfProfileForScreenContract" />
+  <xs:complexType name="ProfileForScreenContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Create" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Delete" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Id" type="xs:long" />
+      <xs:element minOccurs="0" name="Profile" nillable="true" type="tns:ProfileContract" />
+      <xs:element minOccurs="0" name="ProfileId" type="xs:int" />
+      <xs:element minOccurs="0" name="Read" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Screen" nillable="true" type="tns:ScreenContract" />
+      <xs:element minOccurs="0" name="ScreenId" type="xs:int" />
+      <xs:element minOccurs="0" name="Update" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ProfileForScreenContract" nillable="true" type="tns:ProfileForScreenContract" />
+  <xs:complexType name="ProfileContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Ativo" type="xs:boolean" />
+      <xs:element minOccurs="0" name="DataCadastro" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Nome" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProfileForMenu" nillable="true" type="tns:ArrayOfProfileForMenuContract" />
+      <xs:element minOccurs="0" name="ProfileForScreen" nillable="true" type="tns:ArrayOfProfileForScreenContract" />
+      <xs:element minOccurs="0" name="Solicitante" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="User" nillable="true" type="tns:ArrayOfUserContract" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ProfileContract" nillable="true" type="tns:ProfileContract" />
+  <xs:complexType name="ArrayOfProfileForMenuContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ProfileForMenuContract" nillable="true" type="tns:ProfileForMenuContract" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfProfileForMenuContract" nillable="true" type="tns:ArrayOfProfileForMenuContract" />
+  <xs:complexType name="ProfileForMenuContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:long" />
+      <xs:element minOccurs="0" name="Menu" nillable="true" type="tns:MenuContract" />
+      <xs:element minOccurs="0" name="MenuId" type="xs:int" />
+      <xs:element minOccurs="0" name="Profile" nillable="true" type="tns:ProfileContract" />
+      <xs:element minOccurs="0" name="ProfileId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ProfileForMenuContract" nillable="true" type="tns:ProfileForMenuContract" />
+  <xs:complexType name="MenuContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Nome" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProfileForMenu" nillable="true" type="tns:ArrayOfProfileForMenuContract" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MenuContract" nillable="true" type="tns:MenuContract" />
+  <xs:complexType name="ArrayOfUserContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="UserContract" nillable="true" type="tns:UserContract" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUserContract" nillable="true" type="tns:ArrayOfUserContract" />
+  <xs:complexType name="UserContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Ativo" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:long" />
+      <xs:element minOccurs="0" name="Nome" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProfileId" type="xs:int" />
+      <xs:element minOccurs="0" name="Telefone" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UserContract" nillable="true" type="tns:UserContract" />
+  <xs:complexType name="ArrayOfScreenContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ScreenContract" nillable="true" type="tns:ScreenContract" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfScreenContract" nillable="true" type="tns:ArrayOfScreenContract" />
+</xs:schema>

@@ -14,6 +14,7 @@ namespace ArchitectureTemplate.Infrastructure.WCF.Host
         {
             var container = InitializeContainer();
 
+            //reserve url: netsh http add urlacl url = http://+:8086/ user="NAME-PC\User"
             ServiceHost serviceHost = new SimpleInjectorServiceHost(container, typeof(ScreenManager));
             serviceHost.Open();
 

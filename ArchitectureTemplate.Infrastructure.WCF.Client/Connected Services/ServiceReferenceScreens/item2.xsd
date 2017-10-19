@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:8086/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/ArchitectureTemplate.Infrastructure.WCF.Contracts.Entities" />
+  <xs:element name="GetById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/ArchitectureTemplate.Infrastructure.WCF.Contracts.Entities" minOccurs="0" name="GetByIdResult" nillable="true" type="q1:ScreenContract" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetByName">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetByNameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/ArchitectureTemplate.Infrastructure.WCF.Contracts.Entities" minOccurs="0" name="GetByNameResult" nillable="true" type="q2:ScreenContract" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetScreensByContains">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="key" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetScreensByContainsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/ArchitectureTemplate.Infrastructure.WCF.Contracts.Entities" minOccurs="0" name="GetScreensByContainsResult" nillable="true" type="q3:ArrayOfScreenContract" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetScreensByRange">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idBegin" type="xs:int" />
+        <xs:element minOccurs="0" name="idEnd" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetScreensByRangeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/ArchitectureTemplate.Infrastructure.WCF.Contracts.Entities" minOccurs="0" name="GetScreensByRangeResult" nillable="true" type="q4:ArrayOfScreenContract" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

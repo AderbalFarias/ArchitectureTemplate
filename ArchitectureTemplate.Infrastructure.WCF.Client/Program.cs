@@ -1,4 +1,5 @@
-﻿using ArchitectureTemplate.Infrastructure.WCF.Proxies;
+﻿using ArchitectureTemplate.Infrastructure.WCF.Contracts.Entities;
+using ArchitectureTemplate.Infrastructure.WCF.Proxies;
 using System.Linq;
 using System.ServiceModel;
 using System.ServiceModel.Channels;
@@ -15,8 +16,12 @@ namespace ArchitectureTemplate.Infrastructure.WCF.Client
 
         private static void GetWithTcp()
         {
-            ScreenClient proxy = new ScreenClient("tcpEp");
-            var data = proxy.GetByName("User");
+            //ScreenClient proxy = new ScreenClient("tcpEp");
+            //var data = proxy.GetByName("Usuario");
+
+            ServiceReferenceScreens.ScreenServiceContractClient proxy = new ServiceReferenceScreens.ScreenServiceContractClient();
+
+            ScreenContract data = proxy.GetByName("Usuario");
 
             proxy.Close();
         }
@@ -32,6 +37,5 @@ namespace ArchitectureTemplate.Infrastructure.WCF.Client
 
             proxy.Close();
         }
-
     }
 }
