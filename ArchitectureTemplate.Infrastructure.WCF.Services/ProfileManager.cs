@@ -18,22 +18,22 @@ namespace ArchitectureTemplate.Infrastructure.WCF.Services
 
         public ProfileContract GetById(int id)
         {
-            var screen = _profileService.GetId(id);
-            return screen.Cast<ProfileContract>();
+            var profile = _profileService.GetId(id);
+            return profile.Cast<ProfileContract>();
         }
 
         public ProfileContract GetByName(string name)
         {
-            var screen = _profileService.Get(t => t.Nome == name);
-            return screen.Cast<ProfileContract>();
+            var profile = _profileService.Get(t => t.Nome == name);
+            return profile.Cast<ProfileContract>();
         }
 
         public IEnumerable<ProfileContract> GetAll()
         {
-            var screenList = _profileService.GetAll()
+            var profiles = _profileService.GetAll()
                 .ToList();
 
-            return screenList.CastAll<ProfileContract>();
+            return profiles.CastAll<ProfileContract>();
         }
     }
 }
