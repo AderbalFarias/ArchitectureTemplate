@@ -18,10 +18,14 @@ namespace ArchitectureTemplate.Infrastructure.WCF.Host
             ServiceHost serviceHost = new SimpleInjectorServiceHost(container, typeof(ScreenManager));
             serviceHost.Open();
 
+            ServiceHost serviceHostProfile = new SimpleInjectorServiceHost(container, typeof(ProfileManager));
+            serviceHostProfile.Open();
+
             Console.WriteLine("Services started. Press [Enter] to exit.");
             Console.ReadLine();
 
             serviceHost.Close();
+            serviceHostProfile.Close();
         }
 
         private static Container InitializeContainer()
@@ -30,6 +34,7 @@ namespace ArchitectureTemplate.Infrastructure.WCF.Host
 
             container.Options.DefaultScopedLifestyle = new WcfOperationLifestyle(false);
             container.Register<IScreenServiceContract, ScreenManager>(Lifestyle.Scoped);
+            container.Register<IProfileServiceContract, ProfileManager>(Lifestyle.Scoped);
 
             BootstrapperWcf.RegisterServices(container);
             container.Verify();

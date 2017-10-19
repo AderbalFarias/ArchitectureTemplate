@@ -15,6 +15,9 @@ namespace ArchitectureTemplate.Infrastructure.CrossCutting.IoC
 
             container.Register<IScreenService, ScreenService>(Lifestyle.Scoped);
             container.Register<IScreenRepository, ScreenRepository>(Lifestyle.Scoped);
+
+            container.Register<IProfileService, ProfileService>(Lifestyle.Scoped);
+            container.Register<IProfileRepository, ProfileRepository>(Lifestyle.Scoped);
         }
     }
 }
