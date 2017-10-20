@@ -4,6 +4,7 @@ using System.ServiceModel;
 
 namespace ArchitectureTemplate.Infrastructure.WCF.Contracts.ServiceInterfaces
 {
+    //[ServiceContract(SessionMode = SessionMode.Allowed)]
     [ServiceContract]
     public interface IProfileServiceContract
     {

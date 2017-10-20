@@ -7,6 +7,13 @@ using System.Linq;
 
 namespace ArchitectureTemplate.Infrastructure.WCF.Services
 {
+    //[ServiceBehavior(InstanceContextMode = InstanceContextMode.Single)]
+    //[ServiceBehavior(InstanceContextMode = InstanceContextMode.PerCall)]
+    //[ServiceBehavior(InstanceContextMode = InstanceContextMode.PerSession)]
+    //[ServiceBehavior(ConcurrencyMode = ConcurrencyMode.Multiple)]
+    //[ServiceBehavior(ConcurrencyMode = ConcurrencyMode.Single)]
+    //[ServiceBehavior(ConcurrencyMode = ConcurrencyMode.Multiple)]
+    //[ServiceBehavior(InstanceContextMode = InstanceContextMode.PerCall, ConcurrencyMode = ConcurrencyMode.Multiple)]
     public class ProfileManager : IProfileServiceContract
     {
         private readonly IProfileService _profileService;
