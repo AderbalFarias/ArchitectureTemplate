@@ -116,7 +116,7 @@ namespace ArchitectureTemplate.Mvc.Controllers
         {
             try
             {
-                var user = _userService.RecuperarSenha(model.Email);
+                var user = _userService.RecoverPassword(model.Email);
 
                 if (user != null)
                 {
@@ -160,7 +160,7 @@ namespace ArchitectureTemplate.Mvc.Controllers
         {
             try
             {
-                _userService.ResetSenha(model.Login, model.CodigoRecover, model.NewPassword);
+                _userService.ResetPassword(model.Login, model.CodigoRecover, model.NewPassword);
                 ShowMessageDialog("Password changed successfully", Message.MessageKind.Success);
             }
             catch (Exception exception)
@@ -201,7 +201,7 @@ namespace ArchitectureTemplate.Mvc.Controllers
         {
             try
             {
-                _userService.EditSenha(CurrentUser.UserId, model.Password, model.NewPassword);
+                _userService.EditPassword(CurrentUser.UserId, model.Password, model.NewPassword);
                 ShowMessageDialog("Password changed successfully", Message.MessageKind.Success);
 
                 return RedirectToAction("LogOff");

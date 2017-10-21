@@ -186,7 +186,7 @@ namespace ArchitectureTemplate.Mvc.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    model.Senha = _userService.GetSenha(model.Id);
+                    model.Senha = _userService.GetPassword(model.Id);
                     _userService.Update(Mapper.Map<UserModel, User>(model), CurrentUser.UserId, true);
 
                     ShowMessageDialog(MensagensResource.SucessoAtualizar, Message.MessageKind.Success);

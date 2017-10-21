@@ -1,4 +1,8 @@
-﻿using System;
+﻿using ArchitectureTemplate.Domain.DataEntities;
+using ArchitectureTemplate.Domain.Interfaces.Repositories;
+using ArchitectureTemplate.Infraestrutura.CrossCutting.Support.Resources;
+using ArchitectureTemplate.Infrastructure.Data.EntityConfig;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -6,10 +10,6 @@ using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
-using ArchitectureTemplate.Domain.DataEntities;
-using ArchitectureTemplate.Domain.Interfaces.Repositories;
-using ArchitectureTemplate.Infraestrutura.CrossCutting.Support.Resources;
-using ArchitectureTemplate.Infrastructure.Data.EntityConfig;
 
 namespace ArchitectureTemplate.Infrastructure.Data.Repositories
 {
@@ -22,7 +22,7 @@ namespace ArchitectureTemplate.Infrastructure.Data.Repositories
         private readonly ILogRepository _logRepository = new LogRepository();
 
         #endregion
-        
+
         #region Methods
 
         public void Add(TEntity objModel, long userId)
@@ -46,7 +46,7 @@ namespace ArchitectureTemplate.Infrastructure.Data.Repositories
             _context.SaveChanges();
 
             object result = objModel.GetType()
-                .GetProperty(property).GetValue(objModel);
+                .GetProperty(property)?.GetValue(objModel);
 
             _logRepository.Add(new Log().GeneratedForEntity(userId, objModel, LogTypeResource.Insert, true));
 
@@ -90,7 +90,7 @@ namespace ArchitectureTemplate.Infrastructure.Data.Repositories
         {
             return await _context.Set<TEntity>().Where(predicate).ToListAsync();
         }
-        
+
         public IEnumerable<TEntity> GetAll()
         {
             return _context.Set<TEntity>().ToList();
@@ -140,10 +140,13 @@ namespace ArchitectureTemplate.Infrastructure.Data.Repositories
                 {
                     foreach (var item in objModel.GetType().GetProperties().Where(w => w.PropertyType == collection))
                     {
-                        foreach (var obj in (ICollection) item.GetValue(objModel))
+                        foreach (var obj in (ICollection)item.GetValue(objModel))
                         {
-                            var state = (long) obj.GetType()
-                                .GetProperty("Id").GetValue(obj) == 0
+                            var value = obj.GetType()
+                                .GetProperty("Id")
+                                ?.GetValue(obj);
+
+                            var state = value != null && (long)value == 0
                                     ? EntityState.Added
                                     : EntityState.Modified;
 
@@ -160,8 +163,11 @@ namespace ArchitectureTemplate.Infrastructure.Data.Repositories
                     {
                         var objItem = item.GetValue(objModel);
 
-                        var state = (long)objItem.GetType()
-                            .GetProperty("Id").GetValue(objItem) == 0
+                        var propertyInfo = objItem.GetType()
+                            .GetProperty("Id");
+
+                        var state = propertyInfo != null
+                            && (long)propertyInfo.GetValue(objItem) == 0
                                 ? EntityState.Added
                                 : EntityState.Modified;
 
@@ -172,7 +178,7 @@ namespace ArchitectureTemplate.Infrastructure.Data.Repositories
 
             _context.Set<TEntity>().AddOrUpdate(objModel);
             _context.SaveChanges();
-            
+
             _logRepository.Add(new Log().GeneratedForEntity(userId, objModel, LogTypeResource.Update, true));
         }
 

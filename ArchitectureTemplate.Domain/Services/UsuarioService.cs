@@ -49,27 +49,27 @@ namespace ArchitectureTemplate.Domain.Services
 
         public User Login(string user, string password)
         {
-            return _userRepository.Login(user, CriptografarSenha(password), password);
+            return _userRepository.Login(user, EncryptPassword(password), password);
         }
 
-        public User RecuperarSenha(string email)
+        public User RecoverPassword(string email)
         {
-            return _userRepository.RecuperarSenha(email, GetCodigoRecover(), CriptografarSenha(GetCodigoRecover()));
+            return _userRepository.RecoverPassword(email, GetCodigoRecover(), EncryptPassword(GetCodigoRecover()));
         }
 
-        public void ResetSenha(string login, string codRecover, string newPassword)
+        public void ResetPassword(string login, string codRecover, string newPassword)
         {
-            _userRepository.ResetSenha(login, codRecover, CriptografarSenha(newPassword));
+            _userRepository.ResetPassword(login, codRecover, EncryptPassword(newPassword));
         }
 
-        public void EditSenha(long userId, string password, string newPassword)
+        public void EditPassword(long userId, string password, string newPassword)
         {
-            _userRepository.EditSenha(userId, CriptografarSenha(password), CriptografarSenha(newPassword));
+            _userRepository.EditPassword(userId, EncryptPassword(password), EncryptPassword(newPassword));
         }
 
-        public string GetSenha(long userId)
+        public string GetPassword(long userId)
         {
-            return _userRepository.GetSenha(userId);
+            return _userRepository.GetPassword(userId);
         }
 
         public string GetCodigoRecover()
@@ -100,7 +100,7 @@ namespace ArchitectureTemplate.Domain.Services
 
         #region Private Methods
 
-        private string CriptografarSenha(string senha)
+        private string EncryptPassword(string senha)
         {
             return Convert.ToBase64String(new MD5CryptoServiceProvider().ComputeHash(new UTF32Encoding().GetBytes(senha)));
         }

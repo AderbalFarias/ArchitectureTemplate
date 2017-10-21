@@ -11,10 +11,10 @@ namespace ArchitectureTemplate.Domain.Interfaces.Services
         Task<IEnumerable<User>> GetAsync(Pagination paginar);
         void DisableOrEnable(long userId, long userAutenticationId);
         User Login(string user, string password);
-        User RecuperarSenha(string email);
-        void ResetSenha(string login, string codRecover, string newPassword);
-        void EditSenha(long userId, string password, string newPassword);
-        string GetSenha(long userId);
+        User RecoverPassword(string email);
+        void ResetPassword(string login, string codRecover, string newPassword);
+        void EditPassword(long userId, string password, string newPassword);
+        string GetPassword(long userId);
         string GetCodigoRecover();
         string GenerateToken(long userId);
         void CleanToken(long userId);

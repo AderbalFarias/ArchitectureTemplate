@@ -74,7 +74,7 @@ namespace ArchitectureTemplate.Infrastructure.Data.Repositories
             return userData;
         }
 
-        public User RecuperarSenha(string email, string codigoRecover, string passRecover)
+        public User RecoverPassword(string email, string codigoRecover, string passRecover)
         {
             var user = _context.User
                 .FirstOrDefault(u => u.Email == email);
@@ -90,7 +90,7 @@ namespace ArchitectureTemplate.Infrastructure.Data.Repositories
             return user;
         }
 
-        public void ResetSenha(string login, string codRecover, string newPassword)
+        public void ResetPassword(string login, string codRecover, string newPassword)
         {
             var user = _context.User
                 .Single(u => u.Login == login && u.CodigoRecover == codRecover);
@@ -100,7 +100,7 @@ namespace ArchitectureTemplate.Infrastructure.Data.Repositories
             _context.SaveChanges();
         }
 
-        public void EditSenha(long userId, string password, string newPassword)
+        public void EditPassword(long userId, string password, string newPassword)
         {
             var user = _context.User
                 .Single(u => u.Id == userId && u.Senha == password);
@@ -111,7 +111,7 @@ namespace ArchitectureTemplate.Infrastructure.Data.Repositories
             _logRepository.Add(new Log().GeneratedForEntity(userId, user, LogTypeResource.Update));
         }
 
-        public string GetSenha(long userId)
+        public string GetPassword(long userId)
         {
             return _context.User
                 .First(u => u.Id == userId).Senha;
