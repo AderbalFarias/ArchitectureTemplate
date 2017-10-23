@@ -2,6 +2,7 @@
 using ArchitectureTemplate.Infraestrutura.CrossCutting.Support.Extensions;
 using ArchitectureTemplate.Infrastructure.WCF.Contracts.Entities;
 using ArchitectureTemplate.Infrastructure.WCF.Contracts.ServiceInterfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -30,12 +31,20 @@ namespace ArchitectureTemplate.Infrastructure.WCF.Services
 
         public IEnumerable<ScreenContract> GetScreens(string key)
         {
-            var screenList = _screenService
-                .GetList(t => t.Nome.Contains(key)
-                    || t.ControllerName.Contains(key))
-                .ToList();
+            try
+            {
+                var screenList = _screenService
+                    .GetList(t => t.Nome.Contains(key)
+                                  || t.ControllerName.Contains(key))
+                    .ToList();
 
-            return screenList.CastAll<ScreenContract>();
+                return screenList.CastAll<ScreenContract>();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw new Exception("Erro to GetScreens" + e.InnerException);
+            }
         }
 
         public IEnumerable<ScreenContract> GetScreens(int idBegin, int idEnd)
