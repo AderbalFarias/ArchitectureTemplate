@@ -11,6 +11,7 @@ namespace ArchitectureTemplate.Infrastructure.WCF.Services
     public class ScreenManager : IScreenServiceContract
     {
         private readonly IScreenService _screenService;
+        private const string Log = "C:\\Logs\\ArchitectureTemplate\\Infrastructure\\WCF\\Services\\";
 
         public ScreenManager(IScreenService screenService)
         {
@@ -19,14 +20,30 @@ namespace ArchitectureTemplate.Infrastructure.WCF.Services
 
         public ScreenContract GetById(int id)
         {
-            var screen = _screenService.GetId(id);
-            return screen.Cast<ScreenContract>();
+            try
+            {
+                var screen = _screenService.GetId(id);
+                return screen.Cast<ScreenContract>();
+            }
+            catch (Exception e)
+            {
+                LogFile.Create(e, Log);
+                throw new Exception("Erro on the method GetById " + e.Message);
+            }
         }
 
         public ScreenContract GetByName(string name)
         {
-            var screen = _screenService.Get(t => t.Nome == name);
-            return screen.Cast<ScreenContract>();
+            try
+            {
+                var screen = _screenService.Get(t => t.Nome == name);
+                return screen.Cast<ScreenContract>();
+            }
+            catch (Exception e)
+            {
+                LogFile.Create(e, Log);
+                throw new Exception("Erro on the method GetByName" + e.Message);
+            }
         }
 
         public IEnumerable<ScreenContract> GetScreens(string key)
@@ -42,18 +59,26 @@ namespace ArchitectureTemplate.Infrastructure.WCF.Services
             }
             catch (Exception e)
             {
-                Console.WriteLine(e);
-                throw new Exception("Erro to GetScreens" + e.InnerException);
+                LogFile.Create(e, Log);
+                throw new Exception("Erro on the method GetScreens" + e.Message);
             }
         }
 
         public IEnumerable<ScreenContract> GetScreens(int idBegin, int idEnd)
         {
-            var screenList = _screenService
-                .GetList(t => t.Id >= idBegin && t.Id <= idEnd)
-                .ToList();
+            try
+            {
+                var screenList = _screenService
+                    .GetList(t => t.Id >= idBegin && t.Id <= idEnd)
+                    .ToList();
 
-            return screenList.Cast<ScreenContract>();
+                return screenList.Cast<ScreenContract>();
+            }
+            catch (Exception e)
+            {
+                LogFile.Create(e, Log);
+                throw new Exception("Erro on the method GetScreens" + e.Message);
+            }
         }
     }
 }
