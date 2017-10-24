@@ -1,7 +1,6 @@
 ﻿using ArchitectureTemplate.Domain.DataEntities;
 using ArchitectureTemplate.Domain.Interfaces.Repositories;
 using ArchitectureTemplate.Infraestrutura.CrossCutting.Support.Extensions;
-using ArchitectureTemplate.Infraestrutura.CrossCutting.Support.Resources;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -15,7 +14,7 @@ namespace ArchitectureTemplate.Infrastructure.Data.Repositories
     {
         #region Fields
 
-        private readonly ILogRepository _logRepository = new LogRepository();
+        //private readonly ILogRepository _logRepository = new LogRepository();
 
         #endregion
 
@@ -136,8 +135,8 @@ namespace ArchitectureTemplate.Infrastructure.Data.Repositories
             _context.Hierarchy.Remove(hierarchy);
             _context.SaveChanges();
 
-            _logRepository.Add(new Log().GeneratedForEntity(userId, hierarchy, LogTypeResource.Delete));
-            _logRepository.Add(new Log().GeneratedForEntity(userId, detail, LogTypeResource.Delete));
+            //_logRepository.Add(new Log().GeneratedsForEntity(userId, hierarchy, LogTypeResource.Delete));
+            //_logRepository.Add(new Log().GeneratedForEntity(userId, detail, LogTypeResource.Delete));
         }
 
         public void UpdateDetalhe(HierarchyDetail entity, long userId)
@@ -145,7 +144,7 @@ namespace ArchitectureTemplate.Infrastructure.Data.Repositories
             _context.Entry(entity).State = EntityState.Modified;
             _context.SaveChanges();
 
-            _logRepository.Add(new Log().GeneratedForEntity(userId, entity, LogTypeResource.Update));
+            //_logRepository.Add(new Log().GeneratedForEntity(userId, entity, LogTypeResource.Update));
         }
 
         public Hierarchy GetHierarchyForUser(long userId)

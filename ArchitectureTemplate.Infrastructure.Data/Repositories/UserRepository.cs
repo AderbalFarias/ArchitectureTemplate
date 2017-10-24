@@ -1,7 +1,6 @@
 ﻿using ArchitectureTemplate.Domain.DataEntities;
 using ArchitectureTemplate.Domain.Interfaces.Repositories;
 using ArchitectureTemplate.Infraestrutura.CrossCutting.Support.Extensions;
-using ArchitectureTemplate.Infraestrutura.CrossCutting.Support.Resources;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -13,7 +12,7 @@ namespace ArchitectureTemplate.Infrastructure.Data.Repositories
     {
         #region Fields
 
-        private readonly ILogRepository _logRepository = new LogRepository();
+        //private readonly ILogRepository _logRepository = new LogRepository();
 
         #endregion
 
@@ -54,7 +53,7 @@ namespace ArchitectureTemplate.Infrastructure.Data.Repositories
                 user.Ativo = ativo;
                 _context.SaveChanges();
 
-                _logRepository.Add(new Log().GeneratedForEntity(userAutenticationId, user, LogTypeResource.Update));
+                //_logRepository.Add(new Log().GeneratedForEntity(userAutenticationId, user, LogTypeResource.Update));
             }
         }
 
@@ -108,7 +107,7 @@ namespace ArchitectureTemplate.Infrastructure.Data.Repositories
             user.Senha = newPassword;
             _context.SaveChanges();
 
-            _logRepository.Add(new Log().GeneratedForEntity(userId, user, LogTypeResource.Update));
+            //_logRepository.Add(new Log().GeneratedForEntity(userId, user, LogTypeResource.Update));
         }
 
         public string GetPassword(long userId)
@@ -135,7 +134,7 @@ namespace ArchitectureTemplate.Infrastructure.Data.Repositories
             user.Token = token;
             _context.SaveChanges();
 
-            _logRepository.Add(new Log().GeneratedForEntity(userId, user, LogTypeResource.Update));
+            //_logRepository.Add(new Log().GeneratedForEntity(userId, user, LogTypeResource.Update));
         }
 
         #endregion

@@ -47,13 +47,13 @@
     <Reference Include="System.Drawing" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataEntities\Log.cs" />
     <Compile Include="DataEntities\Menu.cs" />
     <Compile Include="DataEntities\ProfileForMenu.cs" />
     <Compile Include="DataEntities\ProfileForScreen.cs" />
     <Compile Include="DataEntities\Screen.cs" />
     <Compile Include="DataEntities\Hierarchy.cs" />
     <Compile Include="DataEntities\HierarchyDetail.cs" />
-    <Compile Include="DataEntities\Log.cs" />
     <Compile Include="DataEntities\LogType.cs" />
     <Compile Include="DataEntities\Profile.cs" />
     <Compile Include="DataEntities\HierarchyType.cs" />

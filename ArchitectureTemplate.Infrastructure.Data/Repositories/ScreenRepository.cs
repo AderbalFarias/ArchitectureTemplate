@@ -1,15 +1,14 @@
-﻿using System.Collections.Generic;
+﻿using ArchitectureTemplate.Domain.DataEntities;
+using ArchitectureTemplate.Domain.Interfaces.Repositories;
+using ArchitectureTemplate.Infraestrutura.CrossCutting.Support.Extensions;
+using ArchitectureTemplate.Infrastructure.Data.DapperConfig;
+using Dapper;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Migrations;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
-using ArchitectureTemplate.Domain.DataEntities;
-using ArchitectureTemplate.Domain.Interfaces.Repositories;
-using Dapper;
-using ArchitectureTemplate.Infraestrutura.CrossCutting.Support.Extensions;
-using ArchitectureTemplate.Infraestrutura.CrossCutting.Support.Resources;
-using ArchitectureTemplate.Infrastructure.Data.DapperConfig;
 
 namespace ArchitectureTemplate.Infrastructure.Data.Repositories
 {
@@ -18,7 +17,7 @@ namespace ArchitectureTemplate.Infrastructure.Data.Repositories
         #region Fields
 
         private readonly SqlConnection _contextDapper = new DapperContext().SqlConnection();
-        private readonly ILogRepository _logRepository = new LogRepository();
+        //private readonly ILogRepository _logRepository = new LogRepository();
 
         #endregion
 
@@ -33,7 +32,7 @@ namespace ArchitectureTemplate.Infrastructure.Data.Repositories
             }
 
             _context.SaveChanges();
-            _logRepository.Add(new Log().GeneratedForEntity(userId, entityList, LogTypeResource.Update, true));
+            //_logRepository.Add(new Log().GeneratedForEntity(userId, entityList, LogTypeResource.Update, true));
         }
 
         public IEnumerable<Screen> GetAllWithDapper()
@@ -65,7 +64,7 @@ namespace ArchitectureTemplate.Infrastructure.Data.Repositories
             _context.Screen.Remove(screen);
 
             _context.SaveChanges();
-            _logRepository.Add(new Log().GeneratedForEntity(userId, screen, LogTypeResource.Delete, true));
+            //_logRepository.Add(new Log().GeneratedForEntity(userId, screen, LogTypeResource.Delete, true));
         }
 
         #endregion

@@ -1,7 +1,6 @@
 ﻿using ArchitectureTemplate.Domain.DataEntities;
 using ArchitectureTemplate.Domain.Interfaces.Repositories;
 using ArchitectureTemplate.Infraestrutura.CrossCutting.Support.Extensions;
-using ArchitectureTemplate.Infraestrutura.CrossCutting.Support.Resources;
 using ArchitectureTemplate.Infrastructure.Data.DapperConfig;
 using Dapper;
 using System.Collections.Generic;
@@ -18,7 +17,7 @@ namespace ArchitectureTemplate.Infrastructure.Data.Repositories
         #region Fields
 
         private readonly SqlConnection _contextDapper = new DapperContext().SqlConnection();
-        private readonly ILogRepository _logRepository = new LogRepository();
+        //private readonly ILogRepository _logRepository = new LogRepository();
 
         #endregion
 
@@ -29,7 +28,7 @@ namespace ArchitectureTemplate.Infrastructure.Data.Repositories
             _context.ProfileForMenu.Add(entity);
             _context.SaveChanges();
 
-            _logRepository.Add(new Log().GeneratedForEntity(userId, entity, LogTypeResource.Insert));
+            //_logRepository.Add(new Log().GeneratedForEntity(userId, entity, LogTypeResource.Insert));
         }
 
         public void AddRangeProfileForMenu(IList<ProfileForMenu> entity, long userId)
@@ -37,7 +36,7 @@ namespace ArchitectureTemplate.Infrastructure.Data.Repositories
             _context.ProfileForMenu.AddRange(entity);
             _context.SaveChanges();
 
-            _logRepository.Add(new Log().GeneratedForEntity(userId, entity, LogTypeResource.Insert));
+            //_logRepository.Add(new Log().GeneratedForEntity(userId, entity, LogTypeResource.Insert));
         }
 
         public void UpdateList(IList<Menu> entityList, long userId)
@@ -48,7 +47,7 @@ namespace ArchitectureTemplate.Infrastructure.Data.Repositories
             }
 
             _context.SaveChanges();
-            _logRepository.Add(new Log().GeneratedForEntity(userId, entityList, LogTypeResource.Update, true));
+            //_logRepository.Add(new Log().GeneratedForEntity(userId, entityList, LogTypeResource.Update, true));
         }
 
         public IEnumerable<Menu> GetAllWithDapper()
@@ -108,7 +107,7 @@ namespace ArchitectureTemplate.Infrastructure.Data.Repositories
             _context.Menu.Remove(menu);
 
             _context.SaveChanges();
-            _logRepository.Add(new Log().GeneratedForEntity(userId, menu, LogTypeResource.Delete, true));
+            //_logRepository.Add(new Log().GeneratedForEntity(userId, menu, LogTypeResource.Delete, true));
         }
 
         public void RemoveProfileForMenu(long profileForMenuId, long userId)
@@ -119,7 +118,7 @@ namespace ArchitectureTemplate.Infrastructure.Data.Repositories
             _context.ProfileForMenu.Remove(profileForMenu);
 
             _context.SaveChanges();
-            _logRepository.Add(new Log().GeneratedForEntity(userId, profileForMenu, LogTypeResource.Delete, true));
+            //_logRepository.Add(new Log().GeneratedForEntity(userId, profileForMenu, LogTypeResource.Delete, true));
         }
 
         #endregion

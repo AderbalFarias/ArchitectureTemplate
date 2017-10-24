@@ -1,6 +1,5 @@
 ﻿using ArchitectureTemplate.Domain.DataEntities;
 using ArchitectureTemplate.Domain.Interfaces.Repositories;
-using ArchitectureTemplate.Infraestrutura.CrossCutting.Support.Resources;
 using ArchitectureTemplate.Infrastructure.Data.DapperConfig;
 using ArchitectureTemplate.Infrastructure.Data.EntityConfig;
 using Dapper;
@@ -18,7 +17,7 @@ namespace ArchitectureTemplate.Infrastructure.Data.Repositories
 
         private readonly EntityContext _context = new EntityContext();
         private readonly SqlConnection _contextDapper = new DapperContext().SqlConnection();
-        private readonly ILogRepository _logRepository = new LogRepository();
+        //private readonly ILogRepository _logRepository = new LogRepository();
 
         #endregion
 
@@ -103,7 +102,7 @@ namespace ArchitectureTemplate.Infrastructure.Data.Repositories
             _context.ProfileForScreen.AddOrUpdate(entity);
             _context.SaveChanges();
 
-            _logRepository.Add(new Log().GeneratedForEntity(userId, entity, entity.Id != 0 ? LogTypeResource.Update : LogTypeResource.Insert));
+            //_logRepository.Add(new Log().GeneratedForEntity(userId, entity, entity.Id != 0 ? LogTypeResource.Update : LogTypeResource.Insert));
         }
 
         public void Dispose()

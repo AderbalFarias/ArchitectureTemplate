@@ -1,6 +1,4 @@
-﻿using ArchitectureTemplate.Domain.DataEntities;
-using ArchitectureTemplate.Domain.Interfaces.Repositories;
-using ArchitectureTemplate.Infraestrutura.CrossCutting.Support.Resources;
+﻿using ArchitectureTemplate.Domain.Interfaces.Repositories;
 using ArchitectureTemplate.Infrastructure.Data.EntityConfig;
 using System;
 using System.Collections;
@@ -19,7 +17,7 @@ namespace ArchitectureTemplate.Infrastructure.Data.Repositories
 
         //ReSharper disable once InconsistentNaming
         protected readonly EntityContext _context = new EntityContext();
-        private readonly ILogRepository _logRepository = new LogRepository();
+        //private readonly ILogRepository _logRepository = new LogRepository();
 
         #endregion
 
@@ -30,7 +28,7 @@ namespace ArchitectureTemplate.Infrastructure.Data.Repositories
             _context.Set<TEntity>().Add(objModel);
             _context.SaveChanges();
 
-            _logRepository.Add(new Log().GeneratedForEntity(userId, objModel, LogTypeResource.Insert, true));
+            //_logRepository.Add(new Log().GeneratedForEntity(userId, objModel, LogTypeResource.Insert, true));
         }
 
         /// <summary>
@@ -48,7 +46,7 @@ namespace ArchitectureTemplate.Infrastructure.Data.Repositories
             object result = objModel.GetType()
                 .GetProperty(property)?.GetValue(objModel);
 
-            _logRepository.Add(new Log().GeneratedForEntity(userId, objModel, LogTypeResource.Insert, true));
+            //_logRepository.Add(new Log().GeneratedForEntity(userId, objModel, LogTypeResource.Insert, true));
 
             return result;
         }
@@ -58,7 +56,7 @@ namespace ArchitectureTemplate.Infrastructure.Data.Repositories
             _context.Set<TEntity>().AddRange(objModel);
             _context.SaveChanges();
 
-            _logRepository.Add(new Log().GeneratedForEntity(userId, objModel, LogTypeResource.Insert, true));
+            //_logRepository.Add(new Log().GeneratedForEntity(userId, objModel, LogTypeResource.Insert, true));
         }
 
         public TEntity GetId(long id)
@@ -123,7 +121,7 @@ namespace ArchitectureTemplate.Infrastructure.Data.Repositories
             }
 
             _context.SaveChanges();
-            _logRepository.Add(new Log().GeneratedForEntity(userId, objModel, LogTypeResource.Update, referenceCircular));
+            //_logRepository.Add(new Log().GeneratedForEntity(userId, objModel, LogTypeResource.Update, referenceCircular));
         }
 
         /// <summary>
@@ -179,7 +177,7 @@ namespace ArchitectureTemplate.Infrastructure.Data.Repositories
             _context.Set<TEntity>().AddOrUpdate(objModel);
             _context.SaveChanges();
 
-            _logRepository.Add(new Log().GeneratedForEntity(userId, objModel, LogTypeResource.Update, true));
+            //_logRepository.Add(new Log().GeneratedForEntity(userId, objModel, LogTypeResource.Update, true));
         }
 
         public void Remove(TEntity objModel, long userId)
@@ -187,7 +185,7 @@ namespace ArchitectureTemplate.Infrastructure.Data.Repositories
             _context.Set<TEntity>().Remove(objModel);
             _context.SaveChanges();
 
-            _logRepository.Add(new Log().GeneratedForEntity(userId, objModel, LogTypeResource.Delete));
+            //_logRepository.Add(new Log().GeneratedForEntity(userId, objModel, LogTypeResource.Delete));
         }
 
         public void Dispose()
