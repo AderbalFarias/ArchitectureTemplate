@@ -19,5 +19,15 @@ namespace ArchitectureTemplate.Infrastructure.CrossCutting.IoC
             container.Register<IProfileService, ProfileService>(Lifestyle.Scoped);
             container.Register<IProfileRepository, ProfileRepository>(Lifestyle.Scoped);
         }
+
+
+        public static void RegisterServicesWithoutVerify(Container container)
+        {
+            container.Register(typeof(IServiceBase<>), typeof(ServiceBase<>));
+            container.Register(typeof(IRepositoryBase<>), typeof(RepositoryBase<>));
+
+            container.Register<IScreenService, ScreenService>();
+            container.Register<IScreenRepository, ScreenRepository>();
+        }
     }
 }

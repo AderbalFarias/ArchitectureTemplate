@@ -3,6 +3,7 @@ using ArchitectureTemplate.Infraestrutura.CrossCutting.Support.Extensions;
 using ArchitectureTemplate.Infrastructure.CrossCutting.IoC;
 using ArchitectureTemplate.Infrastructure.WCF.Default.Entities;
 using SimpleInjector;
+using SimpleInjector.Integration.Wcf;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -103,11 +104,11 @@ namespace ArchitectureTemplate.Infrastructure.WCF.Default
         {
             var container = new Container();
 
-            //container.Options.DefaultScopedLifestyle = new WcfOperationLifestyle(false);
+            container.Options.DefaultScopedLifestyle = new WcfOperationLifestyle(false);
             //container.Register<IServiceContract, ServiceManager>(Lifestyle.Scoped);
 
-            BootstrapperWcf.RegisterServices(container);
-            container.Verify();
+            BootstrapperWcf.RegisterServicesWithoutVerify(container);
+            //container.Verify();
 
             return container;
         }

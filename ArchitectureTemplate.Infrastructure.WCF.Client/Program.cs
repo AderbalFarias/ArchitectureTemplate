@@ -14,12 +14,11 @@ namespace ArchitectureTemplate.Infrastructure.WCF.Client
     {
         static void Main(string[] args)
         {
-
+            GetDefault();
             GetWithTcp();
             GetWithTcpProfile();
             GetWithHttp();
         }
-
 
 
         private static void GetDefault()
