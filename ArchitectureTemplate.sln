@@ -38,8 +38,11 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArchitectureTemplate.Infrastructure.WCF.Host", "ArchitectureTemplate.Infrastructure.WCF.Host\ArchitectureTemplate.Infrastructure.WCF.Host.csproj", "{590BA6D9-B596-4935-9F29-9BF0330CD8E1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArchitectureTemplate.Infrastructure.WCF.Client", "ArchitectureTemplate.Infrastructure.WCF.Client\ArchitectureTemplate.Infrastructure.WCF.Client.csproj", "{47768E86-E64A-45E5-8485-57FDC3F4C5A0}"
+	ProjectSection(ProjectDependencies) = postProject
+		{7954D53D-C061-4F53-BAAA-A111B787772C} = {7954D53D-C061-4F53-BAAA-A111B787772C}
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArchitectureTemplate.Infrastructure.WCF.Defaut", "ArchitectureTemplate.Infrastructure.WCF.Defaut\ArchitectureTemplate.Infrastructure.WCF.Defaut.csproj", "{7954D53D-C061-4F53-BAAA-A111B787772C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArchitectureTemplate.Infrastructure.WCF.Default", "ArchitectureTemplate.Infrastructure.WCF.Defaut\ArchitectureTemplate.Infrastructure.WCF.Default.csproj", "{7954D53D-C061-4F53-BAAA-A111B787772C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

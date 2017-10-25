@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ServiceManager" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:64403/ServiceManager.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:64403/ServiceManager.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:64403/ServiceManager.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/ArchitectureTemplate.Infrastructure.WCF.Default.Entities" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IServiceContract_GetById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetById" />
+  </wsdl:message>
+  <wsdl:message name="IServiceContract_GetById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceContract_GetByName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetByName" />
+  </wsdl:message>
+  <wsdl:message name="IServiceContract_GetByName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetByNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceContract_GetScreensByContains_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetScreensByContains" />
+  </wsdl:message>
+  <wsdl:message name="IServiceContract_GetScreensByContains_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetScreensByContainsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceContract_GetScreensByRange_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetScreensByRange" />
+  </wsdl:message>
+  <wsdl:message name="IServiceContract_GetScreensByRange_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetScreensByRangeResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IServiceContract">
+    <wsdl:operation name="GetById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceContract/GetById" message="tns:IServiceContract_GetById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceContract/GetByIdResponse" message="tns:IServiceContract_GetById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetByName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceContract/GetByName" message="tns:IServiceContract_GetByName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceContract/GetByNameResponse" message="tns:IServiceContract_GetByName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetScreensByContains">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceContract/GetScreensByContains" message="tns:IServiceContract_GetScreensByContains_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceContract/GetScreensByContainsResponse" message="tns:IServiceContract_GetScreensByContains_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetScreensByRange">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceContract/GetScreensByRange" message="tns:IServiceContract_GetScreensByRange_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceContract/GetScreensByRangeResponse" message="tns:IServiceContract_GetScreensByRange_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IServiceContract" type="tns:IServiceContract">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetById">
+      <soap:operation soapAction="http://tempuri.org/IServiceContract/GetById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetByName">
+      <soap:operation soapAction="http://tempuri.org/IServiceContract/GetByName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetScreensByContains">
+      <soap:operation soapAction="http://tempuri.org/IServiceContract/GetScreensByContains" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetScreensByRange">
+      <soap:operation soapAction="http://tempuri.org/IServiceContract/GetScreensByRange" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServiceManager">
+    <wsdl:port name="BasicHttpBinding_IServiceContract" binding="tns:BasicHttpBinding_IServiceContract">
+      <soap:address location="http://localhost:64403/ServiceManager.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

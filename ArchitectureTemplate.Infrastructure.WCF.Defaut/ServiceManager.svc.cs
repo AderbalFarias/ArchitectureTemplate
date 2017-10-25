@@ -1,6 +1,8 @@
 ﻿using ArchitectureTemplate.Domain.Interfaces.Services;
 using ArchitectureTemplate.Infraestrutura.CrossCutting.Support.Extensions;
+using ArchitectureTemplate.Infrastructure.CrossCutting.IoC;
 using ArchitectureTemplate.Infrastructure.WCF.Default.Entities;
+using SimpleInjector;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +17,8 @@ namespace ArchitectureTemplate.Infrastructure.WCF.Default
 
         public ServiceManager()
         {
-            //_screenService = IScreenService;
+            var container = InitializeContainer();
+            _screenService = container.GetInstance<IScreenService>();
         }
 
         public ScreenContract GetById(int id)
@@ -42,7 +45,7 @@ namespace ArchitectureTemplate.Infrastructure.WCF.Default
             catch (Exception e)
             {
                 LogFile.Create(e, Log);
-                throw new Exception("Erro on the method GetById " + e.Message);
+                throw new Exception("Erro on the method GetByIdAsync " + e.Message);
             }
         }
 
@@ -93,6 +96,20 @@ namespace ArchitectureTemplate.Infrastructure.WCF.Default
                 LogFile.Create(e, Log);
                 throw new Exception("Erro on the method GetScreens" + e.Message);
             }
+        }
+
+
+        private static Container InitializeContainer()
+        {
+            var container = new Container();
+
+            //container.Options.DefaultScopedLifestyle = new WcfOperationLifestyle(false);
+            //container.Register<IServiceContract, ServiceManager>(Lifestyle.Scoped);
+
+            BootstrapperWcf.RegisterServices(container);
+            container.Verify();
+
+            return container;
         }
     }
 }

@@ -1,10 +1,12 @@
-﻿using ArchitectureTemplate.Infrastructure.WCF.Client.ServiceReferenceProfile;
+﻿using ArchitectureTemplate.Infrastructure.WCF.Client.ServiceReferenceDefault;
+using ArchitectureTemplate.Infrastructure.WCF.Client.ServiceReferenceProfile;
 using ArchitectureTemplate.Infrastructure.WCF.Client.ServiceReferenceScreens;
-using ArchitectureTemplate.Infrastructure.WCF.Contracts.Entities;
 using ArchitectureTemplate.Infrastructure.WCF.Proxies;
 using System.Linq;
 using System.ServiceModel;
 using System.ServiceModel.Channels;
+using ProfileContract = ArchitectureTemplate.Infrastructure.WCF.Contracts.Entities.ProfileContract;
+using ScreenContract = ArchitectureTemplate.Infrastructure.WCF.Contracts.Entities.ScreenContract;
 
 namespace ArchitectureTemplate.Infrastructure.WCF.Client
 {
@@ -12,10 +14,23 @@ namespace ArchitectureTemplate.Infrastructure.WCF.Client
     {
         static void Main(string[] args)
         {
+
             GetWithTcp();
             GetWithTcpProfile();
             GetWithHttp();
         }
+
+
+
+        private static void GetDefault()
+        {
+            ServiceReferenceDefault.ServiceContractClient proxy = new ServiceContractClient();
+
+            var data = proxy.GetByName("Usuario");
+
+            proxy.Close();
+        }
+
 
         private static void GetWithTcp()
         {

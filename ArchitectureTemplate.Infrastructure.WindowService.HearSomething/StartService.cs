@@ -1,6 +1,8 @@
-﻿using ArchitectureTemplate.Infrastructure.WindowService.HearSomething.Services;
+﻿using ArchitectureTemplate.Infraestrutura.CrossCutting.Support.Extensions;
+using ArchitectureTemplate.Infrastructure.WindowService.HearSomething.Services;
 using SimpleInjector;
 using System;
+using System.Configuration;
 using System.ServiceProcess;
 
 namespace ArchitectureTemplate.Infrastructure.WindowService.HearSomething
@@ -54,8 +56,8 @@ namespace ArchitectureTemplate.Infrastructure.WindowService.HearSomething
             }
             catch (Exception ex)
             {
+                LogFile.Create(ex, ConfigurationManager.AppSettings["Log"]);
                 //if (ConfigurationManager.AppSettings["CreateLog"] == "true")
-                //UtilService.Log($"[{DateTime.Now.ToShortTimeString()}] {ex.Message}", ConfigurationManager.AppSettings["Log"]);
             }
             finally
             {
