@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
-namespace ArchitectureTemplate.Infrastructure.WCF.Defaut.Entities
+namespace ArchitectureTemplate.Infrastructure.WCF.Default.Entities
 {
     [DataContract]
     public class MenuContract

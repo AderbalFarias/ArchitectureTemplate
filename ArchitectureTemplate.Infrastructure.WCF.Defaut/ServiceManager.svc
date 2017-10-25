@@ -1,1 +1,1 @@
-﻿<%@ ServiceHost Language="C#" Debug="true" Service="ArchitectureTemplate.Infrastructure.WCF.Defaut.Service1" CodeBehind="ServiceManager.svc.cs" %>
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="ArchitectureTemplate.Infrastructure.WCF.Default.ServiceManager" CodeBehind="ServiceManager.svc.cs" %>

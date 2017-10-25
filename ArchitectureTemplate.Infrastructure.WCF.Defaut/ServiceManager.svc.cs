@@ -1,20 +1,21 @@
 ﻿using ArchitectureTemplate.Domain.Interfaces.Services;
 using ArchitectureTemplate.Infraestrutura.CrossCutting.Support.Extensions;
-using ArchitectureTemplate.Infrastructure.WCF.Defaut.Entities;
+using ArchitectureTemplate.Infrastructure.WCF.Default.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
-namespace ArchitectureTemplate.Infrastructure.WCF.Defaut
+namespace ArchitectureTemplate.Infrastructure.WCF.Default
 {
     public class ServiceManager : IServiceContract
     {
         private readonly IScreenService _screenService;
-        private const string Log = "C:\\Logs\\ArchitectureTemplate\\Infrastructure\\WCF\\Services\\";
+        private const string Log = "C:\\Logs\\ArchitectureTemplate\\Infrastructure\\WCF\\Default\\";
 
-        public ServiceManager(IScreenService screenService)
+        public ServiceManager()
         {
-            _screenService = screenService;
+            //_screenService = IScreenService;
         }
 
         public ScreenContract GetById(int id)
@@ -22,6 +23,20 @@ namespace ArchitectureTemplate.Infrastructure.WCF.Defaut
             try
             {
                 var screen = _screenService.GetId(id);
+                return screen.Cast<ScreenContract>();
+            }
+            catch (Exception e)
+            {
+                LogFile.Create(e, Log);
+                throw new Exception("Erro on the method GetById " + e.Message);
+            }
+        }
+
+        public async Task<ScreenContract> GetByIdAsync(int id)
+        {
+            try
+            {
+                var screen = await _screenService.GetIdAsync(id);
                 return screen.Cast<ScreenContract>();
             }
             catch (Exception e)

@@ -1,8 +1,8 @@
-﻿using ArchitectureTemplate.Infrastructure.WCF.Defaut.Entities;
+﻿using ArchitectureTemplate.Infrastructure.WCF.Default.Entities;
 using System.Collections.Generic;
 using System.ServiceModel;
 
-namespace ArchitectureTemplate.Infrastructure.WCF.Defaut
+namespace ArchitectureTemplate.Infrastructure.WCF.Default
 {
     [ServiceContract]
     public interface IServiceContract
