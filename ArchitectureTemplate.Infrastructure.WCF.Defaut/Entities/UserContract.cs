@@ -9,8 +9,6 @@ namespace ArchitectureTemplate.Infrastructure.WCF.Default.Entities
         [DataMember]
         public long Id { get; set; }
 
-        //public long? HierarchyId { get; set; }
-
         [DataMember]
         public int ProfileId { get; set; }
 
@@ -42,11 +40,7 @@ namespace ArchitectureTemplate.Infrastructure.WCF.Default.Entities
 
         public string CodigoRecover { get; set; }
 
-        //public virtual Hierarchy Hierarchy { get; set; }
-
         public virtual ProfileContract Profile { get; set; }
-
-        //public virtual IEnumerable<Log> Log { get; set; }
     }
 }
 

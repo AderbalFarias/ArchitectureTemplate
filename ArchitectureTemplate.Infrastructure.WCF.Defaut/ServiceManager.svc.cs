@@ -82,24 +82,6 @@ namespace ArchitectureTemplate.Infrastructure.WCF.Default
             }
         }
 
-        public IEnumerable<ScreenContract> GetScreens(int idBegin, int idEnd)
-        {
-            try
-            {
-                var screenList = _screenService
-                    .GetList(t => t.Id >= idBegin && t.Id <= idEnd)
-                    .ToList();
-
-                return screenList.Cast<ScreenContract>();
-            }
-            catch (Exception e)
-            {
-                LogFile.Create(e, Log);
-                throw new Exception("Erro on the method GetScreens" + e.Message);
-            }
-        }
-
-
         private static Container InitializeContainer()
         {
             var container = new Container();

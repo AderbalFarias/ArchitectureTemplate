@@ -14,10 +14,7 @@ namespace ArchitectureTemplate.Infrastructure.WCF.Default
         [OperationContract]
         ScreenContract GetByName(string name);
 
-        [OperationContract(Name = "GetScreensByContains")]
+        [OperationContract]
         IEnumerable<ScreenContract> GetScreens(string key);
-
-        [OperationContract(Name = "GetScreensByRange")]
-        IEnumerable<ScreenContract> GetScreens(int idBegin, int idEnd);
     }
 }
