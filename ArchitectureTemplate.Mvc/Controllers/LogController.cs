@@ -1,4 +1,6 @@
-﻿using ArchitectureTemplate.Infraestrutura.CrossCutting.Support.Extensions;
+﻿using ArchitectureTemplate.Domain.DataEntities;
+using ArchitectureTemplate.Domain.Interfaces.Services;
+using ArchitectureTemplate.Infraestrutura.CrossCutting.Support.Extensions;
 using ArchitectureTemplate.Infraestrutura.CrossCutting.Support.Resources;
 using ArchitectureTemplate.Mvc.Controllers.Shared;
 using ArchitectureTemplate.Mvc.Models;
@@ -6,8 +8,6 @@ using AutoMapper;
 using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
-using ArchitectureTemplate.Domain.DataEntities;
-using ArchitectureTemplate.Domain.Interfaces.Services;
 
 namespace ArchitectureTemplate.Mvc.Controllers
 {
@@ -44,7 +44,7 @@ namespace ArchitectureTemplate.Mvc.Controllers
                 var entidade = _logService.Get(_pagination, testId, key);
                 var model = Mapper.Map<IEnumerable<Log>, IEnumerable<LogModel>>(entidade);
 
-                var paginar = _pagination.CalcularPagination(_pagination, _logService.Count(testId, key));
+                var paginar = _pagination.CalculatePaging(_pagination, _logService.Count(testId, key));
                 ViewBag.PaginaAtual = paginar.PaginaAtual;
                 ViewBag.QtdePaginas = paginar.QtdePaginas;
                 ViewBag.TestId = testId;

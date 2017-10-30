@@ -56,7 +56,7 @@ namespace ArchitectureTemplate.Mvc.Controllers
                 var entidade = _userService.Get(_pagination);
                 var model = Mapper.Map<IEnumerable<User>, IEnumerable<UserModel>>(entidade);
 
-                var paginar = _pagination.CalcularPagination(_pagination, await _userService.CountAsync());
+                var paginar = _pagination.CalculatePaging(_pagination, await _userService.CountAsync());
                 ViewBag.PaginaAtual = paginar.PaginaAtual;
                 ViewBag.QtdePaginas = paginar.QtdePaginas;
 

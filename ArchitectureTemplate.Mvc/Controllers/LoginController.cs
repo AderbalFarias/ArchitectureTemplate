@@ -165,7 +165,7 @@ namespace ArchitectureTemplate.Mvc.Controllers
             }
             catch (Exception exception)
             {
-                ShowMessageDialog("Ocorreu um erro ao tentar alterar a senha!", exception);
+                ShowMessageDialog("There was an error trying to change the password!", exception);
             }
 
             return View("Index");

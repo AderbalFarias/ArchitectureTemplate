@@ -47,7 +47,7 @@ namespace ArchitectureTemplate.Mvc.Controllers
                 var entidade = _screenService.Get(_pagination);
                 var model = Mapper.Map<IEnumerable<Screen>, IEnumerable<ScreenModel>>(entidade);
 
-                var paginar = _pagination.CalcularPagination(_pagination, _screenService.Count());
+                var paginar = _pagination.CalculatePaging(_pagination, _screenService.Count());
                 ViewBag.PaginaAtual = paginar.PaginaAtual;
                 ViewBag.QtdePaginas = paginar.QtdePaginas;
 

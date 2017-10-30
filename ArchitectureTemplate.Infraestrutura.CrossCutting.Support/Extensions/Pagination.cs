@@ -21,11 +21,11 @@ namespace ArchitectureTemplate.Infraestrutura.CrossCutting.Support.Extensions
                 ? (entity.PaginaAtual - 1) * entity.QtdeItensPagina : 0;
         }
 
-        public Pagination CalcularPagination(Pagination entity, int count)
+        public Pagination CalculatePaging(Pagination entity, int count)
         {
             return new Pagination
             {
-                QtdePaginas = (int) Math.Ceiling(count/Convert.ToDouble(entity.QtdeItensPagina)),
+                QtdePaginas = (int)Math.Ceiling(count / Convert.ToDouble(entity.QtdeItensPagina)),
                 PaginaAtual = entity.PaginaAtual != 0 ? entity.PaginaAtual : 1
             };
         }

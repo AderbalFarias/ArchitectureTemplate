@@ -49,7 +49,7 @@ namespace ArchitectureTemplate.Mvc.Controllers
                 var entidade = _profileService.GetAsync(_pagination);
                 var model = Mapper.Map<IEnumerable<Profile>, IEnumerable<ProfileModel>>(await entidade);
 
-                var paginar = _pagination.CalcularPagination(_pagination, await _profileService.CountAsync());
+                var paginar = _pagination.CalculatePaging(_pagination, await _profileService.CountAsync());
                 ViewBag.PaginaAtual = paginar.PaginaAtual;
                 ViewBag.QtdePaginas = paginar.QtdePaginas;
 
