@@ -28,7 +28,7 @@ namespace ArchitectureTemplate.Infrastructure.WCF.Services
             catch (Exception e)
             {
                 LogFile.Create(e, Log);
-                throw new Exception("Erro on the method GetById " + e.Message);
+                throw new Exception("Erro on the method GetById: " + e.Message);
             }
         }
 
@@ -42,7 +42,7 @@ namespace ArchitectureTemplate.Infrastructure.WCF.Services
             catch (Exception e)
             {
                 LogFile.Create(e, Log);
-                throw new Exception("Erro on the method GetByName" + e.Message);
+                throw new Exception("Erro on the method GetByName: " + e.Message);
             }
         }
 
@@ -60,7 +60,7 @@ namespace ArchitectureTemplate.Infrastructure.WCF.Services
             catch (Exception e)
             {
                 LogFile.Create(e, Log);
-                throw new Exception("Erro on the method GetScreens" + e.Message);
+                throw new Exception("Erro on the method GetScreens: " + e.Message);
             }
         }
 
@@ -77,7 +77,7 @@ namespace ArchitectureTemplate.Infrastructure.WCF.Services
             catch (Exception e)
             {
                 LogFile.Create(e, Log);
-                throw new Exception("Erro on the method GetScreens" + e.Message);
+                throw new Exception("Erro on the method GetScreens: " + e.Message);
             }
         }
     }
