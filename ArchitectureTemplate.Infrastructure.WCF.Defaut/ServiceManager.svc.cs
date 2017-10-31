@@ -7,7 +7,6 @@ using SimpleInjector.Integration.Wcf;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace ArchitectureTemplate.Infrastructure.WCF.Default
 {
@@ -36,19 +35,19 @@ namespace ArchitectureTemplate.Infrastructure.WCF.Default
             }
         }
 
-        public async Task<ScreenContract> GetByIdAsync(int id)
-        {
-            try
-            {
-                var screen = await _screenService.GetIdAsync(id);
-                return screen.Cast<ScreenContract>();
-            }
-            catch (Exception e)
-            {
-                LogFile.Create(e, Log);
-                throw new Exception("Erro on the method GetByIdAsync " + e.Message);
-            }
-        }
+        //public async Task<ScreenContract> GetByIdAsync(int id)
+        //{
+        //    try
+        //    {
+        //        var screen = await _screenService.GetIdAsync(id);
+        //        return screen.Cast<ScreenContract>();
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        LogFile.Create(e, Log);
+        //        throw new Exception("Erro on the method GetByIdAsync " + e.Message);
+        //    }
+        //}
 
         public ScreenContract GetByName(string name)
         {
@@ -60,23 +59,23 @@ namespace ArchitectureTemplate.Infrastructure.WCF.Default
             catch (Exception e)
             {
                 LogFile.Create(e, Log);
-                throw new Exception("Erro on the method GetByName" + e.Message);
+                throw new Exception("Erro on the method GetByName: " + e.Message);
             }
         }
 
-        public async Task<ScreenContract> GetByNameAsync(string name)
-        {
-            try
-            {
-                var screen = await _screenService.GetAsync(t => t.Nome == name);
-                return screen?.Cast<ScreenContract>();
-            }
-            catch (Exception e)
-            {
-                LogFile.Create(e, Log);
-                throw new Exception("Erro on the method GetByName" + e.Message);
-            }
-        }
+        //public async Task<ScreenContract> GetByNameAsync(string name)
+        //{
+        //    try
+        //    {
+        //        var screen = await _screenService.GetAsync(t => t.Nome == name);
+        //        return screen?.Cast<ScreenContract>();
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        LogFile.Create(e, Log);
+        //        throw new Exception("Erro on the method GetByNameAsync: " + e.Message);
+        //    }
+        //}
 
         public IEnumerable<ScreenContract> GetScreens(string key)
         {
@@ -92,26 +91,26 @@ namespace ArchitectureTemplate.Infrastructure.WCF.Default
             catch (Exception e)
             {
                 LogFile.Create(e, Log);
-                throw new Exception("Erro on the method GetScreens" + e.Message);
+                throw new Exception("Erro on the method GetScreens: " + e.Message);
             }
         }
 
-        public async Task<IEnumerable<ScreenContract>> GetScreensAsync(string key)
-        {
-            try
-            {
-                var screenList = await _screenService
-                    .GetListAsync(t => t.Nome.Contains(key)
-                                  || t.ControllerName.Contains(key));
+        //public async Task<IEnumerable<ScreenContract>> GetScreensAsync(string key)
+        //{
+        //    try
+        //    {
+        //        var screenList = await _screenService
+        //            .GetListAsync(t => t.Nome.Contains(key)
+        //                          || t.ControllerName.Contains(key));
 
-                return screenList.CastAll<ScreenContract>();
-            }
-            catch (Exception e)
-            {
-                LogFile.Create(e, Log);
-                throw new Exception("Erro on the method GetScreens" + e.Message);
-            }
-        }
+        //        return screenList.CastAll<ScreenContract>();
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        LogFile.Create(e, Log);
+        //        throw new Exception("Erro on the method GetScreensAsync: " + e.Message);
+        //    }
+        //}
 
         private static Container InitializeContainer()
         {
