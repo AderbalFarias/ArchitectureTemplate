@@ -64,6 +64,20 @@ namespace ArchitectureTemplate.Infrastructure.WCF.Default
             }
         }
 
+        public async Task<ScreenContract> GetByNameAsync(string name)
+        {
+            try
+            {
+                var screen = await _screenService.GetAsync(t => t.Nome == name);
+                return screen?.Cast<ScreenContract>();
+            }
+            catch (Exception e)
+            {
+                LogFile.Create(e, Log);
+                throw new Exception("Erro on the method GetByName" + e.Message);
+            }
+        }
+
         public IEnumerable<ScreenContract> GetScreens(string key)
         {
             try
@@ -72,6 +86,23 @@ namespace ArchitectureTemplate.Infrastructure.WCF.Default
                     .GetList(t => t.Nome.Contains(key)
                                   || t.ControllerName.Contains(key))
                     .ToList();
+
+                return screenList.CastAll<ScreenContract>();
+            }
+            catch (Exception e)
+            {
+                LogFile.Create(e, Log);
+                throw new Exception("Erro on the method GetScreens" + e.Message);
+            }
+        }
+
+        public async Task<IEnumerable<ScreenContract>> GetScreensAsync(string key)
+        {
+            try
+            {
+                var screenList = await _screenService
+                    .GetListAsync(t => t.Nome.Contains(key)
+                                  || t.ControllerName.Contains(key));
 
                 return screenList.CastAll<ScreenContract>();
             }
